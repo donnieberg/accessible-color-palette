@@ -8,10 +8,10 @@ app.controller('appController', function($scope, $http) {
 
   $scope.views = [
     { ratio: 1.0, label: "All Combinations"},
-    { ratio: 4.5, label: "Normal Text (Level AA)"},
-    { ratio: 3.0, label: "Large Text (Level AA)"},
-    { ratio: 7.1, label: "Normal Text (Level AAA)"},
-    { ratio: 4.5, label: "Large Text (Level AAA)"}
+    { ratio: 4.5, label: "Normal Text (Level AA), 4.5:1"},
+    { ratio: 3.0, label: "Large Text (Level AA), 3:1"},
+    { ratio: 7.1, label: "Normal Text (Level AAA), 7.1:1"},
+    { ratio: 4.5, label: "Large Text (Level AAA), 4.5:1"}
   ];
 
   // default view: show all
