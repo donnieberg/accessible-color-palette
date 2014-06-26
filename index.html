@@ -6,47 +6,11 @@
     <script type="text/javascript" src="contrastCalculator.js"></script>
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
-    <style>
-      body {
-        margin: 20px;
-        font-family: "Arial", sanserif;
-      }
-
-      table {
-        margin: 20px 0px;
-      }
-
-      textarea {
-
-      }
-
-      .hide {
-        opacity: .1;
-      }
-
-      td {
-        padding: 5px;
-      }
-
-      .inputBlock {
-        width: 40%;
-        display: inline-block;
-        padding: 10px 10px 10px 0px;
-      }
-
-      .inputBlock label {
-        display: block;
-      }
-
-      .inputBlock textarea {
-        width: 90%;
-      }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body ng-controller="appController">
 
-    <h1>Color Contrast Checker</h1>
+    <h1>Color Contrast Matrix</h1>
     <p>In order to meet <a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-contrast" target="_blank">WCAG 2.0's guidelines</a>, our text must respect Level AA contrast ratios. For normal sized text, the contrast ratio between text color and background color must be at least <b>4.5:1</b>. For large-scale text (18 point or 14 point bold), this ratio must be at least <b>3:1</b>.</p>
     <p>Use this tool to quickly decide which color combinations will work. Enter arrays of colors (in RGB or hex form) into the text boxes below to generate a matrix of all color combinations. Then use the dropdown to determine which combinations meet which guidelines.</p>
 
@@ -66,7 +30,6 @@
 
     <label for="view">Change View:</label> 
     <select id="view" ng-model="view" ng-options="view.label for view in views"></select>
-
 
     <table>
       <tbody>
