@@ -7,12 +7,23 @@
   </head>
   <body ng-controller="appController">
 
-    <label for="view">Change WCAG Settings:</label>
-    <select id="view" ng-model="view" ng-options="view.label for view in views" ng-change="changeView()"></select>
+    <div>
+      <label for="fontSize">Enter Font-Size in px:</label>
+      <input id="fontSize" type="text" name="textfield" ng-model="fontSize" ng-keypress="getRatio_fsChange($event)" />
+    </div>
 
-    <label for="backgroundColor">Enter Background Color</label>
-    <input id="backgroundColor" type="text" name="textfield" value="" placeholder="Type hex or rgb value" />
+    <div>
+      <span>Select WCAG Standard</span>
+      <input id="AA" type="radio" ng-model="WCAGlevel" value="AA" class="db" ng-change="getRatio_levelChange()" />
+      <label for="AA">AA</label>
+      <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" class="db" ng-change="getRatio_levelChange()" />
+      <label for="AAA">AAA</label>
+    </div>
 
+    <div>
+      <label for="backgroundColor">Enter Background Color</label>
+      <input id="backgroundColor" type="text" name="textfield" value="" placeholder="Type hex or rgb value" />
+    </div>
 
     <script type="text/javascript" src="contrastCalculator.js"></script>
     <script type="text/javascript" src="angular.min.js"></script>

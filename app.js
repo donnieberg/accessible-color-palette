@@ -1,6 +1,9 @@
 var app = angular.module('app', []);
 
 app.controller('appController', function($scope, $http) {
+  $scope.fontSize = null;
+  $scope.WCAGlevel = 'AA';
+  $scope.foregroundColors = ["#006eb3", "#be554b", "#e6b739", "#3c3d3e", "#696e71", "#afb5b9", "#44596c", "#FFFFFF", "#969899", "#aad0e9", "#6e7e8a", "#105b89", "#2b4257", "#686c70"];
 
   /**
    * Calculate Ratio based on foreground and background
@@ -11,20 +14,6 @@ app.controller('appController', function($scope, $http) {
     return contrastRatio(foreground, background);
   };
 
-  //WCAG Color Contrast Levels
-  $scope.views = [
-    { ratio: 1.0, label: "All Combinations"},
-    { ratio: 4.5, label: "Normal Text (Level AA), 4.5:1"},
-    { ratio: 3.0, label: "Large Text (Level AA), 3:1"},
-    { ratio: 7.0, label: "Normal Text (Level AAA), 7:1"},
-    { ratio: 4.5, label: "Large Text (Level AAA), 4.5:1"}
-  ];
-
-  //When User selects new WCAG Setting, change view accordingly
-  $scope.changeView = function() {
-    console.log($scope.view);
-  };
-
   /**
    * @param {Number} ratio the contrast ratio between two colors
    * @param {Object} view the current view mode in the tool
@@ -33,7 +22,29 @@ app.controller('appController', function($scope, $http) {
    */
   $scope.passes = function(ratio, view) {
     return ratio >= view.ratio;
-  }
+  };
+
+  $scope.getRatio_fsChange = function(keyEvent) {
+    if(keyEvent.keyCode === 13){
+      $scope.getCurrentRatio();
+    }
+  };
+
+  $scope.getRatio_levelChange = function() {
+      $scope.getCurrentRatio();
+  };
+
+  $scope.getCurrentRatio = function() {
+    var currentFS = $scope.fontSize;
+    var currentLevel = $scope.WCAGlevel;
+    if(currentFS < 18){
+      currentLevel === 'AA' ? $scope.currentRatio = 4.5 : $scope.currentRatio = 7.0;
+    }else{
+      currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
+    }
+    //console.log('the current ratio is: ', $scope.currentRatio);
+  };
+
 
   /**
    * Sources of awesomeness:
