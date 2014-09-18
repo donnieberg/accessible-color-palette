@@ -2,44 +2,20 @@
 <html ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title>Color Contrast Matrix</title>
-    <script type="text/javascript" src="contrastCalculator.js"></script>
-    <script type="text/javascript" src="angular.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <title>Accessible Color Palette</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body ng-controller="appController">
 
-    <h1>Color Contrast Matrix</h1>
-    <p>In order to meet <a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-contrast" target="_blank">WCAG 2.0's guidelines</a>, our text must respect Level AA contrast ratios. For normal sized text, the contrast ratio between text color and background color must be at least <b>4.5:1</b>. For large-scale text (18 point or 14 point bold), this ratio must be at least <b>3:1</b>.</p>
-    <p>Use this tool to quickly decide which color combinations will work. Enter arrays of colors (in RGB or hex form) into the text boxes below to generate a matrix of all color combinations. Then use the dropdown to determine which combinations meet which guidelines.</p>
+    <label for="view">Change WCAG Settings:</label>
+    <select id="view" ng-model="view" ng-options="view.label for view in views" ng-change="changeView()"></select>
 
-    <div>
-      <div class="inputBlock">
-        <label for="colors1">Foreground Colors:</label>
-        <textarea id="colors1" ng-model="colors1" placeholder="Enter a semicolon-separated list of hex and/or values"></textarea>
-      </div>
+    <label for="backgroundColor">Enter Background Color</label>
+    <input id="backgroundColor" type="text" name="textfield" value="" placeholder="Type hex or rgb value" />
 
-      <div class="inputBlock">
-        <label for="colors2">Background Colors:</label>
-        <textarea id="colors2" ng-model="colors2" placeholder="Enter a semicolon-separated list of hex values"></textarea>
-      </div>
 
-      <button ng-click="updateColors()">Update Grid</button>
-    </div>
-
-    <label for="view">Change View:</label> 
-    <select id="view" ng-model="view" ng-options="view.label for view in views"></select>
-
-    <table>
-      <tbody>
-        <tr ng-repeat="background in backgroundColors track by $index">
-          <td ng-repeat="foreground in foregroundColors track by $index" ng-class="{hide: !passes(contrastRatios[background][foreground], view)}" style="background-color:{{background}}; color: {{foreground}}">
-            {{foreground}} on {{background}} ratio is <b>{{contrastRatios[background][foreground]}}:1</b>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
+    <script type="text/javascript" src="contrastCalculator.js"></script>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>

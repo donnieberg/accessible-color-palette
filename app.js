@@ -2,10 +2,16 @@ var app = angular.module('app', []);
 
 app.controller('appController', function($scope, $http) {
 
-  $scope.contrastRatios = [];
-  $scope.foregroundColors = [];
-  $scope.backgroundColors = [];
+  /**
+   * Calculate Ratio based on foreground and background
+   * @param {string} accpets two string values to calculate ratio. Strings can be either hex or rgb.
+   * @return contrast ratio
+   */
+  $scope.getContrastRatio = function(foreground, background) {
+    return contrastRatio(foreground, background);
+  };
 
+  //WCAG Color Contrast Levels
   $scope.views = [
     { ratio: 1.0, label: "All Combinations"},
     { ratio: 4.5, label: "Normal Text (Level AA), 4.5:1"},
@@ -14,13 +20,15 @@ app.controller('appController', function($scope, $http) {
     { ratio: 4.5, label: "Large Text (Level AAA), 4.5:1"}
   ];
 
-  // default view: show all
-  $scope.view = $scope.views[0];
+  //When User selects new WCAG Setting, change view accordingly
+  $scope.changeView = function() {
+    console.log($scope.view);
+  };
 
   /**
    * @param {Number} ratio the contrast ratio between two colors
    * @param {Object} view the current view mode in the tool
-   * @returns {Boolean} whether or not the given contrast ratio 
+   * @returns {Boolean} whether or not the given contrast ratio
    * passes the given view's required contrast ratio
    */
   $scope.passes = function(ratio, view) {
@@ -28,34 +36,68 @@ app.controller('appController', function($scope, $http) {
   }
 
   /**
-   * Updates the arrays for foreground and background colors
+   * Sources of awesomeness:
+   * http://www.w3.org/TR/WCAG20/#contrast-ratiodef
+   * http://webaim.org/resources/contrastchecker/
+   * http://stackoverflow.com/a/5624139
+   * http://stackoverflow.com/a/9733420
    */
-  $scope.updateColors = function() {
-    if($scope.colors1) {
-      $scope.foregroundColors = angular.fromJson($scope.colors1);
-      $scope.backgroundColors = $scope.colors2 ? angular.fromJson($scope.colors2) : $scope.foregroundColors;
-      $scope.updateContrastRatios();
+
+  /**
+   * @param {String} color, RGB or hex value of a color
+   * @returns {Object} an object with properties r,g,b
+   */
+  function rgb(color) {
+    // convert RGB string to RGB object
+    var result = /rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/.exec(color);
+    if(result) return {
+      r: result[1],
+        g: result[2],
+          b: result[3]
     }
+
+    // convert hex string to RGB object
+    // expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    var hex = color.replace(shorthandRegex, function(m, r, g, b) {
+      return r + r + g + g + b + b;
+    });
+    // get RGB values from hex
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if(result) return {
+      r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16)
+    };
+
+    // nothing! sad!
+    return null;
   }
 
-  /** 
-   * Updates the contrast ratio matrix
+  /**
+   * @param {Object} rgb, an object with properties r,g,b
+   * @returns {Number} the luminance of this particular color
    */
-  $scope.updateContrastRatios = function() {
-    for(var i = 0; i < $scope.backgroundColors.length; i++) {
-      for(var j = 0; j < $scope.foregroundColors.length; j++) {
-        var foreground = $scope.foregroundColors[j];
-        var background = $scope.backgroundColors[i];
-        if(!$scope.contrastRatios[background]) $scope.contrastRatios[background] = [];
-        $scope.contrastRatios[background][foreground] = contrastRatio(foreground, background);
-      }
-    }
+  //
+  function luminance(rgb) {
+    // convert RGB to sRGB
+    var sRGB = [rgb.r, rgb.g, rgb.b].map(function(value) {
+      value /= 255;
+      return (value <= 0.03928) ? (value / 12.92) : Math.pow( ((value+0.055)/1.055), 2.4);
+    });
+    // calculate luminance
+    return (sRGB[0] * 0.2126) + (sRGB[1] * 0.7152) + (sRGB[2] * 0.0722);
   }
 
-  // let's test if this works!
-  // TODO: Remove this eventually or make it more dynamic. I took these values from the latest S1 variables repo.
-  $scope.colors1 = '["#006eb3", "#be554b", "#e6b739", "#3c3d3e", "#696e71", "#afb5b9", "#44596c", "#FFFFFF", "#969899", "#aad0e9", "#6e7e8a", "#105b89", "#2b4257", "#686c70"]';
-  $scope.colors2 = '["#2a94d6", "#be554b", "#e6b739", "#ff9c00", "#f0f1f2", "#FFFFFF", "#fafafa", "#344a5f", "#293f54", "#354452", "#e8eaeb", "#d68184", "#e4e5e7", "#f6e4e4", "#657889", "#278ac7", "#e9e9e9"]';
-  $scope.updateColors();
+  /**
+   * @param {String} foreground RGB or hex string for foreground color
+   * @param {String} background RGB or hex string for background color
+   * @returns {Number} the contrast between these two colors
+   */
+  function contrastRatio(foreground, background) {
+    var L1 = luminance(rgb(foreground));
+    var L2 = luminance(rgb(background));
+    return (Math.round(((Math.max(L1, L2) + 0.05)/(Math.min(L1, L2) + 0.05))*100)/100);
+  }
 
 });
