@@ -1,0 +1,30 @@
+{
+  "name": "accessible-color-palatte",
+  "version": "0.0.0",
+  "description": "Tool for designers in exploration phase to choose accesible color palettes for text and backgrounds.",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "Accessibility",
+    "Design",
+    "Colors"
+  ],
+  "authors": [
+    "Donielle Berg"
+  ],
+  "license": "MIT",
+  "homepage": "sfdc-accessible-colors.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.7.0",
+    "angular": "~1.2.25"
+  }
+}

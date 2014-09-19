@@ -1,34 +1,10 @@
-body {
-  margin: 20px;
-  font-family: "Arial", sanserif;
-}
+.db { display: block; }
 
-table {
-  margin: 20px 0px;
-}
+.bg-1 { background-color: #006eb3;}
+.bg-2 { background-color: #be554b;}
+.bg-3 { background-color: #e6b739;}
+.bg-4 { background-color: #3c3d3e;}
+.bg-5 { background-color: #696e71;}
+.bg-6 { background-color: #afb5b9;}
 
-textarea {
-
-}
-
-.hide {
-  opacity: .05;
-}
-
-td {
-  padding: 5px;
-}
-
-.inputBlock {
-  width: 40%;
-  display: inline-block;
-  padding: 10px 10px 10px 0px;
-}
-
-.inputBlock label {
-  display: block;
-}
-
-.inputBlock textarea {
-  width: 90%;
-}
+.sampleBackground { width: 200px; height: 50px; }

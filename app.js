@@ -3,7 +3,15 @@ var app = angular.module('app', []);
 app.controller('appController', function($scope, $http) {
   $scope.fontSize = null;
   $scope.WCAGlevel = 'AA';
-  $scope.foregroundColors = ["#006eb3", "#be554b", "#e6b739", "#3c3d3e", "#696e71", "#afb5b9", "#44596c", "#FFFFFF", "#969899", "#aad0e9", "#6e7e8a", "#105b89", "#2b4257", "#686c70"];
+  $scope.colorCategories = [
+  { hex: '#006eb3', name: 'blue', className: 'bg-1' },
+  { hex: '#be554b', name: 'red', className: 'bg-2' },
+  { hex: '#e6b739', name: 'yellow', className: 'bg-3' },
+  { hex: '#3c3d3e', name: 'black', className: 'bg-4' },
+  { hex: '#696e71', name: 'gray-dark', className: 'bg-5' },
+  { hex: '#afb5b9', name: 'gray-lt', className: 'bg-6' }
+  ];
+
 
   /**
    * Calculate Ratio based on foreground and background
@@ -27,6 +35,9 @@ app.controller('appController', function($scope, $http) {
   $scope.getRatio_fsChange = function(keyEvent) {
     if(keyEvent.keyCode === 13){
       $scope.getCurrentRatio();
+      _.each($scope.colorCategories, function(num) {
+        console.log(num);
+      })
     }
   };
 

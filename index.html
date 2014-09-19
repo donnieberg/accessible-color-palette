@@ -25,8 +25,13 @@
       <input id="backgroundColor" type="text" name="textfield" value="" placeholder="Type hex or rgb value" />
     </div>
 
+    <ul>
+      <li ng-repeat="color in colorCategories" class="{{color.className}} sampleBackground">{{color.name}}</li>
+    </ul>
+
     <script type="text/javascript" src="contrastCalculator.js"></script>
-    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
