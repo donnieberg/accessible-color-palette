@@ -1,10 +1,16 @@
+body { font-family: sans-serif; font-size: 18px; }
 .db { display: block; }
+.dib { display: inline-block; }
+.tac { text-align: center; }
+.center { margin-left: auto; margin-right: auto; }
 
-.bg-1 { background-color: #006eb3;}
-.bg-2 { background-color: #be554b;}
-.bg-3 { background-color: #e6b739;}
-.bg-4 { background-color: #3c3d3e;}
-.bg-5 { background-color: #696e71;}
-.bg-6 { background-color: #afb5b9;}
+.list-plain { list-style-type: none; }
+.list-horz li { display: inline-block; }
+.hidden { visibility: hidden; }
+.opacity-0 { opacity: 0; }
 
-.sampleBackground { width: 200px; height: 50px; }
+.primaryColors { width: 200px; }
+.colorVariations { width: 200px; height: 200px; }
+.border { border: 1px solid #ccc;}
+.wi-full { width: 100%; }
+.ht-200 { height: 200px; }

@@ -6,27 +6,51 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body ng-controller="appController">
+    <h1 class="tac">Logo Here</h1>
+    <form accept-charset="utf-8">
+      <div class="dib">
+        <label for="backgroundColor" class="db">Background Color</label>
+        <input id="backgroundColor" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor" />
+      </div>
+      <div class="dib">
+        <label for="fontFamily" class="db">Font Family</label>
+        <input id="fontFamily" type="text" name="textfield" ng-model="fontFamily" />
+      </div>
+      <div class="dib">
+        <label for="fontSize" class="db">Font-Size (px)</label>
+        <input id="fontSize" type="text" name="textfield" ng-model="fontSize" />
+      </div>
+      <div class="dib">
+        <label for="fontWeight" class="db">Font Weight</label>
+        <input id="fontWeight" type="text" name="textfield" ng-model="fontWeight" />
+      </div>
+      <div class="dib">
+        <span class="db">Select WCAG Standard</span>
+        <input id="AA" type="radio" ng-model="WCAGlevel" value="AA" />
+        <label for="AA">AA</label>
+        <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" />
+        <label for="AAA">AAA</label>
+      </div>
+      <button ng-click="getRatio()">Submit</button>
+      <div>
+        <label for="userContent" class="db opacity-0">Enter text</label>
+        <textarea style="color: {{currentColor.hex}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
+      </div>
+    </form>
 
-    <div>
-      <label for="fontSize">Enter Font-Size in px:</label>
-      <input id="fontSize" type="text" name="textfield" ng-model="fontSize" ng-keypress="getRatio_fsChange($event)" />
-    </div>
-
-    <div>
-      <span>Select WCAG Standard</span>
-      <input id="AA" type="radio" ng-model="WCAGlevel" value="AA" class="db" ng-change="getRatio_levelChange()" />
-      <label for="AA">AA</label>
-      <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" class="db" ng-change="getRatio_levelChange()" />
-      <label for="AAA">AAA</label>
-    </div>
-
-    <div>
-      <label for="backgroundColor">Enter Background Color</label>
-      <input id="backgroundColor" type="text" name="textfield" value="" placeholder="Type hex or rgb value" />
-    </div>
-
-    <ul>
-      <li ng-repeat="color in colorCategories" class="{{color.className}} sampleBackground">{{color.name}}</li>
+    <ul class="list-plain list-horz">
+      <li ng-click="setTextColor(color)" ng-repeat="color in colorCategories" ng-show="color.pass" class="primaryColors" style="background-color: {{color.hex}}">
+        <p>{{color.name}}</p>
+        <p>{{color.hex}}</p>
+        <p>{{color.currentRatio}}</p>
+      </li>
+    </ul>
+    <ul class="list-plain list-horz">
+      <li ng-repeat="color in currentColor.colorVariations" class="dib colorVariations" style="background-color: {{color.hex}}">
+        <p>{{color.name}}</p>
+        <p>{{color.hex}}</p>
+        <p>{{color.currentRatio}}</p>
+      </li>
     </ul>
 
     <script type="text/javascript" src="contrastCalculator.js"></script>
