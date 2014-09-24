@@ -34,7 +34,7 @@
       <button ng-click="getCurrentRatio()">Submit</button>
       <div>
         <label for="userContent" class="db opacity-0">Enter text</label>
-        <textarea style="color: {{currentTextColor.rgb}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
+        <textarea style="color: {{currentTextColor.hex}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
       </div>
     </form>
 
@@ -44,9 +44,9 @@
       </li>
     </ul>
     <ul class="pan list-plain list-horz">
-      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.colorVariations" ng-show="color.pass" class="dib colorVariations tac text-white caps" style="background-color: {{color.rgb}}">
+      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.colorVariations" ng-show="color.pass" class="dib colorVariations tac text-white caps" style="background-color: {{color.hex}}">
         <div class="pas vac">
-          <p class="man">{{color.rgb}}</p>
+          <p class="man">{{color.hex}}</p>
           <p class="man">Contrast Ratio: {{color.currentRatio}}</p>
         </div>
       </li>

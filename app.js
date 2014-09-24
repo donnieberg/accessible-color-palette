@@ -8,12 +8,12 @@ app.controller('appController', function($scope, $http) {
   $scope.fontFamily = null;
   $scope.fontSize = 28;
   $scope.fontWeight = 400;
-  $scope.backgroundColor = 'rgb(255,255,255)';
+  $scope.backgroundColor = '#FFFFFF';
   $scope.WCAGlevel = 'AA';
 
 
   $scope.colorCategories = [
-  { hex: '#16A085', rgb: '22, 160, 133', name: 'green-drk', colorVariations: []  },
+  //{ hex: '#16A085', rgb: '22, 160, 133', name: 'green-drk', colorVariations: []  },
   { hex: '#2ECC71', rgb: '46, 204, 113', name: 'green-lt', colorVariations: []  },
   { hex: '#3498DB', rgb: '52, 152, 219', name: 'blue', colorVariations: []  },
   { hex: '#9B59B6', rgb: '155, 89, 182', name: 'purple', colorVariations: [] },
@@ -80,30 +80,60 @@ app.controller('appController', function($scope, $http) {
    */
   $scope.getPassingColors = function() {
     _.each($scope.currentColor.colorVariations, function(color) {
-      var ratio = contrastRatio(color.rgb, $scope.backgroundColor);
-      ratio >= $scope.currentRatio ? color.pass = true : color.pass = false;
+      var ratio = contrastRatio(color.hex, $scope.backgroundColor);
       color.currentRatio = ratio;
+      ratio >= $scope.currentRatio ? color.pass = true : color.pass = false;
     })
     console.log('the current color variations are: ', $scope.currentColor.colorVariations);
   };
 
+  var changeShade = function(col, amt) {
+    var usePound = false;
+    if (col[0] == "#") {
+      col = col.slice(1);
+      usePound = true;
+    }
+    var num = parseInt(col,16);
+    var r = (num >> 16) + amt;
+    if (r > 255) r = 255;
+    else if  (r < 0) r = 0;
+    var b = ((num >> 8) & 0x00FF) + amt;
+    if (b > 255) b = 255;
+    else if  (b < 0) b = 0;
+    var g = (num & 0x0000FF) + amt;
+    if (g > 255) g = 255;
+    else if (g < 0) g = 0;
+    return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
+  };
+
   $scope.getColorVariations = function() {
     $scope.currentColor.colorVariations = [];
-    var strVariations = $scope.currentColor.rgb.split(",");
-    var intVariations = _.map(strVariations, function(num) {
-      return parseInt(num);
-    });
-    var r = intVariations[0]%256;
-    var g = intVariations[1]%256;
-    var b = intVariations[2]%256;
-    for(var i=0;i<10;i++){
-      r-=10;
-      g-=10;
-      b-=10;
-      $scope.currentColor.colorVariations.push({ pass: true, currentRatio: null, rgb: "rgb("+r+","+g+","+b+")"});
+    var darkestShade = changeShade($scope.currentColor.hex, -30);
+    var percentage = 10;
+    for(var i=0; i<30; i++){
+      percentage += 5;
+      var newShade = changeShade(darkestShade, percentage);
+      $scope.currentColor.colorVariations.push({ hex: newShade });
     }
-    //console.log('the current color variations are: ', $scope.currentColor.colorVariations);
-  };
+  }
+
+  //$scope.getColorVariations = function() {
+  //  $scope.currentColor.colorVariations = [];
+  //  var strVariations = $scope.currentColor.rgb.split(",");
+  //  var intVariations = _.map(strVariations, function(num) {
+  //    return parseInt(num);
+  //  });
+  //  var r = intVariations[0]%256;
+  //  var g = intVariations[1]%256;
+  //  var b = intVariations[2]%256;
+  //  for(var i=0;i<10;i++){
+  //    r+=5;
+  //    g+=5;
+  //    b+=5;
+  //    $scope.currentColor.colorVariations.push({ pass: true, currentRatio: null, rgb: "rgb("+r+","+g+","+b+")"});
+  //  }
+  //  //console.log('the current color variations are: ', $scope.currentColor.colorVariations);
+  //};
 
 
   /**
@@ -113,12 +143,6 @@ app.controller('appController', function($scope, $http) {
     $scope.currentTextColor = color;
   };
 
-
-$scope.getUserColorVariations = function() {
-  var r = $("#R").val()%256;
-  var g = $("#G").val()%256;
-  var b = $("#B").val()%256;
-};
 
 
   /**
