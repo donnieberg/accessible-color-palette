@@ -31,28 +31,26 @@
         <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" />
         <label for="AAA">AAA</label>
       </div>
-      <button ng-click="getRatio()">Submit</button>
+      <button ng-click="getCurrentRatio()">Submit</button>
       <div>
         <label for="userContent" class="db opacity-0">Enter text</label>
-        <textarea style="color: {{currentColor.hex}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
+        <textarea style="color: {{currentTextColor.rgb}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
       </div>
     </form>
 
-    <ul class="list-plain list-horz">
-      <li ng-click="setTextColor(color)" ng-repeat="color in colorCategories" ng-show="color.pass" class="primaryColors" style="background-color: {{color.hex}}">
+    <ul class="pan list-plain list-horz">
+      <li ng-click="selectColorCategory(color);" ng-repeat="color in colorCategories" class="primaryColors" style="background-color: {{color.hex}}">
         <p>{{color.name}}</p>
-        <p>{{color.hex}}</p>
-        <p>{{color.currentRatio}}</p>
       </li>
     </ul>
-    <ul class="list-plain list-horz">
-      <li ng-repeat="color in currentColor.colorVariations" class="dib colorVariations" style="background-color: {{color.hex}}">
-        <p>{{color.name}}</p>
-        <p>{{color.hex}}</p>
-        <p>{{color.currentRatio}}</p>
+    <ul class="pan list-plain list-horz">
+      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.colorVariations" ng-show="color.pass" class="dib colorVariations tac text-white caps" style="background-color: {{color.rgb}}">
+        <div class="pas vac">
+          <p class="man">{{color.rgb}}</p>
+          <p class="man">Contrast Ratio: {{color.currentRatio}}</p>
+        </div>
       </li>
     </ul>
-
     <script type="text/javascript" src="contrastCalculator.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>

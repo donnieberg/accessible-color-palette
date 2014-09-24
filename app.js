@@ -6,56 +6,50 @@ app.controller('appController', function($scope, $http) {
    */
   $scope.userContent = 'The quick brown fox jumps over the lazy dog.';
   $scope.fontFamily = null;
-  $scope.fontSize = 18;
+  $scope.fontSize = 28;
   $scope.fontWeight = 400;
-  $scope.backgroundColor = '#fff';
+  $scope.backgroundColor = 'rgb(255,255,255)';
   $scope.WCAGlevel = 'AA';
+
+
   $scope.colorCategories = [
-  { pass: true, hex: '#16A085', rgb: '', name: 'green-drk', className: 'bg-1' },
-  { pass: true, hex: '#2ECC71', rgb: '', name: 'green-lt', className: 'bg-2' },
-  { pass: true, hex: '#3498DB', rgb: '', name: 'blue', className: 'bg-3' },
-  { pass: true, hex: '#9B59B6', rgb: '', name: 'purple', className: 'bg-4' },
-  { pass: true, hex: '#34495E', rgb: '', name: 'black', className: 'bg-5' },
-  { pass: true, hex: '#F2CA27', rgb: '', name: 'yellow', className: 'bg-6' },
-  { pass: true, hex: '#E67E22', rgb: '', name: 'orange', className: 'bg-7' },
-  { pass: true, hex: '#E74C3C', rgb: '', name: 'red', className: 'bg-8', colorVariations: [
-    { pass: true, hex: '#D24D57', rgb: '', name: 'chestnut-rose', className: 'chestnut-rose' },
-    { pass: true, hex: '#F22613', rgb: '', name: 'pomegranate', className: 'pomegranate' },
-    { pass: true, hex: '#FF0000', rgb: '', name: 'red', className: 'red' },
-    { pass: true, hex: '#D91E18', rgb: '', name: 'thunderbird', className: 'thunderbird' },
-    { pass: true, hex: '#96281B', rgb: '', name: 'old-brick', className: 'old-brick' },
-    { pass: true, hex: '#EF4836', rgb: '', name: 'flamingo', className: 'flamingo' },
-    { pass: true, hex: '#D64541', rgb: '', name: 'valencia', className: 'valencia' },
-    { pass: true, hex: '#C0392B', rgb: '', name: 'tall-poppy', className: 'tall-poppy' },
-    { pass: true, hex: '#CF000F', rgb: '', name: 'monza', className: 'monza' },
-    { pass: true, hex: '#E74C3C', rgb: '', name: 'cinnabar', className: 'cinnabar' }
-  ]
-  },
-  { pass: true, hex: '#ECF0F1', rgb: '', name: 'gray-lt', className: 'bg-9' },
-  { pass: true, hex: '#95A5A6', rgb: '', name: 'gray-drk', className: 'bg-10' }
+  { hex: '#16A085', rgb: '22, 160, 133', name: 'green-drk', colorVariations: []  },
+  { hex: '#2ECC71', rgb: '46, 204, 113', name: 'green-lt', colorVariations: []  },
+  { hex: '#3498DB', rgb: '52, 152, 219', name: 'blue', colorVariations: []  },
+  { hex: '#9B59B6', rgb: '155, 89, 182', name: 'purple', colorVariations: [] },
+  { hex: '#34495E', rgb: '52, 73, 94', name: 'black', colorVariations: []  },
+  { hex: '#F2CA27', rgb: '242, 202, 39', name: 'yellow', colorVariations: []  },
+  { hex: '#E67E22', rgb: '230, 126, 34', name: 'orange', colorVariations: [] },
+  { hex: '#E74C3C', rgb: '231, 76, 60', name: 'red', colorVariations: [] },
+  { hex: '#95A5A6', rgb: '149, 165, 166', name: 'gray-drk', colorVariations: []  }
   ];
 
-  $scope.reds = [
-  { pass: true, hex: '#D24D57', rgb: '', name: 'chestnut-rose', className: 'chestnut-rose' },
-  { pass: true, hex: '#F22613', rgb: '', name: 'pomegranate', className: 'pomegranate' },
-  { pass: true, hex: '#FF0000', rgb: '', name: 'red', className: 'red' },
-  { pass: true, hex: '#D91E18', rgb: '', name: 'thunderbird', className: 'thunderbird' },
-  { pass: true, hex: '#96281B', rgb: '', name: 'old-brick', className: 'old-brick' },
-  { pass: true, hex: '#EF4836', rgb: '', name: 'flamingo', className: 'flamingo' },
-  { pass: true, hex: '#D64541', rgb: '', name: 'valencia', className: 'valencia' },
-  { pass: true, hex: '#C0392B', rgb: '', name: 'tall-poppy', className: 'tall-poppy' },
-  { pass: true, hex: '#CF000F', rgb: '', name: 'monza', className: 'monza' },
-  { pass: true, hex: '#E74C3C', rgb: '', name: 'cinnabar', className: 'cinnabar' }
+  // TEST Hard Coded Colors = might use these later
+  var reds = [
+    { pass: true, hex: '#D24D57', rgb: '', name: 'chestnut-rose'},
+    { pass: true, hex: '#F22613', rgb: '', name: 'pomegranate'},
+    { pass: true, hex: '#FF0000', rgb: '', name: 'red'},
+    { pass: true, hex: '#D91E18', rgb: '', name: 'thunderbird'},
+    { pass: true, hex: '#96281B', rgb: '', name: 'old-brick'},
+    { pass: true, hex: '#EF4836', rgb: '', name: 'flamingo'},
+    { pass: true, hex: '#D64541', rgb: '', name: 'valencia'},
+    { pass: true, hex: '#C0392B', rgb: '', name: 'tall-poppy'},
+    { pass: true, hex: '#CF000F', rgb: '', name: 'monza'},
+    { pass: true, hex: '#E74C3C', rgb: '', name: 'cinnabar'}
+  ];
+  var purples = [
+    { pass: true, hex: '#DCC6E0', rgb: '', name: 'snuff' },
+    { pass: true, hex: '#663399', rgb: '', name: 'rebecca-purple' },
+    { pass: true, hex: '#674172', rgb: '', name: 'honey-flower' },
+    { pass: true, hex: '#AEA8D3', rgb: '', name: 'wistful' },
+    { pass: true, hex: '#913D88', rgb: '', name: 'plum' },
+    { pass: true, hex: '#9A12B3', rgb: '', name: 'seance' },
+    { pass: true, hex: '#BF55EC', rgb: '', name: 'medium-purple' },
+    { pass: true, hex: '#BE90D4', rgb: '', name: 'light-wisteria' },
+    { pass: true, hex: '#8E44AD', rgb: '', name: 'studio' },
+    { pass: true, hex: '#9B59B6', rgb: '', name: 'wisteria' }
   ];
 
-
-  /**
-   * Change in WCAG Level needs a recalc (after user clicks on different ratio button)
-   */
-  $scope.getRatio = function() {
-    $scope.getCurrentRatio();
-    $scope.getPassingColors();
-  };
 
   /**
    * Calculate Current Ratio based on user inputs for font size and WCGAG Level AA or AAA
@@ -68,28 +62,63 @@ app.controller('appController', function($scope, $http) {
     }else{
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
     }
-    //console.log('the current ratio is: ', $scope.currentRatio);
+    console.log('the current ratio is: ', $scope.currentRatio);
+  };
+
+  /**
+   * When user clicks on color category, get color variations that pass the current ratio
+   * @param {object} current color selected by user
+   */
+  $scope.selectColorCategory = function(color) {
+    $scope.currentColor = color;
+    $scope.getColorVariations();
+    $scope.getPassingColors();
   };
 
   /**
    * Calculate Passing Colors to user Current Ratio by comparing set foreground colors and user's background color
-   * @param {string} accpets two string values to calculate ratio. Strings can be either hex or rgb.
    */
   $scope.getPassingColors = function() {
-    _.each($scope.colorCategories, function(color) {
-      var ratio = contrastRatio(color.hex, $scope.backgroundColor);
+    _.each($scope.currentColor.colorVariations, function(color) {
+      var ratio = contrastRatio(color.rgb, $scope.backgroundColor);
       ratio >= $scope.currentRatio ? color.pass = true : color.pass = false;
-      color.pass === true ? color.currentRatio = ratio : undefined;
+      color.currentRatio = ratio;
     })
+    console.log('the current color variations are: ', $scope.currentColor.colorVariations);
   };
 
+  $scope.getColorVariations = function() {
+    $scope.currentColor.colorVariations = [];
+    var strVariations = $scope.currentColor.rgb.split(",");
+    var intVariations = _.map(strVariations, function(num) {
+      return parseInt(num);
+    });
+    var r = intVariations[0]%256;
+    var g = intVariations[1]%256;
+    var b = intVariations[2]%256;
+    for(var i=0;i<10;i++){
+      r-=10;
+      g-=10;
+      b-=10;
+      $scope.currentColor.colorVariations.push({ pass: true, currentRatio: null, rgb: "rgb("+r+","+g+","+b+")"});
+    }
+    //console.log('the current color variations are: ', $scope.currentColor.colorVariations);
+  };
+
+
   /**
-   * When user clicks on color, make user content that color
+   * When user clicks on color variation, make user text that color
    */
   $scope.setTextColor = function(color) {
-    $scope.currentColor = color;
-    console.log($scope.currentColor);
+    $scope.currentTextColor = color;
   };
+
+
+$scope.getUserColorVariations = function() {
+  var r = $("#R").val()%256;
+  var g = $("#G").val()%256;
+  var b = $("#B").val()%256;
+};
 
 
   /**
@@ -169,3 +198,5 @@ app.controller('appController', function($scope, $http) {
   };
 
   */
+
+
