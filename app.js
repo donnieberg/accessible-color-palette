@@ -8,8 +8,12 @@ app.controller('appController', function($scope, $http) {
   $scope.fontFamily = null;
   $scope.fontSize = 28;
   $scope.fontWeight = 400;
-  $scope.backgroundColor = '#FFFFFF';
+  $scope.backgroundColor = '#ffffff';
   $scope.WCAGlevel = 'AA';
+
+  //var test = contrastRatio('#2589CC', '#ffffff');
+  //console.log(test);
+
 
 
   $scope.colorCategories = [
@@ -62,7 +66,7 @@ app.controller('appController', function($scope, $http) {
     }else{
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
     }
-    console.log('the current ratio is: ', $scope.currentRatio);
+    //console.log('the current ratio is: ', $scope.currentRatio);
   };
 
   /**
@@ -108,9 +112,9 @@ app.controller('appController', function($scope, $http) {
 
   $scope.getColorVariations = function() {
     $scope.currentColor.colorVariations = [];
-    var darkestShade = changeShade($scope.currentColor.hex, -30);
+    var darkestShade = changeShade($scope.currentColor.hex, -45);
     var percentage = 10;
-    for(var i=0; i<30; i++){
+    for(var i=0; i<25; i++){
       percentage += 5;
       var newShade = changeShade(darkestShade, percentage);
       $scope.currentColor.colorVariations.push({ hex: newShade });
