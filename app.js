@@ -1,6 +1,6 @@
 var app = angular.module('app', []);
 
-app.controller('appController', function($scope, $http) {
+app.controller('appController', function($scope, $http, appFactory) {
   /**
    * Defaults
    */
@@ -10,141 +10,6 @@ app.controller('appController', function($scope, $http) {
   $scope.fontWeight = 400;
   $scope.backgroundColor = '#ffffff';
   $scope.WCAGlevel = 'AA';
-
-  //var test = contrastRatio('#2589CC', '#ffffff');
-  //console.log(test);
-  $scope.colorCategories = [
-  //{ hex: '#16A085', rgb: '22, 160, 133', name: 'green-drk', colorVariations: []  },
-  { hex: '#2ECC71', rgb: '46, 204, 113', name: 'green-lt', colorVariations: []  },
-  { hex: '#3498DB', rgb: '52, 152, 219', name: 'blue', colorVariations: []  },
-  { hex: '#9B59B6', rgb: '155, 89, 182', name: 'purple', colorVariations: [] },
-  { hex: '#34495E', rgb: '52, 73, 94', name: 'black', colorVariations: []  },
-  { hex: '#F2CA27', rgb: '242, 202, 39', name: 'yellow', colorVariations: []  },
-  { hex: '#E67E22', rgb: '230, 126, 34', name: 'orange', colorVariations: [] },
-  { hex: '#E74C3C', rgb: '231, 76, 60', name: 'red', colorVariations: [] },
-  { hex: '#95A5A6', rgb: '149, 165, 166', name: 'gray-drk', colorVariations: []  }
-  ];
-
-  // TEST Hard Coded Colors = might use these later
-  var reds = [
-    { pass: true, hex: '#D24D57', rgb: '', name: 'chestnut-rose'},
-    { pass: true, hex: '#F22613', rgb: '', name: 'pomegranate'},
-    { pass: true, hex: '#FF0000', rgb: '', name: 'red'},
-    { pass: true, hex: '#D91E18', rgb: '', name: 'thunderbird'},
-    { pass: true, hex: '#96281B', rgb: '', name: 'old-brick'},
-    { pass: true, hex: '#EF4836', rgb: '', name: 'flamingo'},
-    { pass: true, hex: '#D64541', rgb: '', name: 'valencia'},
-    { pass: true, hex: '#C0392B', rgb: '', name: 'tall-poppy'},
-    { pass: true, hex: '#CF000F', rgb: '', name: 'monza'},
-    { pass: true, hex: '#E74C3C', rgb: '', name: 'cinnabar'}
-  ];
-  var pinks = [
-    { pass: true, hex: '#DB0A5B', rgb: '', name: 'rassmatazz' },
-    { pass: true, hex: '#FFECDB', rgb: '', name: 'derby' },
-    { pass: true, hex: '#F64747', rgb: '', name: 'sunset-orange' },
-    { pass: true, hex: '#F1A9A0', rgb: '', name: 'wax-flower' },
-    { pass: true, hex: '#D2527F', rgb: '', name: 'cabaret' },
-    { pass: true, hex: '#E08283', rgb: '', name: 'newYork-pink' },
-    { pass: true, hex: '#F62459', rgb: '', name: 'radical-red' },
-    { pass: true, hex: '#E26A6A', rgb: '', name: 'sunglo' }
-  ];
-  var purples = [
-    { pass: true, hex: '#DCC6E0', rgb: '', name: 'snuff' },
-    { pass: true, hex: '#663399', rgb: '', name: 'rebecca-purple' },
-    { pass: true, hex: '#674172', rgb: '', name: 'honey-flower' },
-    { pass: true, hex: '#AEA8D3', rgb: '', name: 'wistful' },
-    { pass: true, hex: '#913D88', rgb: '', name: 'plum' },
-    { pass: true, hex: '#9A12B3', rgb: '', name: 'seance' },
-    { pass: true, hex: '#BF55EC', rgb: '', name: 'medium-purple' },
-    { pass: true, hex: '#BE90D4', rgb: '', name: 'light-wisteria' },
-    { pass: true, hex: '#8E44AD', rgb: '', name: 'studio' },
-    { pass: true, hex: '#9B59B6', rgb: '', name: 'wisteria' }
-  ];
-  var blues = [
-    { pass: true, hex: '#E4F1FE', rgb: '', name: 'alice-blue' },
-    { pass: true, hex: '#4183D7', rgb: '', name: 'royal-blue' },
-    { pass: true, hex: '#59ABE3', rgb: '', name: 'picton-blue' },
-    { pass: true, hex: '#81CFE0', rgb: '', name: 'spray' },
-    { pass: true, hex: '#52B3D9', rgb: '', name: 'shakespeare' },
-    { pass: true, hex: '#C5EFF7', rgb: '', name: '' },
-    { pass: true, hex: '#22A7F0', rgb: '', name: '' },
-    { pass: true, hex: '#3498DB', rgb: '', name: '' },
-    { pass: true, hex: '#2C3E50', rgb: '', name: '' },
-    { pass: true, hex: '#19B5FE', rgb: '', name: '' },
-    { pass: true, hex: '#336E7B', rgb: '', name: '' },
-    { pass: true, hex: '#22313F', rgb: '', name: '' },
-    { pass: true, hex: '#6BB9F0', rgb: '', name: '' },
-    { pass: true, hex: '#1E8BC3', rgb: '', name: '' },
-    { pass: true, hex: '#3A539B', rgb: '', name: '' },
-    { pass: true, hex: '#34495E', rgb: '', name: '' },
-    { pass: true, hex: '#67809F', rgb: '', name: '' },
-    { pass: true, hex: '#2574A9', rgb: '', name: '' },
-    { pass: true, hex: '#1F3A93', rgb: '', name: '' },
-    { pass: true, hex: '#89C4F4', rgb: '', name: '' },
-    { pass: true, hex: '#4B77BE', rgb: '', name: '' },
-    { pass: true, hex: '#5C97BF', rgb: '', name: '' }
-  ];
-  var greens = [
-    { pass: true, hex: '#4ECDC4', rgb: '', name: '' },
-    { pass: true, hex: '#A2DED0', rgb: '', name: '' },
-    { pass: true, hex: '#87D37C', rgb: '', name: '' },
-    { pass: true, hex: '#90C695', rgb: '', name: '' },
-    { pass: true, hex: '#26A65B', rgb: '', name: '' },
-    { pass: true, hex: '#03C9A9', rgb: '', name: '' },
-    { pass: true, hex: '#68C3A3', rgb: '', name: '' },
-    { pass: true, hex: '#65C6BB', rgb: '', name: '' },
-    { pass: true, hex: '#1BBC9B', rgb: '', name: '' },
-    { pass: true, hex: '#1BA39C', rgb: '', name: '' },
-    { pass: true, hex: '#66CC99', rgb: '', name: '' },
-    { pass: true, hex: '#36D7B7', rgb: '', name: '' },
-    { pass: true, hex: '#C8F7C5', rgb: '', name: '' },
-    { pass: true, hex: '#86E2D5', rgb: '', name: '' },
-    { pass: true, hex: '#2ECC71', rgb: '', name: '' },
-    { pass: true, hex: '#16A085', rgb: '', name: '' },
-    { pass: true, hex: '#3FC380', rgb: '', name: '' },
-    { pass: true, hex: '#019875', rgb: '', name: '' },
-    { pass: true, hex: '#03A678', rgb: '', name: '' },
-    { pass: true, hex: '#4DAF7C', rgb: '', name: '' },
-    { pass: true, hex: '#2ABB9B', rgb: '', name: '' },
-    { pass: true, hex: '#00B16A', rgb: '', name: '' },
-    { pass: true, hex: '#1E824C', rgb: '', name: '' },
-    { pass: true, hex: '#049372', rgb: '', name: '' },
-    { pass: true, hex: '#26C281', rgb: '', name: '' }
-  ];
-  var yellows = [
-    { pass: true, hex: '#F5D76E', rgb: '', name: '' },
-    { pass: true, hex: '#F7CA18', rgb: '', name: '' },
-    { pass: true, hex: '#F4D03F', rgb: '', name: '' }
-  ];
-  var oranges = [
-    { pass: true, hex: '#FDE3A7', rgb: '', name: '' },
-    { pass: true, hex: '#F89406', rgb: '', name: '' },
-    { pass: true, hex: '#EB9532', rgb: '', name: '' },
-    { pass: true, hex: '#E87E04', rgb: '', name: '' },
-    { pass: true, hex: '#F4B350', rgb: '', name: '' },
-    { pass: true, hex: '#F2784B', rgb: '', name: '' },
-    { pass: true, hex: '#EB974E', rgb: '', name: '' },
-    { pass: true, hex: '#F5AB35', rgb: '', name: '' },
-    { pass: true, hex: '#D35400', rgb: '', name: '' },
-    { pass: true, hex: '#F39C12', rgb: '', name: '' },
-    { pass: true, hex: '#F9690E', rgb: '', name: '' },
-    { pass: true, hex: '#F9BF3B', rgb: '', name: '' },
-    { pass: true, hex: '#F27935', rgb: '', name: '' },
-    { pass: true, hex: '#E67E22', rgb: '', name: '' }
-  ];
-  var grays = [
-    { pass: true, hex: '#ECECEC', rgb: '', name: '' },
-    { pass: true, hex: '#6C7A89', rgb: '', name: '' },
-    { pass: true, hex: '#D2D7D3', rgb: '', name: '' },
-    { pass: true, hex: '#EEEEEE', rgb: '', name: '' },
-    { pass: true, hex: '#BDC3C7', rgb: '', name: '' },
-    { pass: true, hex: '#ECF0F1', rgb: '', name: '' },
-    { pass: true, hex: '#95A5A6', rgb: '', name: '' },
-    { pass: true, hex: '#DADFE1', rgb: '', name: '' },
-    { pass: true, hex: '#ABB7B7', rgb: '', name: '' },
-    { pass: true, hex: '#F2F1EF', rgb: '', name: '' },
-    { pass: true, hex: '#BFBFBF', rgb: '', name: '' }
-  ];
 
 
   /**
@@ -319,4 +184,139 @@ app.controller('appController', function($scope, $http) {
 
   */
 
-
+app.factory('appFactory', function() {
+  return {
+    flatUIcolors: {
+      reds: [
+          { pass: true, hex: '#D24D57', rgb: '', name: 'chestnut-rose'},
+          { pass: true, hex: '#F22613', rgb: '', name: 'pomegranate'},
+          { pass: true, hex: '#FF0000', rgb: '', name: 'red'},
+          { pass: true, hex: '#D91E18', rgb: '', name: 'thunderbird'},
+          { pass: true, hex: '#96281B', rgb: '', name: 'old-brick'},
+          { pass: true, hex: '#EF4836', rgb: '', name: 'flamingo'},
+          { pass: true, hex: '#D64541', rgb: '', name: 'valencia'},
+          { pass: true, hex: '#C0392B', rgb: '', name: 'tall-poppy'},
+          { pass: true, hex: '#CF000F', rgb: '', name: 'monza'},
+          { pass: true, hex: '#E74C3C', rgb: '', name: 'cinnabar'}
+        ],
+      pinks: [
+        { pass: true, hex: '#DB0A5B', rgb: '', name: 'rassmatazz' },
+        { pass: true, hex: '#FFECDB', rgb: '', name: 'derby' },
+        { pass: true, hex: '#F64747', rgb: '', name: 'sunset-orange' },
+        { pass: true, hex: '#F1A9A0', rgb: '', name: 'wax-flower' },
+        { pass: true, hex: '#D2527F', rgb: '', name: 'cabaret' },
+        { pass: true, hex: '#E08283', rgb: '', name: 'newYork-pink' },
+        { pass: true, hex: '#F62459', rgb: '', name: 'radical-red' },
+        { pass: true, hex: '#E26A6A', rgb: '', name: 'sunglo' }
+      ],
+      purples: [
+        { pass: true, hex: '#DCC6E0', rgb: '', name: 'snuff' },
+        { pass: true, hex: '#663399', rgb: '', name: 'rebecca-purple' },
+        { pass: true, hex: '#674172', rgb: '', name: 'honey-flower' },
+        { pass: true, hex: '#AEA8D3', rgb: '', name: 'wistful' },
+        { pass: true, hex: '#913D88', rgb: '', name: 'plum' },
+        { pass: true, hex: '#9A12B3', rgb: '', name: 'seance' },
+        { pass: true, hex: '#BF55EC', rgb: '', name: 'medium-purple' },
+        { pass: true, hex: '#BE90D4', rgb: '', name: 'light-wisteria' },
+        { pass: true, hex: '#8E44AD', rgb: '', name: 'studio' },
+        { pass: true, hex: '#9B59B6', rgb: '', name: 'wisteria' }
+      ],
+      blues: [
+        { pass: true, hex: '#E4F1FE', rgb: '', name: 'alice-blue' },
+        { pass: true, hex: '#4183D7', rgb: '', name: 'royal-blue' },
+        { pass: true, hex: '#59ABE3', rgb: '', name: 'picton-blue' },
+        { pass: true, hex: '#81CFE0', rgb: '', name: 'spray' },
+        { pass: true, hex: '#52B3D9', rgb: '', name: 'shakespeare' },
+        { pass: true, hex: '#C5EFF7', rgb: '', name: '' },
+        { pass: true, hex: '#22A7F0', rgb: '', name: '' },
+        { pass: true, hex: '#3498DB', rgb: '', name: '' },
+        { pass: true, hex: '#2C3E50', rgb: '', name: '' },
+        { pass: true, hex: '#19B5FE', rgb: '', name: '' },
+        { pass: true, hex: '#336E7B', rgb: '', name: '' },
+        { pass: true, hex: '#22313F', rgb: '', name: '' },
+        { pass: true, hex: '#6BB9F0', rgb: '', name: '' },
+        { pass: true, hex: '#1E8BC3', rgb: '', name: '' },
+        { pass: true, hex: '#3A539B', rgb: '', name: '' },
+        { pass: true, hex: '#34495E', rgb: '', name: '' },
+        { pass: true, hex: '#67809F', rgb: '', name: '' },
+        { pass: true, hex: '#2574A9', rgb: '', name: '' },
+        { pass: true, hex: '#1F3A93', rgb: '', name: '' },
+        { pass: true, hex: '#89C4F4', rgb: '', name: '' },
+        { pass: true, hex: '#4B77BE', rgb: '', name: '' },
+        { pass: true, hex: '#5C97BF', rgb: '', name: '' }
+      ],
+      greens: [
+        { pass: true, hex: '#4ECDC4', rgb: '', name: '' },
+        { pass: true, hex: '#A2DED0', rgb: '', name: '' },
+        { pass: true, hex: '#87D37C', rgb: '', name: '' },
+        { pass: true, hex: '#90C695', rgb: '', name: '' },
+        { pass: true, hex: '#26A65B', rgb: '', name: '' },
+        { pass: true, hex: '#03C9A9', rgb: '', name: '' },
+        { pass: true, hex: '#68C3A3', rgb: '', name: '' },
+        { pass: true, hex: '#65C6BB', rgb: '', name: '' },
+        { pass: true, hex: '#1BBC9B', rgb: '', name: '' },
+        { pass: true, hex: '#1BA39C', rgb: '', name: '' },
+        { pass: true, hex: '#66CC99', rgb: '', name: '' },
+        { pass: true, hex: '#36D7B7', rgb: '', name: '' },
+        { pass: true, hex: '#C8F7C5', rgb: '', name: '' },
+        { pass: true, hex: '#86E2D5', rgb: '', name: '' },
+        { pass: true, hex: '#2ECC71', rgb: '', name: '' },
+        { pass: true, hex: '#16A085', rgb: '', name: '' },
+        { pass: true, hex: '#3FC380', rgb: '', name: '' },
+        { pass: true, hex: '#019875', rgb: '', name: '' },
+        { pass: true, hex: '#03A678', rgb: '', name: '' },
+        { pass: true, hex: '#4DAF7C', rgb: '', name: '' },
+        { pass: true, hex: '#2ABB9B', rgb: '', name: '' },
+        { pass: true, hex: '#00B16A', rgb: '', name: '' },
+        { pass: true, hex: '#1E824C', rgb: '', name: '' },
+        { pass: true, hex: '#049372', rgb: '', name: '' },
+        { pass: true, hex: '#26C281', rgb: '', name: '' }
+      ],
+      yellows: [
+        { pass: true, hex: '#F5D76E', rgb: '', name: '' },
+        { pass: true, hex: '#F7CA18', rgb: '', name: '' },
+        { pass: true, hex: '#F4D03F', rgb: '', name: '' }
+      ],
+      oranges: [
+        { pass: true, hex: '#FDE3A7', rgb: '', name: '' },
+        { pass: true, hex: '#F89406', rgb: '', name: '' },
+        { pass: true, hex: '#EB9532', rgb: '', name: '' },
+        { pass: true, hex: '#E87E04', rgb: '', name: '' },
+        { pass: true, hex: '#F4B350', rgb: '', name: '' },
+        { pass: true, hex: '#F2784B', rgb: '', name: '' },
+        { pass: true, hex: '#EB974E', rgb: '', name: '' },
+        { pass: true, hex: '#F5AB35', rgb: '', name: '' },
+        { pass: true, hex: '#D35400', rgb: '', name: '' },
+        { pass: true, hex: '#F39C12', rgb: '', name: '' },
+        { pass: true, hex: '#F9690E', rgb: '', name: '' },
+        { pass: true, hex: '#F9BF3B', rgb: '', name: '' },
+        { pass: true, hex: '#F27935', rgb: '', name: '' },
+        { pass: true, hex: '#E67E22', rgb: '', name: '' }
+      ],
+      grays: [
+        { pass: true, hex: '#ECECEC', rgb: '', name: '' },
+        { pass: true, hex: '#6C7A89', rgb: '', name: '' },
+        { pass: true, hex: '#D2D7D3', rgb: '', name: '' },
+        { pass: true, hex: '#EEEEEE', rgb: '', name: '' },
+        { pass: true, hex: '#BDC3C7', rgb: '', name: '' },
+        { pass: true, hex: '#ECF0F1', rgb: '', name: '' },
+        { pass: true, hex: '#95A5A6', rgb: '', name: '' },
+        { pass: true, hex: '#DADFE1', rgb: '', name: '' },
+        { pass: true, hex: '#ABB7B7', rgb: '', name: '' },
+        { pass: true, hex: '#F2F1EF', rgb: '', name: '' },
+        { pass: true, hex: '#BFBFBF', rgb: '', name: '' }
+      ]
+    },
+    colorCategories: [
+      //{ hex: '#16A085', rgb: '22, 160, 133', name: 'green-drk', colorVariations: []  },
+      { hex: '#2ECC71', rgb: '46, 204, 113', name: 'green-lt', colorVariations: []  },
+      { hex: '#3498DB', rgb: '52, 152, 219', name: 'blue', colorVariations: []  },
+      { hex: '#9B59B6', rgb: '155, 89, 182', name: 'purple', colorVariations: [] },
+      { hex: '#34495E', rgb: '52, 73, 94', name: 'black', colorVariations: []  },
+      { hex: '#F2CA27', rgb: '242, 202, 39', name: 'yellow', colorVariations: []  },
+      { hex: '#E67E22', rgb: '230, 126, 34', name: 'orange', colorVariations: [] },
+      { hex: '#E74C3C', rgb: '231, 76, 60', name: 'red', colorVariations: [] },
+      { hex: '#95A5A6', rgb: '149, 165, 166', name: 'gray-drk', colorVariations: []  }
+    ]
+  }
+});
