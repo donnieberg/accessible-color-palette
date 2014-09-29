@@ -31,10 +31,30 @@ app.controller('appController', function($scope, $http, appFactory) {
    * When user clicks on color category, get color variations that pass the current ratio
    * @param {object} current color selected by user
    */
+  //$scope.selectColorCategory = function(color) {
+  //  $scope.currentColor = color;
+  //  $scope.getColorVariations();
+  //  $scope.getPassingColors();
+  //};
+
   $scope.selectColorCategory = function(color) {
+    var variations = Please.make_color({
+      golden: false,
+	    base_color: color.name,
+	    colors_returned: 20,
+	    format: 'hex'
+    });
     $scope.currentColor = color;
-    $scope.getColorVariations();
-    $scope.getPassingColors();
+    $scope.currentColor.colorVariations = variations;
+
+    //$scope.currentColor = color;
+    //var convertedColor = Please.HEX_to_HSV($scope.currentColor.hex);
+    //var variations = Please.make_scheme( convertedColor, { scheme_type: "mono", format: "hex" });
+    var cleanVariations = _.reject(variations, function(col) {
+     return col === '#aN';
+    });
+    $scope.currentColor.colorVariations = _.uniq(cleanVariations);
+    console.log($scope.currentColor.colorVariations);
   };
 
   /**
@@ -42,11 +62,11 @@ app.controller('appController', function($scope, $http, appFactory) {
    */
   $scope.getPassingColors = function() {
     _.each($scope.currentColor.colorVariations, function(color) {
-      var ratio = contrastRatio(color.hex, $scope.backgroundColor);
+      var ratio = contrastRatio(color, $scope.backgroundColor);
       color.currentRatio = ratio;
       ratio >= $scope.currentRatio ? color.pass = true : color.pass = false;
     })
-    //console.log('the current color variations are: ', $scope.currentColor.colorVariations);
+    console.log('the current color variations are: ', $scope.currentColor.colorVariations);
   };
 
   var changeShade = function(col, amt) {
@@ -160,7 +180,7 @@ app.factory('appFactory', function() {
   return {
     colorCategories: [
       //{ hex: '#16A085', rgb: '22, 160, 133', name: 'green-drk', colorVariations: []  },
-      { hex: '#2ECC71', rgb: '46, 204, 113', name: 'green-lt', shades: [], flatUIcolors: [
+      { hex: '#2ECC71', rgb: '46, 204, 113', name: 'green', shades: [], flatUIcolors: [
         { pass: true, hex: '#4ECDC4', rgb: '', name: '' },
         { pass: true, hex: '#A2DED0', rgb: '', name: '' },
         { pass: true, hex: '#87D37C', rgb: '', name: '' },
@@ -263,7 +283,7 @@ app.factory('appFactory', function() {
         { pass: true, hex: '#E74C3C', rgb: '', name: 'cinnabar'}
         ]
       },
-      { hex: '#95A5A6', rgb: '149, 165, 166', name: 'gray-drk', shades: [], flatUIcolors: [
+      { hex: '#95A5A6', rgb: '149, 165, 166', name: 'gray', shades: [], flatUIcolors: [
         { pass: true, hex: '#ECECEC', rgb: '', name: '' },
         { pass: true, hex: '#6C7A89', rgb: '', name: '' },
         { pass: true, hex: '#D2D7D3', rgb: '', name: '' },

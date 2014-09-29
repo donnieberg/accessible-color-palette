@@ -38,22 +38,33 @@
       </div>
     </form>
 
+    <button ng-click="getPassingColors()">Get passing</button>
+
+
     <ul class="pan list-plain list-horz">
       <li ng-click="selectColorCategory(color)" ng-repeat="color in appFactory.colorCategories" class="primaryColors" style="background-color: {{color.hex}}">
         <p>{{color.name}}</p>
       </li>
     </ul>
+
+    <ul>
+      <li ng-repeat="color in currentColor.colorVariations" style="background-color: {{color}}">color</li>
+    </ul>
+
+    <!--
     <ul class="pan list-plain list-horz">
-      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.colorVariations" ng-show="color.pass" class="dib colorVariations tac text-white caps" style="background-color: {{color.hex}}">
+      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.colorVariations" class="dib colorVariations tac text-white caps" style="background-color: {{color}}">
         <div class="pas vac">
           <p class="man">{{color.hex}}</p>
           <p class="man">Contrast Ratio: {{color.currentRatio}}</p>
         </div>
       </li>
     </ul>
+    -->
     <script type="text/javascript" src="contrastCalculator.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="js/pleaseJS.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
