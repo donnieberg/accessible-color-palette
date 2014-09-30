@@ -37,7 +37,7 @@
         <textarea style="color: {{currentTextColor.hex}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
       </div>
     </form>
-    <button ng-click="test()">generate more</button>
+    <button ng-click="getPassingColors()">generate passing colors</button>
 
 
     <ul class="pan list-plain list-horz">
@@ -47,7 +47,7 @@
     </ul>
 
     <ul class="pan list-plain list-horz">
-      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.colorVariations" class="dib colorVariations tac text-white caps" style="background-color: {{color}}">
+      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.colorVariations" ng-show="color.pass" class="dib colorVariations tac text-white caps" style="background-color: {{color.hex}}">
         <div class="pas vac">
           <p class="man">{{color.hex}}</p>
           <p class="man">Contrast Ratio: {{color.currentRatio}}</p>

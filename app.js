@@ -31,84 +31,36 @@ app.controller('appController', function($scope, $http, appFactory) {
    * When user clicks on color category, get color variations that pass the current ratio
    * @param {object} current color selected by user
    */
-    var generateColors = function(base_color) {
-      var newColorArray = Please.make_scheme(
-          Please.HEX_to_HSV(base_color),
-          {
-            scheme_type: 'mono',
-            format: 'hex'
-          }
-      );
-      var sixHexColors = _.reject(newColorArray, function(color) {
-        var colorToArray = color.split('');
-        return colorToArray < 7;
-      });
-      _.each(sixHexColors, function(color) {
-        $scope.currentColor.colorVariations.push({ hex: color });
-      });
-    }
+
   $scope.selectColorCategory = function(color) {
     $scope.currentColor = color;
-    $scope.currentColor.colorVariations = [];
+    $scope.currentColor.colorVariations = $scope.currentColor.flatUIcolors;
 
     var newColorArray = Please.make_color({
       base_color: $scope.currentColor.name,
       colors_returned: 20,
       format:'hex'
     });
-    $scope.currentColor.colorVariations = _.uniq(newColorArray);
 
-    //generateColors($scope.currentColor.hex);
+    var uniqColors = _.uniq(newColorArray);
+    uniqColors = _.without(uniqColors, '#aN');
+    var generatedColors = _.map(uniqColors, function(color) {
+      return { hex: color, name: '', pass: true, rgb: '' }
+    });
+
+    $scope.currentColor.colorVariations = _.union($scope.currentColor.colorVariations, generatedColors);
   };
-
-  //$scope.test = function() {
-  //  generateColors($scope.currentColor.colorVariations[1].hex);
-  //  generateColors($scope.currentColor.colorVariations[2].hex);
-  //  generateColors($scope.currentColor.colorVariations[3].hex);
-  //  generateColors($scope.currentColor.colorVariations[4].hex);
-  //};
 
   /**
    * Calculate Passing Colors to user Current Ratio by comparing set foreground colors and user's background color
    */
   $scope.getPassingColors = function() {
     _.each($scope.currentColor.colorVariations, function(color) {
-      var ratio = contrastRatio(color, $scope.backgroundColor);
+      var ratio = contrastRatio(color.hex, $scope.backgroundColor);
       color.currentRatio = ratio;
       ratio >= $scope.currentRatio ? color.pass = true : color.pass = false;
     })
     console.log('the current color variations are: ', $scope.currentColor.colorVariations);
-  };
-
-  var changeShade = function(col, amt) {
-    var usePound = false;
-    if (col[0] == "#") {
-      col = col.slice(1);
-      usePound = true;
-    }
-    var num = parseInt(col,16);
-    var r = (num >> 16) + amt;
-    if (r > 255) r = 255;
-    else if  (r < 0) r = 0;
-    var b = ((num >> 8) & 0x00FF) + amt;
-    if (b > 255) b = 255;
-    else if  (b < 0) b = 0;
-    var g = (num & 0x0000FF) + amt;
-    if (g > 255) g = 255;
-    else if (g < 0) g = 0;
-    return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
-  };
-
-  $scope.getColorVariations = function() {
-    $scope.currentColor.colorVariations = [];
-    $scope.currentColor.colorVariations = $scope.currentColor.flatUIcolors;
-    var darkestShade = changeShade($scope.currentColor.hex, -45);
-    var percentage = 10;
-    for(var i=0; i<25; i++){
-      percentage += 5;
-      var newShade = changeShade(darkestShade, percentage);
-      $scope.currentColor.colorVariations.push({ hex: newShade });
-    };
   };
 
   /**
