@@ -24,38 +24,49 @@ app.controller('appController', function($scope, $http, appFactory) {
     }else{
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
     }
-    //console.log('the current ratio is: ', $scope.currentRatio);
+    console.log('the current ratio is: ', $scope.currentRatio);
   };
 
   /**
    * When user clicks on color category, get color variations that pass the current ratio
    * @param {object} current color selected by user
    */
-  //$scope.selectColorCategory = function(color) {
-  //  $scope.currentColor = color;
-  //  $scope.getColorVariations();
-  //  $scope.getPassingColors();
-  //};
-
+    var generateColors = function(base_color) {
+      var newColorArray = Please.make_scheme(
+          Please.HEX_to_HSV(base_color),
+          {
+            scheme_type: 'mono',
+            format: 'hex'
+          }
+      );
+      var sixHexColors = _.reject(newColorArray, function(color) {
+        var colorToArray = color.split('');
+        return colorToArray < 7;
+      });
+      _.each(sixHexColors, function(color) {
+        $scope.currentColor.colorVariations.push({ hex: color });
+      });
+    }
   $scope.selectColorCategory = function(color) {
-    var variations = Please.make_color({
-      golden: false,
-	    base_color: color.name,
-	    colors_returned: 20,
-	    format: 'hex'
-    });
     $scope.currentColor = color;
-    $scope.currentColor.colorVariations = variations;
+    $scope.currentColor.colorVariations = [];
 
-    //$scope.currentColor = color;
-    //var convertedColor = Please.HEX_to_HSV($scope.currentColor.hex);
-    //var variations = Please.make_scheme( convertedColor, { scheme_type: "mono", format: "hex" });
-    var cleanVariations = _.reject(variations, function(col) {
-     return col === '#aN';
+    var newColorArray = Please.make_color({
+      base_color: $scope.currentColor.name,
+      colors_returned: 20,
+      format:'hex'
     });
-    $scope.currentColor.colorVariations = _.uniq(cleanVariations);
-    console.log($scope.currentColor.colorVariations);
+    $scope.currentColor.colorVariations = _.uniq(newColorArray);
+
+    //generateColors($scope.currentColor.hex);
   };
+
+  //$scope.test = function() {
+  //  generateColors($scope.currentColor.colorVariations[1].hex);
+  //  generateColors($scope.currentColor.colorVariations[2].hex);
+  //  generateColors($scope.currentColor.colorVariations[3].hex);
+  //  generateColors($scope.currentColor.colorVariations[4].hex);
+  //};
 
   /**
    * Calculate Passing Colors to user Current Ratio by comparing set foreground colors and user's background color

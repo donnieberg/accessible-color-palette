@@ -37,8 +37,7 @@
         <textarea style="color: {{currentTextColor.hex}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
       </div>
     </form>
-
-    <button ng-click="getPassingColors()">Get passing</button>
+    <button ng-click="test()">generate more</button>
 
 
     <ul class="pan list-plain list-horz">
@@ -47,11 +46,6 @@
       </li>
     </ul>
 
-    <ul>
-      <li ng-repeat="color in currentColor.colorVariations" style="background-color: {{color}}">color</li>
-    </ul>
-
-    <!--
     <ul class="pan list-plain list-horz">
       <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.colorVariations" class="dib colorVariations tac text-white caps" style="background-color: {{color}}">
         <div class="pas vac">
@@ -60,11 +54,11 @@
         </div>
       </li>
     </ul>
-    -->
+
     <script type="text/javascript" src="contrastCalculator.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
-    <script type="text/javascript" src="js/pleaseJS.js"></script>
+    <script type="text/javascript" src="http://www.checkman.io/please/js/Please-compressed.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
