@@ -15,7 +15,7 @@
       </div>
       <div class="dib">
         <label for="fontFamily" class="db">Font Family</label>
-        <input id="fontFamily" type="text" name="textfield" ng-model="fontFamily" />
+        <select name="fontFamily" id="fontFamily" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
       </div>
       <div class="dib">
         <label for="fontSize" class="db">Font-Size (px)</label>
@@ -35,7 +35,7 @@
       <button ng-click="getCurrentRatio()">Submit</button>
       <div>
         <label for="userContent" class="db opacity-0">Enter text</label>
-        <textarea style="color: {{currentTextColor.hex}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
+        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
       </div>
     </form>
     <ul class="pan tac list-plain list-horz">
