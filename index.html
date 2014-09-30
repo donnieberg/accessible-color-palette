@@ -37,9 +37,6 @@
         <textarea style="color: {{currentTextColor.hex}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
       </div>
     </form>
-    <button ng-click="getPassingColors()">generate passing colors</button>
-
-
     <ul class="pan list-plain list-horz">
       <li ng-click="selectColorCategory(color)" ng-repeat="color in appFactory.colorCategories" class="primaryColors" style="background-color: {{color.hex}}">
         <p>{{color.name}}</p>
