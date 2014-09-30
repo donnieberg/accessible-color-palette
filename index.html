@@ -7,7 +7,8 @@
   </head>
   <body ng-controller="appController">
     <h1 class="tac">Logo Here</h1>
-    <form accept-charset="utf-8">
+    <p class="f3 tac">WCAG Ratio: {{currentRatio}}</p>
+    <form accept-charset="utf-8" class="tac">
       <div class="dib">
         <label for="backgroundColor" class="db">Background Color</label>
         <input id="backgroundColor" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor" />
@@ -37,14 +38,14 @@
         <textarea style="color: {{currentTextColor.hex}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
       </div>
     </form>
-    <ul class="pan list-plain list-horz">
+    <ul class="pan tac list-plain list-horz">
       <li ng-click="selectColorCategory(color)" ng-repeat="color in appFactory.colorCategories" class="primaryColors" style="background-color: {{color.hex}}">
         <p>{{color.name}}</p>
       </li>
     </ul>
 
-    <ul class="pan list-plain list-horz">
-      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.colorVariations" ng-show="color.pass" class="dib colorVariations tac text-white caps" style="background-color: {{color.hex}}">
+    <ul class="pan list-plain list-horz wi-colorVariationsContainer center">
+      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.passingColorVariations" class="dib colorVariations tac text-white caps" style="background-color: {{color.hex}}">
         <div class="pas vac">
           <p class="man">{{color.hex}}</p>
           <p class="man">Contrast Ratio: {{color.currentRatio}}</p>

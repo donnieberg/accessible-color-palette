@@ -13,7 +13,8 @@ p { font-size: 16px; font-weight: 400; }
 .opacity-0 { opacity: 0; }
 
 .primaryColors { width: 140px; }
-.colorVariations { width: 200px; height: 200px; }
+.colorVariations { width: 220px; height: 220px; }
+.wi-colorVariationsContainer { width: 1100px; }
 .border { border: 1px solid #ccc;}
 .wi-full { width: 100%; }
 .ht-200 { height: 200px; }
@@ -21,6 +22,13 @@ p { font-size: 16px; font-weight: 400; }
 .pan { padding: 0; }
 .man { margin: 0; }
 .pas { padding: 0.5rem; }
+
+h1,.f1 {      font-size: 3rem; }
+h2,.f2 {      font-size: 2rem; }
+h3,.f3 {      font-size: 1.5rem; }
+h4,.f4 {      font-size: 1rem; }
+h5,.f5 {      font-size: 0.8rem; }
+h6,.f6 {      font-size: 0.5rem; }
 
 .vac {
   position: relative;
