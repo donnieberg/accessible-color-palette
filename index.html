@@ -10,38 +10,38 @@
   <body ng-controller="appController">
     <h2 class="tac">Logo Here</h2>
     <form accept-charset="utf-8" class="tac">
-      <div class="dib tal">
+      <div class="phs tal dib">
         <label for="backgroundColor" class="db">Background Color</label>
         <input id="backgroundColor" class="pas f4 input" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor" />
       </div>
-      <div class="dib tal">
+      <div class="phs tal dib">
         <label for="fontFamily" class="db">Font Family</label>
         <div class="pos-rel">
-          <select name="fontFamily" id="fontFamily" class="pas f4 select bg-white" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+          <select name="fontFamily" id="fontFamily" class="f4 select bg-white" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
           <span class="form-icon ss-navigatedown"></span>
         </div>
       </div>
-      <div class="dib tal">
+      <div class="phs tal dib">
         <label for="fontSize" class="db">Font-Size (px)</label>
         <input id="fontSize" class="pas f4 input" type="text" name="textfield" ng-model="fontSize" />
       </div>
-      <div class="dib tal">
+      <div class="phs tal dib">
         <label for="fontWeight" class="db">Font Weight</label>
         <input id="fontWeight" class="pas f4 input" type="text" name="textfield" ng-model="fontWeight" />
       </div>
-      <div class="dib tal">
+      <div class="phs tal dib">
         <span class="db">Select WCAG Standard</span>
-        <input id="AA" type="radio" ng-model="WCAGlevel" value="AA" />
+        <input id="AA" type="radio" ng-model="WCAGlevel" value="AA" class="radio" />
         <label for="AA">AA</label>
-        <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" />
+        <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" class="mls radio" />
         <label for="AAA">AAA</label>
       </div>
-      <div class="dib tal pas">
+      <div class="phs tal dib pas">
         <label for="WCAGratio" class="db">WCAG Ratio</label>
         <p class="dib man">{{currentRatio}}</p>
       </div>
-      <div>
-        <label for="userContent" class="db opacity-0">Enter text</label>
+      <div class="mvm">
+        <label for="userContent" class="pvs db">Edit Text</label>
         <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac border-none border-v" ng-model="userContent"></textarea>
       </div>
       <button class="pvs phl mvm f4 fw-bold db center button ease" ng-click="getCurrentRatio()">Submit</button>
