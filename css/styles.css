@@ -1,0 +1,72 @@
+/*=======================================
+ * Base Styles
+ * ====================================== */
+body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 18px; }
+p { font-size: 16px; font-weight: 400; }
+
+
+/*=======================================
+ * Layout & Display Styles
+ * ====================================== */
+.db { display: block; }
+.df { display: flex; }
+.df-wrap { flex-wrap: wrap; }
+.df-child { flex-basis:250px; flex-grow: 1; }
+.dib { display: inline-block; }
+.center { margin-left: auto; margin-right: auto; }
+.vac { position: relative; top: 50%; transform: translateY(-50%); }
+.pos-rel { position: relative; }
+
+.list-plain { list-style-type: none; }
+.list-horz li { display: inline-block; }
+
+.hidden { visibility: hidden; }
+.opacity-0 { opacity: 0; }
+
+.input { border: 1px solid #ccc; border-radius: 3px; }
+.select { border: 1px solid #ccc; border-radius: 3px; -webkit-appearance: none; }
+.form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
+.button { cursor: pointer; border: 2px solid #26A65B; color: #26A65B; border-radius: 3px; background: none; }
+.button:hover { border: 2px solid #26A65B; background-color: #26A65B; color: #fff; border-radius: 3px; }
+.border-none { border: 0; }
+.border-v { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; }
+
+
+/*=======================================
+ * Typography Styles
+ * ====================================== */
+h1,.f1 { font-size: 3rem; }
+h2,.f2 { font-size: 2rem; }
+h3,.f3 { font-size: 1.5rem; }
+h4,.f4 { font-size: 1rem; }
+h5,.f5 { font-size: 0.8rem; }
+h6,.f6 { font-size: 0.5rem; }
+.tac { text-align: center; }
+.tal { text-align: left; }
+.caps { text-transform: uppercase; }
+.text-white { color: #fff; }
+.fw-bold { font-weight: 800; }
+
+
+/*=======================================
+ * Misc & Component Specific Styles
+ * ====================================== */
+.ease { transition: all .5s ease; }
+.wi-primaryColors { width: 140px; }
+.ht-colorVariations { height: 250px; }
+.bg-white { background-color: white; }
+
+/*=======================================
+ * Spacing Styles
+ * ====================================== */
+.wi-full { width: 100%; }
+.ht-200 { height: 200px; }
+
+.pan { padding: 0; }
+.man { margin: 0; }
+.pas { padding: 0.5rem; }
+.pvs { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.phl { padding-left: 3rem; padding-right: 3rem; }
+.mlx { margin-left: 4rem; }
+.mvm { margin-top: 2rem; margin-bottom: 2rem; }
+

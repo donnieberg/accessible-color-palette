@@ -6,7 +6,7 @@ app.controller('appController', function($scope, $http, appFactory) {
    */
   $scope.userContent = 'The quick brown fox jumps over the lazy dog.';
   $scope.fontFamily = null;
-  $scope.fontSize = 28;
+  $scope.fontSize = 18;
   $scope.fontWeight = 400;
   $scope.backgroundColor = '#ffffff';
   $scope.WCAGlevel = 'AA';

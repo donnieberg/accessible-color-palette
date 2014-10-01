@@ -3,49 +3,57 @@
   <head>
     <meta charset="utf-8">
     <title>Accessible Color Palette</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href="assets/fonts/ss-gizmo/ss-gizmo.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body ng-controller="appController">
-    <h1 class="tac">Logo Here</h1>
-    <p class="f3 tac">WCAG Ratio: {{currentRatio}}</p>
+    <h2 class="tac">Logo Here</h2>
     <form accept-charset="utf-8" class="tac">
-      <div class="dib">
+      <div class="dib tal">
         <label for="backgroundColor" class="db">Background Color</label>
-        <input id="backgroundColor" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor" />
+        <input id="backgroundColor" class="pas f4 input" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor" />
       </div>
-      <div class="dib">
+      <div class="dib tal">
         <label for="fontFamily" class="db">Font Family</label>
-        <select name="fontFamily" id="fontFamily" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+        <div class="pos-rel">
+          <select name="fontFamily" id="fontFamily" class="pas f4 select bg-white" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+          <span class="form-icon ss-navigatedown"></span>
+        </div>
       </div>
-      <div class="dib">
+      <div class="dib tal">
         <label for="fontSize" class="db">Font-Size (px)</label>
-        <input id="fontSize" type="text" name="textfield" ng-model="fontSize" />
+        <input id="fontSize" class="pas f4 input" type="text" name="textfield" ng-model="fontSize" />
       </div>
-      <div class="dib">
+      <div class="dib tal">
         <label for="fontWeight" class="db">Font Weight</label>
-        <input id="fontWeight" type="text" name="textfield" ng-model="fontWeight" />
+        <input id="fontWeight" class="pas f4 input" type="text" name="textfield" ng-model="fontWeight" />
       </div>
-      <div class="dib">
+      <div class="dib tal">
         <span class="db">Select WCAG Standard</span>
         <input id="AA" type="radio" ng-model="WCAGlevel" value="AA" />
         <label for="AA">AA</label>
         <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" />
         <label for="AAA">AAA</label>
       </div>
-      <button ng-click="getCurrentRatio()">Submit</button>
+      <div class="dib tal pas">
+        <label for="WCAGratio" class="db">WCAG Ratio</label>
+        <p class="dib man">{{currentRatio}}</p>
+      </div>
       <div>
         <label for="userContent" class="db opacity-0">Enter text</label>
-        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac" ng-model="userContent"></textarea>
+        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac border-none border-v" ng-model="userContent"></textarea>
       </div>
+      <button class="pvs phl mvm f4 fw-bold db center button ease" ng-click="getCurrentRatio()">Submit</button>
     </form>
-    <ul class="pan tac list-plain list-horz">
-      <li ng-click="selectColorCategory(color)" ng-repeat="color in appFactory.colorCategories" class="primaryColors" style="background-color: {{color.hex}}">
+    <ul class="pan tac list-plain list-horz df">
+      <li ng-click="selectColorCategory(color)" ng-repeat="color in appFactory.colorCategories" class="df-child" style="background-color: {{color.hex}}">
         <p>{{color.name}}</p>
       </li>
     </ul>
 
-    <ul class="pan list-plain list-horz wi-colorVariationsContainer center">
-      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.passingColorVariations" class="dib colorVariations tac text-white caps" style="background-color: {{color.hex}}">
+    <ul class="pan list-plain list-horz df df-wrap">
+      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.passingColorVariations" class="df-child ht-colorVariations tac text-white caps" style="background-color: {{color.hex}}">
         <div class="pas vac">
           <p class="man">{{color.hex}}</p>
           <p class="man">Contrast Ratio: {{color.currentRatio}}</p>
@@ -53,10 +61,10 @@
       </li>
     </ul>
 
-    <script type="text/javascript" src="contrastCalculator.js"></script>
+    <script type="text/javascript" src="js/contrastCalculator.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="http://www.checkman.io/please/js/Please-compressed.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>
