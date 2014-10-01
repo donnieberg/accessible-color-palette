@@ -4,14 +4,14 @@ app.controller('appController', function($scope, $http, appFactory) {
   /**
    * Defaults
    */
+  $scope.appFactory = appFactory;
+  $scope.allFontFamilies = $scope.appFactory.fonts;
   $scope.userContent = 'The quick brown fox jumps over the lazy dog.';
-  $scope.fontFamily = null;
-  $scope.fontSize = 18;
+  $scope.fontFamily = $scope.allFontFamilies[0];
+  $scope.fontSize = 16;
   $scope.fontWeight = 400;
   $scope.backgroundColor = '#ffffff';
   $scope.WCAGlevel = 'AA';
-  $scope.appFactory = appFactory;
-  $scope.allFontFamilies = $scope.appFactory.fonts;
 
   /**
    * Calculate Current Ratio based on user inputs for font size and WCGAG Level AA or AAA

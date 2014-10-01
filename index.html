@@ -9,7 +9,15 @@
   </head>
   <body ng-controller="appController">
     <h2 class="tac">Logo Here</h2>
+    <div class="tac phs">
+      <label for="WCAGratio">WCAG Ratio</label>
+      <p class="dib man">{{currentRatio}}</p>
+    </div>
     <form accept-charset="utf-8" class="tac">
+      <div class="mbm">
+        <label for="userContent" class="opacity-0">Edit Text</label>
+        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac border-none border-v" ng-model="userContent"></textarea>
+      </div>
       <div class="phs tal dib">
         <label for="backgroundColor" class="db">Background Color</label>
         <input id="backgroundColor" class="pas f4 input" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor" />
@@ -36,28 +44,23 @@
         <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" class="mls radio" />
         <label for="AAA">AAA</label>
       </div>
-      <div class="phs tal dib pas">
-        <label for="WCAGratio" class="db">WCAG Ratio</label>
-        <p class="dib man">{{currentRatio}}</p>
-      </div>
-      <div class="mvm">
-        <label for="userContent" class="pvs db">Edit Text</label>
-        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac border-none border-v" ng-model="userContent"></textarea>
-      </div>
       <button class="pvs phl mvm f4 fw-bold db center button ease" ng-click="getCurrentRatio()">Submit</button>
     </form>
+
     <ul class="pan tac list-plain list-horz df">
       <li ng-click="selectColorCategory(color)" ng-repeat="color in appFactory.colorCategories" class="df-child" style="background-color: {{color.hex}}">
-        <p>{{color.name}}</p>
+        <a href="javascript:void(0)">
+          <p>{{color.name}}</p>
+        </a>
       </li>
     </ul>
 
     <ul class="pan list-plain list-horz df df-wrap">
-      <li ng-click="setTextColor(color)" ng-repeat="color in currentColor.passingColorVariations" class="df-child ht-colorVariations tac text-white caps" style="background-color: {{color.hex}}">
-        <div class="pas vac">
+      <li ng-repeat="color in currentColor.passingColorVariations" ng-click="setTextColor(color)" class="df-child ht-colorVariations tac text-white caps" style="background-color: {{color.hex}}">
+        <a href="javascript:void(0)" class="db pas vac">
           <p class="man">{{color.hex}}</p>
           <p class="man">Contrast Ratio: {{color.currentRatio}}</p>
-        </div>
+        </a>
       </li>
     </ul>
 
