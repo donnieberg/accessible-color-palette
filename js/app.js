@@ -12,6 +12,7 @@ app.controller('appController', function($scope, $http, appFactory) {
   $scope.fontWeight = 400;
   $scope.backgroundColor = '#ffffff';
   $scope.WCAGlevel = 'AA';
+  $scope.currentRatio = 4.5;
 
   /**
    * Calculate Current Ratio based on user inputs for font size and WCGAG Level AA or AAA
