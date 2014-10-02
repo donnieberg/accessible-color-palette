@@ -9,15 +9,7 @@
   </head>
   <body ng-controller="appController">
     <h2 class="tac">Logo Here</h2>
-    <div class="tac phs">
-      <label for="WCAGratio">WCAG Ratio</label>
-      <p class="dib man">{{currentRatio}}</p>
-    </div>
     <form accept-charset="utf-8" class="tac">
-      <div class="mbm">
-        <label for="userContent" class="opacity-0">Edit Text</label>
-        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="wi-full ht-200 bg-white tac border-none border-v" ng-model="userContent"></textarea>
-      </div>
       <div class="phs tal dib">
         <label for="backgroundColor" class="db">Background Color</label>
         <input id="backgroundColor" class="pas f4 input" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor" />
@@ -44,7 +36,12 @@
         <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" class="mls radio" />
         <label for="AAA">AAA</label>
       </div>
-      <button class="pvs phl mvm f4 fw-bold db center button ease" ng-click="getCurrentRatio()">Submit</button>
+      <button class="pvs phl mvm f4 fw-bold center button ease" ng-click="getCurrentRatio()">Submit</button>
+      <div class="tac pos-rel">
+        <span class="pas pos-abs circle tam bg-white">{{currentRatio}}</span>
+        <label for="userContent" class="opacity-0">Edit Text</label>
+        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; background-color: {{backgroundColor}};" class="ptl wi-full ht-200 bg-white tac border-none border-v" ng-model="userContent"></textarea>
+      </div>
     </form>
 
     <ul class="pan tac list-plain list-horz df">

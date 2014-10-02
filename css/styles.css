@@ -16,7 +16,9 @@ a { text-decoration: none; color: inherit;}
 .dib { display: inline-block; }
 .center { margin-left: auto; margin-right: auto; }
 .vac { position: relative; top: 50%; transform: translateY(-50%); }
+.tam { vertical-align: middle; }
 .pos-rel { position: relative; }
+.pos-abs { position: absolute; }
 
 .list-plain { list-style-type: none; }
 .list-horz li { display: inline-block; }
@@ -89,6 +91,7 @@ h6,.f6 { font-size: 0.5rem; }
 .wi-primaryColors { width: 140px; }
 .ht-colorVariations { height: 250px; }
 .bg-white { background-color: white; }
+.circle { top: -6px; height: 40px; width: 40px; line-height: 40px; border: 2px solid #ccc; border-radius: 100%; }
 
 
 
@@ -104,6 +107,7 @@ h6,.f6 { font-size: 0.5rem; }
 .pvs { padding-top: 0.5rem; padding-bottom: 0.5rem; }
 .phs { padding-left: 0.5rem; padding-right: 0.5rem; }
 .phl { padding-left: 3rem; padding-right: 3rem; }
+.ptl { padding-top: 3rem; }
 
 .mls { margin-left: 0.5rem; }
 .mlx { margin-left: 4rem; }
