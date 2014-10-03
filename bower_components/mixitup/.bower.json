@@ -1,0 +1,19 @@
+{
+  "name": "mixitup",
+  "version": "2.1.7",
+  "main": "src/jquery.mixitup.js",
+  "dependencies": {
+    "jquery": ">=1.7"
+  },
+  "homepage": "https://github.com/barrel/mixitup",
+  "_release": "2.1.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.1.7",
+    "commit": "775dfb4d3d9cc5e9e66e1d070a22610cf8c0a535"
+  },
+  "_source": "git://github.com/barrel/mixitup.git",
+  "_target": "~2.1.7",
+  "_originalSource": "mixitup",
+  "_direct": true
+}

@@ -36,7 +36,7 @@
         <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" class="mls radio" />
         <label for="AAA">AAA</label>
       </div>
-      <button class="pvs phl mvm f4 fw-bold center button ease" ng-click="getCurrentRatio()">Submit</button>
+      <button class="pvs phl mvm f4 fw-bold center button ease" ng-click="getCurrentRatio(); getPassingColors();">Submit</button>
       <div class="tac pos-rel">
         <span class="pas pos-abs circle tam bg-white">{{currentRatio}}</span>
         <label for="userContent" class="opacity-0">Edit Text</label>
@@ -45,15 +45,20 @@
     </form>
 
     <ul class="pan tac list-plain list-horz df">
-      <li ng-click="selectColorCategory(color)" ng-repeat="color in appFactory.colorCategories" class="df-child" style="background-color: {{color.hex}}">
+      <li class="border-v df-child filter" data-filter="all">
+        <a href="javascript:void(0)">
+          <p>All Colors</p>
+        </a>
+      </li>
+      <li ng-repeat="color in appFactory.colorCategories" class="text-white df-child filter" data-filter=".category-{{color.name}}" style="background-color: {{color.hex}}">
         <a href="javascript:void(0)">
           <p>{{color.name}}</p>
         </a>
       </li>
     </ul>
 
-    <ul class="pan list-plain list-horz df df-wrap">
-      <li ng-repeat="color in currentColor.passingColorVariations" ng-click="setTextColor(color)" class="df-child ht-colorVariations tac text-white caps" style="background-color: {{color.hex}}">
+    <ul id="Container" class="pan list-plain list-horz df df-wrap">
+      <li ng-repeat="color in allColors" ng-show="color.pass" ng-click="setTextColor(color)" class="df-child ht-colorVariations tac text-white caps mix category-{{color.colorParent}}" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
         <a href="javascript:void(0)" class="db pas vac">
           <p class="man">{{color.hex}}</p>
           <p class="man">Contrast Ratio: {{color.currentRatio}}</p>
@@ -62,8 +67,10 @@
     </ul>
 
     <script type="text/javascript" src="js/contrastCalculator.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="bower_components/mixitup/build/jquery.mixitup.min.js"></script>
     <script type="text/javascript" src="http://www.checkman.io/please/js/Please-compressed.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>

@@ -92,6 +92,7 @@ h6,.f6 { font-size: 0.5rem; }
 .ht-colorVariations { height: 250px; }
 .bg-white { background-color: white; }
 .circle { top: -6px; height: 40px; width: 40px; line-height: 40px; border: 2px solid #ccc; border-radius: 100%; }
+#Container .mix { display: none; }
 
 
 
@@ -113,5 +114,4 @@ h6,.f6 { font-size: 0.5rem; }
 .mlx { margin-left: 4rem; }
 .mvm { margin-top: 2rem; margin-bottom: 2rem; }
 .mbm { margin-bottom: 2rem; }
-
 
