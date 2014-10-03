@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body ng-controller="appController">
-    <h2 class="tac">Logo Here</h2>
+    <h2 class="tac">Accessible Color Palette</h2>
     <form accept-charset="utf-8" class="tac">
       <div class="phs tal dib">
         <label for="backgroundColor" class="db">Background Color</label>
@@ -58,11 +58,11 @@
     </ul>
 
     <ul id="Container" class="pan list-plain list-horz df df-wrap">
-      <li ng-repeat="color in allColors" ng-show="color.pass" ng-click="setTextColor(color)" class="df-child ht-colorVariations tac text-white caps mix category-{{color.colorParent}}" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
-        <a href="javascript:void(0)" class="db pas vac">
+      <li ng-repeat="color in allColors" ng-click="setTextColor(color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'text-white': isDark(color) }"data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+        <div href="javascript:void(0)" class="db pas vac">
           <p class="man">{{color.hex}}</p>
           <p class="man">Contrast Ratio: {{color.currentRatio}}</p>
-        </a>
+        </div>
       </li>
     </ul>
 
@@ -71,6 +71,7 @@
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="bower_components/mixitup/build/jquery.mixitup.min.js"></script>
+    <script type="text/javascript" src="bower_components/tinycolor/tinycolor.js"></script>
     <script type="text/javascript" src="http://www.checkman.io/please/js/Please-compressed.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>

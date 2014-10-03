@@ -61,6 +61,22 @@ app.controller('appController', function($scope, $http, appFactory) {
     $scope.currentTextColor = color;
   };
 
+  /**
+   * User can select tile to make that the background color
+   */
+  $scope.setBackgroundColor = function(color) {
+    $scope.backgroundColor = color;
+  };
+
+
+  /**
+   * Uses tinycolor to determine if it is a light or dark color
+   */
+  $scope.isDark = function(color) {
+    var color = tinycolor(color.hex);
+    return color.isDark();
+  };
+
 
 
   /**
@@ -200,6 +216,8 @@ app.factory('appFactory', function() {
         ]
       },
       { hex: '#34495E', rgb: '52, 73, 94', name: 'gray', colorSiblings: ['black', 'darkgray', 'dimgray', 'gray', 'slategray'], flatUIcolors: [
+        { colorParent: 'gray', pass: true, hex: '#000000', rgb: '', name: '' },
+        { colorParent: 'gray', pass: true, hex: '#FFFFFF', rgb: '', name: '' },
         { colorParent: 'gray', pass: true, hex: '#ECECEC', rgb: '', name: '' },
         { colorParent: 'gray', pass: true, hex: '#6C7A89', rgb: '', name: '' },
         { colorParent: 'gray', pass: true, hex: '#D2D7D3', rgb: '', name: '' },
@@ -248,7 +266,7 @@ app.factory('appFactory', function() {
         { colorParent: 'red', pass: true, hex: '#CF000F', rgb: '', name: 'monza'},
         { colorParent: 'red', pass: true, hex: '#E74C3C', rgb: '', name: 'cinnabar'}
         ]
-      }
+      },
     ],
     flatUIcolors: {
       reds: [
