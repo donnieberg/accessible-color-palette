@@ -28,13 +28,35 @@ app.controller('appController', function($scope, $http, appFactory) {
   };
 
   /**
-   * Display all flatUI colors by default
+   * Get all Flat UI Colors
    */
-  var allColors = [];
+  var allFlatColors = [];
   _.each($scope.appFactory.colorCategories, function(color) {
-    allColors.push(color.flatUIcolors);
-    $scope.allColors = _.flatten(allColors);
+    allFlatColors.push(color.flatUIcolors);
+    allFlatColors = _.flatten(allFlatColors);
   });
+
+  /**
+   * Generate all tinycolors based off color categories
+   */
+  var allTinyColors = [];
+  var tinyColors = [];
+  _.each($scope.appFactory.colorCategories, function(color) {
+    tinyColors = tinycolor(color.hex).monochromatic();
+    var tinyColorsHex = _.map(tinyColors, function(col) {
+      return { colorParent: color.name, pass: true, hex: col.toHexString(), rgb: '', name: '' }
+    })
+    allTinyColors.push(tinyColorsHex);
+    allTinyColors = _.flatten(allTinyColors);
+  });
+
+
+  /**
+   * Generate all tinycolors based off color categories
+   */
+  $scope.allColors = _.union(allFlatColors, allTinyColors);
+
+
 
   /**
    * Get passing ratios of colors compared with current background color

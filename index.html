@@ -58,7 +58,7 @@
     </ul>
 
     <ul id="Container" class="pan list-plain list-horz df df-wrap">
-      <li ng-repeat="color in allColors" ng-click="setTextColor(color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'text-white': isDark(color) }"data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+      <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setTextColor(color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'text-white': isDark(color) }"data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
         <div href="javascript:void(0)" class="db pas vac">
           <p class="man">{{color.hex}}</p>
           <p class="man">Contrast Ratio: {{color.currentRatio}}</p>
