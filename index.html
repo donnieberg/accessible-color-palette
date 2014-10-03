@@ -9,6 +9,7 @@
   </head>
   <body ng-controller="appController">
     <h2 class="tac">Accessible Color Palette</h2>
+    <p class="tac mw-1000 center">Set your parameters, edit the text if you'd like, and click Submit to view text colors that meet your minimum WCAG contrast ratio. Click on the color tile to set that color as the text color. Press 'cmd' key + click/enter to set it as the background color.</p>
     <form accept-charset="utf-8" class="tac">
       <div class="phs tal dib">
         <label for="backgroundColor" class="db">Background Color</label>
@@ -37,15 +38,16 @@
         <label for="AAA">AAA</label>
       </div>
       <button class="pvs phl mvm f4 fw-bold center button ease" ng-click="getCurrentRatio(); getPassingColors();">Submit</button>
+    <p class="tac">Your current minimum WCAG contrast ratio is {{currentRatio}}</p>
       <div class="tac pos-rel">
-        <span class="pas pos-abs circle tam bg-white">{{currentRatio}}</span>
+        <span class="pas pos-abs circle tam bg-white">{{currentTextColor.currentRatio}}</span>
         <label for="userContent" class="opacity-0">Edit Text</label>
         <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-200 bg-white tac border-none border-v" ng-model="userContent"></textarea>
       </div>
     </form>
 
     <ul class="pan tac list-plain list-horz df">
-      <li class="border-v df-child filter" data-filter="all">
+      <li id="allColorsFilter" class="border-v df-child filter" data-filter="all">
         <a href="javascript:void(0)">
           <p>All Colors</p>
         </a>
