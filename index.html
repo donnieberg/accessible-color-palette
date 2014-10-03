@@ -12,7 +12,7 @@
     <form accept-charset="utf-8" class="tac">
       <div class="phs tal dib">
         <label for="backgroundColor" class="db">Background Color</label>
-        <input id="backgroundColor" class="pas f4 input" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor" />
+        <input id="backgroundColor" class="pas f4 input" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
       </div>
       <div class="phs tal dib">
         <label for="fontFamily" class="db">Font Family</label>
@@ -40,7 +40,7 @@
       <div class="tac pos-rel">
         <span class="pas pos-abs circle tam bg-white">{{currentRatio}}</span>
         <label for="userContent" class="opacity-0">Edit Text</label>
-        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor}};" class="ptl wi-full ht-200 bg-white tac border-none border-v" ng-model="userContent"></textarea>
+        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-200 bg-white tac border-none border-v" ng-model="userContent"></textarea>
       </div>
     </form>
 
@@ -58,11 +58,11 @@
     </ul>
 
     <ul id="Container" class="pan list-plain list-horz df df-wrap">
-      <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setTextColor(color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'text-white': isDark(color) }"data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
-        <div href="javascript:void(0)" class="db pas vac">
-          <p class="man">{{color.hex}}</p>
+      <li ng-repeat="color in allColors" ng-if="color.pass" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'text-white': isDark(color) }"data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+        <a href="javascript:void(0)" class="db pas vac" ng-click="setColor($event, color)">
+          <p class="man">HEX: {{color.hex}}</p>
           <p class="man">Contrast Ratio: {{color.currentRatio}}</p>
-        </div>
+        </a>
       </li>
     </ul>
 

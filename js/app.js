@@ -10,7 +10,7 @@ app.controller('appController', function($scope, $http, appFactory) {
   $scope.fontFamily = $scope.allFontFamilies[0];
   $scope.fontSize = 22;
   $scope.fontWeight = 400;
-  $scope.backgroundColor = '#ffffff';
+  $scope.backgroundColor = { hex: '#ffffff'};
   $scope.WCAGlevel = 'AA';
 
   /**
@@ -62,7 +62,7 @@ app.controller('appController', function($scope, $http, appFactory) {
    */
   $scope.getPassingColors = function() {
     _.each($scope.allColors, function(color) {
-      var ratio = contrastRatio(color.hex, $scope.backgroundColor);
+      var ratio = contrastRatio(color.hex, $scope.backgroundColor.hex);
       color.currentRatio = ratio;
       ratio >= $scope.currentRatio ? color.pass = true : color.pass = false;
     })
@@ -87,6 +87,15 @@ app.controller('appController', function($scope, $http, appFactory) {
    */
   $scope.setBackgroundColor = function(color) {
     $scope.backgroundColor = color;
+  };
+
+  $scope.setColor = function(event, color) {
+    if(event.metaKey){
+      $scope.setBackgroundColor(color);
+    }else{
+      $scope.setTextColor(color);
+    }
+    $scope.getPassingColors();
   };
 
 
