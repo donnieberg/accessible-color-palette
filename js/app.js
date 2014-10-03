@@ -202,7 +202,7 @@ app.factory('appFactory', function() {
         { colorParent: 'blue', pass: true, hex: '#5C97BF', rgb: '', name: '' }
         ]
       },
-      { hex: '#9B59B6', rgb: '155, 89, 182', name: 'purple', colorSiblings: ['purple', 'blueviolet', 'darkmagenta', 'darkorchid', 'darkviolet', 'fuchsia', 'mediumpurple', 'plum'], flatUIcolors: [
+      { hex: '#9B59B6', rgb: '155, 89, 182', name: 'purple', colorSiblings: ['purple', 'blueviolet', 'darkorchid', 'darkviolet', 'mediumpurple', 'plum'], flatUIcolors: [
         { colorParent: 'purple', pass: true, hex: '#DCC6E0', rgb: '', name: 'snuff' },
         { colorParent: 'purple', pass: true, hex: '#663399', rgb: '', name: 'rebecca-purple' },
         { colorParent: 'purple', pass: true, hex: '#674172', rgb: '', name: 'honey-flower' },
@@ -213,6 +213,17 @@ app.factory('appFactory', function() {
         { colorParent: 'purple', pass: true, hex: '#BE90D4', rgb: '', name: 'light-wisteria' },
         { colorParent: 'purple', pass: true, hex: '#8E44AD', rgb: '', name: 'studio' },
         { colorParent: 'purple', pass: true, hex: '#9B59B6', rgb: '', name: 'wisteria' }
+        ]
+      },
+      { hex: '#D2527F', rgb: '', name: 'pink', colorSiblings: ['darkmagenta', 'fuchsia'], flatUIcolors: [
+        { colorParent: 'pink', pass: true, hex: '#DB0A5B', rgb: '', name: 'rassmatazz' },
+        { colorParent: 'pink', pass: true, hex: '#FFECDB', rgb: '', name: 'derby' },
+        { colorParent: 'pink', pass: true, hex: '#F64747', rgb: '', name: 'sunset-orange' },
+        { colorParent: 'pink', pass: true, hex: '#F1A9A0', rgb: '', name: 'wax-flower' },
+        { colorParent: 'pink', pass: true, hex: '#D2527F', rgb: '', name: 'cabaret' },
+        { colorParent: 'pink', pass: true, hex: '#E08283', rgb: '', name: 'newYork-pink' },
+        { colorParent: 'pink', pass: true, hex: '#F62459', rgb: '', name: 'radical-red' },
+        { colorParent: 'pink', pass: true, hex: '#E26A6A', rgb: '', name: 'sunglo' }
         ]
       },
       { hex: '#34495E', rgb: '52, 73, 94', name: 'gray', colorSiblings: ['black', 'darkgray', 'dimgray', 'gray', 'slategray'], flatUIcolors: [
