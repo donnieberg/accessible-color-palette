@@ -57,7 +57,6 @@ app.controller('appController', function($scope, $http, appFactory) {
   $scope.allColors = _.union(allFlatColors, allTinyColors);
 
 
-
   /**
    * Get passing ratios of colors compared with current background color
    */
