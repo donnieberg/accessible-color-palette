@@ -9,8 +9,7 @@
   </head>
   <body ng-controller="appController">
     <h2 class="tac">Accessible Text Colors</h2>
-    <p class="f3 tac mw-1000 center">Accessibility standards allow people with disabilities to use the web.<br>This tool ensures text is readable for everyone.</p>
-    <p class="tac mw-1000 center">Set your parameters, edit the text if you'd like, and click 'Submit' to view text colors that meet your minimum WCAG contrast ratio. Click on the color tile to set that color as the text color. Press 'cmd' key + click or enter to set it as the background color.</p>
+    <p class="tac mw-1000 center">Accessibility standards allow people with disabilities to use the web. This tool ensures text color is readable by everyone. Set your parameters, edit the text if you'd like, and click 'Submit' to view text colors that meet your minimum WCAG contrast ratio. Click on the color tile to set that color as the text color. Press 'cmd' key + click or enter to set it as the background color.</p>
     <form accept-charset="utf-8" class="tac">
       <div class="phs tal dib">
         <label for="backgroundColor" class="db">Background Color</label>
@@ -43,7 +42,7 @@
       <div class="tac pos-rel">
         <span class="pas pos-abs circle tam bg-white">{{currentTextColor.currentRatio}}</span>
         <label for="userContent" class="opacity-0">Edit Text</label>
-        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-200 bg-white tac border-none border-v" ng-model="userContent"></textarea>
+        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-150 bg-white tac border-none border-v" ng-model="userContent"></textarea>
       </div>
     </form>
 
