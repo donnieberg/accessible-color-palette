@@ -101,7 +101,7 @@ h6,.f6 { font-size: 0.5rem; }
  * Spacing Styles
  * ====================================== */
 .wi-full { width: 100%; }
-.ht-200 { height: 200px; }
+.ht-200 { height: 150px; }
 
 .pan { padding: 0; }
 .man { margin: 0; }

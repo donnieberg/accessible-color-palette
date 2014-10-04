@@ -8,8 +8,9 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body ng-controller="appController">
-    <h2 class="tac">Accessible Color Palette</h2>
-    <p class="tac mw-1000 center">Set your parameters, edit the text if you'd like, and click Submit to view text colors that meet your minimum WCAG contrast ratio. Click on the color tile to set that color as the text color. Press 'cmd' key + click/enter to set it as the background color.</p>
+    <h2 class="tac">Accessible Text Colors</h2>
+    <p class="f3 tac mw-1000 center">Accessibility standards allow people with disabilities to use the web.<br>This tool ensures text is readable for everyone.</p>
+    <p class="tac mw-1000 center">Set your parameters, edit the text if you'd like, and click 'Submit' to view text colors that meet your minimum WCAG contrast ratio. Click on the color tile to set that color as the text color. Press 'cmd' key + click or enter to set it as the background color.</p>
     <form accept-charset="utf-8" class="tac">
       <div class="phs tal dib">
         <label for="backgroundColor" class="db">Background Color</label>
@@ -60,10 +61,9 @@
     </ul>
 
     <ul id="Container" class="pan list-plain list-horz df df-wrap">
-      <li ng-repeat="color in allColors" ng-if="color.pass" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'text-white': isDark(color) }"data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
-        <a href="javascript:void(0)" class="db pas vac" ng-click="setColor($event, color)">
+      <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'text-white': isDark(color) }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+        <a href="javascript:void(0)" class="db pas vac">
           <p class="man">HEX: {{color.hex}}</p>
-          <p class="man">Contrast Ratio: {{color.currentRatio}}</p>
         </a>
       </li>
     </ul>
