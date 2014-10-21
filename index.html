@@ -5,7 +5,7 @@
     <title>Accessible Color Palette</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
     <link href="assets/fonts/ss-gizmo/ss-gizmo.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
   <body ng-controller="appController">
     <h2 class="tac">Accessible Text Colors</h2>
@@ -42,7 +42,7 @@
       <div class="tac pos-rel">
         <span class="pas pos-abs circle tam bg-white">{{currentTextColor.currentRatio}}</span>
         <label for="userContent" class="opacity-0">Edit Text</label>
-        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-150 bg-white tac border-none border-v" ng-model="userContent"></textarea>
+        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-150 bg-white tac ban border-v" ng-model="userContent"></textarea>
       </div>
     </form>
 

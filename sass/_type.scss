@@ -1,0 +1,20 @@
+/*  =============================================================================
+ *  TYPOGRAPHY STYLES
+ *  ============================================================================= */
+h1,.f1 { font-size: 3rem; }
+h2,.f2 { font-size: 2rem; }
+h3,.f3 { font-size: 1.5rem; }
+h4,.f4 { font-size: 1rem; }
+h5,.f5 { font-size: 0.8rem; }
+h6,.f6 { font-size: 0.5rem; }
+
+.caps { text-transform: uppercase; }
+.italic { font-style:italic; }
+
+.fw-light { font-weight: 200; }
+.fw-normal { font-weight: 400; }
+.fw-bold { font-weight: 800; }
+
+.text-white { color: #fff; }
+
+a { text-decoration: none; color: inherit;}

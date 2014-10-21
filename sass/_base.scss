@@ -1,0 +1,224 @@
+/*  =============================================================================
+ *  BASE STYLES
+ *  ============================================================================= */
+
+body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 16px; }
+
+.tac { text-align: center; }
+.tal { text-align: left; }
+.tar { text-align: right; }
+
+.text-plain { text-decoration: none; }
+.list-plain { list-style-type: none; }
+.list-horz li { display: inline-block; }
+
+/*
+ *  LAYOUT & DISPLAY
+ *  ============================================================================= */
+.dn { display: none; }
+.db { display: block; }
+.dib { display: inline-block; }
+.dt { display: table; }
+.dtc { display: table-cell; }
+.df { display: flex; }
+.df-wrap { flex-wrap: wrap; }
+.df-child { flex-basis:250px; flex-grow: 1; }
+
+.pos-rel { position: relative; }
+.pos-abs { position: absolute; }
+.pos-fix { position: fixed; }
+.top-0 { top: 0; }
+.bot-0 { bottom: 0; }
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+
+.fl { float: left; }
+.fr { float: right; }
+
+.center { margin-left: auto; margin-right: auto; }
+.vat { vertical-align: top; }
+.vac { vertical-align: middle; }
+.vab { vertical-align: bottom; }
+
+
+/*
+ *  Display Types
+ *  ============================================================================= */
+.z-above { z-index: 10; }
+.z-top { z-index: 999; }
+
+.hidden { visibility: hidden; }
+.opacity-0 { opacity: 0; }
+
+
+/*
+ *  Animations
+ *  ============================================================================= */
+.ease { transition: all .5s ease; }
+
+
+
+
+/*
+ * SHAPES
+ * ============================================================================= */
+button,
+input[type="submit"] { border: none; background-color: transparent; }
+
+input,
+textarea { border: none; }
+
+input:focus,
+textarea:focus,
+button { outline: none; }
+
+
+/*  GRID OF TWELVE   ============================================================================= */
+/* Mobile First */
+.wi-full,
+.span_12_of_12 { width: 100%; }
+.span_11_of_12 { width: 100%; }
+.span_10_of_12 { width: 100%; }
+.span_9_of_12  { width: 100%; }
+.span_8_of_12  { width: 100%; }
+.span_7_of_12  { width: 100%; }
+.span_6_of_12  { width: 100%; }
+.span_5_of_12  { width: 100%; }
+.span_4_of_12  { width: 100%; }
+.span_3_of_12  { width: 100%; }
+.span_2_of_12  { width: 100%; }
+.span_1_of_12  { width: 100%; }
+
+
+/*  12 Column grid for bigger THAN 30em - 480 PIXELS wide */
+
+@media only screen and (min-width: 30em) {
+.span_12_of_12 { width: 100%;   }
+.span_11_of_12 { width: 91.46%; }
+.span_10_of_12 { width: 83%;    }
+.span_9_of_12  { width: 74.54%; }
+.span_8_of_12  { width: 66.08%; }
+.span_7_of_12  { width: 57.62%; }
+.span_6_of_12  { width: 49.16%; }
+.span_5_of_12  { width: 40.7%;  }
+.span_4_of_12  { width: 32.24%; }
+.span_3_of_12  { width: 23.78%; }
+.span_2_of_12  { width: 15.32%; }
+.span_1_of_12  { width: 6.86%;  }
+}
+
+
+/* SPACING  ============================================================================= */
+/* Padding */
+
+.pan  { padding: 0;      }
+.paxs { padding: .25rem; }
+.pas  { padding: .5rem;  }
+.pam  { padding: 1rem;   }
+.pal  { padding: 2rem;   }
+.pax  { padding: 4rem;   }
+
+.pln  { padding-left: 0;      }
+.plxs { padding-left: .25rem; }
+.pls  { padding-left: .5rem;  }
+.plm  { padding-left: 1rem;   }
+.pll  { padding-left: 2rem;   }
+.plx  { padding-left: 4rem;   }
+
+.prn  { padding-right: 0;      }
+.prxs { padding-right: .25rem; }
+.prs  { padding-right: .5rem;  }
+.prm  { padding-right: 1rem;   }
+.prl  { padding-right: 2rem;   }
+.prx  { padding-right: 4rem;   }
+
+.pbn  { padding-bottom: 0;      }
+.pbxs { padding-bottom: .25rem; }
+.pbs  { padding-bottom: .5rem;  }
+.pbm  { padding-bottom: 1rem;   }
+.pbl  { padding-bottom: 2rem;   }
+.pbx  { padding-bottom: 4rem;   }
+
+.ptn  { padding-top: 0;      }
+.ptxs { padding-top: .25rem; }
+.pts  { padding-top: .5rem;  }
+.ptm  { padding-top: 1rem;   }
+.ptl  { padding-top: 2rem;   }
+.ptx  { padding-top: 4rem;   }
+
+.pvn  { padding-top: 0;      padding-bottom: 0;      }
+.pvxs { padding-top: .25rem; padding-bottom: .25rem; }
+.pvs  { padding-top: .5rem;  padding-bottom: .25rem; }
+.pvm  { padding-top: 1rem;   padding-bottom: .25rem; }
+.pvl  { padding-top: 2rem;   padding-bottom: .25rem; }
+.pvx  { padding-top: 4rem;   padding-bottom: .25rem; }
+
+.phn  { padding-left: 0;      padding-right: 0;      }
+.phxs { padding-left: .25rem; padding-right: .25rem; }
+.phs  { padding-left: .5rem;  padding-right: .5rem;  }
+.phm  { padding-left: 1rem;   padding-right: 1rem;   }
+.phl  { padding-left: 2rem;   padding-right: 2rem;   }
+.phx  { padding-left: 4rem;   padding-right: 4rem;   }
+
+
+/* Margins */
+
+.man  { margin: 0;       }
+.maxs  { margin: .25rem; }
+.mas  { margin: .5rem;   }
+.mam  { margin: 1rem;    }
+.mal  { margin: 2rem;    }
+.max  { margin: 4rem;    }
+
+.mln  { margin-left: 0;      }
+.mlxs { margin-left: .25rem; }
+.mls  { margin-left: .5rem;  }
+.mlm  { margin-left: 1rem;   }
+.mll  { margin-left: 2rem;   }
+.mlx  { margin-left: 4rem;   }
+
+.mrn  { margin-right: 0;      }
+.mrxs { margin-right: .25rem; }
+.mrs  { margin-right: .5rem;  }
+.mrm  { margin-right: 1rem;   }
+.mrl  { margin-right: 2rem;   }
+.mrx  { margin-right: 4rem;   }
+
+.mbn  { margin-bottom: 0;      }
+.mbxs { margin-bottom: .25rem; }
+.mbs  { margin-bottom: .5rem;  }
+.mbm  { margin-bottom: 1rem;   }
+.mbl  { margin-bottom: 2rem;   }
+.mbx  { margin-bottom: 4rem;   }
+
+.mtn  { margin-top: 0;      }
+.mtxs { margin-top: .25rem; }
+.mts  { margin-top: .5rem;  }
+.mtm  { margin-top: 1rem;   }
+.mtl  { margin-top: 2rem;   }
+.mtx  { margin-top: 4rem;   }
+
+.mvn  { margin-top: 0;      margin-bottom: 0;      }
+.mvxs { margin-top: .25rem; margin-bottom: .25rem; }
+.mvs  { margin-top: .5rem;  margin-bottom: .5rem;  }
+.mvm  { margin-top: 1rem;   margin-bottom: 1rem;   }
+.mvl  { margin-top: 2rem;   margin-bottom: 2rem;   }
+.mvx  { margin-top: 4rem;   margin-bottom: 4rem;   }
+
+.mhn  { margin-left: 0;      margin-right: 0;        }
+.mhxs { margin-left: .25rem; margin-right: .25rem; }
+.mhs  { margin-left: .5rem;  margin-right: .5rem;  }
+.mhm  { margin-left: 1rem;   margin-right: 1rem;   }
+.mhl  { margin-left: 2rem;   margin-right: 2rem;   }
+.mhx  { margin-left: 4rem;   margin-right: 4rem;   }
+
+
+
+/* BORDER WIDTHS & STYLE ============================================================================= */
+/* Create custom border colors in _styles.scss */
+.ban { border: none !important; }
+.bas { border-width: 1px; border-style: solid; }
+.bls { border-left-width: 1px; border-left-style: solid; }
+.brs { border-right-width: 1px; border-right-style: solid; }
+.bts { border-top-width: 1px; border-top-style: solid; }
+.bbs { border-bottom-width: 1px; border-bottom-style: solid; }
