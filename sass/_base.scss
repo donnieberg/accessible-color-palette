@@ -51,11 +51,6 @@ body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 16px; }
 .opacity-0 { opacity: 0; }
 
 
-/*
- *  Animations
- *  ============================================================================= */
-.ease { transition: all .5s ease; }
-
 
 
 
@@ -73,6 +68,21 @@ textarea:focus,
 button { outline: none; }
 
 
+/* BORDER WIDTHS & STYLE ============================================================================= */
+/* Create custom border colors in _styles.scss */
+.ban { border: none !important; }
+.bas { border-width: 1px; border-style: solid; }
+.bls { border-left-width: 1px; border-left-style: solid; }
+.brs { border-right-width: 1px; border-right-style: solid; }
+.bts { border-top-width: 1px; border-top-style: solid; }
+.bbs { border-bottom-width: 1px; border-bottom-style: solid; }
+.br-s { border-radius: 3px; }
+.br-m { border-radius: 5px; }
+
+
+
+
+
 /*  GRID OF TWELVE   ============================================================================= */
 /* Mobile First */
 .wi-full,
@@ -88,6 +98,8 @@ button { outline: none; }
 .span_3_of_12  { width: 100%; }
 .span_2_of_12  { width: 100%; }
 .span_1_of_12  { width: 100%; }
+
+.ht-full { height: 100%; }
 
 
 /*  12 Column grid for bigger THAN 30em - 480 PIXELS wide */
@@ -148,10 +160,10 @@ button { outline: none; }
 
 .pvn  { padding-top: 0;      padding-bottom: 0;      }
 .pvxs { padding-top: .25rem; padding-bottom: .25rem; }
-.pvs  { padding-top: .5rem;  padding-bottom: .25rem; }
-.pvm  { padding-top: 1rem;   padding-bottom: .25rem; }
-.pvl  { padding-top: 2rem;   padding-bottom: .25rem; }
-.pvx  { padding-top: 4rem;   padding-bottom: .25rem; }
+.pvs  { padding-top: .5rem;  padding-bottom: .5rem; }
+.pvm  { padding-top: 1rem;   padding-bottom: 1rem; }
+.pvl  { padding-top: 2rem;   padding-bottom: 2rem; }
+.pvx  { padding-top: 4rem;   padding-bottom: 4rem; }
 
 .phn  { padding-left: 0;      padding-right: 0;      }
 .phxs { padding-left: .25rem; padding-right: .25rem; }
@@ -213,12 +225,3 @@ button { outline: none; }
 .mhx  { margin-left: 4rem;   margin-right: 4rem;   }
 
 
-
-/* BORDER WIDTHS & STYLE ============================================================================= */
-/* Create custom border colors in _styles.scss */
-.ban { border: none !important; }
-.bas { border-width: 1px; border-style: solid; }
-.bls { border-left-width: 1px; border-left-style: solid; }
-.brs { border-right-width: 1px; border-right-style: solid; }
-.bts { border-top-width: 1px; border-top-style: solid; }
-.bbs { border-bottom-width: 1px; border-bottom-style: solid; }

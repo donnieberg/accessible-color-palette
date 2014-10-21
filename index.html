@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" class="ht-full">
   <head>
     <meta charset="utf-8">
     <title>Accessible Color Palette</title>
@@ -7,69 +7,82 @@
     <link href="assets/fonts/ss-gizmo/ss-gizmo.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
-  <body ng-controller="appController">
-    <h2 class="tac">Accessible Text Colors</h2>
-    <p class="tac mw-1000 center">Accessibility standards allow people with disabilities to use the web. This tool ensures text color is readable by everyone. Set your parameters, edit the text if you'd like, and click 'Submit' to view text colors that meet your minimum WCAG contrast ratio. Click on the color tile to set that color as the text color. Press 'cmd' key + click or enter to set it as the background color.</p>
-    <form accept-charset="utf-8" class="tac">
+  <body ng-controller="appController" class="ht-full bg-dark">
+    <article class="ht-full">
+      <header class="mtx">
+        <h2 class="tac text-white">Set Up your Canvas and Text</h2>
+        <p class="tac text-white">Pick a canvas color, and set up the styling of your text.<br> In the next step you'll be able to preview your text in accessible colors.</p>
+      </header>
+
+      <section class="mtx">
+        <form accept-charset="utf-8" class="tac text-white mw-1000 center">
+          <div class="phs tal dib">
+            <label for="backgroundColor" class="mvs db">Background Color</label>
+            <input id="backgroundColor" class="pas f4 input text-white bg-dark" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
+          </div>
+          <div class="phs tal dib">
+            <label for="fontFamily" class="mvs db">Font Family</label>
+            <div class="pos-rel">
+              <select name="fontFamily" id="fontFamily" class="f4 select text-white bg-dark" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+              <span class="form-icon ss-navigatedown"></span>
+            </div>
+          </div>
+          <div class="phs tal dib">
+            <label for="fontSize" class="mvs db">Font-Size (px)</label>
+            <input id="fontSize" class="pas f4 input text-white bg-dark" type="text" name="textfield" ng-model="fontSize" />
+          </div>
+          <div class="phs tal dib">
+            <label for="fontWeight" class="mvs db">Font Weight</label>
+            <input id="fontWeight" class="pas f4 input text-white bg-dark" type="text" name="textfield" ng-model="fontWeight" />
+          </div>
+          <div class="tac pos-rel">
+            <label for="userContent" class="opacity-0">Edit Text</label>
+            <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-130 bg-white tac ban br-m" ng-model="userContent"></textarea>
+          </div>
+          <!--
+          <button class="db pvm phl mvm f4 fw-bold center button ease" ng-click="getCurrentRatio(); getPassingColors();">Generate Color Palette</button>
+          -->
+          <button class="db pvm phl mvm f4 fw-bold center button ease" ng-click="slideToStep2()">Generate Color Palette</button>
+        </form>
+      </section>
+    </article>
+
+    <section id="section2">
+      <div class="pas text-white">Current Text Ratio: {{currentTextColor.currentRatio}}</div>
       <div class="phs tal dib">
-        <label for="backgroundColor" class="db">Background Color</label>
-        <input id="backgroundColor" class="pas f4 input" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
-      </div>
-      <div class="phs tal dib">
-        <label for="fontFamily" class="db">Font Family</label>
+        <label for="WCAGlevel" class="mvs db text-white">Filter by Accessibility Grade</label>
         <div class="pos-rel">
-          <select name="fontFamily" id="fontFamily" class="f4 select bg-white" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+          <select name="WCAGlevel" id="WCAGlevel" class="f4 select bg-white" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
           <span class="form-icon ss-navigatedown"></span>
         </div>
       </div>
-      <div class="phs tal dib">
-        <label for="fontSize" class="db">Font-Size (px)</label>
-        <input id="fontSize" class="pas f4 input" type="text" name="textfield" ng-model="fontSize" />
-      </div>
-      <div class="phs tal dib">
-        <label for="fontWeight" class="db">Font Weight</label>
-        <input id="fontWeight" class="pas f4 input" type="text" name="textfield" ng-model="fontWeight" />
-      </div>
-      <div class="phs tal dib">
-        <span class="db">Select WCAG Standard</span>
-        <input id="AA" type="radio" ng-model="WCAGlevel" value="AA" class="radio" />
-        <label for="AA">AA</label>
-        <input id="AAA" type="radio" ng-model="WCAGlevel" value="AAA" class="mls radio" />
-        <label for="AAA">AAA</label>
-      </div>
-      <button class="pvs phl mvm f4 fw-bold center button ease" ng-click="getCurrentRatio(); getPassingColors();">Submit</button>
-    <p class="tac">Your current minimum WCAG contrast ratio is {{currentRatio}}</p>
-      <div class="tac pos-rel">
-        <span class="pas pos-abs circle tam bg-white">{{currentTextColor.currentRatio}}</span>
-        <label for="userContent" class="opacity-0">Edit Text</label>
-        <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-150 bg-white tac ban border-v" ng-model="userContent"></textarea>
-      </div>
-    </form>
 
-    <ul class="pan tac list-plain list-horz df">
-      <li id="allColorsFilter" class="border-v df-child filter" data-filter="all">
-        <a href="javascript:void(0)">
-          <p>All Colors</p>
-        </a>
-      </li>
-      <li ng-repeat="color in appFactory.colorCategories" class="text-white df-child filter" data-filter=".category-{{color.name}}" style="background-color: {{color.hex}}">
-        <a href="javascript:void(0)">
-          <p>{{color.name}}</p>
-        </a>
-      </li>
-    </ul>
+      <ul class="pan tac list-plain list-horz df">
+        <li id="allColorsFilter" class="border-v df-child filter" data-filter="all">
+          <a href="javascript:void(0)">
+            <p>All Colors</p>
+          </a>
+        </li>
+        <li ng-repeat="color in appFactory.colorCategories" class="text-white df-child filter" data-filter=".category-{{color.name}}" style="background-color: {{color.hex}}">
+          <a href="javascript:void(0)">
+            <p>{{color.name}}</p>
+          </a>
+        </li>
+      </ul>
 
-    <ul id="Container" class="pan list-plain list-horz df df-wrap">
-      <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'text-white': isDark(color) }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
-        <a href="javascript:void(0)" class="db pas vac">
-          <p class="man">HEX: {{color.hex}}</p>
-        </a>
-      </li>
-    </ul>
+      <ul id="Container" class="pan list-plain list-horz df df-wrap">
+        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'text-white': isDark(color) }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+          <a href="javascript:void(0)" class="db pas vac">
+            <p class="man">HEX: {{color.hex}}</p>
+          </a>
+        </li>
+      </ul>
+    </section>
 
     <script type="text/javascript" src="js/contrastCalculator.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-scroll/angular-scroll.min.js"></script>
     <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="bower_components/mixitup/build/jquery.mixitup.min.js"></script>
     <script type="text/javascript" src="bower_components/tinycolor/tinycolor.js"></script>

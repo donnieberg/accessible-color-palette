@@ -1,17 +1,27 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['duScroll']);
 
-app.controller('appController', function($scope, $http, appFactory) {
+app.controller('appController', function($scope, $http, $document, appFactory) {
   /**
    * Defaults
    */
   $scope.appFactory = appFactory;
   $scope.allFontFamilies = $scope.appFactory.fonts;
+  $scope.accessibilityGrades = $scope.appFactory.accessibilityGrades;
   $scope.userContent = 'The quick brown fox jumps over the lazy dog.';
   $scope.fontFamily = $scope.allFontFamilies[0];
   $scope.fontSize = 22;
   $scope.fontWeight = 400;
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.WCAGlevel = 'AA';
+
+  var offset = 0;
+  var duration = 1500;
+  var step2 = angular.element(document.getElementById('section2'));
+  $scope.slideToStep2 = function() {
+    $document.scrollToElementAnimated(step2, offset, duration);
+  };
+
+
 
   /**
    * Calculate Current Ratio based on user inputs for font size and WCGAG Level AA or AAA
@@ -477,6 +487,7 @@ app.factory('appFactory', function() {
       { type: 'fantasy', alias: 'Copperplate', name: 'Copperplate, "Copperplate Gothic Light", fantasy' },
       { type: 'fantasy', alias: 'Papyrus', name: 'Papyrus, fantasy' },
       { type: 'script',  alias: 'Brush Script MT', name: '"Brush Script MT", cursive' }
-    ]
+    ],
+    accessibilityGrades: [ 'AA', 'AAA' ]
   }
 });

@@ -1,5 +1,7 @@
 /* Base styles for all projects */
 /*  ============================================================================= NORMALIZE STYLES ============================================================================= */
+/* ========================================================================== VARIABLES ========================================================================== */
+/* Colors ========================================================================== */
 /*  ============================================================================= BASE STYLES ============================================================================= */
 body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 16px; }
 
@@ -67,15 +69,30 @@ body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 16px; }
 
 .opacity-0 { opacity: 0; }
 
-/* Animations ============================================================================= */
-.ease { -webkit-transition: all .5s ease; transition: all .5s ease; }
-
 /* SHAPES ============================================================================= */
 button, input[type="submit"] { border: none; background-color: transparent; }
 
 input, textarea { border: none; }
 
 input:focus, textarea:focus, button { outline: none; }
+
+/* BORDER WIDTHS & STYLE ============================================================================= */
+/* Create custom border colors in _styles.scss */
+.ban { border: none !important; }
+
+.bas { border-width: 1px; border-style: solid; }
+
+.bls { border-left-width: 1px; border-left-style: solid; }
+
+.brs { border-right-width: 1px; border-right-style: solid; }
+
+.bts { border-top-width: 1px; border-top-style: solid; }
+
+.bbs { border-bottom-width: 1px; border-bottom-style: solid; }
+
+.br-s { border-radius: 3px; }
+
+.br-m { border-radius: 5px; }
 
 /*  GRID OF TWELVE   ============================================================================= */
 /* Mobile First */
@@ -102,6 +119,8 @@ input:focus, textarea:focus, button { outline: none; }
 .span_2_of_12 { width: 100%; }
 
 .span_1_of_12 { width: 100%; }
+
+.ht-full { height: 100%; }
 
 /*  12 Column grid for bigger THAN 30em - 480 PIXELS wide */
 @media only screen and (min-width: 30em) { .span_12_of_12 { width: 100%; }
@@ -182,13 +201,13 @@ input:focus, textarea:focus, button { outline: none; }
 
 .pvxs { padding-top: .25rem; padding-bottom: .25rem; }
 
-.pvs { padding-top: .5rem; padding-bottom: .25rem; }
+.pvs { padding-top: .5rem; padding-bottom: .5rem; }
 
-.pvm { padding-top: 1rem; padding-bottom: .25rem; }
+.pvm { padding-top: 1rem; padding-bottom: 1rem; }
 
-.pvl { padding-top: 2rem; padding-bottom: .25rem; }
+.pvl { padding-top: 2rem; padding-bottom: 2rem; }
 
-.pvx { padding-top: 4rem; padding-bottom: .25rem; }
+.pvx { padding-top: 4rem; padding-bottom: 4rem; }
 
 .phn { padding-left: 0; padding-right: 0; }
 
@@ -287,20 +306,6 @@ input:focus, textarea:focus, button { outline: none; }
 
 .mhx { margin-left: 4rem; margin-right: 4rem; }
 
-/* BORDER WIDTHS & STYLE ============================================================================= */
-/* Create custom border colors in _styles.scss */
-.ban { border: none !important; }
-
-.bas { border-width: 1px; border-style: solid; }
-
-.bls { border-left-width: 1px; border-left-style: solid; }
-
-.brs { border-right-width: 1px; border-right-style: solid; }
-
-.bts { border-top-width: 1px; border-top-style: solid; }
-
-.bbs { border-bottom-width: 1px; border-bottom-style: solid; }
-
 /*  ============================================================================= TYPOGRAPHY STYLES ============================================================================= */
 h1, .f1 { font-size: 3rem; }
 
@@ -331,11 +336,9 @@ a { text-decoration: none; color: inherit; }
 /* Custom styles for this project */
 /*  ============================================================================= CUSTOM STYLES ============================================================================= */
 /* Component Specific Styles ====================================== */
-.border-v { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; }
-
 .mw-1000 { max-width: 1000px; }
 
-.ht-150 { height: 150px; }
+.ht-130 { height: 130px; }
 
 .wi-primaryColors { width: 140px; }
 
@@ -343,25 +346,18 @@ a { text-decoration: none; color: inherit; }
 
 .bg-white { background-color: white; }
 
-.circle { top: -6px; height: 40px; width: 40px; line-height: 40px; border: 2px solid #ccc; border-radius: 100%; }
+.bg-dark { background-color: #3b3f45; }
 
 #Container .mix { display: none; }
 
 /* Form Styles ====================================== */
-.input { border: 1px solid #ccc; border-radius: 3px; }
+.input { border: 1px solid white; border-radius: 3px; }
 
-.select { border: 1px solid #ccc; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; }
+.select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; }
 
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
 
-.button { cursor: pointer; border: 2px solid #26A65B; color: #26A65B; border-radius: 3px; background: none; }
+.button { cursor: pointer; border: none; color: white; border-radius: 3px; background: #2280bf; }
 
-.button:hover { border: 2px solid #26A65B; background-color: #26A65B; color: #fff; border-radius: 3px; }
-
-.radio { -webkit-appearance: none; -moz-appearance: none; border: 1px solid #bbc0c4; -webkit-box-shadow: none; box-shadow: none; height: 18px; width: 18px; border-radius: 100%; vertical-align: middle; }
-
-.radio:focus, .radio:active { background: #e8eaeb; }
-
-.radio:checked { background: #26A65B !important; -webkit-box-shadow: none; box-shadow: none; border: 1px solid transparent; }
-
-.radio:checked::after { display: block; position: relative; content: ''; left: 4px; top: 4px; height: 8px; width: 8px; border-radius: 100%; background: white; }
+/* Animation Styles ====================================== */
+.ease { -webkit-transition: all .5s ease; transition: all .5s ease; }

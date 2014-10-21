@@ -5,52 +5,28 @@
 /*
  * Component Specific Styles
  * ====================================== */
-.border-v { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; }
-
 .mw-1000 { max-width: 1000px; }
-.ht-150 { height: 150px; }
+.ht-130 { height: 130px; }
 .wi-primaryColors { width: 140px; }
 .ht-colorVariations { height: 250px; }
 
 .bg-white { background-color: white; }
-.circle { top: -6px; height: 40px; width: 40px; line-height: 40px; border: 2px solid #ccc; border-radius: 100%; }
+.bg-dark { background-color: $dark-gray; }
+
 #Container .mix { display: none; }
 
 
 /*
  * Form Styles
  * ====================================== */
-.input { border: 1px solid #ccc; border-radius: 3px; }
-.select { border: 1px solid #ccc; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; }
+.input { border: 1px solid white; border-radius: 3px; }
+.select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; }
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
-.button { cursor: pointer; border: 2px solid #26A65B; color: #26A65B; border-radius: 3px; background: none; }
-.button:hover { border: 2px solid #26A65B; background-color: #26A65B; color: #fff; border-radius: 3px; }
-.radio {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border: 1px solid #bbc0c4;
-  box-shadow: none;
-  height: 18px;
-  width: 18px;
-  border-radius: 100%;
-  vertical-align: middle;
-}
-
-.radio:focus, .radio:active { background: #e8eaeb; }
-.radio:checked {
-  background: #26A65B !important;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border: 1px solid transparent; }
-.radio:checked::after {
-  display: block;
-  position: relative;
-  content: '';
-  left: 4px;
-  top: 4px;
-  height: 8px;
-  width: 8px;
-  border-radius: 100%;
-  background: white; }
+.button { cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
 
 
+
+/*
+ * Animation Styles
+ * ====================================== */
+.ease { transition: all .5s ease; }
