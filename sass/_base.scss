@@ -50,7 +50,7 @@ body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 16px; }
 .hidden { visibility: hidden; }
 .opacity-0 { opacity: 0; }
 
-
+.pointer { cursor: default; }
 
 
 
@@ -64,8 +64,7 @@ input,
 textarea { border: none; }
 
 input:focus,
-textarea:focus,
-button { outline: none; }
+textarea:focus { outline: none; }
 
 
 /* BORDER WIDTHS & STYLE ============================================================================= */

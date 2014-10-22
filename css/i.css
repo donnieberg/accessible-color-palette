@@ -69,12 +69,14 @@ body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 16px; }
 
 .opacity-0 { opacity: 0; }
 
+.pointer { cursor: default; }
+
 /* SHAPES ============================================================================= */
 button, input[type="submit"] { border: none; background-color: transparent; }
 
 input, textarea { border: none; }
 
-input:focus, textarea:focus, button { outline: none; }
+input:focus, textarea:focus { outline: none; }
 
 /* BORDER WIDTHS & STYLE ============================================================================= */
 /* Create custom border colors in _styles.scss */
@@ -355,6 +357,8 @@ a { text-decoration: none; color: inherit; }
 .bg-dark { background-color: #3b3f45; }
 
 .bg-colorFilters { background-color: #333333; }
+
+.border-white { border: 2px solid #f2f2f2; }
 
 #Container .mix { display: none; }
 
