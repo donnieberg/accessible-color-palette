@@ -7,6 +7,7 @@
  * ====================================== */
 .mw-1000 { max-width: 1000px; }
 .ht-130 { height: 130px; }
+.ht-toolbar { height: 86px; }
 .wi-primaryColors { width: 140px; }
 .ht-colorVariations { height: 250px; }
 
@@ -14,13 +15,14 @@
 .bg-dark { background-color: $dark-gray; }
 
 #Container .mix { display: none; }
+.swatch { width: 86px; height: 86px; }
 
 
 /*
  * Form Styles
  * ====================================== */
 .input { border: 1px solid white; border-radius: 3px; }
-.select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; }
+.select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; cursor: pointer; }
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
 .button { cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
 
@@ -30,3 +32,11 @@
  * Animation Styles
  * ====================================== */
 .ease { transition: all .5s ease; }
+.slideToggle {
+	overflow-y: hidden;
+	transition-property: all;
+	transition-duration: .2s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.mh-auto { max-height: 53px; }
+.mh-none { max-height: 0; }

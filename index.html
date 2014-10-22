@@ -37,28 +37,55 @@
           </div>
           <div class="tac pos-rel">
             <label for="userContent" class="opacity-0">Edit Text</label>
-            <textarea style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-130 bg-white tac ban br-m" ng-model="userContent"></textarea>
+            <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}};" class="ptl wi-full ht-130 bg-white tac ban br-s" ng-model="userContent"></textarea>
           </div>
-          <!--
-          <button class="db pvm phl mvm f4 fw-bold center button ease" ng-click="getCurrentRatio(); getPassingColors();">Generate Color Palette</button>
-          -->
-          <button class="db pvm phl mvm f4 fw-bold center button ease" ng-click="slideToStep2()">Generate Color Palette</button>
+          <button class="db pvm phl mvm f4 fw-bold center button ease" ng-click="getCurrentRatio(); getPassingColors(); slideToStep2()">Generate Color Palette</button>
         </form>
       </section>
     </article>
 
-    <section id="section2">
-      <div class="pas text-white">Current Text Ratio: {{currentTextColor.currentRatio}}</div>
-      <div class="phs tal dib">
-        <label for="WCAGlevel" class="mvs db text-white">Filter by Accessibility Grade</label>
-        <div class="pos-rel">
-          <select name="WCAGlevel" id="WCAGlevel" class="f4 select bg-white" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
-          <span class="form-icon ss-navigatedown"></span>
+    <article id="section2">
+      <section class="pam">
+        <div class="mbl wi-full br-s ht-toolbar bg-white dt">
+          <div class="phm dtc vac" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
+          <div class="dtc swatch" style="background-color: {{currentTextColor.hex}};"></div>
+          <div class="phm dtc vac">{{currentTextColor.hex}}</div>
+          <div class="phm dtc vac">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</div>
+          <div class="phm dtc vac">
+            <span class="db f5">Contrast Ratio</span>
+            {{currentTextColor.currentRatio}}
+            <span class="mls text-green ss-check" ng-if="currentTextColor.pass"></span>
+            <span class="mls text-red ss-delete" ng-if="!currentTextColor.pass"></span>
+          </div>
+          <div class="phm dtc vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
         </div>
-      </div>
+        <div class="mrl tal dib">
+          <label for="WCAGlevel" class="mvs db text-white">Filter by Accessibility Grade</label>
+          <div class="pos-rel">
+            <select name="WCAGlevel" id="WCAGlevel" class="f4 wi-full select text-white bg-dark" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
+            <span class="form-icon text-white ss-navigatedown"></span>
+          </div>
+        </div>
+        <div class="mrl tal text-white dib">
+          <label for="colorFilter" class="mvs db">Filter by Color</label>
+          <div id="colorFilter" class="f4 wi-full pos-rel select" ng-click="toggleColorFilters()">
+            All Colors
+            <span class="form-icon text-white ss-navigatedown"></span>
+          </div>
+        </div>
+        <!--
+        <div class="mrl tal dib">
+          <label for="textSize" class="mvs db text-white">Filter by Small/Large Text</label>
+          <div class="pos-rel">
+            <select name="textSize" id="textSize" class="f4 wi-full select bg-white" ng-model="textSize" ng-options="size for size in textSizes"></select>
+            <span class="form-icon ss-navigatedown"></span>
+          </div>
+        </div>
+        -->
+      </section>
 
-      <ul class="pan tac list-plain list-horz df">
-        <li id="allColorsFilter" class="border-v df-child filter" data-filter="all">
+      <ul class="pan tac list-plain list-horz df slideToggle" ng-class="{ 'mh-auto': showColorFilters, 'mh-none': !showColorFilters }">
+        <li id="allColorsFilter" class="df-child text-white filter" data-filter="all">
           <a href="javascript:void(0)">
             <p>All Colors</p>
           </a>
@@ -73,11 +100,11 @@
       <ul id="Container" class="pan list-plain list-horz df df-wrap">
         <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'text-white': isDark(color) }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <a href="javascript:void(0)" class="db pas vac">
-            <p class="man">HEX: {{color.hex}}</p>
+            <p class="opacity-0">HEX: {{color.hex}}</p>
           </a>
         </li>
       </ul>
-    </section>
+    </article>
 
     <script type="text/javascript" src="js/contrastCalculator.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>

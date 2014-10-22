@@ -7,13 +7,19 @@ app.controller('appController', function($scope, $http, $document, appFactory) {
   $scope.appFactory = appFactory;
   $scope.allFontFamilies = $scope.appFactory.fonts;
   $scope.accessibilityGrades = $scope.appFactory.accessibilityGrades;
+  $scope.textSizes = $scope.appFactory.textSizes;
+
   $scope.userContent = 'The quick brown fox jumps over the lazy dog.';
   $scope.fontFamily = $scope.allFontFamilies[0];
   $scope.fontSize = 22;
   $scope.fontWeight = 400;
   $scope.backgroundColor = { hex: '#ffffff'};
+  $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
 
+  /**
+   * Scroll Animation from step 1 to step 2
+   */
   var offset = 0;
   var duration = 1500;
   var step2 = angular.element(document.getElementById('section2'));
@@ -21,6 +27,9 @@ app.controller('appController', function($scope, $http, $document, appFactory) {
     $document.scrollToElementAnimated(step2, offset, duration);
   };
 
+  $scope.toggleColorFilters = function() {
+    $scope.showColorFilters = !$scope.showColorFilters;
+  };
 
 
   /**
@@ -104,6 +113,8 @@ app.controller('appController', function($scope, $http, $document, appFactory) {
       $scope.setBackgroundColor(color);
     }else{
       $scope.setTextColor(color);
+      var currentColor = tinycolor(color.hex);
+      color.rgb = currentColor.toRgb();
     }
     $scope.getPassingColors();
   };
@@ -111,11 +122,11 @@ app.controller('appController', function($scope, $http, $document, appFactory) {
 
   /**
    * Uses tinycolor to determine if it is a light or dark color
-   */
   $scope.isDark = function(color) {
     var color = tinycolor(color.hex);
     return color.isDark();
   };
+   */
 
 
 
@@ -488,6 +499,7 @@ app.factory('appFactory', function() {
       { type: 'fantasy', alias: 'Papyrus', name: 'Papyrus, fantasy' },
       { type: 'script',  alias: 'Brush Script MT', name: '"Brush Script MT", cursive' }
     ],
-    accessibilityGrades: [ 'AA', 'AAA' ]
+    accessibilityGrades: [ 'AA', 'AAA' ],
+    textSizes: [ 'small text', 'large text' ]
   }
 });

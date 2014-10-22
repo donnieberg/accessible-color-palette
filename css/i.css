@@ -331,6 +331,10 @@ h6, .f6 { font-size: 0.5rem; }
 
 .text-white { color: #fff; }
 
+.text-green { color: #26a65b; }
+
+.text-red { color: #d91e18; }
+
 a { text-decoration: none; color: inherit; }
 
 /* Custom styles for this project */
@@ -339,6 +343,8 @@ a { text-decoration: none; color: inherit; }
 .mw-1000 { max-width: 1000px; }
 
 .ht-130 { height: 130px; }
+
+.ht-toolbar { height: 86px; }
 
 .wi-primaryColors { width: 140px; }
 
@@ -350,10 +356,12 @@ a { text-decoration: none; color: inherit; }
 
 #Container .mix { display: none; }
 
+.swatch { width: 86px; height: 86px; }
+
 /* Form Styles ====================================== */
 .input { border: 1px solid white; border-radius: 3px; }
 
-.select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; }
+.select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; cursor: pointer; }
 
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
 
@@ -361,3 +369,9 @@ a { text-decoration: none; color: inherit; }
 
 /* Animation Styles ====================================== */
 .ease { -webkit-transition: all .5s ease; transition: all .5s ease; }
+
+.slideToggle { overflow-y: hidden; -webkit-transition-property: all; transition-property: all; -webkit-transition-duration: .2s; transition-duration: .2s; -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1); transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+
+.mh-auto { max-height: 53px; }
+
+.mh-none { max-height: 0; }
