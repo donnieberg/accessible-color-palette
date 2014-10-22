@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
   <body ng-controller="appController" class="ht-full bg-dark">
-    <article class="ht-full">
+    <article id="section1" class="ht-full">
       <header class="mtx">
         <h2 class="tac text-white">Set Up your Canvas and Text</h2>
         <p class="tac text-white">Pick a canvas color, and set up the styling of your text.<br> In the next step you'll be able to preview your text in accessible colors.</p>
@@ -39,7 +39,7 @@
             <label for="userContent" class="opacity-0">Edit Text</label>
             <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}};" class="ptl wi-full ht-130 bg-white tac ban br-s" ng-model="userContent"></textarea>
           </div>
-          <button class="db pvm phl mvm f4 fw-bold center button ease" ng-click="getCurrentRatio(); getPassingColors(); slideToStep2()">Generate Color Palette</button>
+          <button class="db pvm phl mvm f4 fw-bold center button ease" ng-click="getCurrentRatio(); getPassingColors(); slideToElement('section2', 900)">Generate Color Palette</button>
         </form>
       </section>
     </article>
@@ -57,7 +57,7 @@
             <span class="db f5">Contrast Ratio</span>
             {{currentTextColor.currentRatio}}
             <span class="mls text-green ss-check" ng-if="currentTextColor.pass"></span>
-            <span class="mls text-red ss-delete" ng-if="!currentTextColor.pass"></span>
+            <span class="mls text-red ss-ban" ng-if="!currentTextColor.pass"></span>
           </div>
           <div class="phm dtc vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
         </div>
@@ -108,6 +108,14 @@
           </a>
         </li>
       </ul>
+
+      <a href="javascript:void(0)" class="pos-fix pos-info text-white easeDelayAni fadeInAni" ng-if="showRefresh" ng-click="showInfoPanel = !showInfoPanel">
+        <span class="f2 text-white ss-help"></span>
+      </a>
+      <a href="javascript:void(0)" class="pos-fix pos-refresh text-white easeDelayAni fadeInAni" ng-if="showRefresh" ng-click="slideToElement('section1', 900)">
+        <span class="mrs text-green ss-replay"></span>
+        Start Over
+      </a>
     </article>
 
     <script type="text/javascript" src="js/contrastCalculator.js"></script>

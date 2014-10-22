@@ -51,6 +51,17 @@
 .mh-auto { max-height: 53px; }
 .mh-none { max-height: 0; }
 
+.fadeInAni { animation: fadeIn 1s 1s forwards; }
+.fadeOutAni { animation: fadeOut 0s forwards; }
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 
 
 /*
@@ -78,4 +89,12 @@
   position: absolute;
   bottom: -26px;
   left: 60px;
+}
+.pos-refresh {
+  bottom: 20px;
+  right: 20px;
+}
+.pos-info {
+  bottom: 20px;
+  left: 20px;
 }

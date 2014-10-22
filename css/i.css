@@ -386,6 +386,19 @@ a { text-decoration: none; color: inherit; }
 
 .mh-none { max-height: 0; }
 
+.fadeInAni { -webkit-animation: fadeIn 1s 1s forwards; animation: fadeIn 1s 1s forwards; }
+
+.fadeOutAni { -webkit-animation: fadeOut 0s forwards; animation: fadeOut 0s forwards; }
+
+@-webkit-keyframes fadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+
+@keyframes fadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+@-webkit-keyframes fadeOut { 0% { opacity: 1; }
+  100% { opacity: 0; } }
+@keyframes fadeOut { 0% { opacity: 1; }
+  100% { opacity: 0; } }
 /* Shapes ====================================== */
 .arrow-up { width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-bottom: 13px solid #333333; }
 
@@ -394,3 +407,7 @@ a { text-decoration: none; color: inherit; }
 .pos-arrow-left { position: absolute; top: 30px; left: -7px; }
 
 .pos-arrow-up { position: absolute; bottom: -26px; left: 60px; }
+
+.pos-refresh { bottom: 20px; right: 20px; }
+
+.pos-info { bottom: 20px; left: 20px; }

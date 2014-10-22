@@ -20,11 +20,22 @@ app.controller('appController', function($scope, $http, $document, appFactory) {
   /**
    * Scroll Animation from step 1 to step 2
    */
-  var offset = 0;
-  var duration = 1500;
-  var step2 = angular.element(document.getElementById('section2'));
-  $scope.slideToStep2 = function() {
-    $document.scrollToElementAnimated(step2, offset, duration);
+  //var duration = 1500;
+  //var duration2 = 0;
+  //var step1 = angular.element(document.getElementById('section1'));
+  //var step2 = angular.element(document.getElementById('section2'));
+  //$scope.slideToStep2 = function() {
+  //  $document.scrollToElementAnimated(step2, offset, duration);
+  //  $scope.showRefresh = true;
+  //};
+
+  $scope.slideToElement = function(thing, speed) {
+    var offset = 0;
+    var speed = speed;
+    var thing = angular.element(document.getElementById(thing));
+
+    $document.scrollToElementAnimated(thing, offset, speed);
+    $scope.showRefresh = !$scope.showRefresh;
   };
 
   $scope.toggleColorFilters = function() {
