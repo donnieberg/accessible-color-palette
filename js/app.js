@@ -46,6 +46,7 @@ app.controller('appController', function($scope, $http, $document, appFactory) {
     //console.log('the current ratio is: ', $scope.currentRatio);
   };
 
+
   /**
    * Get all Flat UI Colors
    */

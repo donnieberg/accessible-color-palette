@@ -360,6 +360,8 @@ a { text-decoration: none; color: inherit; }
 
 .border-white { border: 2px solid #f2f2f2; }
 
+.border-selected { border: 12px solid #f2f2f2; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
 #Container .mix { display: none; }
 
 .swatch { width: 86px; height: 86px; }

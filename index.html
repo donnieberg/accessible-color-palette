@@ -64,7 +64,7 @@
         <div class="mrl tal dib">
           <label for="WCAGlevel" class="mvs db text-white">Filter by Accessibility Grade</label>
           <div class="pos-rel">
-            <select name="WCAGlevel" id="WCAGlevel" class="f4 wi-full select text-white bg-dark" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
+            <select name="WCAGlevel" id="WCAGlevel" class="f4 wi-full select text-white bg-dark" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades" ng-change="getCurrentRatio()"></select>
             <span class="form-icon text-white ss-navigatedown"></span>
           </div>
         </div>
@@ -101,9 +101,10 @@
       </ul>
 
       <ul id="Container" class="pan list-plain list-horz df df-wrap">
-        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps border-white mix category-{{color.colorParent}}" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
-          <a href="javascript:void(0)" class="db pas vac">
+        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'border-selected': color === currentTextColor, 'border-white': color !== currentTextColor }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+          <a href="javascript:void(0)" class="dt ht-full pas vac">
             <p class="opacity-0">HEX: {{color.hex}}</p>
+            <span class="f3 dtc vac text-white ss-check" ng-if="color === currentTextColor"></span>
           </a>
         </li>
       </ul>
