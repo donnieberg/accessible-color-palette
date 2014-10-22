@@ -13,9 +13,11 @@
 
 .bg-white { background-color: white; }
 .bg-dark { background-color: $dark-gray; }
+.bg-colorFilters { background-color: $darker-gray; }
 
 #Container .mix { display: none; }
 .swatch { width: 86px; height: 86px; }
+.mt-colorFilters { margin-top: 1.5rem; }
 
 
 /*
@@ -29,7 +31,7 @@
 
 
 /*
- * Animation Styles
+ * Animations
  * ====================================== */
 .ease { transition: all .5s ease; }
 .slideToggle {
@@ -40,3 +42,32 @@
 }
 .mh-auto { max-height: 53px; }
 .mh-none { max-height: 0; }
+
+
+
+/*
+ * Shapes
+ * ====================================== */
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 13px solid transparent;
+	border-right: 13px solid transparent;
+	border-bottom: 13px solid $darker-gray;
+}
+.arrow-left {
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+}
+.pos-arrow-left {
+  position: absolute;
+  top: 30px;
+  left: -7px;
+}
+.pos-arrow-up {
+  position: absolute;
+  bottom: -26px;
+  left: 60px;
+}

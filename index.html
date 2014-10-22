@@ -45,10 +45,12 @@
     </article>
 
     <article id="section2">
-      <section class="pam">
+      <section class="phm ptm">
         <div class="mbl wi-full br-s ht-toolbar bg-white dt">
           <div class="phm dtc vac" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
-          <div class="dtc swatch" style="background-color: {{currentTextColor.hex}};"></div>
+          <div class="dtc swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
+            <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
+          </div>
           <div class="phm dtc vac">{{currentTextColor.hex}}</div>
           <div class="phm dtc vac">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</div>
           <div class="phm dtc vac">
@@ -71,6 +73,7 @@
           <div id="colorFilter" class="f4 wi-full pos-rel select" ng-click="toggleColorFilters()">
             All Colors
             <span class="form-icon text-white ss-navigatedown"></span>
+            <span class="arrow-up pos-arrow-up" ng-if="showColorFilters"></span>
           </div>
         </div>
         <!--
@@ -84,7 +87,7 @@
         -->
       </section>
 
-      <ul class="pan tac list-plain list-horz df slideToggle" ng-class="{ 'mh-auto': showColorFilters, 'mh-none': !showColorFilters }">
+      <ul class="pam mt-colorFilters tac list-plain list-horz df slideToggle" ng-class="{ 'mh-auto bg-colorFilters ': showColorFilters, 'mh-none': !showColorFilters }">
         <li id="allColorsFilter" class="df-child text-white filter" data-filter="all">
           <a href="javascript:void(0)">
             <p>All Colors</p>

@@ -354,9 +354,13 @@ a { text-decoration: none; color: inherit; }
 
 .bg-dark { background-color: #3b3f45; }
 
+.bg-colorFilters { background-color: #333333; }
+
 #Container .mix { display: none; }
 
 .swatch { width: 86px; height: 86px; }
+
+.mt-colorFilters { margin-top: 1.5rem; }
 
 /* Form Styles ====================================== */
 .input { border: 1px solid white; border-radius: 3px; }
@@ -367,7 +371,7 @@ a { text-decoration: none; color: inherit; }
 
 .button { cursor: pointer; border: none; color: white; border-radius: 3px; background: #2280bf; }
 
-/* Animation Styles ====================================== */
+/* Animations ====================================== */
 .ease { -webkit-transition: all .5s ease; transition: all .5s ease; }
 
 .slideToggle { overflow-y: hidden; -webkit-transition-property: all; transition-property: all; -webkit-transition-duration: .2s; transition-duration: .2s; -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1); transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
@@ -375,3 +379,12 @@ a { text-decoration: none; color: inherit; }
 .mh-auto { max-height: 53px; }
 
 .mh-none { max-height: 0; }
+
+/* Shapes ====================================== */
+.arrow-up { width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-bottom: 13px solid #333333; }
+
+.arrow-left { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
+
+.pos-arrow-left { position: absolute; top: 30px; left: -7px; }
+
+.pos-arrow-up { position: absolute; bottom: -26px; left: 60px; }
