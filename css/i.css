@@ -308,6 +308,15 @@ input:focus, textarea:focus { outline: none; }
 
 .mhx { margin-left: 4rem; margin-right: 4rem; }
 
+/* OTHER PEOPLE'S CODE ============================================================================= */
+/** For modern browsers 1. The space content is one way to avoid an Opera bug when the contenteditable attribute is included anywhere else in the document. Otherwise it causes space to appear at the top and bottom of elements that are clearfixed. 2. The use of `table` rather than `block` is only necessary if using `:before` to contain the top-margins of child elements. */
+.cf:before, .cf:after { content: " "; /* 1 */ display: table; /* 2 */ }
+
+.cf:after { clear: both; }
+
+/** For IE 6/7 only Include this rule to trigger hasLayout and contain floats. */
+.cf { *zoom: 1; }
+
 /*  ============================================================================= TYPOGRAPHY STYLES ============================================================================= */
 h1, .f1 { font-size: 3rem; }
 
@@ -346,6 +355,8 @@ a { text-decoration: none; color: inherit; }
 
 .ht-130 { height: 130px; }
 
+.leftPanel { width: 287px; left: -287px; }
+
 .ht-toolbar { height: 86px; }
 
 .wi-primaryColors { width: 140px; }
@@ -355,6 +366,8 @@ a { text-decoration: none; color: inherit; }
 .bg-white { background-color: white; }
 
 .bg-dark { background-color: #3b3f45; }
+
+.bg-panel { background-color: #405973; }
 
 .bg-colorFilters { background-color: #333333; }
 
@@ -368,7 +381,9 @@ a { text-decoration: none; color: inherit; }
 
 .mt-colorFilters { margin-top: 1.5rem; }
 
-/* Form Styles ====================================== */
+/* Anchor & Form Styles ====================================== */
+.link:hover { color: #64b0e3; }
+
 .input { border: 1px solid white; border-radius: 3px; }
 
 .select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; cursor: pointer; }
@@ -399,7 +414,16 @@ a { text-decoration: none; color: inherit; }
   100% { opacity: 0; } }
 @keyframes fadeOut { 0% { opacity: 1; }
   100% { opacity: 0; } }
-/* Shapes ====================================== */
+/* slide out left panel */
+.slideOut-left.slideOut-open { left: 0px; }
+
+.slideOut { -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
+
+/* Shapes & Positioning ====================================== */
+.circle { border-radius: 100%; }
+
+.avatar { border: 2px solid #f2f2f2; }
+
 .arrow-up { width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-bottom: 13px solid #333333; }
 
 .arrow-left { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; }

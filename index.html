@@ -7,7 +7,7 @@
     <link href="assets/fonts/ss-gizmo/ss-gizmo.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
-  <body ng-controller="appController" class="ht-full bg-dark">
+  <body ng-controller="appController" class="ht-full bg-dark pos-rel">
     <article id="section1" class="ht-full">
       <header class="mtx">
         <h2 class="tac text-white">Set Up your Canvas and Text</h2>
@@ -109,7 +109,7 @@
         </li>
       </ul>
 
-      <a href="javascript:void(0)" class="pos-fix pos-info text-white easeDelayAni fadeInAni" ng-if="showRefresh" ng-click="showInfoPanel = !showInfoPanel">
+      <a href="javascript:void(0)" class="pos-fix pos-info text-white easeDelayAni fadeInAni" ng-if="showRefresh" ng-click="toggleInfoPanel();">
         <span class="f2 text-white ss-help"></span>
       </a>
       <a href="javascript:void(0)" class="pos-fix pos-refresh text-white easeDelayAni fadeInAni" ng-if="showRefresh" ng-click="slideToElement('section1', 900)">
@@ -117,6 +117,33 @@
         Start Over
       </a>
     </article>
+    <!-- ====================================
+    Side Bar slide out from Left of Window
+    ======================================= -->
+    <slide-out-left class="text-white leftPanel bg-panel">
+      <section class="pvm phl">
+        <span class="f3 ss-delete" ng-click="toggleInfoPanel()"></span>
+        <h1 class="f4">Brought to you with love by Salesforce UX</h1>
+        <p>
+          We believe it is important to design meaningful products that work for everyone. It is in that spirit that we’ve come up with this tool to help designers ensure that their color choices prove accessible to their users.
+        </p>
+        <p>
+          Thanks for checking out our tool. We’d love your feedback.
+        </p>
+        <div class="cf">
+          <div class="fl tac">
+            <img width="50" height="50" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="circle avatar" />
+            <p class="man">Donielle Berg</p>
+            <p class="man f5"><a href="http://donielleberg.com/" class="ease link">donielleberg.com</a></p>
+          </div>
+          <div class="fr tac">
+            <img width="50" height="50" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="circle avatar" />
+            <p class="man">Adrian Rapp</p>
+            <p class="man f5"><a href="http://adrianrapp.com/" class="ease link">adrianrapp.com</a></p>
+          </div>
+        </div>
+      </section>
+    </slide-out-left>
 
     <script type="text/javascript" src="js/contrastCalculator.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>

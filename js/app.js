@@ -1,5 +1,16 @@
 var app = angular.module('app', ['duScroll']);
 
+app.directive('slideOutLeft', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'partials/slideOutLeft.html',
+    replace: true,
+    transclude: true,
+    link: function(scope, element, attrs) {
+    }
+  };
+});
+
 app.controller('appController', function($scope, $http, $document, appFactory) {
   /**
    * Defaults
@@ -51,6 +62,13 @@ app.controller('appController', function($scope, $http, $document, appFactory) {
    */
   $scope.toggleColorFilters = function() {
     $scope.showColorFilters = !$scope.showColorFilters;
+  };
+
+  /**
+   * Show/hide info left panel
+   */
+  $scope.toggleInfoPanel = function() {
+    $scope.isLeftSlideOpen = !$scope.isLeftSlideOpen;
   };
 
 

@@ -7,12 +7,14 @@
  * ====================================== */
 .mw-1000 { max-width: 1000px; }
 .ht-130 { height: 130px; }
+.leftPanel { width: 287px; left: -287px; }
 .ht-toolbar { height: 86px; }
 .wi-primaryColors { width: 140px; }
 .ht-colorVariations { height: 250px; }
 
 .bg-white { background-color: white; }
 .bg-dark { background-color: $dark-gray; }
+.bg-panel { background-color: $navy; }
 .bg-colorFilters { background-color: $darker-gray; }
 
 .border-white { border: 2px solid $near-white; }
@@ -29,8 +31,10 @@
 
 
 /*
- * Form Styles
+ * Anchor & Form Styles
  * ====================================== */
+.link:hover { color: lighten($blue, 20%); }
+
 .input { border: 1px solid white; border-radius: 3px; }
 .select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; cursor: pointer; }
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
@@ -62,11 +66,24 @@
   100% { opacity: 0; }
 }
 
+/* slide out left panel */
+.slideOut-left.slideOut-open { left: 0px; }
+.slideOut {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+
+
 
 
 /*
- * Shapes
+ * Shapes & Positioning
  * ====================================== */
+.circle { border-radius: 100%; }
+.avatar { border: 2px solid $near-white; }
+
 .arrow-up {
 	width: 0;
 	height: 0;
