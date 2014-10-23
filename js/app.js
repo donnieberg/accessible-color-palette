@@ -18,26 +18,37 @@ app.controller('appController', function($scope, $http, $document, appFactory) {
   $scope.WCAGlevel = 'AA';
 
   /**
-   * Scroll Animation from step 1 to step 2
+   * Scroll Animation between step 1 to step 2
+   * Takes in two params: @thing and @speed
+   * @thing - element to scroll to
+   * @speed - duration of animation speed
    */
-  //var duration = 1500;
-  //var duration2 = 0;
-  //var step1 = angular.element(document.getElementById('section1'));
-  //var step2 = angular.element(document.getElementById('section2'));
-  //$scope.slideToStep2 = function() {
-  //  $document.scrollToElementAnimated(step2, offset, duration);
-  //  $scope.showRefresh = true;
-  //};
-
   $scope.slideToElement = function(thing, speed) {
     var offset = 0;
     var speed = speed;
     var thing = angular.element(document.getElementById(thing));
 
     $document.scrollToElementAnimated(thing, offset, speed);
-    $scope.showRefresh = !$scope.showRefresh;
   };
 
+  /**
+   * Hide 'start over' and '?' when scrolled to the top at step 1
+   */
+  $document.on('scroll', function() {
+    if($document.scrollTop() < 500){
+      $scope.showRefresh = false;
+      $scope.$apply();
+    }else{
+      $scope.showRefresh = true;
+      $scope.$apply();
+      //console.log('TODO: Make it change based on height of window');
+    }
+  });
+
+
+  /**
+   * Show/hide the color filters bar below the Color Filter drop down 'button'
+   */
   $scope.toggleColorFilters = function() {
     $scope.showColorFilters = !$scope.showColorFilters;
   };
