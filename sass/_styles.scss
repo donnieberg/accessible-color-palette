@@ -15,6 +15,7 @@
 .bg-white { background-color: white; }
 .bg-dark { background-color: $dark-gray; }
 .bg-panel { background-color: $navy; }
+.bg-blur { background-color: $navy-blur; }
 .bg-colorFilters { background-color: $darker-gray; }
 
 .border-white { border: 2px solid $near-white; }
@@ -38,7 +39,8 @@
 .input { border: 1px solid white; border-radius: 3px; }
 .select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; cursor: pointer; }
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
-.button { cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
+.button-blue { width: 282px; cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
+.button-white { width: 282px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
 
 
 

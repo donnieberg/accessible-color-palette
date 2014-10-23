@@ -369,6 +369,8 @@ a { text-decoration: none; color: inherit; }
 
 .bg-panel { background-color: #405973; }
 
+.bg-blur { background-color: rgba(64, 89, 115, 0.95); }
+
 .bg-colorFilters { background-color: #333333; }
 
 .border-white { border: 2px solid #f2f2f2; }
@@ -390,7 +392,9 @@ a { text-decoration: none; color: inherit; }
 
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
 
-.button { cursor: pointer; border: none; color: white; border-radius: 3px; background: #2280bf; }
+.button-blue { width: 282px; cursor: pointer; border: none; color: white; border-radius: 3px; background: #2280bf; }
+
+.button-white { width: 282px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
 
 /* Animations ====================================== */
 .ease { -webkit-transition: all .5s ease; transition: all .5s ease; }

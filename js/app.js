@@ -11,7 +11,7 @@ app.directive('slideOutLeft', function() {
   };
 });
 
-app.controller('appController', function($scope, $http, $document, appFactory) {
+app.controller('appController', function($scope, $http, $document, $timeout, appFactory) {
   /**
    * Defaults
    */
@@ -38,8 +38,17 @@ app.controller('appController', function($scope, $http, $document, appFactory) {
     var offset = 0;
     var speed = speed;
     var thing = angular.element(document.getElementById(thing));
-
     $document.scrollToElementAnimated(thing, offset, speed);
+  };
+
+  $scope.showInstructions1 = function() {
+    $scope.isInstructions1Active = true;
+  };
+  $scope.showInstructions2 = function() {
+    $scope.isInstructions2Active = true;
+  };
+  $scope.activatePalette = function() {
+    $scope.isSection2Active = true;
   };
 
   /**
