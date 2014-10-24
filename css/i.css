@@ -60,6 +60,8 @@ body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 16px; }
 
 .vab { vertical-align: bottom; }
 
+.vam { position: relative; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
+
 /* Display Types ============================================================================= */
 .z-above { z-index: 10; }
 
@@ -75,8 +77,6 @@ body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 16px; }
 button, input[type="submit"] { border: none; background-color: transparent; }
 
 input, textarea { border: none; }
-
-input:focus, textarea:focus { outline: none; }
 
 /* BORDER WIDTHS & STYLE ============================================================================= */
 /* Create custom border colors in _styles.scss */
@@ -136,7 +136,8 @@ input:focus, textarea:focus { outline: none; }
   .span_4_of_12 { width: 32.24%; }
   .span_3_of_12 { width: 23.78%; }
   .span_2_of_12 { width: 15.32%; }
-  .span_1_of_12 { width: 6.86%; } }
+  .span_1_of_12 { width: 6.86%; }
+  .mtx-ns { margin-top: 4rem; } }
 /* SPACING  ============================================================================= */
 /* Padding */
 .pan { padding: 0; }
@@ -356,6 +357,8 @@ a { text-decoration: none; color: inherit; }
 /* Custom styles for this project */
 /*  ============================================================================= CUSTOM STYLES ============================================================================= */
 /* Component Specific Styles ====================================== */
+.mw-800 { max-width: 800px; }
+
 .mw-1000 { max-width: 1000px; }
 
 .ht-130 { height: 130px; }

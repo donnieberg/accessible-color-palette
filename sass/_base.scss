@@ -40,6 +40,12 @@ body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 16px; }
 .vac { vertical-align: middle; }
 .vab { vertical-align: bottom; }
 
+.vam {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 
 /*
  *  Display Types
@@ -62,9 +68,6 @@ input[type="submit"] { border: none; background-color: transparent; }
 
 input,
 textarea { border: none; }
-
-input:focus,
-textarea:focus { outline: none; }
 
 
 /* BORDER WIDTHS & STYLE ============================================================================= */
@@ -116,6 +119,8 @@ textarea:focus { outline: none; }
 .span_3_of_12  { width: 23.78%; }
 .span_2_of_12  { width: 15.32%; }
 .span_1_of_12  { width: 6.86%;  }
+
+.mtx-ns  { margin-top: 4rem;   }
 }
 
 
