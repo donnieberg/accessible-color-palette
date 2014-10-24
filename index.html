@@ -8,6 +8,14 @@
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
   <body ng-controller="appController" class="ht-full-ns bg-dark pos-rel">
+<button id='#copy_button' data-clipboard-target='to_copy'><b>Copy To Clipboard</b></button>
+
+<p id='to_copy'>123456</p>
+
+
+
+
+
     <article id="section1" class="ht-full-ns">
       <header class="pam mtx-ns mw-800 center">
         <h2 class="tac text-white">Set Up your Canvas and Text</h2>
@@ -182,6 +190,8 @@
 
     <script type="text/javascript" src="js/contrastCalculator.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vendor/ZeroClipboard.min.js"></script>
+
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-scroll/angular-scroll.min.js"></script>
     <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
@@ -191,5 +201,12 @@
     <script type="text/javascript" src="http://www.checkman.io/please/js/Please-compressed.js"></script>
     -->
     <script type="text/javascript" src="js/app.js"></script>
+
+    <script type="text/javascript">
+      var clip = new ZeroClipboard($("#copy_button"), {
+        moviePath: "vendor/ZeroClipboard.swf"
+      });
+    </script>
+
   </body>
 </html>
