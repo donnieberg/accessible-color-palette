@@ -113,7 +113,7 @@
       <a href="javascript:void(0)" class="pos-fix pos-info text-white easeDelayAni fadeInAniDelay" ng-if="showRefresh" ng-click="toggleInfoPanel();">
         <span class="f2 text-white ss-help"></span>
       </a>
-      <a href="javascript:void(0)" class="pos-fix pos-refresh text-white easeDelayAni fadeInAniDelay" ng-if="showRefresh" ng-click="slideToElement('section1', 900)">
+      <a href="javascript:void(0)" class="pos-fix pos-refresh text-white easeDelayAni fadeInAniDelay" ng-if="showRefresh" ng-click="slideToElement('section1', 400)">
         <span class="mrs text-green ss-replay"></span>
         Start Over
       </a>
@@ -151,7 +151,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 1
     ======================================= -->
-    <article class="dt pos-fix top-0 wi-full ht-full bg-blur z-above fadeInAni" ng-show="isInstructions1Active">
+    <article class="dt pos-fix top-0 wi-full ht-full bg-blur z-above fadeInAni" ng-if="isInstructions1Active">
       <div class="dtc vac tac text-white">
         <h3>
           Pick a color to set the text color
@@ -166,7 +166,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 2
     ======================================= -->
-    <article class="dt pos-fix top-0 wi-full ht-full bg-blur2 z-above fadeInAni" ng-show="isInstructions2Active">
+    <article class="dt pos-fix top-0 wi-full ht-full bg-blur2 z-above fadeInAni" ng-if="isInstructions2Active">
       <div class="dtc vac tac text-white">
         <p>
           {{currentCopiedColor}}
@@ -174,7 +174,7 @@
         <p>
           Copied to Clipboard!
         </p>
-        <button class="db pvm phl mvm f4 fw-bold center button-white ease" ng-click="toggleInstructions2()">Got it</button>
+        <button class="db pvm phl mvm f4 fw-bold center button-white" ng-click="toggleInstructions2()">Got it</button>
       </div>
     </article>
 
