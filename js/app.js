@@ -41,16 +41,38 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $document.scrollToElementAnimated(thing, offset, speed);
   };
 
-  $scope.toggleInstructions1 = function() {
-    $scope.isInstructions1Active = !$scope.isInstructions1Active;
+
+
+  /**
+   * Show/hide Instructions 1 and 2 Modals. Only show if it's the users' first time to website using HTML5 Local Storage
+   */
+  $scope.showInstructions1 = function() {
+    if (!localStorage['instructions1']) {
+      localStorage['instructions1'] = 'yes';
+      $scope.isInstructions1Active = true;
+    }
   };
-  $scope.toggleInstructions2 = function(colorClicked) {
-    $scope.isInstructions2Active = !$scope.isInstructions2Active;
+  $scope.hideInstructions1 = function() {
+    $scope.isInstructions1Active = false;
+  };
+  $scope.showInstructions2 = function(colorClicked) {
+    if (!localStorage['instructions2']) {
+      localStorage['instructions2'] = 'yes';
+      $scope.isInstructions2Active = true;
+    }
     $scope.currentCopiedColor = colorClicked;
   };
+  $scope.hideInstructions2 = function() {
+    $scope.isInstructions2Active = false;
+  };
+
+  /**
+   * After user fills out form, show section 2 (color palette tiles)
+   */
   $scope.activatePalette = function() {
     $scope.isSection2Active = true;
   };
+
 
   /**
    * Hide 'start over' and '?' when scrolled to the top at step 1

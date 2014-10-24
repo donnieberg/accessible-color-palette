@@ -39,7 +39,7 @@
             <label for="userContent" class="opacity-0">Edit Text</label>
             <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-130 bg-white tac ban br-s" ng-model="userContent"></textarea>
           </div>
-          <button class="db pvm phl mvm f4 fw-bold center button-blue ease" ng-click="getCurrentRatio(); getPassingColors(); activatePalette(); slideToElement('section2', 900); toggleInstructions1()">Generate Color Palette</button>
+          <button class="db pvm phl mvm f4 fw-bold center button-blue ease" ng-click="getCurrentRatio(); getPassingColors(); activatePalette(); slideToElement('section2', 900); showInstructions1()">Generate Color Palette</button>
         </form>
       </section>
     </article>
@@ -52,8 +52,8 @@
           <div class="dtc swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
             <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
           </div>
-          <a href="javascript:void(0)" class="phm dtc vac ease link" ng-click="toggleInstructions2(currentTextColor.hex)">{{currentTextColor.hex}}</a>
-          <a href="javascript:void(0)" class="phm dtc vac ease link" ng-click="toggleInstructions2('rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</a>
+          <a href="javascript:void(0)" class="phm dtc vac ease link" ng-click="showInstructions2(currentTextColor.hex)">{{currentTextColor.hex}}</a>
+          <a href="javascript:void(0)" class="phm dtc vac ease link" ng-click="showInstructions2('rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</a>
           <div class="phm dtc vac">
             <span class="db f5">Contrast Ratio</span>
             {{currentTextColor.currentRatio}}
@@ -159,7 +159,7 @@
         <p>
           Picking on a color will set the preview text color. <br>You will then be able to copy the Hex or RGB values to your clipboard.
         </p>
-        <button class="db pvm phl mvm f4 fw-bold center button-white ease" ng-click="toggleInstructions1()">Got it</button>
+        <button class="db pvm phl mvm f4 fw-bold center button-white ease" ng-click="hideInstructions1()">Got it</button>
       </div>
     </article>
 
@@ -174,7 +174,7 @@
         <p>
           Copied to Clipboard!
         </p>
-        <button class="db pvm phl mvm f4 fw-bold center button-white" ng-click="toggleInstructions2()">Got it</button>
+        <button class="db pvm phl mvm f4 fw-bold center button-white" ng-click="hideInstructions2()">Got it</button>
       </div>
     </article>
 
