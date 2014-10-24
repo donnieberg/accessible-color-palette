@@ -317,6 +317,11 @@ input:focus, textarea:focus { outline: none; }
 /** For IE 6/7 only Include this rule to trigger hasLayout and contain floats. */
 .cf { *zoom: 1; }
 
+/** Paul Irish Border Box Sizing Fixes padding, border, etc. so that they don't affect the elements' real width  */
+* { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+.no-border-box { box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; }
+
 /*  ============================================================================= TYPOGRAPHY STYLES ============================================================================= */
 h1, .f1 { font-size: 3rem; }
 
@@ -377,7 +382,7 @@ a { text-decoration: none; color: inherit; }
 
 .border-white { border: 2px solid #f2f2f2; }
 
-.border-selected { border: 12px solid #f2f2f2; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+.border-selected { border: 12px solid #f2f2f2; }
 
 #Container .mix { display: none; }
 

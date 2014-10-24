@@ -2,6 +2,7 @@
  *  CUSTOM STYLES
  *  ============================================================================= */
 
+
 /*
  * Component Specific Styles
  * ====================================== */
@@ -22,9 +23,6 @@
 .border-white { border: 2px solid $near-white; }
 .border-selected {
   border: 12px solid $near-white;
-  box-sizing:border-box;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
 }
 
 #Container .mix { display: none; }

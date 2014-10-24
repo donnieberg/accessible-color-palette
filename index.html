@@ -14,26 +14,26 @@
         <p class="tac text-white">Pick a canvas color, and set up the styling of your text.<br> In the next step you'll be able to preview your text in accessible colors.</p>
       </header>
 
-      <section class="mtx">
+      <section class="mtx span_12_of_12">
         <form accept-charset="utf-8" class="tac text-white mw-1000 center">
-          <div class="phs tal dib">
+          <div class="phs tal dib span_3_of_12">
             <label for="backgroundColor" class="mvs db">Background Color</label>
-            <input id="backgroundColor" class="pas f4 input text-white bg-dark" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
+            <input id="backgroundColor" class="pas f4 wi-full input text-white bg-dark" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
           </div>
-          <div class="phs tal dib">
+          <div class="phs tal dib span_3_of_12">
             <label for="fontFamily" class="mvs db">Font Family</label>
             <div class="pos-rel">
-              <select name="fontFamily" id="fontFamily" class="f4 select text-white bg-dark" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+              <select name="fontFamily" id="fontFamily" class="f4 wi-full select text-white bg-dark" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
               <span class="form-icon ss-navigatedown"></span>
             </div>
           </div>
-          <div class="phs tal dib">
+          <div class="phs tal dib span_3_of_12">
             <label for="fontSize" class="mvs db">Font-Size (px)</label>
-            <input id="fontSize" class="pas f4 input text-white bg-dark" type="text" name="textfield" ng-model="fontSize" />
+            <input id="fontSize" class="pas f4 wi-full input text-white bg-dark" type="text" name="textfield" ng-model="fontSize" />
           </div>
-          <div class="phs tal dib">
+          <div class="phs tal dib span_3_of_12">
             <label for="fontWeight" class="mvs db">Font Weight</label>
-            <input id="fontWeight" class="pas f4 input text-white bg-dark" type="text" name="textfield" ng-model="fontWeight" />
+            <input id="fontWeight" class="pas f4 wi-full input text-white bg-dark" type="text" name="textfield" ng-model="fontWeight" />
           </div>
           <div class="tac pos-rel">
             <label for="userContent" class="opacity-0">Edit Text</label>
@@ -88,8 +88,8 @@
         -->
       </section>
 
-      <ul class="pam mt-colorFilters tac list-plain list-horz df slideToggle" ng-class="{ 'mh-auto bg-colorFilters ': showColorFilters, 'mh-none': !showColorFilters }">
-        <li id="allColorsFilter" class="df-child text-white filter" ng-class="{ 'border-white': showColorFilters }" data-filter="all">
+      <ul class="pam mt-colorFilters tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters ': showColorFilters, 'mh-none': !showColorFilters }">
+        <li id="allColorsFilter" class="df-child text-white filter no-border-box" ng-class="{ 'border-white': showColorFilters }" data-filter="all">
           <a href="javascript:void(0)">
             <p>All Colors</p>
           </a>

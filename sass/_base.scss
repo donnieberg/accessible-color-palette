@@ -253,3 +253,21 @@ textarea:focus { outline: none; }
 .cf {
     *zoom: 1;
 }
+
+
+/**
+ * Paul Irish Border Box Sizing
+ * Fixes padding, border, etc. so that they don't affect the elements' real width
+ *
+ */
+* {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+.no-border-box {
+  box-sizing:content-box;
+  -moz-box-sizing:content-box;
+  -webkit-box-sizing:content-box;
+}
+
