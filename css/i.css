@@ -136,8 +136,7 @@ input, textarea { border: none; }
   .span_4_of_12 { width: 32.24%; }
   .span_3_of_12 { width: 23.78%; }
   .span_2_of_12 { width: 15.32%; }
-  .span_1_of_12 { width: 6.86%; }
-  .mtx-ns { margin-top: 4rem; } }
+  .span_1_of_12 { width: 6.86%; } }
 /* SPACING  ============================================================================= */
 /* Padding */
 .pan { padding: 0; }
@@ -365,8 +364,6 @@ a { text-decoration: none; color: inherit; }
 
 .leftPanel { width: 287px; left: -287px; }
 
-.ht-toolbar { height: 86px; }
-
 .wi-primaryColors { width: 140px; }
 
 .ht-colorVariations { height: 250px; }
@@ -451,3 +448,10 @@ a { text-decoration: none; color: inherit; }
 .pos-refresh { bottom: 20px; right: 20px; }
 
 .pos-info { bottom: 20px; left: 20px; }
+
+@media only screen and (min-width: 30em) { .mtx-ns { margin-top: 4rem; }
+  .dt-ns { display: table; }
+  .dtc-ns { display: table-cell; }
+  .ht-full-ns { height: 100%; }
+  .ht-toolbar-ns { height: 86px; }
+  .bg-white-ns { background-color: white; } }

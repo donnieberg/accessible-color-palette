@@ -10,7 +10,6 @@
 .mw-1000 { max-width: 1000px; }
 .ht-130 { height: 130px; }
 .leftPanel { width: 287px; left: -287px; }
-.ht-toolbar { height: 86px; }
 .wi-primaryColors { width: 140px; }
 .ht-colorVariations { height: 250px; }
 
@@ -117,4 +116,15 @@
 .pos-info {
   bottom: 20px;
   left: 20px;
+}
+
+
+
+@media only screen and (min-width: 30em) {
+  .mtx-ns  { margin-top: 4rem; }
+  .dt-ns { display: table; }
+  .dtc-ns { display: table-cell; }
+  .ht-full-ns { height: 100%; }
+  .ht-toolbar-ns { height: 86px; }
+  .bg-white-ns { background-color: white; }
 }

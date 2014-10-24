@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" class="ht-full">
+<html ng-app="app" class="ht-full-ns">
   <head>
     <meta charset="utf-8">
     <title>Accessible Color Palette</title>
@@ -7,14 +7,14 @@
     <link href="assets/fonts/ss-gizmo/ss-gizmo.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
-  <body ng-controller="appController" class="ht-full bg-dark pos-rel">
-    <article id="section1" class="ht-full">
+  <body ng-controller="appController" class="ht-full-ns bg-dark pos-rel">
+    <article id="section1" class="ht-full-ns">
       <header class="pam mtx-ns mw-800 center">
         <h2 class="tac text-white">Set Up your Canvas and Text</h2>
         <p class="tac text-white">Pick a canvas color, and set up the styling of your text. In the next step you'll be able to preview your text in accessible colors.</p>
       </header>
 
-      <section class="pam mtm span_12_of_12">
+      <section class="pam mtl span_12_of_12">
         <form accept-charset="utf-8" class="tac text-white mw-1000 center">
           <div class="phs tal dib span_3_of_12">
             <label for="backgroundColor" class="mvs db">Background Color</label>
@@ -47,20 +47,20 @@
 
     <article id="section2" ng-class="{ 'hidden': !isSection2Active }">
       <section class="phm ptm">
-        <div class="mbl wi-full br-s ht-toolbar bg-white dt">
-          <div class="phm dtc vac pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
-          <div class="dtc swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
+        <div class="mbl wi-full br-s ht-toolbar-ns dt-ns">
+          <div class="phm dtc-ns vac bg-white pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
+          <div class="dtc-ns swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
             <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
           </div>
-          <a href="javascript:void(0)" class="phm dtc vac ease link" ng-click="showInstructions2(currentTextColor.hex)">{{currentTextColor.hex}}</a>
-          <a href="javascript:void(0)" class="phm dtc vac ease link" ng-click="showInstructions2('rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</a>
-          <div class="phm dtc vac">
+          <a href="javascript:void(0)" class="phm dtc-ns vac bg-white ease link" ng-click="showInstructions2(currentTextColor.hex)">{{currentTextColor.hex}}</a>
+          <a href="javascript:void(0)" class="phm dtc-ns vac bg-white ease link" ng-click="showInstructions2('rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</a>
+          <div class="phm dtc-ns bg-white vac">
             <span class="db f5">Contrast Ratio</span>
             {{currentTextColor.currentRatio}}
             <span class="mls text-green ss-check" ng-if="currentTextColor.pass"></span>
             <span class="mls text-red ss-ban" ng-if="!currentTextColor.pass"></span>
           </div>
-          <div class="phm dtc vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
+          <div class="phm dtc-ns bg-white vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
         </div>
         <div class="mrl tal dib">
           <label for="WCAGlevel" class="mvs db text-white">Filter by Accessibility Grade</label>
@@ -103,7 +103,7 @@
 
       <ul id="Container" class="pan list-plain list-horz df df-wrap">
         <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'border-selected': color === currentTextColor, 'border-white': color !== currentTextColor }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
-          <a href="javascript:void(0)" class="dt ht-full pas vac">
+          <a href="javascript:void(0)" class="dt ht-full-ns pas vac">
             <p class="opacity-0">HEX: {{color.hex}}</p>
             <span class="f3 dtc vac text-white ss-check" ng-if="color === currentTextColor"></span>
           </a>
@@ -153,7 +153,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 1
     ======================================= -->
-    <article class="dt pos-fix top-0 wi-full ht-full bg-blur z-above fadeInAni" ng-if="isInstructions1Active">
+    <article class="dt pos-fix top-0 wi-full ht-full-ns bg-blur z-above fadeInAni" ng-if="isInstructions1Active">
       <div class="dtc vac tac text-white">
         <h3>
           Pick a color to set the text color
@@ -168,7 +168,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 2
     ======================================= -->
-    <article class="dt pos-fix top-0 wi-full ht-full bg-blur2 z-above fadeInAni" ng-if="isInstructions2Active">
+    <article class="dt pos-fix top-0 wi-full ht-full-ns bg-blur2 z-above fadeInAni" ng-if="isInstructions2Active">
       <div class="dtc vac tac text-white">
         <p>
           {{currentCopiedColor}}
