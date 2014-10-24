@@ -16,6 +16,7 @@
 .bg-dark { background-color: $dark-gray; }
 .bg-panel { background-color: $navy; }
 .bg-blur { background-color: $navy-blur; }
+.bg-blur2 { background-color: $blue-blur; }
 .bg-colorFilters { background-color: $darker-gray; }
 
 .border-white { border: 2px solid $near-white; }
@@ -57,7 +58,8 @@
 .mh-auto { max-height: 53px; }
 .mh-none { max-height: 0; }
 
-.fadeInAni { animation: fadeIn 1s 1s forwards; }
+.fadeInAni { animation: fadeIn 0.3s forwards; }
+.fadeInAniDelay { animation: fadeIn 1s 0.4s forwards; }
 .fadeOutAni { animation: fadeOut 0s forwards; }
 @keyframes fadeIn {
   0% { opacity: 0; }

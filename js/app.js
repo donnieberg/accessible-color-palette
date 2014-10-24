@@ -41,11 +41,12 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $document.scrollToElementAnimated(thing, offset, speed);
   };
 
-  $scope.showInstructions1 = function() {
-    $scope.isInstructions1Active = true;
+  $scope.toggleInstructions1 = function() {
+    $scope.isInstructions1Active = !$scope.isInstructions1Active;
   };
-  $scope.showInstructions2 = function() {
-    $scope.isInstructions2Active = true;
+  $scope.toggleInstructions2 = function(colorClicked) {
+    $scope.isInstructions2Active = !$scope.isInstructions2Active;
+    $scope.currentCopiedColor = colorClicked;
   };
   $scope.activatePalette = function() {
     $scope.isSection2Active = true;

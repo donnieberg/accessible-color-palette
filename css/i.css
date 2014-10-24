@@ -371,6 +371,8 @@ a { text-decoration: none; color: inherit; }
 
 .bg-blur { background-color: rgba(64, 89, 115, 0.95); }
 
+.bg-blur2 { background-color: rgba(52, 152, 219, 0.95); }
+
 .bg-colorFilters { background-color: #333333; }
 
 .border-white { border: 2px solid #f2f2f2; }
@@ -405,7 +407,9 @@ a { text-decoration: none; color: inherit; }
 
 .mh-none { max-height: 0; }
 
-.fadeInAni { -webkit-animation: fadeIn 1s 1s forwards; animation: fadeIn 1s 1s forwards; }
+.fadeInAni { -webkit-animation: fadeIn 0.3s forwards; animation: fadeIn 0.3s forwards; }
+
+.fadeInAniDelay { -webkit-animation: fadeIn 1s 0.4s forwards; animation: fadeIn 1s 0.4s forwards; }
 
 .fadeOutAni { -webkit-animation: fadeOut 0s forwards; animation: fadeOut 0s forwards; }
 

@@ -37,24 +37,13 @@
           </div>
           <div class="tac pos-rel">
             <label for="userContent" class="opacity-0">Edit Text</label>
-            <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}};" class="ptl wi-full ht-130 bg-white tac ban br-s" ng-model="userContent"></textarea>
+            <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-130 bg-white tac ban br-s" ng-model="userContent"></textarea>
           </div>
-          <button class="db pvm phl mvm f4 fw-bold center button-blue ease" ng-click="getCurrentRatio(); getPassingColors(); activatePalette(); slideToElement('section2', 900); showInstructions1()">Generate Color Palette</button>
+          <button class="db pvm phl mvm f4 fw-bold center button-blue ease" ng-click="getCurrentRatio(); getPassingColors(); activatePalette(); slideToElement('section2', 900); toggleInstructions1()">Generate Color Palette</button>
         </form>
       </section>
     </article>
 
-    <article class="dt pos-fix top-0 wi-full ht-full bg-blur z-above ease" ng-if="isInstructions1Active">
-      <div class="dtc vac tac text-white">
-        <h3>
-          Pick a color to set the text color
-        </h3>
-        <p>
-          Picking on a color will set the preview text color. <br>You will then be able to copy the Hex or RGB values to your clipboard.
-        </p>
-        <button class="db pvm phl mvm f4 fw-bold center button-white ease" ng-click="">Got it</button>
-      </div>
-    </article>
 
     <article id="section2" ng-class="{ 'hidden': !isSection2Active }">
       <section class="phm ptm">
@@ -63,8 +52,8 @@
           <div class="dtc swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
             <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
           </div>
-          <div class="phm dtc vac">{{currentTextColor.hex}}</div>
-          <div class="phm dtc vac">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</div>
+          <a href="javascript:void(0)" class="phm dtc vac ease link" ng-click="toggleInstructions2(currentTextColor.hex)">{{currentTextColor.hex}}</a>
+          <a href="javascript:void(0)" class="phm dtc vac ease link" ng-click="toggleInstructions2('rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</a>
           <div class="phm dtc vac">
             <span class="db f5">Contrast Ratio</span>
             {{currentTextColor.currentRatio}}
@@ -121,10 +110,10 @@
         </li>
       </ul>
 
-      <a href="javascript:void(0)" class="pos-fix pos-info text-white easeDelayAni fadeInAni" ng-if="showRefresh" ng-click="toggleInfoPanel();">
+      <a href="javascript:void(0)" class="pos-fix pos-info text-white easeDelayAni fadeInAniDelay" ng-if="showRefresh" ng-click="toggleInfoPanel();">
         <span class="f2 text-white ss-help"></span>
       </a>
-      <a href="javascript:void(0)" class="pos-fix pos-refresh text-white easeDelayAni fadeInAni" ng-if="showRefresh" ng-click="slideToElement('section1', 900)">
+      <a href="javascript:void(0)" class="pos-fix pos-refresh text-white easeDelayAni fadeInAniDelay" ng-if="showRefresh" ng-click="slideToElement('section1', 900)">
         <span class="mrs text-green ss-replay"></span>
         Start Over
       </a>
@@ -144,7 +133,7 @@
         <p>
           Thanks for checking out our tool. We’d love your feedback.
         </p>
-        <div class="cf">
+        <div class="mtx cf">
           <div class="fl tac">
             <img width="50" height="50" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="circle avatar" />
             <p class="man">Donielle Berg</p>
@@ -158,6 +147,36 @@
         </div>
       </section>
     </slide-out-left>
+
+    <!-- ====================================
+    Full Screen Modal - Instructions 1
+    ======================================= -->
+    <article class="dt pos-fix top-0 wi-full ht-full bg-blur z-above fadeInAni" ng-show="isInstructions1Active">
+      <div class="dtc vac tac text-white">
+        <h3>
+          Pick a color to set the text color
+        </h3>
+        <p>
+          Picking on a color will set the preview text color. <br>You will then be able to copy the Hex or RGB values to your clipboard.
+        </p>
+        <button class="db pvm phl mvm f4 fw-bold center button-white ease" ng-click="toggleInstructions1()">Got it</button>
+      </div>
+    </article>
+
+    <!-- ====================================
+    Full Screen Modal - Instructions 2
+    ======================================= -->
+    <article class="dt pos-fix top-0 wi-full ht-full bg-blur2 z-above fadeInAni" ng-show="isInstructions2Active">
+      <div class="dtc vac tac text-white">
+        <p>
+          {{currentCopiedColor}}
+        </p>
+        <p>
+          Copied to Clipboard!
+        </p>
+        <button class="db pvm phl mvm f4 fw-bold center button-white ease" ng-click="toggleInstructions2()">Got it</button>
+      </div>
+    </article>
 
     <script type="text/javascript" src="js/contrastCalculator.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
