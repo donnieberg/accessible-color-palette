@@ -3,21 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Accessible Color Palette</title>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
     <link href="assets/fonts/ss-gizmo/ss-gizmo.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Montserrat' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
-  <body ng-controller="appController" class="ht-full-ns bg-dark pos-rel">
-<button id='#copy_button' data-clipboard-target='to_copy'><b>Copy To Clipboard</b></button>
+  <body ng-controller="appController" class="ht-full-ns pos-rel">
+    <article id="intro" class="ht-full-ns bg-green dt wi-full tac" ng-show="isIntroActive">
+      <div class="dtc vac text-white">
+        <h1 class="man caps">Accessible Colors</h1>
+        <p>A tool to help ensure your designs meet accessibility standards for contrast ratios.</p>
+        <!--
+        <img src="assets/img/accessible-artwork.png" alt="accessible-colors-preview" width="345" height="246" class="mvl">
+        -->
+        <div class="bg-previewScreen bg-previewScreen-rs center"></div>
+        <button class="db pvm phl mvm f4 fw-bold caps center button-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
+      </div>
+    </article>
 
-<p id='to_copy'>123456</p>
-
-
-
-
-
-    <article id="section1" class="ht-full-ns">
-      <header class="pam mtx-ns mw-800 center">
+    <article id="section1" class="ht-full-ns bg-dark" ng-show="isSection1Active">
+      <header class="pam mw-800 center">
         <h2 class="tac text-white">Set Up your Canvas and Text</h2>
         <p class="tac text-white">Pick a canvas color, and set up the styling of your text. In the next step you'll be able to preview your text in accessible colors.</p>
       </header>
@@ -47,13 +53,16 @@
             <label for="userContent" class="opacity-0">Edit Text</label>
             <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-130 bg-white tac ban br-s" ng-model="userContent"></textarea>
           </div>
-          <button class="db pvm phl mvm f4 fw-bold center button-blue ease" ng-click="getCurrentRatio(); getPassingColors(); activatePalette(); slideToElement('section2', 900); showInstructions1()">Generate Color Palette</button>
+          <button class="db pvm phl mvm f4 fw-bold center button-blue ease" ng-click="getCurrentRatio(); getPassingColors(); slideToElement('section2', 900); activatePalette(); showInstructions1()">Generate Color Palette</button>
         </form>
       </section>
     </article>
 
 
-    <article id="section2" ng-class="{ 'hidden': !isSection2Active }">
+    <article id="section2" class="bg-dark" ng-show="isSection2Active">
+      <!--
+    <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
+    -->
       <section class="phm ptm">
         <div class="mbl wi-full br-s ht-toolbar-ns dt-ns">
           <div class="phm dtc-ns vac bg-white pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
@@ -65,8 +74,8 @@
           <div class="phm dtc-ns bg-white vac">
             <span class="db f5">Contrast Ratio</span>
             {{currentTextColor.currentRatio}}
-            <span class="mls text-green ss-check" ng-if="currentTextColor.pass"></span>
-            <span class="mls text-red ss-ban" ng-if="!currentTextColor.pass"></span>
+            <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span>
+            <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span>
           </div>
           <div class="phm dtc-ns bg-white vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
         </div>
@@ -113,7 +122,7 @@
         <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'border-selected': color === currentTextColor, 'border-white': color !== currentTextColor }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <a href="javascript:void(0)" class="dt ht-full-ns pas vac">
             <p class="opacity-0">HEX: {{color.hex}}</p>
-            <span class="f3 dtc vac text-white ss-check" ng-if="color === currentTextColor"></span>
+            <span class="f3 dtc vac text-white fa fa-check" ng-if="color === currentTextColor"></span>
           </a>
         </li>
       </ul>
@@ -122,7 +131,7 @@
         <span class="f2 text-white ss-help"></span>
       </a>
       <a href="javascript:void(0)" class="pos-fix pos-refresh text-white easeDelayAni fadeInAniDelay" ng-if="showRefresh" ng-click="slideToElement('section1', 400)">
-        <span class="mrs text-green ss-replay"></span>
+        <span class="mrs text-green fa fa-refresh"></span>
         Start Over
       </a>
     </article>
@@ -203,9 +212,6 @@
     <script type="text/javascript" src="js/app.js"></script>
 
     <script type="text/javascript">
-      var clip = new ZeroClipboard($("#copy_button"), {
-        moviePath: "vendor/ZeroClipboard.swf"
-      });
     </script>
 
   </body>

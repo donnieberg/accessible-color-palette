@@ -15,10 +15,17 @@
 
 .bg-white { background-color: white; }
 .bg-dark { background-color: $dark-gray; }
+.bg-green { background-color: $green; }
 .bg-panel { background-color: $navy; }
 .bg-blur { background-color: $navy-blur; }
 .bg-blur2 { background-color: $blue-blur; }
 .bg-colorFilters { background-color: $darker-gray; }
+.bg-previewScreen {
+  width: 345px;
+  height: 246px;
+  background: url('../assets/img/accessible-artwork.png') no-repeat;
+  background-size: 345px 246px;
+}
 
 .border-white { border: 2px solid $near-white; }
 .border-selected {
@@ -46,7 +53,7 @@
 /*
  * Animations
  * ====================================== */
-.ease { transition: all .5s ease; }
+.ease { transition: all .3s ease; }
 .slideToggle {
 	overflow-y: hidden;
 	transition-property: all;
@@ -120,6 +127,7 @@
 
 
 
+// Larger than phone size screens
 @media only screen and (min-width: 30em) {
   .mtx-ns  { margin-top: 4rem; }
   .dt-ns { display: table; }
@@ -127,4 +135,12 @@
   .ht-full-ns { height: 100%; }
   .ht-toolbar-ns { height: 86px; }
   .bg-white-ns { background-color: white; }
+}
+
+// Retina screen
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .bg-previewScreen-rs {
+    background: url('../assets/img/accessible-artwork@2x.png') no-repeat;
+    background-size: 345px 246px;
+  }
 }

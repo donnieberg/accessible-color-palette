@@ -28,6 +28,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
 
+  $scope.isIntroActive = true;
 
   /**
    * Scroll Animation between step 1 to step 2
@@ -39,7 +40,13 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     var offset = 0;
     var speed = speed;
     var thing = angular.element(document.getElementById(thing));
-    $document.scrollToElementAnimated(thing, offset, speed);
+    if(!$scope.isSection2Active){
+      $timeout(function() {
+        $document.scrollToElementAnimated(thing, offset, speed);
+      }, 200);
+    }else{
+      $document.scrollToElementAnimated(thing, offset, speed);
+    }
   };
 
 
@@ -68,10 +75,19 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
   /**
-   * After user fills out form, show section 2 (color palette tiles)
+   * Un-hide Step1 and Step2
    */
+  $scope.activateStep1 = function() {
+    $scope.isSection1Active = true;
+    $timeout(function() {
+      $scope.isIntroActive = false;
+    }, 1000);
+  };
   $scope.activatePalette = function() {
     $scope.isSection2Active = true;
+    $timeout(function() {
+      $('#Container').mixItUp();
+    }, 200);
   };
 
 
@@ -162,11 +178,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
   /**
-   * MixItUp plugin to filter allColors by color category
+   * VENDOR CODE
+   * Zero Clipboard plugin to copy to clipboard
    */
-  $(function(){
-    $('#Container').mixItUp();
-  });
 
   /**
    * When user clicks on color variation, make user text that color

@@ -3,7 +3,7 @@
 /* ========================================================================== VARIABLES ========================================================================== */
 /* Colors ========================================================================== */
 /*  ============================================================================= BASE STYLES ============================================================================= */
-body { margin: 0; font-family: 'Roboto Slab', serif; font-size: 16px; }
+body { margin: 0; font-family: 'Lato', sans-serif; font-size: 16px; }
 
 .tac { text-align: center; }
 
@@ -323,6 +323,8 @@ input, textarea { border: none; }
 .no-border-box { box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; }
 
 /*  ============================================================================= TYPOGRAPHY STYLES ============================================================================= */
+h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+
 h1, .f1 { font-size: 3rem; }
 
 h2, .f2 { font-size: 2rem; }
@@ -347,7 +349,7 @@ h6, .f6 { font-size: 0.5rem; }
 
 .text-white { color: #fff; }
 
-.text-green { color: #26a65b; }
+.text-green { color: #03a678; }
 
 .text-red { color: #d91e18; }
 
@@ -372,6 +374,8 @@ a { text-decoration: none; color: inherit; }
 
 .bg-dark { background-color: #3b3f45; }
 
+.bg-green { background-color: #03a678; }
+
 .bg-panel { background-color: #405973; }
 
 .bg-blur { background-color: rgba(64, 89, 115, 0.95); }
@@ -379,6 +383,8 @@ a { text-decoration: none; color: inherit; }
 .bg-blur2 { background-color: rgba(52, 152, 219, 0.95); }
 
 .bg-colorFilters { background-color: #333333; }
+
+.bg-previewScreen { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; }
 
 .border-white { border: 2px solid #f2f2f2; }
 
@@ -404,7 +410,7 @@ a { text-decoration: none; color: inherit; }
 .button-white { width: 282px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
 
 /* Animations ====================================== */
-.ease { -webkit-transition: all .5s ease; transition: all .5s ease; }
+.ease { -webkit-transition: all .3s ease; transition: all .3s ease; }
 
 .slideToggle { overflow-y: hidden; -webkit-transition-property: all; transition-property: all; -webkit-transition-duration: .2s; transition-duration: .2s; -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1); transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
 
@@ -455,3 +461,4 @@ a { text-decoration: none; color: inherit; }
   .ht-full-ns { height: 100%; }
   .ht-toolbar-ns { height: 86px; }
   .bg-white-ns { background-color: white; } }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .bg-previewScreen-rs { background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }
