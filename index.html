@@ -10,52 +10,52 @@
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
   <body ng-controller="appController" class="ht-full-ns pos-rel">
+
     <article id="intro" class="ht-full-ns bg-green dt wi-full tac" ng-show="isIntroActive">
       <div class="dtc vac text-white">
         <h1 class="man caps">Accessible Colors</h1>
         <p>A tool to help ensure your designs meet accessibility standards for contrast ratios.</p>
-        <!--
-        <img src="assets/img/accessible-artwork.png" alt="accessible-colors-preview" width="345" height="246" class="mvl">
-        -->
-        <div class="bg-previewScreen bg-previewScreen-rs center"></div>
+        <div class="mvl bg-previewScreen bg-previewScreen-rs center"></div>
         <button class="db pvm phl mvm f4 fw-bold caps center button-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
       </div>
     </article>
 
     <article id="section1" class="ht-full-ns bg-dark" ng-show="isSection1Active">
-      <header class="pam mw-800 center">
-        <h2 class="tac text-white">Set Up your Canvas and Text</h2>
-        <p class="tac text-white">Pick a canvas color, and set up the styling of your text. In the next step you'll be able to preview your text in accessible colors.</p>
-      </header>
+      <div class="vam-ns mw-800 center">
+        <header class="pam border-bottom-gray">
+          <h2 class="tac text-white">Set Up your Canvas and Text</h2>
+          <p class="tac text-white">Pick a canvas color, and set up the styling of your text. In the next step you'll be able to preview your text in accessible colors.</p>
+        </header>
 
-      <section class="pam mtl span_12_of_12">
-        <form accept-charset="utf-8" class="tac text-white mw-1000 center">
-          <div class="phs tal dib span_3_of_12">
-            <label for="backgroundColor" class="mvs db">Background Color</label>
-            <input id="backgroundColor" class="pas f4 wi-full input text-white bg-dark" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
-          </div>
-          <div class="phs tal dib span_3_of_12">
-            <label for="fontFamily" class="mvs db">Font Family</label>
-            <div class="pos-rel">
-              <select name="fontFamily" id="fontFamily" class="f4 wi-full select text-white bg-dark" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
-              <span class="form-icon ss-navigatedown"></span>
+        <section class="pam mtm span_12_of_12">
+          <form accept-charset="utf-8" class="text-white center">
+            <div class="prm mrs tal dib span_3_of_12">
+              <label for="backgroundColor" class="mvs db">Background Color</label>
+              <input id="backgroundColor" class="pas f4 wi-full input text-white bg-dark" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
             </div>
-          </div>
-          <div class="phs tal dib span_3_of_12">
-            <label for="fontSize" class="mvs db">Font-Size (px)</label>
-            <input id="fontSize" class="pas f4 wi-full input text-white bg-dark" type="text" name="textfield" ng-model="fontSize" />
-          </div>
-          <div class="phs tal dib span_3_of_12">
-            <label for="fontWeight" class="mvs db">Font Weight</label>
-            <input id="fontWeight" class="pas f4 wi-full input text-white bg-dark" type="text" name="textfield" ng-model="fontWeight" />
-          </div>
-          <div class="tac pos-rel">
-            <label for="userContent" class="opacity-0">Edit Text</label>
-            <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-130 bg-white tac ban br-s" ng-model="userContent"></textarea>
-          </div>
-          <button class="db pvm phl mvm f4 fw-bold center button-blue ease" ng-click="getCurrentRatio(); getPassingColors(); slideToElement('section2', 900); activatePalette(); showInstructions1()">Generate Color Palette</button>
-        </form>
-      </section>
+            <div class="prm mrs tal dib span_3_of_12">
+              <label for="fontFamily" class="mvs db">Font Family</label>
+              <div class="pos-rel">
+                <select name="fontFamily" id="fontFamily" class="f4 wi-full select select-border-white text-white bg-dark" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+                <span class="form-icon ss-navigatedown"></span>
+              </div>
+            </div>
+            <div class="prm mrs tal dib span_3_of_12">
+              <label for="fontSize" class="mvs db">Font-Size (px)</label>
+              <input id="fontSize" class="pas f4 wi-full input text-white bg-dark" type="text" name="textfield" ng-model="fontSize" />
+            </div>
+            <div class="tal dib span_3_of_12">
+              <label for="fontWeight" class="mvs db">Font Weight</label>
+              <input id="fontWeight" class="pas f4 wi-full input text-white bg-dark" type="text" name="textfield" ng-model="fontWeight" />
+            </div>
+            <div class="mtl tal pos-rel">
+              <label for="userContent" class="mvs db">Edit Text</label>
+              <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-130 bg-white tac ban br-s" ng-model="userContent"></textarea>
+            </div>
+            <button class="db pvm phl mvm f4 fw-bold center button-blue ease" ng-click="getCurrentRatio(); getPassingColors(); slideToElement('section2', 900); activatePalette(); showInstructions1()">Generate Color Palette</button>
+          </form>
+        </section>
+      </div>
     </article>
 
 
@@ -63,7 +63,7 @@
       <!--
     <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
     -->
-      <section class="phm ptm">
+      <section class="phm ptm mw-1400 center">
         <div class="mbl wi-full br-s ht-toolbar-ns dt-ns">
           <div class="phm dtc-ns vac bg-white pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
           <div class="dtc-ns swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
@@ -79,30 +79,42 @@
           </div>
           <div class="phm dtc-ns bg-white vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
         </div>
-        <div class="mrl tal dib">
-          <label for="WCAGlevel" class="mvs db text-white">Filter by Accessibility Grade</label>
-          <div class="pos-rel">
-            <select name="WCAGlevel" id="WCAGlevel" class="f4 wi-full select text-white bg-dark" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades" ng-change="getCurrentRatio()"></select>
-            <span class="form-icon text-white ss-navigatedown"></span>
-          </div>
+
+        <div class="dt wi-full">
+          <section class="dtc">
+            <div class="mrl tal dib">
+              <label for="WCAGlevel" class="mvs db text-white">Filter by Accessibility Grade</label>
+              <div class="pos-rel">
+                <select name="WCAGlevel" id="WCAGlevel" class="f4 wi-full select select-border-white text-white bg-dark" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades" ng-change="getCurrentRatio()"></select>
+                <span class="form-icon text-white ss-navigatedown"></span>
+              </div>
+            </div>
+            <div class="mrl tal text-white dib pos-rel">
+              <label for="colorFilter" class="mvs db">Filter by Color</label>
+              <a href="javascript:void(0)" id="colorFilter" class="db f4 wi-full pos-rel select select-border-white" ng-click="toggleColorFilters()">
+                All Colors
+                <span class="form-icon text-white ss-navigatedown"></span>
+              </a>
+              <span class="arrow-up pos-arrow-up" ng-if="showColorFilters"></span>
+            </div>
+            <!--
+            <div class="mrl tal text-white dib pos-rel">
+              <label for="textSize" class="mvs db">Filter by Small/Large Text</label>
+              <div class="pos-rel">
+                <select name="textSize" id="textSize" class="f4 wi-full text-white select select-border-white bg-dark" ng-model="textSize" ng-options="size for size in textSizes"></select>
+                <span class="form-icon ss-navigatedown"></span>
+              </div>
+            </div>
+            -->
+          </section>
+          <section class="dtc vab tar">
+            <a href="javascript:void(0)" class="mrl pvs f4 text-white pos-rel select bg-darker" ng-click="slideToElement('section1', 400)">
+              <span class="mrs text-green fa fa-refresh"></span>
+              Start Over
+            </a>
+            <a href="javascript:void(0)" class="f4 pvs text-white select bg-darker" ng-click="toggleInfoPanel();">About This Tool</a>
+          </section>
         </div>
-        <div class="mrl tal text-white dib pos-rel">
-          <label for="colorFilter" class="mvs db">Filter by Color</label>
-          <a href="javascript:void(0)" id="colorFilter" class="db f4 wi-full pos-rel select" ng-click="toggleColorFilters()">
-            All Colors
-            <span class="form-icon text-white ss-navigatedown"></span>
-          </a>
-          <span class="arrow-up pos-arrow-up" ng-if="showColorFilters"></span>
-        </div>
-        <!--
-        <div class="mrl tal dib">
-          <label for="textSize" class="mvs db text-white">Filter by Small/Large Text</label>
-          <div class="pos-rel">
-            <select name="textSize" id="textSize" class="f4 wi-full select bg-white" ng-model="textSize" ng-options="size for size in textSizes"></select>
-            <span class="form-icon ss-navigatedown"></span>
-          </div>
-        </div>
-        -->
       </section>
 
       <ul class="pam mt-colorFilters tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters ': showColorFilters, 'mh-none': !showColorFilters }">
@@ -127,13 +139,6 @@
         </li>
       </ul>
 
-      <a href="javascript:void(0)" class="pos-fix pos-info text-white easeDelayAni fadeInAniDelay" ng-if="showRefresh" ng-click="toggleInfoPanel();">
-        <span class="f2 text-white ss-help"></span>
-      </a>
-      <a href="javascript:void(0)" class="pos-fix pos-refresh text-white easeDelayAni fadeInAniDelay" ng-if="showRefresh" ng-click="slideToElement('section1', 400)">
-        <span class="mrs text-green fa fa-refresh"></span>
-        Start Over
-      </a>
     </article>
 
 

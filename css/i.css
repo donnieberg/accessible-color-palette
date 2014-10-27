@@ -3,7 +3,7 @@
 /* ========================================================================== VARIABLES ========================================================================== */
 /* Colors ========================================================================== */
 /*  ============================================================================= BASE STYLES ============================================================================= */
-body { margin: 0; font-family: 'Lato', sans-serif; font-size: 16px; }
+body { margin: 0; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 300; }
 
 .tac { text-align: center; }
 
@@ -360,7 +360,7 @@ a { text-decoration: none; color: inherit; }
 /* Component Specific Styles ====================================== */
 .mw-800 { max-width: 800px; }
 
-.mw-1000 { max-width: 1000px; }
+.mw-1400 { max-width: 1400px; }
 
 .ht-130 { height: 130px; }
 
@@ -373,6 +373,8 @@ a { text-decoration: none; color: inherit; }
 .bg-white { background-color: white; }
 
 .bg-dark { background-color: #3b3f45; }
+
+.bg-darker { background-color: #333333; }
 
 .bg-green { background-color: #03a678; }
 
@@ -388,6 +390,8 @@ a { text-decoration: none; color: inherit; }
 
 .border-white { border: 2px solid #f2f2f2; }
 
+.border-bottom-gray { border-bottom: 1px solid #cccccc; }
+
 .border-selected { border: 12px solid #f2f2f2; }
 
 #Container .mix { display: none; }
@@ -401,7 +405,9 @@ a { text-decoration: none; color: inherit; }
 
 .input { border: 1px solid white; border-radius: 3px; }
 
-.select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; cursor: pointer; }
+.select-border-white { border: 1px solid white; }
+
+.select { border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; cursor: pointer; }
 
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
 
@@ -449,7 +455,7 @@ a { text-decoration: none; color: inherit; }
 
 .pos-arrow-left { position: absolute; top: 30px; left: -7px; }
 
-.pos-arrow-up { position: absolute; bottom: -26px; left: 60px; }
+.pos-arrow-up { position: absolute; bottom: -26px; left: 40px; }
 
 .pos-refresh { bottom: 20px; right: 20px; }
 
@@ -460,5 +466,6 @@ a { text-decoration: none; color: inherit; }
   .dtc-ns { display: table-cell; }
   .ht-full-ns { height: 100%; }
   .ht-toolbar-ns { height: 86px; }
-  .bg-white-ns { background-color: white; } }
+  .bg-white-ns { background-color: white; }
+  .vam-ns { position: relative; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); } }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .bg-previewScreen-rs { background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }

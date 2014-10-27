@@ -7,7 +7,7 @@
  * Component Specific Styles
  * ====================================== */
 .mw-800 { max-width: 800px; }
-.mw-1000 { max-width: 1000px; }
+.mw-1400 { max-width: 1400px; }
 .ht-130 { height: 130px; }
 .leftPanel { width: 287px; left: -287px; }
 .wi-primaryColors { width: 140px; }
@@ -15,6 +15,7 @@
 
 .bg-white { background-color: white; }
 .bg-dark { background-color: $dark-gray; }
+.bg-darker { background-color: $near-black;}
 .bg-green { background-color: $green; }
 .bg-panel { background-color: $navy; }
 .bg-blur { background-color: $navy-blur; }
@@ -28,6 +29,7 @@
 }
 
 .border-white { border: 2px solid $near-white; }
+.border-bottom-gray { border-bottom: 1px solid $light-gray; }
 .border-selected {
   border: 12px solid $near-white;
 }
@@ -43,7 +45,9 @@
 .link:hover { color: lighten($blue, 20%); }
 
 .input { border: 1px solid white; border-radius: 3px; }
-.select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; cursor: pointer; }
+
+.select-border-white { border: 1px solid white; }
+.select { border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; cursor: pointer; }
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
 .button-blue { width: 282px; cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
 .button-white { width: 282px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
@@ -114,7 +118,7 @@
 .pos-arrow-up {
   position: absolute;
   bottom: -26px;
-  left: 60px;
+  left: 40px;
 }
 .pos-refresh {
   bottom: 20px;
@@ -135,6 +139,11 @@
   .ht-full-ns { height: 100%; }
   .ht-toolbar-ns { height: 86px; }
   .bg-white-ns { background-color: white; }
+  .vam-ns {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 // Retina screen
