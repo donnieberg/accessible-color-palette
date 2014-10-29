@@ -64,20 +64,20 @@
       <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
       -->
       <article class="phm mw-2100 center cf">
-        <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns">
-          <div class="phm dtc-ns vac bg-white pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
+        <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns bg-white">
+          <div class="phm dtc-ns vac pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
           <div class="dtc-ns swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
             <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
           </div>
-          <a href="javascript:void(0)" class="phm dtc-ns vac bg-white ease link" ng-click="showInstructions2(currentTextColor.hex)">{{currentTextColor.hex}}</a>
-          <a href="javascript:void(0)" class="phm dtc-ns vac bg-white ease link" ng-click="showInstructions2('rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</a>
-          <div class="phm dtc-ns bg-white vac">
+          <a href="javascript:void(0)" class="phm dtc-ns vac bg-light-gray ease link" ng-click="showInstructions2(currentTextColor.hex)">{{currentTextColor.hex}}</a>
+          <a href="javascript:void(0)" class="phm dtc-ns vac bg-light-gray ease link" ng-click="showInstructions2('rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</a>
+          <div class="phm dtc-ns bg-light-gray2 vac">
             <span class="db f5">Contrast Ratio</span>
             {{currentTextColor.currentRatio}}
             <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span>
             <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span>
           </div>
-          <div class="phm dtc-ns bg-white vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
+          <div class="phm dtc-ns bg-light-gray2 vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
         </section>
 
         <section class="toolbar-2ns toolbar-2x">
