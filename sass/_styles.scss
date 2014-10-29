@@ -23,7 +23,6 @@
 .bg-green { background-color: $green; }
 .bg-panel { background-color: $navy; }
 .bg-blur { background-color: $navy-blur; }
-.bg-blur2 { background-color: $blue-blur; }
 .bg-colorFilters { background-color: $darker-gray; }
 .bg-previewScreen {
   width: 345px;
@@ -42,6 +41,8 @@
 .swatch { width: 86px; height: 86px; }
 .mt-colorFilters { margin-top: 1.5rem; }
 
+.assistive-text { opacity: 0; width: 0; height: 0; display: block; }
+
 
 /*
  * Anchor & Form Styles
@@ -50,13 +51,12 @@
 
 .input { border: 1px solid white; border-radius: 3px; }
 
-.select-border-white { border: 1px solid white; }
-.select-border-gray { border: 1px solid $darker-gray; }
-.select { border-radius: 3px; -webkit-appearance: none; cursor: pointer; }
+.select {  border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
-.button-blue { width: 282px; cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
-.button-white { width: 282px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
 
+.btn-primary { width: 282px; cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
+.btn-secondary { border: 1px solid $darker-gray; border-radius: 3px; -webkit-appearance: none; cursor: pointer; }
+.btn-outline { width: 282px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
 
 
 /*
@@ -72,7 +72,7 @@
 .mh-auto { max-height: 53px; }
 .mh-none { max-height: 0; }
 
-.fadeInAni { animation: fadeIn 0.3s forwards; }
+.fadeInAni { animation: fadeIn 0.4s forwards; }
 .fadeInAniDelay { animation: fadeIn 1s 0.4s forwards; }
 .fadeOutAni { animation: fadeOut 0s forwards; }
 @keyframes fadeIn {
@@ -91,6 +91,26 @@
 	-moz-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
+
+.tile-hover { transition: all .1s ease-in; }
+.tile-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.pulse { -webkit-animation-name: pulse; animation-name: pulse; }
+@-webkit-keyframes pulse {
+  0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+  50% { -webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05); }
+  100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+}
+
+@keyframes pulse {
+  0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+  50% { -webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05); }
+  100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+}
+
 
 
 

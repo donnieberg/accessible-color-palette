@@ -390,8 +390,6 @@ a { text-decoration: none; color: inherit; }
 
 .bg-blur { background-color: rgba(64, 89, 115, 0.95); }
 
-.bg-blur2 { background-color: rgba(52, 152, 219, 0.95); }
-
 .bg-colorFilters { background-color: #333333; }
 
 .bg-previewScreen { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; }
@@ -408,22 +406,22 @@ a { text-decoration: none; color: inherit; }
 
 .mt-colorFilters { margin-top: 1.5rem; }
 
+.assistive-text { opacity: 0; width: 0; height: 0; display: block; }
+
 /* Anchor & Form Styles ====================================== */
 .link:hover { color: #64b0e3; }
 
 .input { border: 1px solid white; border-radius: 3px; }
 
-.select-border-white { border: 1px solid white; }
-
-.select-border-gray { border: 1px solid #333333; }
-
-.select { border-radius: 3px; -webkit-appearance: none; cursor: pointer; }
+.select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
 
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
 
-.button-blue { width: 282px; cursor: pointer; border: none; color: white; border-radius: 3px; background: #2280bf; }
+.btn-primary { width: 282px; cursor: pointer; border: none; color: white; border-radius: 3px; background: #2280bf; }
 
-.button-white { width: 282px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
+.btn-secondary { border: 1px solid #333333; border-radius: 3px; -webkit-appearance: none; cursor: pointer; }
+
+.btn-outline { width: 282px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
 
 /* Animations ====================================== */
 .ease { -webkit-transition: all .3s ease; transition: all .3s ease; }
@@ -434,7 +432,7 @@ a { text-decoration: none; color: inherit; }
 
 .mh-none { max-height: 0; }
 
-.fadeInAni { -webkit-animation: fadeIn 0.3s forwards; animation: fadeIn 0.3s forwards; }
+.fadeInAni { -webkit-animation: fadeIn 0.4s forwards; animation: fadeIn 0.4s forwards; }
 
 .fadeInAniDelay { -webkit-animation: fadeIn 1s 0.4s forwards; animation: fadeIn 1s 0.4s forwards; }
 
@@ -454,6 +452,18 @@ a { text-decoration: none; color: inherit; }
 
 .slideOut { -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
 
+.tile-hover { -webkit-transition: all .1s ease-in; transition: all .1s ease-in; }
+
+.tile-hover:hover { -webkit-transform: scale(1.05); -ms-transform: scale(1.05); transform: scale(1.05); -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); }
+
+.pulse { -webkit-animation-name: pulse; animation-name: pulse; }
+
+@-webkit-keyframes pulse { 0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+  50% { -webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05); }
+  100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
+@keyframes pulse { 0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+  50% { -webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05); }
+  100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
 /* Shapes & Positioning ====================================== */
 .circle { border-radius: 100%; }
 

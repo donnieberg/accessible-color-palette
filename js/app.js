@@ -19,6 +19,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.allFontFamilies = $scope.appFactory.fonts;
   $scope.accessibilityGrades = $scope.appFactory.accessibilityGrades;
   $scope.textSizes = $scope.appFactory.textSizes;
+  $scope.fontWeights = $scope.appFactory.fontWeights;
 
   $scope.userContent = 'The quick brown fox jumps over the lazy dog.';
   $scope.fontFamily = $scope.allFontFamilies[0];
@@ -63,12 +64,13 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.hideInstructions1 = function() {
     $scope.isInstructions1Active = false;
   };
-  $scope.showInstructions2 = function(colorClicked) {
+  $scope.showInstructions2 = function(color, colorValue) {
     if (!localStorage['instructions2']) {
       localStorage['instructions2'] = 'yes';
       $scope.isInstructions2Active = true;
     }
-    $scope.currentCopiedColor = colorClicked;
+    $scope.currentCopiedColor = color;
+    $scope.currentCopiedColorValue = colorValue;
   };
   $scope.hideInstructions2 = function() {
     $scope.isInstructions2Active = false;
@@ -588,6 +590,7 @@ app.factory('appFactory', function() {
       { type: 'script',  alias: 'Brush Script MT', name: '"Brush Script MT", cursive' }
     ],
     accessibilityGrades: [ 'AA', 'AAA' ],
-    textSizes: [ 'small text', 'large text' ]
+    textSizes: [ 'small text', 'large text' ],
+    fontWeights: [ 100, 200, 300, 400, 500, 600, 700, 800 ]
   }
 });
