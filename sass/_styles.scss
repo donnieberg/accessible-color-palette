@@ -8,10 +8,12 @@
  * ====================================== */
 .mw-800 { max-width: 800px; }
 .mw-1400 { max-width: 1400px; }
+.mw-2100 { max-width: 2100px; }
 .ht-130 { height: 130px; }
 .leftPanel { width: 287px; left: -287px; }
 .wi-primaryColors { width: 140px; }
 .ht-colorVariations { height: 250px; }
+
 
 .bg-white { background-color: white; }
 .bg-dark { background-color: $dark-gray; }
@@ -47,7 +49,8 @@
 .input { border: 1px solid white; border-radius: 3px; }
 
 .select-border-white { border: 1px solid white; }
-.select { border-radius: 3px; -webkit-appearance: none; padding-top: .5rem; padding-bottom: .5rem; padding-left: .5rem; padding-right: 30px; cursor: pointer; }
+.select-border-gray { border: 1px solid $darker-gray; }
+.select { border-radius: 3px; -webkit-appearance: none; cursor: pointer; }
 .form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
 .button-blue { width: 282px; cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
 .button-white { width: 282px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
@@ -144,6 +147,16 @@
     top: 50%;
     transform: translateY(-50%);
   }
+  .toolbar-1ns { width: 100%; }
+  .toolbar-2ns { width: auto; float: left; margin-top: 0.5rem; }
+  .toolbar-3ns { width: auto; float: right; margin-top: 2rem; }
+}
+
+// Larger than 1440px Laptop size screens
+@media only screen and (min-width: 106em) {
+  .toolbar-1x { width: 60%; margin-left: 20%; float: left; }
+  .toolbar-2x { width: 20%; margin-left: -80%; float: left; }
+  .toolbar-3x { width: auto; float: right; }
 }
 
 // Retina screen

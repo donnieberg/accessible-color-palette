@@ -36,7 +36,7 @@
             <div class="prm mrs tal dib span_3_of_12">
               <label for="fontFamily" class="mvs db">Font Family</label>
               <div class="pos-rel">
-                <select name="fontFamily" id="fontFamily" class="f4 wi-full select select-border-white text-white bg-dark" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+                <select name="fontFamily" id="fontFamily" class="pvs phm f4 wi-full select select-border-white text-white bg-dark" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
                 <span class="form-icon ss-navigatedown"></span>
               </div>
             </div>
@@ -61,36 +61,10 @@
 
     <article id="section2" class="bg-dark" ng-show="isSection2Active">
       <!--
-    <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
-    -->
-      <section class="phm ptm cf">
-          <section class="dtc">
-            <div class="mrl tal dib">
-              <label for="WCAGlevel" class="mvs db text-white">Filter by Accessibility Grade</label>
-              <div class="pos-rel">
-                <select name="WCAGlevel" id="WCAGlevel" class="f4 wi-full select select-border-white text-white bg-dark" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades" ng-change="getCurrentRatio()"></select>
-                <span class="form-icon text-white ss-navigatedown"></span>
-              </div>
-            </div>
-            <div class="mrl tal text-white dib pos-rel">
-              <label for="colorFilter" class="mvs db">Filter by Color</label>
-              <a href="javascript:void(0)" id="colorFilter" class="db f4 wi-full pos-rel select select-border-white" ng-click="toggleColorFilters()">
-                All Colors
-                <span class="form-icon text-white ss-navigatedown"></span>
-              </a>
-              <span class="arrow-up pos-arrow-up" ng-if="showColorFilters"></span>
-            </div>
-            <!--
-            <div class="mrl tal text-white dib pos-rel">
-              <label for="textSize" class="mvs db">Filter by Small/Large Text</label>
-              <div class="pos-rel">
-                <select name="textSize" id="textSize" class="f4 wi-full text-white select select-border-white bg-dark" ng-model="textSize" ng-options="size for size in textSizes"></select>
-                <span class="form-icon ss-navigatedown"></span>
-              </div>
-            </div>
-            -->
-          </section>
-        <section class="mbl wi-full br-s ht-toolbar-ns dt-ns">
+      <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
+      -->
+      <article class="phm mw-2100 center cf">
+        <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns">
           <div class="phm dtc-ns vac bg-white pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
           <div class="dtc-ns swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
             <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
@@ -105,15 +79,41 @@
           </div>
           <div class="phm dtc-ns bg-white vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
         </section>
-          <section class="dtc vab tar">
-            <a href="javascript:void(0)" class="mrl pvs f4 text-white pos-rel select bg-darker" ng-click="slideToElement('section1', 400)">
-              <span class="mrs text-green fa fa-refresh"></span>
-              Start Over
-            </a>
-            <a href="javascript:void(0)" class="f4 pvs text-white select bg-darker" ng-click="toggleInfoPanel();">About This Tool</a>
-          </section>
 
-      </section>
+        <section class="toolbar-2ns toolbar-2x">
+          <div class="mrl tal dib">
+            <label for="WCAGlevel" class="mvs f5 db text-white">Filter by Accessibility Grade</label>
+            <div class="pos-rel">
+              <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full select select-border-white text-white bg-dark" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades" ng-change="getCurrentRatio()"></select>
+              <span class="form-icon text-white ss-navigatedown"></span>
+            </div>
+          </div>
+          <div class="mrl tal text-white dib pos-rel">
+            <label for="colorFilter" class="mvs f5 db">Filter by Color</label>
+            <a href="javascript:void(0)" id="colorFilter" class="pvs plm prl db f4 wi-full pos-rel select select-border-white" ng-click="toggleColorFilters()">
+              All Colors
+              <span class="form-icon text-white ss-navigatedown"></span>
+            </a>
+            <span class="arrow-up pos-arrow-up" ng-if="showColorFilters"></span>
+          </div>
+          <!--
+          <div class="mrl tal text-white dib pos-rel">
+            <label for="textSize" class="mvs db">Filter by Small/Large Text</label>
+            <div class="pos-rel">
+              <select name="textSize" id="textSize" class="f4 wi-full text-white select select-border-white bg-dark" ng-model="textSize" ng-options="size for size in textSizes"></select>
+              <span class="form-icon ss-navigatedown"></span>
+            </div>
+          </div>
+          -->
+        </section>
+        <section class="toolbar-3ns toolbar-3x">
+          <a href="javascript:void(0)" class="mrl pvs phm f4 text-white pos-rel select select-border-gray bg-darker" ng-click="slideToElement('section1', 400)">
+            <span class="mrs text-green fa fa-refresh"></span>
+            Start Over
+          </a>
+          <a href="javascript:void(0)" class="f4 pvs phm text-white select select-border-gray bg-darker" ng-click="toggleInfoPanel();">About This Tool</a>
+        </section>
+      </article>
 
       <ul class="pam mt-colorFilters tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters ': showColorFilters, 'mh-none': !showColorFilters }">
         <li id="allColorsFilter" class="df-child text-white filter no-border-box" ng-class="{ 'border-white': showColorFilters }" data-filter="all">
@@ -144,30 +144,30 @@
     Side Bar slide out from Left of Window
     ======================================= -->
     <slide-out-left class="text-white leftPanel bg-panel">
-      <section class="pvm phl">
-        <span class="f3 ss-delete" ng-click="toggleInfoPanel()"></span>
-        <h1 class="f4">Brought to you with love by Salesforce UX</h1>
-        <p>
-          We believe it is important to design meaningful products that work for everyone. It is in that spirit that we’ve come up with this tool to help designers ensure that their color choices prove accessible to their users.
-        </p>
-        <p>
-          Thanks for checking out our tool. We’d love your feedback.
-        </p>
-        <div class="mtx cf">
-          <div class="fl tac">
-            <img width="50" height="50" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="circle avatar" />
-            <p class="man">Donielle Berg</p>
-            <p class="man f5">UX Engineer</p>
-            <p class="man f5"><a href="http://donielleberg.com/" class="ease link">donielleberg.com</a></p>
-          </div>
-          <div class="fr tac">
-            <img width="50" height="50" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="circle avatar" />
-            <p class="man">Adrian Rapp</p>
-            <p class="man f5">Designer</p>
-            <p class="man f5"><a href="http://adrianrapp.com/" class="ease link">adrianrapp.com</a></p>
-          </div>
+    <section class="pvm phl">
+      <span class="f3 ss-delete" ng-click="toggleInfoPanel()"></span>
+      <h1 class="f4">Brought to you with love by Salesforce UX</h1>
+      <p>
+        We believe it is important to design meaningful products that work for everyone. It is in that spirit that we’ve come up with this tool to help designers ensure that their color choices prove accessible to their users.
+      </p>
+      <p>
+        Thanks for checking out our tool. We’d love your feedback.
+      </p>
+      <div class="mtx cf">
+        <div class="fl tac">
+          <img width="50" height="50" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="circle avatar" />
+          <p class="man">Donielle Berg</p>
+          <p class="man f5">UX Engineer</p>
+          <p class="man f5"><a href="http://donielleberg.com/" class="ease link">donielleberg.com</a></p>
         </div>
-      </section>
+        <div class="fr tac">
+          <img width="50" height="50" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="circle avatar" />
+          <p class="man">Adrian Rapp</p>
+          <p class="man f5">Designer</p>
+          <p class="man f5"><a href="http://adrianrapp.com/" class="ease link">adrianrapp.com</a></p>
+        </div>
+      </div>
+    </section>
     </slide-out-left>
 
     <!-- ====================================
