@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
-  <body ng-controller="appController" class="ht-full-ns pos-rel">
+  <body ng-controller="appController" class="ht-full-ns pos-rel" ng-class="{ 'of-hidden': isIntroActive }">
 
     <article id="intro" class="ht-full-ns bg-green dt wi-full tac" ng-show="isIntroActive">
       <div class="dtc vac text-white">
@@ -63,24 +63,7 @@
       <!--
     <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
     -->
-      <section class="phm ptm mw-1400 center">
-        <div class="mbl wi-full br-s ht-toolbar-ns dt-ns">
-          <div class="phm dtc-ns vac bg-white pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
-          <div class="dtc-ns swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
-            <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
-          </div>
-          <a href="javascript:void(0)" class="phm dtc-ns vac bg-white ease link" ng-click="showInstructions2(currentTextColor.hex)">{{currentTextColor.hex}}</a>
-          <a href="javascript:void(0)" class="phm dtc-ns vac bg-white ease link" ng-click="showInstructions2('rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</a>
-          <div class="phm dtc-ns bg-white vac">
-            <span class="db f5">Contrast Ratio</span>
-            {{currentTextColor.currentRatio}}
-            <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span>
-            <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span>
-          </div>
-          <div class="phm dtc-ns bg-white vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
-        </div>
-
-        <div class="dt wi-full">
+      <section class="phm ptm cf">
           <section class="dtc">
             <div class="mrl tal dib">
               <label for="WCAGlevel" class="mvs db text-white">Filter by Accessibility Grade</label>
@@ -107,6 +90,21 @@
             </div>
             -->
           </section>
+        <section class="mbl wi-full br-s ht-toolbar-ns dt-ns">
+          <div class="phm dtc-ns vac bg-white pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
+          <div class="dtc-ns swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
+            <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
+          </div>
+          <a href="javascript:void(0)" class="phm dtc-ns vac bg-white ease link" ng-click="showInstructions2(currentTextColor.hex)">{{currentTextColor.hex}}</a>
+          <a href="javascript:void(0)" class="phm dtc-ns vac bg-white ease link" ng-click="showInstructions2('rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</a>
+          <div class="phm dtc-ns bg-white vac">
+            <span class="db f5">Contrast Ratio</span>
+            {{currentTextColor.currentRatio}}
+            <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span>
+            <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span>
+          </div>
+          <div class="phm dtc-ns bg-white vac"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
+        </section>
           <section class="dtc vab tar">
             <a href="javascript:void(0)" class="mrl pvs f4 text-white pos-rel select bg-darker" ng-click="slideToElement('section1', 400)">
               <span class="mrs text-green fa fa-refresh"></span>
@@ -114,7 +112,7 @@
             </a>
             <a href="javascript:void(0)" class="f4 pvs text-white select bg-darker" ng-click="toggleInfoPanel();">About This Tool</a>
           </section>
-        </div>
+
       </section>
 
       <ul class="pam mt-colorFilters tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters ': showColorFilters, 'mh-none': !showColorFilters }">
