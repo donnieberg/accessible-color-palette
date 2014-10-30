@@ -189,6 +189,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    */
   $scope.setTextColor = function(color) {
     $scope.currentTextColor = color;
+    $scope.animateToolbar = true;
+    $timeout(function() {
+      $scope.animateToolbar = false;
+    }, 1000);
   };
 
   /**
