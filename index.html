@@ -97,11 +97,11 @@
               <div class="dtc-ns swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
                 <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
               </div>
-              <a href="javascript:void(0)" class="phm dtc-ns vac ease link" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
-                <span>{{currentTextColor.hex}}</span>
+              <a href="javascript:void(0)" class="phm dtc-ns vac ease" ng-mouseenter="hoverColorHex={ 'color': currentTextColor.hex, 'transition': 'all .2s ease' }" ng-mouseleave="hoverColorHex={ 'color': 'black' }" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
+                <span ng-style="hoverColorHex">{{currentTextColor.hex}}</span>
               </a>
-              <a href="javascript:void(0)" class="phm dtc-ns vac ease link" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
-                <span>rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
+              <a href="javascript:void(0)" class="phm dtc-ns vac ease" ng-mouseenter="hoverColorRgb={ 'color': currentTextColor.hex, 'transition': 'all .2s ease' }" ng-mouseleave="hoverColorRgb={ 'color': 'black' }" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
+                <span ng-style="hoverColorRgb">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
               </a>
             </div>
           </section>
