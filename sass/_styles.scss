@@ -1,19 +1,28 @@
 /*  =============================================================================
  *  CUSTOM STYLES
  *  ============================================================================= */
-
+.ng-cloak { display:none; }
 
 /*
  * Component Specific Styles
  * ====================================== */
 .mw-800 { max-width: 800px; }
-.mw-1400 { max-width: 1400px; }
 .mw-2100 { max-width: 2100px; }
 .ht-130 { height: 130px; }
 .leftPanel { width: 287px; left: -287px; }
-.wi-primaryColors { width: 140px; }
 .ht-colorVariations { height: 250px; }
 
+#Container .mix { display: none; }
+.swatch { width: 86px; height: 86px; }
+.mt-colorFilters { margin-top: 1.5rem; }
+
+
+
+/*
+ * Borders & Backgrounds
+ * ====================================== */
+.border-white { border: 2px solid $near-white; }
+.border-bottom-gray { border-bottom: 1px solid $light-gray; }
 
 .bg-white { background-color: white; }
 .bg-light-gray { background-color: rgba(0,0,0,0.1); }
@@ -24,35 +33,22 @@
 .bg-panel { background-color: $navy; }
 .bg-blur { background-color: $navy-blur; }
 .bg-colorFilters { background-color: $darker-gray; }
-.bg-previewScreen {
+.bg-screenIcon {
   width: 345px;
   height: 246px;
   background: url('../assets/img/accessible-artwork.png') no-repeat;
   background-size: 345px 246px;
 }
 
-.border-white { border: 2px solid $near-white; }
-.border-bottom-gray { border-bottom: 1px solid $light-gray; }
-.border-selected {
-  border: 12px solid $near-white;
-}
-
-#Container .mix { display: none; }
-.swatch { width: 86px; height: 86px; }
-.mt-colorFilters { margin-top: 1.5rem; }
-
-.assistive-text { opacity: 0; width: 0; height: 0; display: block; }
 
 
 /*
- * Anchor & Form Styles
+ * Global Styles (Anchor & Form Styles)
  * ====================================== */
 .link:hover { color: lighten($blue, 20%); }
 
 .input { border: 1px solid white; border-radius: 3px; }
-
 .select {  border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
-.form-icon { position: absolute; right: 0; margin-right: 10px; bottom: 7px; }
 
 .btn-primary { width: 282px; cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
 .btn-secondary { border: 1px solid $darker-gray; border-radius: 3px; -webkit-appearance: none; cursor: pointer; }
@@ -63,6 +59,8 @@
  * Animations
  * ====================================== */
 .ease { transition: all .3s ease; }
+
+/* Color Bar Filter */
 .slideToggle {
 	overflow-y: hidden;
 	transition-property: all;
@@ -72,16 +70,11 @@
 .mh-auto { max-height: 53px; }
 .mh-none { max-height: 0; }
 
+/* Instruction screens */
 .fadeInAni { animation: fadeIn 0.4s forwards; }
-.fadeInAniDelay { animation: fadeIn 1s 0.4s forwards; }
-.fadeOutAni { animation: fadeOut 0s forwards; }
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
-}
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
 }
 
 /* slide out left panel */
@@ -92,29 +85,64 @@
 	transition: all 0.3s ease;
 }
 
+/* Tile Hover - expand */
 .tile-hover { transition: all .1s ease-in; }
 .tile-hover:hover {
   transform: scale(1.05);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
+/* Tile Hover - border-fade */
+.border-fade {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: inset 0 0 0 2px $near-white, 0 0 1px rgba(0, 0, 0, 0);
+  /* Hack to improve aliasing on mobile/tablet devices */
+}
+.border-selected, .border-fade:hover, .border-fade:focus, .border-fade:active {
+  box-shadow: inset 0 0 0 12px $near-white, 0 0 1px rgba(0, 0, 0, 0);
+  /* Hack to improve aliasing on mobile/tablet devices */
+}
+
+
+/* Toolbar Animations for 3 elements */
 .animated { -webkit-animation-duration: .5s; animation-duration: .5s; -webkit-animation-delay: 200ms; animation-delay: 200ms;       -webkit-animation-timing-function: ease-out; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
 .animatedDelay1 { -webkit-animation-duration: .5s; animation-duration: .5s; -webkit-animation-delay: 250ms; animation-delay: 250ms; -webkit-animation-timing-function: ease-out; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
 .animatedDelay2 { -webkit-animation-duration: .5s; animation-duration: .5s; -webkit-animation-delay: 300ms; animation-delay: 300ms; -webkit-animation-timing-function: ease-out; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
 
+/* Toolbar Animations - pulse */
 .pulse { -webkit-animation-name: pulse; animation-name: pulse; }
-
 @-webkit-keyframes pulse {
   0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
   50% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
   100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
 }
-
 @keyframes pulse {
   0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
   50% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
   100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
 }
+
+/* Toolbar Animations - shimmer */
+.shimmer {
+  background: -webkit-gradient(linear,left top,right top,color-stop(0, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(1, #4d4d4d));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation-name: shimmerAni;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-delay: 200ms;
+  -webkit-animation-timing-function: ease-out;
+  width: 200%;
+}
+@-webkit-keyframes shimmerAni {
+  0% { background-position: -458px 0; }
+  100% { background-position: 458px 0; }
+}
+
 
 
 
@@ -147,25 +175,18 @@
   bottom: -26px;
   left: 40px;
 }
-.pos-refresh {
-  bottom: 20px;
-  right: 20px;
-}
-.pos-info {
-  bottom: 20px;
-  left: 20px;
-}
 
 
 
+/*
+ * Media Queries for Screen Size and Retina
+ * ====================================== */
 // Larger than phone size screens
 @media only screen and (min-width: 30em) {
-  .mtx-ns  { margin-top: 4rem; }
   .dt-ns { display: table; }
   .dtc-ns { display: table-cell; }
   .ht-full-ns { height: 100%; }
   .ht-toolbar-ns { height: 86px; }
-  .bg-white-ns { background-color: white; }
   .vam-ns {
     position: relative;
     top: 50%;

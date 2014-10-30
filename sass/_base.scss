@@ -12,6 +12,8 @@ body { margin: 0; font-family: 'Lato', sans-serif; font-size: 18px; font-weight:
 .list-plain { list-style-type: none; }
 .list-horz li { display: inline-block; }
 
+.assistive-text { opacity: 0; width: 0; height: 0; display: block; }
+
 /*
  *  LAYOUT & DISPLAY
  *  ============================================================================= */

@@ -9,13 +9,13 @@
 
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
-  <body ng-controller="appController" class="ht-full-ns pos-rel" ng-class="{ 'of-hidden': isIntroActive }">
+  <body ng-controller="appController" class="ht-full-ns pos-rel ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
 
     <article id="intro" class="ht-full-ns bg-green dt wi-full tac" ng-show="isIntroActive">
       <div class="dtc vac text-white">
         <h1 class="man caps">Accessible Colors</h1>
         <p>A tool to help ensure your designs meet accessibility standards for contrast ratios.</p>
-        <div class="mvl bg-previewScreen bg-previewScreen-rs center"></div>
+        <div class="mvl bg-screenIcon bg-previewScreen-rs center"></div>
         <button class="db pvm phl mvm f4 fw-bold caps center btn-outline ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
       </div>
     </article>
@@ -37,9 +37,6 @@
               <label for="fontFamily" class="mvs db">Font Family</label>
               <div class="pos-rel">
                 <select name="fontFamily" id="fontFamily" class="pvs phm f4 wi-full select text-white bg-dark" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
-                <!--
-                <span class="form-icon ss-navigatedown"></span>
-                -->
               </div>
             </div>
             <div class="prl plm tal dib span_3_of_12">
@@ -69,22 +66,47 @@
     </article>
 
 
-    <article id="section2" class="bg-dark" ng-show="isSection2Active">
+    <article id="section2" class="ptl bg-dark" ng-show="isSection2Active">
       <!--
       <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
       -->
       <article class="phm mw-2100 center cf">
         <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns bg-white">
           <div class="phm dtc-ns vac pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
-          <div class="dtc-ns swatch pos-rel" ng-class="{ 'animated pulse': animateToolbar }" style="background-color: {{currentTextColor.hex}};">
-            <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
-          </div>
-          <a href="javascript:void(0)" class="phm dtc-ns vac bg-light-gray ease link" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
-            <span ng-class="{ 'animatedDelay1 pulse': animateToolbar }">{{currentTextColor.hex}}</span>
-          </a>
-          <a href="javascript:void(0)" class="phm dtc-ns vac bg-light-gray ease link" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
-            <span ng-class="{ 'animatedDelay2 pulse': animateToolbar }">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
+
+          <!--
+          ** Pulse Animation
+          -->
+          <section ng-if="currentAnimation === 'pulse'" class="bg-light-gray">
+            <div class="dtc-ns swatch pos-rel" ng-class="{ 'animated pulse': animateToolbar }" style="background-color: {{currentTextColor.hex}};">
+              <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
+            </div>
+            <a href="javascript:void(0)" class="phm dtc-ns vac bg-light-gray ease link" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
+              <span ng-class="{ 'animatedDelay1 pulse': animateToolbar }">{{currentTextColor.hex}}</span>
             </a>
+            <a href="javascript:void(0)" class="phm dtc-ns vac bg-light-gray ease link" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
+              <span ng-class="{ 'animatedDelay2 pulse': animateToolbar }">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
+            </a>
+          </section>
+
+          <!--
+          ** Shimmer Animation
+          -->
+          <section ng-if="currentAnimation === 'shimmer'" class="bg-light-gray">
+            <div ng-class="{ 'shimmer': animateToolbar }">
+              <div class="dtc-ns swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
+                <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
+              </div>
+              <a href="javascript:void(0)" class="phm dtc-ns vac ease link" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
+                <span>{{currentTextColor.hex}}</span>
+              </a>
+              <a href="javascript:void(0)" class="phm dtc-ns vac ease link" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
+                <span>rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
+              </a>
+            </div>
+          </section>
+
+
           <div class="phm dtc-ns bg-light-gray2 vac">
             <span class="db f5">Contrast Ratio</span>
             {{currentTextColor.currentRatio}}
@@ -139,7 +161,10 @@
         </li>
       </ul>
 
-      <ul id="Container" class="pan list-plain list-horz df df-wrap">
+      <!--
+      ** Expand Animation
+      -->
+      <ul id="Container" class="pan list-plain list-horz df df-wrap" ng-if="currentTileAnimation === 'expand'">
         <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps tile-hover mix category-{{color.colorParent}}" ng-class="{ 'border-selected': color === currentTextColor, 'border-white': color !== currentTextColor }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <a href="javascript:void(0)" class="dt wi-full ht-full-ns pas vac">
             <span class="assistive-text">HEX: {{color.hex}}</span>
@@ -149,6 +174,18 @@
         </li>
       </ul>
 
+      <!--
+      ** Expand Animation
+      -->
+      <ul id="Container" class="pan list-plain list-horz df df-wrap" ng-if="currentTileAnimation === 'border-fade'">
+        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+          <a href="javascript:void(0)" class="dt wi-full ht-full-ns pas vac border-fade" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor }">
+            <span class="assistive-text">HEX: {{color.hex}}</span>
+            <span class="f3 dtc vac text-white fa fa-check fadeInAni" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
+            <span class="dtc vac text-white fadeInAni" ng-if="color === currentCopiedColor">Copied!</span>
+          </a>
+        </li>
+      </ul>
     </article>
 
 
