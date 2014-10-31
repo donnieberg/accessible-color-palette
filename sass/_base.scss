@@ -106,11 +106,13 @@ textarea { border: none; }
 .span_1_of_12  { width: 100%; }
 
 .ht-full { height: 100%; }
+.wi-half { width: 50%; }
 
 
 /*  12 Column grid for bigger THAN 30em - 480 PIXELS wide */
 
 @media only screen and (min-width: 30em) {
+.wi-full,
 .span_12_of_12 { width: 100%;   }
 .span_11_of_12 { width: 91.46%; }
 .span_10_of_12 { width: 83%;    }

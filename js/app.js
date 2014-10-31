@@ -32,8 +32,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.isIntroActive = true;
 
   /* For Internal Proto Testing */
-  $scope.currentAnimation = 'shimmer';
+  //$scope.currentAnimation = 'shimmer';
   $scope.currentTileAnimation = 'border-fade';
+  $scope.currentAnimation = 'pulse';
+  //$scope.currentTileAnimation = 'expand';
 
   /**
    * Scroll Animation between step 1 to step 2
@@ -196,7 +198,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.animateToolbar = true;
     $timeout(function() {
       $scope.animateToolbar = false;
-    }, 1000);
+    }, 2000);
   };
 
   /**

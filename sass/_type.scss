@@ -3,9 +3,9 @@
  *  ============================================================================= */
 h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
 
-h1,.f1 { font-size: 3rem; }
-h2,.f2 { font-size: 2rem; }
-h3,.f3 { font-size: 1.5rem; }
+h1,.f1 { font-size: 2rem; }
+h2,.f2 { font-size: 1.5rem; }
+h3,.f3 { font-size: 1rem; }
 h4,.f4 { font-size: 1rem; }
 h5,.f5 { font-size: 0.8rem; }
 h6,.f6 { font-size: 0.5rem; }
@@ -23,3 +23,13 @@ h6,.f6 { font-size: 0.5rem; }
 .text-red { color: $red; }
 
 a { text-decoration: none; color: inherit;}
+
+
+@media only screen and (min-width: 30em) {
+  h1,.f1-ns { font-size: 3rem; }
+  h2,.f2-ns { font-size: 2rem; }
+  h3,.f3-ns { font-size: 1.5rem; }
+  h4,.f4-ns { font-size: 1rem; }
+  h5,.f5-ns { font-size: 0.8rem; }
+  h6,.f6-ns { font-size: 0.5rem; }
+}

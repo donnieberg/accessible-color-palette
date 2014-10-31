@@ -128,8 +128,10 @@ input, textarea { border: none; }
 
 .ht-full { height: 100%; }
 
+.wi-half { width: 50%; }
+
 /*  12 Column grid for bigger THAN 30em - 480 PIXELS wide */
-@media only screen and (min-width: 30em) { .span_12_of_12 { width: 100%; }
+@media only screen and (min-width: 30em) { .wi-full, .span_12_of_12 { width: 100%; }
   .span_11_of_12 { width: 91.46%; }
   .span_10_of_12 { width: 83%; }
   .span_9_of_12 { width: 74.54%; }
@@ -329,11 +331,11 @@ input, textarea { border: none; }
 /*  ============================================================================= TYPOGRAPHY STYLES ============================================================================= */
 h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
 
-h1, .f1 { font-size: 3rem; }
+h1, .f1 { font-size: 2rem; }
 
-h2, .f2 { font-size: 2rem; }
+h2, .f2 { font-size: 1.5rem; }
 
-h3, .f3 { font-size: 1.5rem; }
+h3, .f3 { font-size: 1rem; }
 
 h4, .f4 { font-size: 1rem; }
 
@@ -359,6 +361,12 @@ h6, .f6 { font-size: 0.5rem; }
 
 a { text-decoration: none; color: inherit; }
 
+@media only screen and (min-width: 30em) { h1, .f1-ns { font-size: 3rem; }
+  h2, .f2-ns { font-size: 2rem; }
+  h3, .f3-ns { font-size: 1.5rem; }
+  h4, .f4-ns { font-size: 1rem; }
+  h5, .f5-ns { font-size: 0.8rem; }
+  h6, .f6-ns { font-size: 0.5rem; } }
 /* Custom styles for this project */
 /*  ============================================================================= CUSTOM STYLES ============================================================================= */
 .ng-cloak { display: none; }
@@ -379,6 +387,10 @@ a { text-decoration: none; color: inherit; }
 .swatch { width: 86px; height: 86px; }
 
 .mt-colorFilters { margin-top: 1.5rem; }
+
+.span_3_of_12-dib { width: 50%; }
+
+.span_2_of_12-dib { width: 50%; }
 
 /* Borders & Backgrounds ====================================== */
 .border-white { border: 2px solid #f2f2f2; }
@@ -403,23 +415,35 @@ a { text-decoration: none; color: inherit; }
 
 .bg-colorFilters { background-color: #333333; }
 
-.bg-screenIcon { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; }
+.bg-screenIcon { width: 138px; height: 110px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 138px 110px; background-size: 138px 110px; }
 
 /* Global Styles (Anchor & Form Styles) ====================================== */
+button { font-family: 'Montserrat', sans-serif; }
+
 .link:hover { color: #64b0e3; }
 
 .input { border: 1px solid white; border-radius: 3px; }
 
 .select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
 
-.btn-primary { width: 282px; cursor: pointer; border: none; color: white; border-radius: 3px; background: #2280bf; }
+.input:hover { background: rgba(255, 255, 255, 0.2); }
+
+.select:hover { background: rgba(255, 255, 255, 0.2) url("../assets/img/icon-select.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
+
+.btn-primary { width: 300px; cursor: pointer; border: none; color: white; border-radius: 3px; background: #2280bf; }
+
+.btn-primary:hover { background: #1a6394; }
 
 .btn-secondary { border: 1px solid #333333; border-radius: 3px; -webkit-appearance: none; cursor: pointer; }
 
-.btn-outline { width: 282px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
+.btn-secondary:hover { background: #1a1a1a; }
+
+.btn-outline { width: 300px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
+
+.btn-outline:hover { border: 1px solid #2280bf; background: #2280bf; }
 
 /* Animations ====================================== */
-.ease { -webkit-transition: all .3s ease; transition: all .3s ease; }
+.ease { -webkit-transition: all .5s ease; transition: all .5s ease; }
 
 /* Color Bar Filter */
 .slideToggle { overflow-y: hidden; -webkit-transition-property: all; transition-property: all; -webkit-transition-duration: .2s; transition-duration: .2s; -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1); transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
@@ -441,31 +465,16 @@ a { text-decoration: none; color: inherit; }
 
 .slideOut { -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
 
-/* Tile Hover - expand */
-.tile-hover { -webkit-transition: all .1s ease-in; transition: all .1s ease-in; }
-
-.tile-hover:hover { -webkit-transform: scale(1.05); -ms-transform: scale(1.05); transform: scale(1.05); -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); }
-
-/* Tile Hover - border-fade */
-.border-fade { -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; /* Hack to improve aliasing on mobile/tablet devices */ }
-
-.border-selected, .border-fade:hover, .border-fade:focus, .border-fade:active { -webkit-box-shadow: inset 0 0 0 12px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 12px #f2f2f2, 0 0 1px transparent; /* Hack to improve aliasing on mobile/tablet devices */ }
-
-/* Toolbar Animations for 3 elements */
+/* Toolbar Animations - pulse */
 .animated { -webkit-animation-duration: .5s; animation-duration: .5s; -webkit-animation-delay: 200ms; animation-delay: 200ms; -webkit-animation-timing-function: ease-out; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
 
-.animatedDelay1 { -webkit-animation-duration: .5s; animation-duration: .5s; -webkit-animation-delay: 250ms; animation-delay: 250ms; -webkit-animation-timing-function: ease-out; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
-
-.animatedDelay2 { -webkit-animation-duration: .5s; animation-duration: .5s; -webkit-animation-delay: 300ms; animation-delay: 300ms; -webkit-animation-timing-function: ease-out; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
-
-/* Toolbar Animations - pulse */
 .pulse { -webkit-animation-name: pulse; animation-name: pulse; }
 
 @-webkit-keyframes pulse { 0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
-  50% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
+  50% { -webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05); }
   100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
 @keyframes pulse { 0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
-  50% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
+  50% { -webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05); }
   100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
 /* Toolbar Animations - shimmer */
 .shimmer { background: -webkit-gradient(linear, left top, right top, color-stop(0, #4d4d4d), color-stop(0.4, #4d4d4d), color-stop(0.5, white), color-stop(0.6, #4d4d4d), color-stop(1, #4d4d4d)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation-name: shimmerAni; -webkit-animation-duration: 2s; -webkit-animation-delay: 200ms; -webkit-animation-timing-function: ease-out; width: 200%; }
@@ -486,15 +495,33 @@ a { text-decoration: none; color: inherit; }
 .pos-arrow-up { position: absolute; bottom: -26px; left: 40px; }
 
 /* Media Queries for Screen Size and Retina ====================================== */
-@media only screen and (min-width: 30em) { .dt-ns { display: table; }
+@media only screen and (min-width: 30em) { .prl-ns { padding-right: 2rem; }
+  .prm-ns { padding-right: 1rem; }
+  .plm-ns { padding-left: 1rem; }
+  .dt-ns { display: table; }
   .dtc-ns { display: table-cell; }
   .ht-full-ns { height: 100%; }
   .ht-toolbar-ns { height: 86px; }
   .vam-ns { position: relative; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
+  .cf-ns { float: none; }
+  .span_3_of_12-dib { width: 23.78%; }
+  .span_2_of_12-dib { width: 15.32%; }
   .toolbar-1ns { width: 100%; }
   .toolbar-2ns { width: auto; float: left; margin-top: 0.5rem; }
-  .toolbar-3ns { width: auto; float: right; margin-top: 2rem; } }
+  .toolbar-3ns { width: auto; float: right; margin-top: 2rem; }
+  .bg-screenIcon-ns { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; }
+  /* Tile Hover - expand */
+  .tile-hover-ns { -webkit-transition: all .1s ease-in; transition: all .1s ease-in; }
+  .tile-hover-ns:hover { -webkit-transform: scale(1.05); -ms-transform: scale(1.05); transform: scale(1.05); -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); }
+  /* Tile Hover - border-fade */
+  .border-fade-ns { -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; /* Hack to improve aliasing on mobile/tablet devices */ }
+  .border-selected, .border-fade-ns:hover, .border-fade-ns:focus, .border-fade:active { -webkit-box-shadow: inset 0 0 0 12px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 12px #f2f2f2, 0 0 1px transparent; /* Hack to improve aliasing on mobile/tablet devices */ } }
 @media only screen and (min-width: 106em) { .toolbar-1x { width: 60%; margin-left: 20%; float: left; }
   .toolbar-2x { width: 20%; margin-left: -80%; float: left; }
   .toolbar-3x { width: auto; float: right; } }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .bg-previewScreen-rs { background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }
+@-webkit-keyframes zoomIn { 0% { opacity: 0; -webkit-transform: scale3d(0.3, 0.3, 0.3); transform: scale3d(0.3, 0.3, 0.3); }
+  50% { opacity: 1; } }
+@keyframes zoomIn { 0% { opacity: 0; -webkit-transform: scale3d(0.3, 0.3, 0.3); transform: scale3d(0.3, 0.3, 0.3); }
+  50% { opacity: 1; } }
+.zoomIn { -webkit-animation-name: zoomIn; animation-name: zoomIn; }
