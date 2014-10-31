@@ -27,28 +27,30 @@
           <p class="tac text-white">Pick a canvas color, and set up the styling of your text. In the next step you'll be able to preview your text in accessible colors.</p>
         </header>
 
-        <section class="pam mtm span_12_of_12">
+        <section class="pam mtm">
           <form accept-charset="utf-8" class="text-white center">
-            <div class="prl-ns tal dib span_3_of_12">
-              <label for="backgroundColor" class="mvs db">Background Color</label>
-              <input id="backgroundColor" class="pas f4 wi-full input text-white bg-dark ease" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
-            </div>
-            <div class="prm-ns tal dib span_4_of_12">
-              <label for="fontFamily" class="mvs db">Font Family</label>
-              <div class="pos-rel">
-                <select name="fontFamily" id="fontFamily" class="pvs phm f4 wi-full select text-white bg-dark ease" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+            <section class="span_12_of_12 cf">
+              <div class="prl-ns tal span_3_of_12 fl">
+                <label for="backgroundColor" class="mvs db">Background Color</label>
+                <input id="backgroundColor" class="pas f4 wi-full input text-white bg-dark ease" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
               </div>
-            </div>
-            <div class="prm plm-ns prl-ns tal dib span_3_of_12-dib fl cf-ns">
-              <label for="fontSize" class="mvs db">Font-Size (px)</label>
-              <input id="fontSize" class="pas f4 wi-full input text-white bg-dark ease" type="text" name="textfield" ng-model="fontSize" />
-            </div>
-            <div class="prl-ns tal dib span_2_of_12-dib">
-              <label for="fontWeight" class="mvs db">Font Weight</label>
-              <div class="pos-rel">
-                <select name="fontWeight" id="fontWeight" class="pvs phm f4 wi-full select text-white bg-dark ease" ng-model="fontWeight" ng-options="value for value in fontWeights"></select>
+              <div class="prl-ns tal span_4_of_12 fl">
+                <label for="fontFamily" class="mvs db">Font Family</label>
+                <div class="pos-rel">
+                  <select name="fontFamily" id="fontFamily" class="pvs phm f4 wi-full select text-white bg-dark ease" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+                </div>
               </div>
-            </div>
+              <div class="prl span_3_of_12-dib fl">
+                <label for="fontSize" class="mvs db">Font-Size (px)</label>
+                <input id="fontSize" class="pas f4 wi-full input text-white bg-dark ease" type="text" name="textfield" ng-model="fontSize" />
+              </div>
+              <div class="prl-ns span_2_of_12-dib fl">
+                <label for="fontWeight" class="mvs db">Font Weight</label>
+                <div class="pos-rel">
+                  <select name="fontWeight" id="fontWeight" class="pvs phm f4 wi-full select text-white bg-dark ease" ng-model="fontWeight" ng-options="value for value in fontWeights"></select>
+                </div>
+              </div>
+            </section>
             <div class="mtl tal pos-rel">
               <label for="userContent" class="mvs db">Edit Text</label>
               <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full ht-130 bg-white tac ban br-s" ng-model="userContent"></textarea>
@@ -86,18 +88,18 @@
         </section>
 
         <section class="toolbar-2ns toolbar-2x">
-          <div class="mrl tal dib">
-            <label for="WCAGlevel" class="mvs f5 db text-white">Filter by Accessibility Grade</label>
-            <div class="pos-rel">
-              <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full select text-white bg-dark ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades" ng-change="getCurrentRatio()"></select>
-            </div>
-          </div>
           <div class="mrl tal text-white dib pos-rel">
             <label for="colorFilter" class="mvs f5 db">Filter by Color</label>
             <a href="javascript:void(0)" id="colorFilter" class="pvs plm prl db f4 wi-full pos-rel select ease" ng-click="toggleColorFilters()">
               All Colors
             </a>
             <span class="arrow-up pos-arrow-up" ng-if="showColorFilters"></span>
+          </div>
+          <div class="mrl tal dib">
+            <label for="WCAGlevel" class="mvs f5 db text-white">Filter by Accessibility Grade</label>
+            <div class="pos-rel">
+              <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full select text-white bg-dark ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades" ng-change="getCurrentRatio()"></select>
+            </div>
           </div>
           <!--
           <div class="mrl tal text-white dib pos-rel">
@@ -109,11 +111,11 @@
           -->
         </section>
         <section class="toolbar-3ns toolbar-3x">
-          <a href="javascript:void(0)" class="mrl pvs phm f4 text-white pos-rel btn-secondary bg-darker" ng-click="slideToElement('section1', 400)">
+          <a href="javascript:void(0)" class="mrl pvs phm f4 text-white pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
             <span class="mrs text-green fa fa-refresh"></span>
             Start Over
           </a>
-          <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker" ng-click="toggleInfoPanel();">About This Tool</a>
+          <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">About This Tool</a>
         </section>
       </article>
 
