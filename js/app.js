@@ -29,7 +29,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
 
-  $scope.isIntroActive = true;
+  $scope.isIntroActive = false;
+  $scope.isSection1Active = true;
 
   /**
    * Scroll Animation between step 1 to step 2
@@ -97,13 +98,12 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Hide 'start over' and '?' when scrolled to the top at step 1
    */
   $document.on('scroll', function() {
-    if($document.scrollTop() < 500){
-      $scope.showRefresh = false;
+    if($document.scrollTop() < $('#section2').position().top){
+      $scope.pinToolbar = false;
       $scope.$apply();
     }else{
-      $scope.showRefresh = true;
+      $scope.pinToolbar = true;
       $scope.$apply();
-      //console.log('TODO: Make it change based on height of window');
     }
   });
 
@@ -192,7 +192,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.animateToolbar = true;
     $timeout(function() {
       $scope.animateToolbar = false;
-    }, 2000);
+    }, 1000);
   };
 
   /**

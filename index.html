@@ -7,6 +7,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Montserrat' rel='stylesheet' type='text/css'>
 
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
   <body ng-controller="appController" class="ht-full pos-rel ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
@@ -62,21 +63,23 @@
     </article>
 
 
-    <article id="section2" class="ptl bg-dark" ng-show="isSection2Active">
+    <article id="section2" class="bg-dark" ng-show="isSection2Active">
       <!--
       <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
       -->
-      <article class="phm mw-2100 center cf">
+      <article class="ptl phm mw-2100 center cf" ng-class="{ 'pbm fix-toolbar': pinToolbar }">
         <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns bg-white cf">
-          <div ng-class="{ 'animated pulse': animateToolbar }" class="phm dtc-ns vac pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
-          <div ng-class="{ 'animated pulse': animateToolbar }" class="dtc swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
-            <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
+          <div class="phm dtc-ns vac pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">
+            {{userContent}}
+          </div>
+          <div class="dtc swatch pos-rel ease" style="background-color: {{currentTextColor.hex}};">
+            <span class="arrow-left pos-arrow-left ease" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
           </div>
           <a href="javascript:void(0)" class="phm bg-light-gray dtc vac ease" ng-mouseenter="hoverColorHex={ 'color': currentTextColor.hex, 'transition': 'all .2s ease' }" ng-mouseleave="hoverColorHex={ 'color': 'black' }" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
-            <span ng-class="{ 'animated pulse': animateToolbar }" ng-style="hoverColorHex">{{currentTextColor.hex}}</span>
+            <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" ng-style="hoverColorHex">{{currentTextColor.hex}}</span>
           </a>
           <a href="javascript:void(0)" class="phm bg-light-gray dtc vac ease" ng-mouseenter="hoverColorRgb={ 'color': currentTextColor.hex, 'transition': 'all .2s ease' }" ng-mouseleave="hoverColorRgb={ 'color': 'black' }" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
-            <span ng-class="{ 'animated pulse': animateToolbar }" ng-style="hoverColorRgb">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
+            <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" ng-style="hoverColorRgb">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
           </a>
           <div class="pam fl cf-ns dtc-ns vac bg-light-gray2">
             <span class="db f5">Contrast Ratio</span>
