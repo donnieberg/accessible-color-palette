@@ -29,8 +29,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
 
-  $scope.isIntroActive = false;
-  $scope.isSection1Active = true;
+  $scope.isIntroActive = true;
 
   /**
    * Scroll Animation between step 1 to step 2
