@@ -19,6 +19,11 @@
 .span_3_of_12-dib  { width: 50%; }
 .span_2_of_12-dib  { width: 50%; }
 
+.toolbar-2 { display: none; }
+.toolbar-3 { display: none; }
+
+.pr-icon { padding-right: 2.5rem; }
+
 
 /*
  * Borders & Backgrounds
@@ -153,7 +158,7 @@ button { font-family: 'Montserrat', sans-serif; }
 }
 .pos-arrow-up {
   position: absolute;
-  bottom: -26px;
+  bottom: -33px;
   left: 40px;
 }
 
@@ -184,8 +189,8 @@ button { font-family: 'Montserrat', sans-serif; }
   .span_2_of_12-dib  { width: 16.667%; }
 
   .toolbar-1ns { width: 100%; }
-  .toolbar-2ns { width: auto; float: left; margin-top: 0.5rem; }
-  .toolbar-3ns { width: auto; float: right; margin-top: 2rem; }
+  .toolbar-2ns { display: block; width: auto; float: left; margin-top: 0.5rem; }
+  .toolbar-3ns { display: block; width: auto; float: right; margin-top: 2rem; }
 
   .bg-screenIcon-ns {
     width: 345px;

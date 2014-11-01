@@ -392,6 +392,12 @@ a { text-decoration: none; color: inherit; }
 
 .span_2_of_12-dib { width: 50%; }
 
+.toolbar-2 { display: none; }
+
+.toolbar-3 { display: none; }
+
+.pr-icon { padding-right: 2.5rem; }
+
 /* Borders & Backgrounds ====================================== */
 .border-white { border: 2px solid #f2f2f2; }
 
@@ -492,7 +498,7 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .pos-arrow-left { position: absolute; top: 30px; left: -7px; }
 
-.pos-arrow-up { position: absolute; bottom: -26px; left: 40px; }
+.pos-arrow-up { position: absolute; bottom: -33px; left: 40px; }
 
 /* Media Queries for Screen Size and Retina ====================================== */
 @media only screen and (min-width: 30em) { .prl-ns { padding-right: 2rem; }
@@ -507,8 +513,8 @@ button { font-family: 'Montserrat', sans-serif; }
   .span_3_of_12-dib { width: 25%; }
   .span_2_of_12-dib { width: 16.667%; }
   .toolbar-1ns { width: 100%; }
-  .toolbar-2ns { width: auto; float: left; margin-top: 0.5rem; }
-  .toolbar-3ns { width: auto; float: right; margin-top: 2rem; }
+  .toolbar-2ns { display: block; width: auto; float: left; margin-top: 0.5rem; }
+  .toolbar-3ns { display: block; width: auto; float: right; margin-top: 2rem; }
   .bg-screenIcon-ns { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; }
   /* Tile Hover - expand */
   .tile-hover-ns { -webkit-transition: all .1s ease-in; transition: all .1s ease-in; }

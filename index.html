@@ -44,7 +44,7 @@
                 <label for="fontSize" class="mvs db">Font-Size (px)</label>
                 <input id="fontSize" class="pas f4 wi-full input text-white bg-dark ease" type="text" name="textfield" ng-model="fontSize" />
               </div>
-              <div class="prl-ns span_2_of_12-dib fl">
+              <div class="span_2_of_12-dib fl">
                 <label for="fontWeight" class="mvs db">Font Weight</label>
                 <div class="pos-rel">
                   <select name="fontWeight" id="fontWeight" class="pvs phm f4 wi-full select text-white bg-dark ease" ng-model="fontWeight" ng-options="value for value in fontWeights"></select>
@@ -67,16 +67,16 @@
       <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
       -->
       <article class="phm mw-2100 center cf">
-        <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns bg-white cf" ng-class="{ 'animated pulse': animateToolbar }">
-          <div class="phm dtc-ns vac pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
-          <div class="dtc swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
+        <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns bg-white cf">
+          <div ng-class="{ 'animated pulse': animateToolbar }" class="phm dtc-ns vac pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">{{userContent}}</div>
+          <div ng-class="{ 'animated pulse': animateToolbar }" class="dtc swatch pos-rel" style="background-color: {{currentTextColor.hex}};">
             <span class="arrow-left pos-arrow-left" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
           </div>
           <a href="javascript:void(0)" class="phm bg-light-gray dtc vac ease" ng-mouseenter="hoverColorHex={ 'color': currentTextColor.hex, 'transition': 'all .2s ease' }" ng-mouseleave="hoverColorHex={ 'color': 'black' }" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
-            <span ng-style="hoverColorHex">{{currentTextColor.hex}}</span>
+            <span ng-class="{ 'animated pulse': animateToolbar }" ng-style="hoverColorHex">{{currentTextColor.hex}}</span>
           </a>
           <a href="javascript:void(0)" class="phm bg-light-gray dtc vac ease" ng-mouseenter="hoverColorRgb={ 'color': currentTextColor.hex, 'transition': 'all .2s ease' }" ng-mouseleave="hoverColorRgb={ 'color': 'black' }" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
-            <span ng-style="hoverColorRgb">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
+            <span ng-class="{ 'animated pulse': animateToolbar }" ng-style="hoverColorRgb">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
           </a>
           <div class="pam fl cf-ns dtc-ns vac bg-light-gray2">
             <span class="db f5">Contrast Ratio</span>
@@ -87,10 +87,10 @@
           <div class="pam fr cf-ns dtc-ns vac bg-light-gray2"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
         </section>
 
-        <section class="toolbar-2ns toolbar-2x">
+        <section class="toolbar-2 toolbar-2ns toolbar-2x">
           <div class="mrl tal text-white dib pos-rel">
             <label for="colorFilter" class="mvs f5 db">Filter by Color</label>
-            <a href="javascript:void(0)" id="colorFilter" class="pvs plm prl db f4 wi-full pos-rel select ease" ng-click="toggleColorFilters()">
+            <a href="javascript:void(0)" id="colorFilter" class="pvs plm pr-icon db f4 wi-full pos-rel select ease" ng-click="toggleColorFilters()">
               All Colors
             </a>
             <span class="arrow-up pos-arrow-up" ng-if="showColorFilters"></span>
@@ -110,7 +110,7 @@
           </div>
           -->
         </section>
-        <section class="toolbar-3ns toolbar-3x">
+        <section class="toolbar-3 toolbar-3ns toolbar-3x">
           <a href="javascript:void(0)" class="mrl pvs phm f4 text-white pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
             <span class="mrs text-green fa fa-refresh"></span>
             Start Over
@@ -119,7 +119,7 @@
         </section>
       </article>
 
-      <ul class="pam mt-colorFilters tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters ': showColorFilters, 'mh-none': !showColorFilters }">
+      <ul class="mt-colorFilters tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters pam': showColorFilters, 'mh-none': !showColorFilters }">
         <li id="allColorsFilter" class="df-child text-white filter no-border-box" ng-class="{ 'border-white': showColorFilters }" data-filter="all">
           <a href="javascript:void(0)">
             <p>All Colors</p>
@@ -132,24 +132,8 @@
         </li>
       </ul>
 
-      <!--
-      ** Tile Expand Animation
-      -->
-      <ul id="Container" class="pan list-plain list-horz df df-wrap" ng-if="currentTileAnimation === 'expand'">
-        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps tile-hover-ns mix category-{{color.colorParent}}" ng-class="{ 'border-selected': color === currentTextColor, 'border-white': color !== currentTextColor }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
-          <a href="javascript:void(0)" class="dt wi-full ht-full-ns pas vac">
-            <span class="assistive-text">HEX: {{color.hex}}</span>
-            <span class="f3 dtc vac text-white fa fa-check fadeInAni" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
-            <span class="dtc vac text-white fadeInAni" ng-if="color === currentCopiedColor">Copied!</span>
-          </a>
-        </li>
-      </ul>
-
-      <!--
-      ** Tile Border-fade Animation
-      -->
-      <ul id="Container" class="pan list-plain list-horz df df-wrap" ng-if="currentTileAnimation === 'border-fade'">
-        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+      <ul id="Container" class="pan list-plain list-horz df df-wrap">
+        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'animated pulse': color === currentCopiedColor }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <a href="javascript:void(0)" class="dt wi-full ht-full-ns pas vac border-fade-ns" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade-ns': color !== currentTextColor }">
             <span class="assistive-text">HEX: {{color.hex}}</span>
             <span class="f3 dtc vac text-white fa fa-check fadeInAni" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
