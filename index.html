@@ -67,7 +67,7 @@
       <!--
       <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
       -->
-      <article class="ptl phm mw-2100 center cf" ng-class="{ 'pbm fix-toolbar': pinToolbar }">
+      <article class="ptl pbm phm mw-2100 center cf" ng-class="{ 'fix-toolbar': pinToolbar }">
         <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns bg-white cf">
           <div class="phm dtc-ns vac pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">
             {{userContent}}
@@ -121,6 +121,8 @@
           <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">About This Tool</a>
         </section>
       </article>
+
+      <article class="ht-toolbarContainer" ng-class="{ 'dn': !pinToolbar, 'opacity-0': pinToolbar }"></article>
 
       <ul class="mt-colorFilters tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters pam': showColorFilters, 'mh-none': !showColorFilters }">
         <li id="allColorsFilter" class="df-child text-white filter no-border-box" ng-class="{ 'border-white': showColorFilters }" data-filter="all">

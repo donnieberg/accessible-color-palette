@@ -519,3 +519,4 @@ button { font-family: 'Montserrat', sans-serif; }
   .toolbar-2x { width: 20%; margin-left: -80%; float: left; }
   .toolbar-3x { width: auto; float: right; } }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }
+.ht-toolbarContainer { height: 195px; width: 100%; }

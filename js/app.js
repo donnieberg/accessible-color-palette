@@ -94,16 +94,15 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
 
   /**
-   * Hide 'start over' and '?' when scrolled to the top at step 1
+   * Pin toolbar to top when picking colors from tiles
    */
   $document.on('scroll', function() {
-    if($document.scrollTop() < $('#section2').position().top){
+    if( $('#section2').position().top > $document.scrollTop() ){
       $scope.pinToolbar = false;
-      $scope.$apply();
     }else{
       $scope.pinToolbar = true;
-      $scope.$apply();
     }
+    $scope.$apply();
   });
 
 
