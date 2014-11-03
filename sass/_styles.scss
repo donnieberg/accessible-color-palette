@@ -14,7 +14,6 @@
 
 #Container .mix { display: none; }
 .swatch { width: 86px; height: 86px; }
-.mt-colorFilters { margin-top: 1.5rem; }
 
 .span_3_of_12-dib  { width: 50%; }
 .span_2_of_12-dib  { width: 50%; }
@@ -29,7 +28,6 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 9999;
   background: rgba(59,63,69,.9);
 }
 
@@ -153,7 +151,7 @@ button { font-family: 'Montserrat', sans-serif; }
 }
 .pos-arrow-up {
   position: absolute;
-  bottom: -33px;
+  bottom: -20px;
   left: 40px;
 }
 
@@ -223,6 +221,11 @@ button { font-family: 'Montserrat', sans-serif; }
   .toolbar-1x { width: 60%; margin-left: 20%; float: left; }
   .toolbar-2x { width: 20%; margin-left: -80%; float: left; }
   .toolbar-3x { width: auto; float: right; }
+  .pos-arrow-up-x {
+    position: absolute;
+    bottom: -28px;
+    left: 40px;
+  }
 }
 
 // Retina screen

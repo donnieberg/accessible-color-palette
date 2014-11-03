@@ -97,7 +97,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Pin toolbar to top when picking colors from tiles
    */
   $document.on('scroll', function() {
-    if( $('#section2').position().top > $document.scrollTop() ){
+    if( $('#section2').position().top >= $document.scrollTop() ){
       $scope.pinToolbar = false;
     }else{
       $scope.pinToolbar = true;
