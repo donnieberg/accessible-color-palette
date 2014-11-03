@@ -127,7 +127,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.getCurrentRatio = function() {
     var currentFS = $scope.fontSize;
     var currentLevel = $scope.WCAGlevel;
-    if(currentFS < 18){
+    var currentFW = $scope.fontWeight;
+    if(currentFW >= 700 && currentFS >= 14){
+      currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
+    }else if(currentFS < 18){
       currentLevel === 'AA' ? $scope.currentRatio = 4.5 : $scope.currentRatio = 7.0;
     }else{
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
@@ -596,6 +599,6 @@ app.factory('appFactory', function() {
     ],
     accessibilityGrades: [ 'AA', 'AAA' ],
     textSizes: [ 'small text', 'large text' ],
-    fontWeights: [ 100, 200, 300, 400, 500, 600, 700, 800 ]
+    fontWeights: [ 100, 200, 300, 400, 500, 600, 700, 800, 900 ]
   }
 });
