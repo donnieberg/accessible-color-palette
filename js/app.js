@@ -181,6 +181,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * VENDOR CODE
    * Zero Clipboard plugin to copy to clipboard
    */
+  var client = new ZeroClipboard( document.getElementById("copyHexValue") );
+  var rgbValue = new ZeroClipboard( document.getElementById("copyRgbValue") );
+
 
   /**
    * When user clicks on color variation, make user text that color
