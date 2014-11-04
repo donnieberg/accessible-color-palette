@@ -428,7 +428,11 @@ a { text-decoration: none; color: inherit; }
 /* Global Styles (Anchor & Form Styles) ====================================== */
 button { font-family: 'Montserrat', sans-serif; }
 
-.link:hover { color: #64b0e3; }
+.link { font-weight: bold; padding-top: .25rem; padding-bottom: .25rem; border-bottom: 2px solid rgba(255, 255, 255, 0.5); }
+
+.link-green:hover { background: #038d66; border-bottom: 2px solid rgba(255, 255, 255, 0); }
+
+.link-navy:hover { background: #374c63; border-bottom: 2px solid rgba(255, 255, 255, 0); }
 
 .input { border: 1px solid white; border-radius: 3px; }
 

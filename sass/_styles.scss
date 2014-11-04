@@ -60,7 +60,9 @@
  * Global Styles (Anchor & Form Styles)
  * ====================================== */
 button { font-family: 'Montserrat', sans-serif; }
-.link:hover { color: lighten($blue, 20%); }
+.link { font-weight: bold; padding-top: .25rem; padding-bottom: .25rem; border-bottom: 2px solid rgba(255,255,255,.5); }
+.link-green:hover { background: darken($green, 5%); border-bottom: 2px solid rgba(255,255,255,0); }
+.link-navy:hover { background: darken($navy, 5%); border-bottom: 2px solid rgba(255,255,255,0); }
 
 .input { border: 1px solid white; border-radius: 3px; }
 .select {  border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }

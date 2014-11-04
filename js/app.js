@@ -65,10 +65,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.isInstructions1Active = false;
   };
   $scope.showInstructions2 = function(color, colorValue) {
-    if (!localStorage['instructions2']) {
-      localStorage['instructions2'] = 'yes';
-      $scope.isInstructions2Active = true;
-    }
+    $scope.isInstructions2Active = true;
     $scope.currentCopiedColor = color;
     $scope.currentCopiedColorValue = colorValue;
   };

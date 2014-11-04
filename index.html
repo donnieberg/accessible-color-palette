@@ -15,7 +15,7 @@
     <article id="intro" class="pam ht-full bg-green dt wi-full tac" ng-show="isIntroActive">
       <div class="dtc vac text-white">
         <h1 class="man caps">Accessible Colors</h1>
-        <p>A tool to help ensure your designs meet accessibility standards for contrast ratios.</p>
+        <p>This tool helps ensure your designs meet <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG accessibility standards </a>for text color contrast ratios.</p>
         <div class="mvl bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs center"></div>
         <button class="db pvm phl mvm f4 fw-bold caps center btn-outline ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
       </div>
@@ -25,7 +25,7 @@
       <div class="vam-ns mw-800 center">
         <header class="pam border-bottom-gray">
           <h2 class="tac text-white">Set Up your Canvas and Text</h2>
-          <p class="tac text-white">Pick a canvas color, and set up the styling of your text. In the next step you'll be able to preview your text in accessible colors.</p>
+          <p class="tac text-white">Enter in a background color, and determine the styling of your text. In the next step you'll be able to preview your text in accessible colors.</p>
         </header>
 
         <section class="pam mtm">
@@ -156,23 +156,31 @@
       <span class="ss-delete" ng-click="toggleInfoPanel()"></span>
       <h1 class="f4">Brought to you with love by Salesforce UX</h1>
       <p>
-        We believe it is important to design meaningful products that work for everyone. It is in that spirit that we’ve come up with this tool to help designers ensure that their color choices prove accessible to their users.
+        It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content.
       </p>
       <p>
         Thanks for checking out our tool. We’d love your feedback.
       </p>
-      <div class="mtx cf">
-        <div class="fl tac">
-          <img width="50" height="50" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="circle avatar" />
-          <p class="man">Donielle Berg</p>
-          <p class="man f5">UX Engineer</p>
-          <p class="man f5"><a href="http://donielleberg.com/" class="ease link">donielleberg.com</a></p>
+      <div class="ptl">
+        <div class="dt wi-full">
+          <div class="prm dtc vac">
+            <img width="60" height="60" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="db circle avatar" />
+          </div>
+          <div class="dtc vac wi-full">
+            <p class="mvxs">Adrian Rapp</p>
+            <p class="mvxs">Designer</p>
+            <p class="mvxs"><a href="http://adrianrapp.com/" class="ease link link-navy">adrianrapp.com</a></p>
+          </div>
         </div>
-        <div class="fr tac">
-          <img width="50" height="50" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="circle avatar" />
-          <p class="man">Adrian Rapp</p>
-          <p class="man f5">Designer</p>
-          <p class="man f5"><a href="http://adrianrapp.com/" class="ease link">adrianrapp.com</a></p>
+        <div class="ptl dt wi-full">
+          <div class="prm dtc vac">
+            <img width="60" height="60" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="db circle avatar" />
+          </div>
+          <div class="dtc vac wi-full">
+            <p class="mvxs">Donielle Berg</p>
+            <p class="mvxs">UX Engineer</p>
+            <p class="mvxs"><a href="http://donielleberg.com/" class="ease link link-navy">donielleberg.com</a></p>
+          </div>
         </div>
       </div>
     </section>
@@ -187,7 +195,7 @@
           Pick a color to set the text color
         </h3>
         <p>
-          Picking on a color will set the preview text color. <br>You will then be able to copy the Hex or RGB values to your clipboard.
+          Clicking on a color square will set the preview text color. <br>Then you can copy the Hex or RGB values to your clipboard.
         </p>
         <button class="db pvm phl mvm f4 fw-bold center btn-outline ease" ng-click="hideInstructions1()">Got it</button>
       </div>
