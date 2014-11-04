@@ -347,13 +347,15 @@ h6, .f6 { font-size: 0.5rem; }
 
 .italic { font-style: italic; }
 
-.fw-light { font-weight: 200; }
+.fw-light { font-weight: 300; }
 
 .fw-normal { font-weight: 400; }
 
 .fw-bold { font-weight: 800; }
 
 .text-white { color: #fff; }
+
+.text-dark { color: #333333; }
 
 .text-green { color: #03a678; }
 
@@ -398,7 +400,7 @@ a { text-decoration: none; color: inherit; }
 
 .pt-tiles { padding-top: 5rem; }
 
-.fix-toolbar { position: fixed; top: 0; width: 100%; background: rgba(59, 63, 69, 0.9); }
+.fix-toolbar { position: fixed; top: 0; width: 100%; background: rgba(59, 63, 69, 0.95); }
 
 /* Borders & Backgrounds ====================================== */
 .border-white { border: 2px solid #f2f2f2; }
@@ -452,7 +454,7 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .btn-outline { width: 300px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
 
-.btn-outline:hover { border: 1px solid #2280bf; background: #2280bf; }
+.btn-outline:hover { background: rgba(255, 255, 255, 0.2); }
 
 /* Animations ====================================== */
 .ease { -webkit-transition: all .5s ease; transition: all .5s ease; }
@@ -494,6 +496,8 @@ button { font-family: 'Montserrat', sans-serif; }
 .pos-arrow-left { position: absolute; top: 30px; left: -7px; }
 
 .pos-arrow-up { position: absolute; bottom: -20px; left: 40px; }
+
+.pos-tooltip { top: -150px; }
 
 /* Media Queries for Screen Size and Retina ====================================== */
 @media only screen and (min-width: 30em) { .prl-ns { padding-right: 2rem; }

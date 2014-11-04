@@ -14,11 +14,12 @@ h6,.f6 { font-size: 0.5rem; }
 .caps { text-transform: uppercase; }
 .italic { font-style:italic; }
 
-.fw-light { font-weight: 200; }
+.fw-light { font-weight: 300; }
 .fw-normal { font-weight: 400; }
 .fw-bold { font-weight: 800; }
 
 .text-white { color: #fff; }
+.text-dark { color: $darker-gray; }
 .text-green { color: $green; }
 .text-red { color: $red; }
 

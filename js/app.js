@@ -135,6 +135,15 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     //console.log('the current ratio is: ', $scope.currentRatio);
   };
 
+  $scope.showFShelpText = function() {
+    $scope.showMessage = true;
+    if($scope.fontSize >= 18){
+      $scope.message = 'Font Size 14+ plus bold or 18+ are considered large text and has a 3.1 WCAG standard.';
+    }else{
+      $scope.message = 'Font Size below 18px is considered small text and has a 4.5 WCAG standard.';
+    }
+  };
+
 
   /**
    * Get all Flat UI Colors

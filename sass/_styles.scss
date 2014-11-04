@@ -28,7 +28,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(59,63,69,.9);
+  background: rgba(59,63,69,.95);
 }
 
 
@@ -74,7 +74,7 @@ button { font-family: 'Montserrat', sans-serif; }
 .btn-secondary { border: 4px solid $darker-gray; border-radius: 5px; -webkit-appearance: none; cursor: pointer; }
 .btn-secondary:hover { border: 4px solid darken($darker-gray, 10%); background: darken($darker-gray, 10%)}
 .btn-outline { width: 300px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
-.btn-outline:hover { border: 1px solid $blue; background: $blue;}
+.btn-outline:hover { background: rgba(255,255,255,.2);}
 
 
 /*
@@ -155,6 +155,9 @@ button { font-family: 'Montserrat', sans-serif; }
   position: absolute;
   bottom: -20px;
   left: 40px;
+}
+.pos-tooltip {
+  top: -150px;
 }
 
 
