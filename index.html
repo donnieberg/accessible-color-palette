@@ -69,7 +69,7 @@
     </article>
 
 
-    <article id="section2" class="bg-dark" ng-show="isSection2Active">
+    <article id="section2" class="pbxx bg-dark" ng-show="isSection2Active">
       <article class="ptl phm mw-2100 center" ng-class="{ 'fix-toolbar z-above': pinToolbar }">
         <div class="cf">
           <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns bg-white cf">
@@ -128,7 +128,7 @@
         <ul class="tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters pam': showColorFilters, 'mh-none': !showColorFilters }">
           <li id="allColorsFilter" class="df-child text-white filter no-border-box" ng-class="{ 'border-white': showColorFilters }" data-filter="all">
             <a href="javascript:void(0)">
-              <p>All Colors</p>
+              <p class="caps fw-light">All Colors</p>
             </a>
           </li>
           <li ng-repeat="color in appFactory.colorCategories" class="caps fw-light text-white df-child filter" ng-class="{ 'border-white': showColorFilters }" data-filter=".category-{{color.name}}" style="background-color: {{color.hex}}">
