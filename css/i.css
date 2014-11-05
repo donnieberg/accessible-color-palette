@@ -347,6 +347,8 @@ h5, .f5 { font-size: 0.8rem; }
 
 h6, .f6 { font-size: 0.5rem; }
 
+p { line-height: 1.65rem; }
+
 .caps { text-transform: uppercase; }
 
 .italic { font-style: italic; }
@@ -524,6 +526,10 @@ button { font-family: 'Montserrat', sans-serif; }
 .btn-white { border: 1px solid white; color: white; }
 
 .btn-white:hover { background: rgba(255, 255, 255, 0.3); }
+
+.btn-dark { border: 1px solid #333333; color: #333333; }
+
+.btn-dark:hover { background: rgba(59, 63, 69, 0.2); }
 
 /* Shapes & Positioning ====================================== */
 .circle { border-radius: 100%; }

@@ -77,6 +77,8 @@ button { font-family: 'Montserrat', sans-serif; }
 .btn-outline { width: 300px; cursor: pointer; border-radius: 3px; background: none; }
 .btn-white { border: 1px solid white; color: white; }
 .btn-white:hover { background: rgba(255,255,255,.3);}
+.btn-dark { border: 1px solid $darker-gray; color: $darker-gray; }
+.btn-dark:hover { background: rgba(59,63,69,.2);}
 
 
 

@@ -68,6 +68,15 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.isInstructions2Active = true;
     $scope.currentCopiedColor = color;
     $scope.currentCopiedColorValue = colorValue;
+
+    var color = tinycolor(colorValue);
+    if(color.isDark()){
+      $scope.modalTextColor = 'text-white';
+      $scope.modalBtnColor = 'btn-white';
+    }else{
+      $scope.modalTextColor = 'text-dark';
+      $scope.modalBtnColor = 'btn-dark';
+    }
   };
   $scope.hideInstructions2 = function() {
     $scope.isInstructions2Active = false;

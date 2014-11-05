@@ -25,8 +25,7 @@
         <header class="pam border-bottom-gray">
           <h2 class="tac text-white">Set Up your Canvas and Text</h2>
           <p class="tac text-white">
-            Enter in a background color, and determine the styling of your text. In the next step you'll be able to preview your text in accessible colors.
-            The WCAG guideline recommends a 4.5 contrast ratio for small text and 3.1 for large text (18 pixels+, or 14 pixels+ bold).
+            Enter in a background color, and determine the styling of your text. An accessible color palette will then be generated with WCAG's recommend contrast ratio of 4.5 for small text or 3.1 for large text<br/> (18 pixels+ or 14 pixels+ bold).
           </p>
         </header>
 
@@ -58,7 +57,7 @@
               </div>
             </section>
             <div class="mtl tal pos-rel">
-              <label for="userContent" class="mvs db">Edit Text</label>
+              <label for="userContent" class="mvs db">Editable Text</label>
               <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full bg-white tac ban br-s" ng-model="userContent"></textarea>
             </div>
             <button class="db pvm phl mvl caps f4 fw-bold center btn-primary ease" ng-click="getCurrentRatio(); getPassingColors(); slideToElement('section2', 900); activatePalette(); showInstructions1()">Generate Color Palette</button>
@@ -176,9 +175,9 @@
             <img width="60" height="60" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="db circle avatar" />
           </div>
           <div class="dtc vac wi-full">
-            <p class="mvxs">Adrian Rapp</p>
-            <p class="mvxs">Product Designer</p>
-            <p class="mvxs"><a href="http://adrianrapp.com/" class="ease link link-navy">adrianrapp.com</a></p>
+            <p class="f5 man">Adrian Rapp</p>
+            <p class="f5 man">Product Designer</p>
+            <p class="f5 man"><a href="http://adrianrapp.com/" class="ease link link-navy">adrianrapp.com</a></p>
           </div>
         </div>
         <div class="ptl dt wi-full">
@@ -214,14 +213,14 @@
     Full Screen Modal - Instructions 2
     ======================================= -->
     <article class="dt pos-fix top-0 wi-full ht-full z-above fadeInAni" style="background-color: rgba({{currentTextColor.rgb.r}}, {{currentTextColor.rgb.g}}, {{currentTextColor.rgb.b}}, .95)" ng-if="isInstructions2Active">
-      <div class="dtc vac tac" style="color: {{backgroundColor.hex}};">
+      <div class="dtc vac tac {{modalTextColor}}">
         <p>
           {{currentCopiedColorValue}}
         </p>
         <p>
           Copied to Clipboard!
         </p>
-        <button class="db pvm phl mvm f4 fw-bold center btn-outline ease" ng-click="hideInstructions2()" style="color: {{backgroundColor.hex}}; border: 2px solid {{backgroundColor.hex}};" ng-style="hoverCopyBtn" ng-mouseenter="hoverCopyBtn={ 'background': 'rgba(255,255,255,.9)' }" ng-mouseleave="hoverCopyBtn={ 'background': 'none' }">Got it</button>
+        <button class="db pvm phl mvm f4 fw-bold center btn-outline ease {{modalBtnColor}}" ng-click="hideInstructions2()">Got it</button>
       </div>
     </article>
 
