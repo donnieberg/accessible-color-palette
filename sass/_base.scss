@@ -60,7 +60,8 @@ body { margin: 0; font-family: 'Lato', sans-serif; font-size: 18px; font-weight:
 
 .of-hidden { overflow-y: hidden; }
 
-.pointer { cursor: default; }
+.default-cursor { cursor: default; }
+.pointer-cursor { cursor: pointer; }
 
 
 
@@ -106,6 +107,7 @@ textarea { border: none; }
 .span_1_of_12  { width: 100%; }
 
 .ht-full { height: 100%; }
+.ht-vh { height: 100vh; }
 .wi-half { width: 50%; }
 
 

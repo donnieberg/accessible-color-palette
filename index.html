@@ -7,7 +7,6 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400|Montserrat' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
   <body ng-controller="appController" class="ht-full pos-rel ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
@@ -17,7 +16,7 @@
         <h1 class="man caps">Accessible Colors</h1>
         <p>This tool helps ensure your designs meet <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG accessibility standards </a>for text color contrast ratios.</p>
         <div class="mvl bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs center"></div>
-        <button class="db pvm phl mvm f4 fw-bold caps center btn-outline ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
+        <button class="db pvm phl mvm f4 fw-bold caps center btn-outline btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
       </div>
     </article>
 
@@ -49,7 +48,7 @@
                   {{message}}
                 </div>
                 <label for="fontSize" class="mvs db">Font-Size (px)</label>
-                <input id="fontSize" class="pas f4 wi-full input text-white bg-dark ease" type="text" name="textfield" ng-model="fontSize" ng-blur="showFShelpText()" />
+                <input id="fontSize" class="pas f4 wi-full input text-white bg-dark ease" type="text" name="textfield" ng-model="fontSize" />
               </div>
               <div class="span_2_of_12-dib fl">
                 <label for="fontWeight" class="mvs db">Font Weight</label>
@@ -69,11 +68,11 @@
     </article>
 
 
-    <article id="section2" class="pbxx bg-dark" ng-show="isSection2Active">
+    <article id="section2" class="bg-dark ht-vh" ng-show="isSection2Active">
       <article class="ptl phm mw-2100 center" ng-class="{ 'fix-toolbar z-above': pinToolbar }">
         <div class="cf">
           <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns bg-white cf">
-            <div class="phm dtc-ns vac pointer" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">
+            <div class="phm dtc-ns vac default-cursor" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">
               {{userContent}}
             </div>
             <div class="dtc swatch pos-rel ease" style="background-color: {{currentTextColor.hex}};">
@@ -126,14 +125,14 @@
           </section>
         </div>
         <ul class="tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters pam': showColorFilters, 'mh-none': !showColorFilters }">
-          <li id="allColorsFilter" class="df-child text-white filter no-border-box" ng-class="{ 'border-white': showColorFilters }" data-filter="all">
-            <a href="javascript:void(0)">
-              <p class="caps fw-light">All Colors</p>
+          <li id="allColorsFilter" class="caps fw-light df-child text-white filter no-border-box" ng-class="{ 'border-white': showColorFilters }" data-filter="all">
+            <a href="javascript:void(0)" class="vam">
+              <p class="mvm">All Colors</p>
             </a>
           </li>
           <li ng-repeat="color in appFactory.colorCategories" class="caps fw-light text-white df-child filter" ng-class="{ 'border-white': showColorFilters }" data-filter=".category-{{color.name}}" style="background-color: {{color.hex}}">
-            <a href="javascript:void(0)" class="vam">
-              <p>{{color.name}}</p>
+            <a href="javascript:void(0)">
+              <p class="mvm">{{color.name}}</p>
             </a>
           </li>
         </ul>
@@ -159,7 +158,7 @@
     ======================================= -->
     <slide-out-left class="text-white leftPanel bg-panel z-top">
     <section class="pvm phl">
-      <span class="ss-delete" ng-click="toggleInfoPanel()"></span>
+      <span class="paxs f2 ss-delete dib ease pointer-cursor" ng-click="toggleInfoPanel()"></span>
       <h1 class="f4">Brought to you with love by Salesforce UX</h1>
       <p>
         It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content.
@@ -174,7 +173,7 @@
           </div>
           <div class="dtc vac wi-full">
             <p class="mvxs">Adrian Rapp</p>
-            <p class="mvxs">Designer</p>
+            <p class="mvxs">Product Designer</p>
             <p class="mvxs"><a href="http://adrianrapp.com/" class="ease link link-navy">adrianrapp.com</a></p>
           </div>
         </div>
@@ -203,7 +202,7 @@
         <p>
           Clicking on a color square will set the preview text color. <br>Then you can copy the Hex or RGB values to your clipboard.
         </p>
-        <button class="db pvm phl mvm f4 fw-bold center btn-outline ease" ng-click="hideInstructions1()">Got it</button>
+        <button class="db pvm phl mvm f4 fw-bold center btn-outline btn-white ease" ng-click="hideInstructions1()">Got it</button>
       </div>
     </article>
 
@@ -211,14 +210,14 @@
     Full Screen Modal - Instructions 2
     ======================================= -->
     <article class="dt pos-fix top-0 wi-full ht-full z-above fadeInAni" style="background-color: rgba({{currentTextColor.rgb.r}}, {{currentTextColor.rgb.g}}, {{currentTextColor.rgb.b}}, .95)" ng-if="isInstructions2Active">
-      <div class="dtc vac tac text-white">
+      <div class="dtc vac tac" style="color: {{backgroundColor.hex}};">
         <p>
           {{currentCopiedColorValue}}
         </p>
         <p>
           Copied to Clipboard!
         </p>
-        <button class="db pvm phl mvm f4 fw-bold center btn-outline ease" ng-click="hideInstructions2()">Got it</button>
+        <button class="db pvm phl mvm f4 fw-bold center btn-outline ease" ng-click="hideInstructions2()" style="color: {{backgroundColor.hex}}; border: 2px solid {{backgroundColor.hex}};" ng-style="hoverCopyBtn" ng-mouseenter="hoverCopyBtn={ 'background': 'rgba(255,255,255,.9)' }" ng-mouseleave="hoverCopyBtn={ 'background': 'none' }">Got it</button>
       </div>
     </article>
 

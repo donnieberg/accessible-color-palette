@@ -75,7 +75,9 @@ body { margin: 0; font-family: 'Lato', sans-serif; font-size: 18px; font-weight:
 
 .of-hidden { overflow-y: hidden; }
 
-.pointer { cursor: default; }
+.default-cursor { cursor: default; }
+
+.pointer-cursor { cursor: pointer; }
 
 /* SHAPES ============================================================================= */
 button, input[type="submit"] { border: none; background-color: transparent; }
@@ -127,6 +129,8 @@ input, textarea { border: none; }
 .span_1_of_12 { width: 100%; }
 
 .ht-full { height: 100%; }
+
+.ht-vh { height: 100vh; }
 
 .wi-half { width: 50%; }
 
@@ -363,12 +367,73 @@ h6, .f6 { font-size: 0.5rem; }
 
 a { text-decoration: none; color: inherit; }
 
+a:visited { text-decoration: none; color: inherit; }
+
 @media only screen and (min-width: 30em) { h1, .f1-ns { font-size: 3rem; }
   h2, .f2-ns { font-size: 2rem; }
   h3, .f3-ns { font-size: 1.5rem; }
   h4, .f4-ns { font-size: 1rem; }
   h5, .f5-ns { font-size: 0.8rem; }
   h6, .f6-ns { font-size: 0.5rem; } }
+/*  ============================================================================= ANIMATION STYLES ============================================================================= */
+.animated { -webkit-animation-duration: .5s; animation-duration: .5s; -webkit-animation-timing-function: ease-out; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
+
+.animated-delay1 { -webkit-animation-delay: 200ms; animation-delay: 200ms; }
+
+.animated-delay2 { -webkit-animation-delay: 400ms; animation-delay: 400ms; }
+
+@-webkit-keyframes bounceIn { 0%, 20%, 40%, 60%, 80%, 100% { -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0% { opacity: 0; -webkit-transform: scale3d(0.7, 0.7, 0.7); transform: scale3d(0.7, 0.7, 0.7); }
+  20% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
+  40% { -webkit-transform: scale3d(0.9, 0.9, 0.9); transform: scale3d(0.9, 0.9, 0.9); }
+  60% { opacity: 1; -webkit-transform: scale3d(1.03, 1.03, 1.03); transform: scale3d(1.03, 1.03, 1.03); }
+  80% { -webkit-transform: scale3d(0.97, 0.97, 0.97); transform: scale3d(0.97, 0.97, 0.97); }
+  100% { opacity: 1; -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
+@keyframes bounceIn { 0%, 20%, 40%, 60%, 80%, 100% { -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0% { opacity: 0; -webkit-transform: scale3d(0.7, 0.7, 0.7); transform: scale3d(0.7, 0.7, 0.7); }
+  20% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
+  40% { -webkit-transform: scale3d(0.9, 0.9, 0.9); transform: scale3d(0.9, 0.9, 0.9); }
+  60% { opacity: 1; -webkit-transform: scale3d(1.03, 1.03, 1.03); transform: scale3d(1.03, 1.03, 1.03); }
+  80% { -webkit-transform: scale3d(0.97, 0.97, 0.97); transform: scale3d(0.97, 0.97, 0.97); }
+  100% { opacity: 1; -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
+.bounceIn { -webkit-animation-name: bounceIn; animation-name: bounceIn; -webkit-animation-duration: .75s; animation-duration: .75s; }
+
+@-webkit-keyframes pulse { 0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+  50% { -webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05); }
+  100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
+@keyframes pulse { 0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+  50% { -webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05); }
+  100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
+.pulse { -webkit-animation-name: pulse; animation-name: pulse; }
+
+/* Animations ====================================== */
+.ease { -webkit-transition: all .5s ease; transition: all .5s ease; }
+
+/* Color Bar Filter */
+.slideToggle { overflow-y: hidden; -webkit-transition-property: all; transition-property: all; -webkit-transition-duration: .2s; transition-duration: .2s; -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1); transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+
+.mh-auto { max-height: auto; }
+
+.mh-none { max-height: 0; }
+
+/* Instruction screens */
+.fadeInAni { -webkit-animation: fadeIn 0.4s forwards; animation: fadeIn 0.4s forwards; }
+
+@-webkit-keyframes fadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+
+@keyframes fadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+/* slide out left panel */
+.slideOut-left.slideOut-open { left: 0px; }
+
+.slideOut { -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
+
+/* Toolbar Animations - shimmer */
+.shimmer { background: -webkit-gradient(linear, left top, right top, color-stop(0, #4d4d4d), color-stop(0.4, #4d4d4d), color-stop(0.5, white), color-stop(0.6, #4d4d4d), color-stop(1, #4d4d4d)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation-name: shimmerAni; -webkit-animation-duration: 2s; -webkit-animation-delay: 200ms; -webkit-animation-timing-function: ease-out; width: 200%; }
+
+@-webkit-keyframes shimmerAni { 0% { background-position: -458px 0; }
+  100% { background-position: 458px 0; } }
 /* Custom styles for this project */
 /*  ============================================================================= CUSTOM STYLES ============================================================================= */
 .ng-cloak { display: none; }
@@ -383,6 +448,8 @@ a { text-decoration: none; color: inherit; }
 .leftPanel { width: 287px; left: -287px; }
 
 .ht-colorVariations { height: 250px; }
+
+.mw-colorVariations { max-width: 250px; }
 
 #Container .mix { display: none; }
 
@@ -436,6 +503,8 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .link-navy:hover { background: #374c63; border-bottom: 2px solid rgba(255, 255, 255, 0); }
 
+.ss-delete:hover { background: #374c63; }
+
 .input { border: 1px solid white; border-radius: 3px; }
 
 .select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
@@ -452,38 +521,12 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .btn-secondary:hover { border: 4px solid #1a1a1a; background: #1a1a1a; }
 
-.btn-outline { width: 300px; cursor: pointer; border: 1px solid white; color: white; border-radius: 3px; background: none; }
+.btn-outline { width: 300px; cursor: pointer; border-radius: 3px; background: none; }
 
-.btn-outline:hover { background: rgba(255, 255, 255, 0.2); }
+.btn-white { border: 1px solid white; color: white; }
 
-/* Animations ====================================== */
-.ease { -webkit-transition: all .5s ease; transition: all .5s ease; }
+.btn-white:hover { background: rgba(255, 255, 255, 0.3); }
 
-/* Color Bar Filter */
-.slideToggle { overflow-y: hidden; -webkit-transition-property: all; transition-property: all; -webkit-transition-duration: .2s; transition-duration: .2s; -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1); transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
-
-.mh-auto { max-height: 53px; }
-
-.mh-none { max-height: 0; }
-
-/* Instruction screens */
-.fadeInAni { -webkit-animation: fadeIn 0.4s forwards; animation: fadeIn 0.4s forwards; }
-
-@-webkit-keyframes fadeIn { 0% { opacity: 0; }
-  100% { opacity: 1; } }
-
-@keyframes fadeIn { 0% { opacity: 0; }
-  100% { opacity: 1; } }
-/* slide out left panel */
-.slideOut-left.slideOut-open { left: 0px; }
-
-.slideOut { -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
-
-/* Toolbar Animations - shimmer */
-.shimmer { background: -webkit-gradient(linear, left top, right top, color-stop(0, #4d4d4d), color-stop(0.4, #4d4d4d), color-stop(0.5, white), color-stop(0.6, #4d4d4d), color-stop(1, #4d4d4d)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation-name: shimmerAni; -webkit-animation-duration: 2s; -webkit-animation-delay: 200ms; -webkit-animation-timing-function: ease-out; width: 200%; }
-
-@-webkit-keyframes shimmerAni { 0% { background-position: -458px 0; }
-  100% { background-position: 458px 0; } }
 /* Shapes & Positioning ====================================== */
 .circle { border-radius: 100%; }
 

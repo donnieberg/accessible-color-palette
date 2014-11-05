@@ -24,6 +24,7 @@ h6,.f6 { font-size: 0.5rem; }
 .text-red { color: $red; }
 
 a { text-decoration: none; color: inherit;}
+a:visited { text-decoration: none; color: inherit;}
 
 
 @media only screen and (min-width: 30em) {
