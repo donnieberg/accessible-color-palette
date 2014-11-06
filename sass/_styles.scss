@@ -6,10 +6,12 @@
 /*
  * Component Specific Styles
  * ====================================== */
+.ht-toolbarContainer { height: 195px; width: 100%; }
+.pbxx { padding-bottom: 20rem; }
 .mw-800 { max-width: 800px; }
 .mw-2100 { max-width: 2100px; }
 .ht-130 { height: 130px; }
-.leftPanel { width: 287px; left: -287px; }
+.leftPanel { width: 330px; left: -330px; }
 .ht-colorVariations { height: 250px; }
 
 #Container .mix { display: none; }
@@ -30,6 +32,10 @@
   width: 100%;
   background: rgba(59,63,69,.95);
 }
+.fix-footer {
+  position: absolute;
+  bottom: 0;
+}
 
 
 /*
@@ -39,8 +45,8 @@
 .border-bottom-gray { border-bottom: 1px solid $light-gray; }
 
 .bg-white { background-color: white; }
-.bg-light-gray { background-color: rgba(0,0,0,0.1); }
-.bg-light-gray2 { background-color: rgba(0,0,0,0.2); }
+.bg-light-gray { background-color: $light-gray; }
+.bg-gray { background-color: $gray; }
 .bg-dark { background-color: $dark-gray; }
 .bg-darker { background-color: $near-black;}
 .bg-green { background-color: $green; }
@@ -199,5 +205,4 @@ button { font-family: 'Montserrat', sans-serif; }
 }
 
 
-.ht-toolbarContainer { height: 195px; width: 100%; }
-.pbxx { padding-bottom: 20rem; }
+

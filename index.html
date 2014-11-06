@@ -43,9 +43,6 @@
                 </div>
               </div>
               <div class="prl span_3_of_12-dib fl pos-rel">
-                <div class="pam pos-abs bg-white text-dark brm pos-tooltip" ng-if="showMessage">
-                  {{message}}
-                </div>
                 <label for="fontSize" class="mvs db">Font-Size (px)</label>
                 <input id="fontSize" class="pas f4 wi-full input text-white bg-dark ease" type="text" name="textfield" ng-model="fontSize" />
               </div>
@@ -68,9 +65,9 @@
 
 
     <article id="section2" class="bg-dark ht-vh" ng-show="isSection2Active">
-      <article class="ptl phm mw-2100 center" ng-class="{ 'fix-toolbar z-above': pinToolbar }">
-        <div class="cf">
-          <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns bg-white cf">
+      <article class="ptl phm " ng-class="{ 'fix-toolbar z-above': pinToolbar }">
+        <div class="cf mw-2100 center">
+          <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns cf">
             <div class="phm dtc-ns vac default-cursor" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">
               {{userContent}}
             </div>
@@ -83,13 +80,13 @@
             <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Copy hex color" class="pll span_2_of_12 bg-light-gray dtc vac ease" ng-mouseenter="hoverColorRgb={ 'color': currentTextColor.hex, 'transition': 'all .2s ease' }" ng-mouseleave="hoverColorRgb={ 'color': 'black' }" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
               <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" ng-style="hoverColorRgb">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
             </a>
-            <div class="pam fl cf-ns dtc-ns vac bg-light-gray2">
+            <div class="pam fl cf-ns dtc-ns vac bg-gray">
               <span class="db f5">Contrast Ratio</span>
               {{currentTextColor.currentRatio}}
               <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span>
               <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span>
             </div>
-            <div class="pam fr cf-ns dtc-ns vac bg-light-gray2"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
+            <div class="pam fr cf-ns dtc-ns vac bg-gray"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
           </section>
 
           <section class="toolbar-2 toolbar-2ns toolbar-2x">
@@ -106,14 +103,6 @@
                 <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full select text-white bg-dark ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades" ng-change="getCurrentRatio()"></select>
               </div>
             </div>
-            <!--
-            <div class="mrl tal text-white dib pos-rel">
-              <label for="textSize" class="mvs db">Filter by Small/Large Text</label>
-              <div class="pos-rel">
-                <select name="textSize" id="textSize" class="f4 wi-full text-white select bg-dark" ng-model="textSize" ng-options="size for size in textSizes"></select>
-              </div>
-            </div>
-            -->
           </section>
           <section class="toolbar-3 toolbar-3ns toolbar-3x">
             <a href="javascript:void(0)" class="mrl pvs phm f4 text-white pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
@@ -136,10 +125,10 @@
           </li>
         </ul>
       </article>
-
+      <!--
+      ** TODO make this less hacky
+      -->
       <article class="ht-toolbarContainer" ng-class="{ 'dn': !pinToolbar, 'opacity-0': pinToolbar }"></article>
-
-
       <ul id="Container" class="pan list-plain list-horz df df-wrap">
         <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="df-child ht-colorVariations tac caps mix category-{{color.colorParent}}" ng-class="{ 'animated pulse': color === currentCopiedColor }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <a href="javascript:void(0)" class="dt wi-full ht-full-ns pas vac border-fade-ns" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade-ns': color !== currentTextColor }">
@@ -169,28 +158,31 @@
       <p>
         Thanks for checking out our tool. We’d love your feedback.
       </p>
-      <div class="ptl">
-        <div class="dt wi-full">
-          <div class="prm dtc vac">
-            <img width="60" height="60" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="db circle avatar" />
-          </div>
-          <div class="dtc vac wi-full">
-            <p class="f5 man">Adrian Rapp</p>
-            <p class="f5 man">Product Designer</p>
-            <p class="f5 man"><a href="http://adrianrapp.com/" class="ease link link-navy">adrianrapp.com</a></p>
-          </div>
+      <div class="mtx cf">
+        <div class="fl tac">
+          <img width="50" height="50" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="circle avatar" />
+          <p class="man">Donielle Berg</p>
+          <p class="man f5">UX Engineer</p>
+          <p class="man f5"><a href="http://donielleberg.com/" class="ease link link-navy">donielleberg.com</a></p>
         </div>
-        <div class="ptl dt wi-full">
-          <div class="prm dtc vac">
-            <img width="60" height="60" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="db circle avatar" />
-          </div>
-          <div class="dtc vac wi-full">
-            <p class="mvxs">Donielle Berg</p>
-            <p class="mvxs">UX Engineer</p>
-            <p class="mvxs"><a href="http://donielleberg.com/" class="ease link link-navy">donielleberg.com</a></p>
-          </div>
+        <div class="fr tac">
+          <img width="50" height="50" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="circle avatar" />
+          <p class="man">Adrian Rapp</p>
+          <p class="man f5">Product Designer</p>
+          <p class="man f5"><a href="http://adrianrapp.com/" class="ease link link-navy">adrianrapp.com</a></p>
         </div>
       </div>
+      <footer class="mbx fix-footer">
+        <a href="https://github.com/donnieberg/accessible-color-palette" alt="Github" class="prl">
+          <span class="f5 link link-navy ease">Github</span>
+        </a>
+        <a href="https://twitter.com/SalesforceUX" alt="Twitter" class="prl">
+          <span class="f5 link link-navy ease">Twitter</span>
+        </a>
+        <a href="https://medium.com/salesforce-ux" alt="Medium">
+          <span class="f5 link link-navy ease">Medium</span>
+        </a>
+      </footer>
     </section>
     </slide-out-left>
 

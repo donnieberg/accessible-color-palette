@@ -213,6 +213,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
   $scope.setColor = function(event, color) {
+    $scope.currentCopiedColor = null;
     if(event.metaKey){
       $scope.setBackgroundColor(color);
     }else{
