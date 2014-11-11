@@ -12,8 +12,9 @@
   </head>
   <body ng-controller="appController" class="ht-full pos-rel ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
 
-    <article id="intro" class="pam ht-full bg-green dt wi-full tac" ng-show="isIntroActive">
-      <div class="dtc vac text-white">
+    <article id="intro" class="ht-full bg-green tac" ng-show="isIntroActive">
+      <div class="ht-52 bg-dark-green"></div>
+      <div class="pam vam text-white">
         <h1 class="man caps">Accessible Colors</h1>
         <p>This tool helps ensure your designs meet <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG accessibility standards </a>for text color contrast ratios.</p>
         <div class="mvl bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs center"></div>
@@ -57,7 +58,7 @@
               </section>
               <div class="mtl tal pos-rel">
                 <label for="userContent" class="mvs db">Editable Text</label>
-                <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptl wi-full min-ht-85 bg-white tac ban br-s" ng-model="userContent"></textarea>
+                <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptm ptl-ns wi-full min-ht-85 bg-white tac ban br-s" ng-model="userContent"></textarea>
               </div>
               <button class="db pvm phl mvl caps f4 fw-bold center btn-primary ease" ng-click="getCurrentRatio(); getPassingColors(); slideToElement('section2', 900); activatePalette(); showInstructions1()">Generate Color Palette</button>
             </form>
@@ -133,11 +134,11 @@
       ** TODO make this less hacky
       -->
       <article class="ht-toolbarContainer" ng-class="{ 'dn': !pinToolbar, 'opacity-0': pinToolbar }"></article>
-      <ul id="Container" class="pan man list-plain list-horz bg-dark">
-        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="pos-rel ht-colorVariations ht-colorVariations-ns ht-colorVariations-x span_4_of_12-dib span_2_of_12-ns span_3_of_12-x tac caps mix category-{{color.colorParent}} border-fade dt" ng-class="{ 'animated pulse': color === currentCopiedColor,  'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor  }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+      <ul id="Container" class="pan man list-plain list-horz bg-dark cf">
+        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="dt fl ht-colorVariations ht-colorVariations-ns ht-colorVariations-x span_4_of_12-dib span_2_of_12-ns span_3_of_12-x tac caps mix category-{{color.colorParent}} border-fade" ng-class="{ 'animated pulse': color === currentCopiedColor,  'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor  }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <span class="assistive-text">HEX: {{color.hex}}</span>
-          <span class="pos-check pos-check-ns pos-check-x f3 text-white fa fa-check fadeInAni" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
-          <span class="pos-copied pos-copied-ns pos-copied-x text-white fadeInAni" ng-if="color === currentCopiedColor">Copied!</span>
+          <span class="dtc vac f3 text-white fa fa-check fadeInAni" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
+          <span class="dtc vac text-white fadeInAni" ng-if="color === currentCopiedColor">Copied!</span>
         </li>
       </ul>
       <!--

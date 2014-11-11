@@ -10,6 +10,7 @@
 .pbxx { padding-bottom: 20rem; }
 .mw-800 { max-width: 800px; }
 .mw-2100 { max-width: 2100px; }
+.ht-52 { height: 52px; }
 .ht-75 { height: 75px; }
 .min-ht-85 { min-height: 85px; }
 .ht-130 { height: 130px; }
@@ -54,6 +55,7 @@
 .bg-dark { background-color: $dark-gray; }
 .bg-darker { background-color: $near-black;}
 .bg-green { background-color: $green; }
+.bg-dark-green { background-color: darken($green, 10%); }
 .bg-panel { background-color: $navy; }
 .bg-blur { background-color: $navy-blur; }
 .bg-colorFilters { background-color: $darker-gray; }
@@ -124,8 +126,6 @@ button { font-family: 'Montserrat', sans-serif; }
 .pos-tooltip {
   top: -150px;
 }
-.pos-check { position: absolute; top: 70px; left: 45%; }
-.pos-copied { position: absolute; top: 60px; left: 30%; }
 
   /* Tile Hover - border-fade */
   .border-fade {
@@ -153,6 +153,7 @@ button { font-family: 'Montserrat', sans-serif; }
 
 // Larger than phone size screens
 @media only screen and (min-width: 40em) {
+  .ptl-ns  { padding-top: 2rem;   }
   .prl-ns  { padding-right: 2rem;   }
   .prm-ns  { padding-right: 1rem;   }
   .plm-ns  { padding-left: 1rem;   }
@@ -165,8 +166,6 @@ button { font-family: 'Montserrat', sans-serif; }
   .cf-ns { float: none; }
 
   .ht-toolbar-ns { height: 86px; }
-  .pos-copied-x { position: absolute; top: 120px; left: 40%; }
-  .pos-check-x { position: absolute; top: 120px; left: 45%; }
   .swatch-ns { width: 86px; height: 86px; }
   .hex-ns { width: 10%; height: auto; }
   .rgb-ns { width: 12%; height: auto; }
@@ -194,8 +193,6 @@ button { font-family: 'Montserrat', sans-serif; }
 // Larger than phone but smaller than Laptop size screens
 @media only screen and (min-width: 70em) {
   .ht-colorVariations-ns { height: 200px; }
-  .pos-check-ns { position: absolute; top: 100px; left: 45%; }
-  .pos-copied-ns { position: absolute; top: 90px; left: 35%; }
 }
 
 // Larger than 1440px Laptop size screens

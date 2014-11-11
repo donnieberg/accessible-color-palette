@@ -458,6 +458,8 @@ a:visited { text-decoration: none; color: inherit; }
 
 .mw-2100 { max-width: 2100px; }
 
+.ht-52 { height: 52px; }
+
 .ht-75 { height: 75px; }
 
 .min-ht-85 { min-height: 85px; }
@@ -506,6 +508,8 @@ a:visited { text-decoration: none; color: inherit; }
 .bg-darker { background-color: #333333; }
 
 .bg-green { background-color: #03a678; }
+
+.bg-dark-green { background-color: #027454; }
 
 .bg-panel { background-color: #405973; }
 
@@ -567,10 +571,6 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .pos-tooltip { top: -150px; }
 
-.pos-check { position: absolute; top: 70px; left: 45%; }
-
-.pos-copied { position: absolute; top: 60px; left: 30%; }
-
 /* Tile Hover - border-fade */
 .border-fade { -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; /* Hack to improve aliasing on mobile/tablet devices */ }
 
@@ -578,7 +578,8 @@ button { font-family: 'Montserrat', sans-serif; }
 
 /* Media Queries for Screen Size and Retina ====================================== */
 @media only screen and (max-width: 40em) { .wi-half-s { width: 50%; } }
-@media only screen and (min-width: 40em) { .prl-ns { padding-right: 2rem; }
+@media only screen and (min-width: 40em) { .ptl-ns { padding-top: 2rem; }
+  .prl-ns { padding-right: 2rem; }
   .prm-ns { padding-right: 1rem; }
   .plm-ns { padding-left: 1rem; }
   .pos-static-ns { position: static; }
@@ -588,8 +589,6 @@ button { font-family: 'Montserrat', sans-serif; }
   .vam-ns { position: relative; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
   .cf-ns { float: none; }
   .ht-toolbar-ns { height: 86px; }
-  .pos-copied-x { position: absolute; top: 120px; left: 40%; }
-  .pos-check-x { position: absolute; top: 120px; left: 45%; }
   .swatch-ns { width: 86px; height: 86px; }
   .hex-ns { width: 10%; height: auto; }
   .rgb-ns { width: 12%; height: auto; }
@@ -600,9 +599,7 @@ button { font-family: 'Montserrat', sans-serif; }
   /* Tile Hover - expand */
   .tile-hover-ns { -webkit-transition: all .1s ease-in; transition: all .1s ease-in; }
   .tile-hover-ns:hover { -webkit-transform: scale(1.05); -ms-transform: scale(1.05); transform: scale(1.05); -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); } }
-@media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; }
-  .pos-check-ns { position: absolute; top: 100px; left: 45%; }
-  .pos-copied-ns { position: absolute; top: 90px; left: 35%; } }
+@media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; } }
 @media only screen and (min-width: 106em) { .ht-colorVariations-x { height: 250px; }
   .span_2_of_12-x { width: 15%; }
   .toolbar-1x { width: 60%; margin-left: 20%; float: left; }

@@ -94,7 +94,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.activatePalette = function() {
     $scope.isSection2Active = true;
     $timeout(function() {
-      $('#Container').mixItUp();
+      $('#Container').mixItUp({
+        layout: { display: 'table' }
+      });
     }, 200);
   };
 
