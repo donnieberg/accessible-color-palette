@@ -1,5 +1,8 @@
 var app = angular.module('app', ['duScroll', 'colorpicker.module']);
 
+//=============================================
+// DIRECTIVES
+//============================================
 app.directive('slideOutLeft', function() {
   return {
     restrict: 'E',
@@ -11,9 +14,12 @@ app.directive('slideOutLeft', function() {
   };
 });
 
+//=============================================
+// CONTROLLER
+//============================================
 app.controller('appController', function($scope, $http, $document, $timeout, appFactory) {
   /**
-   * Defaults
+   * Model Data
    */
   $scope.appFactory = appFactory;
   $scope.allFontFamilies = $scope.appFactory.fonts;
@@ -21,6 +27,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.textSizes = $scope.appFactory.textSizes;
   $scope.fontWeights = $scope.appFactory.fontWeights;
 
+  /**
+   * Default States when App Loads
+   */
   $scope.userContent = 'The quick brown fox jumps over the lazy dog.';
   $scope.fontFamily = $scope.allFontFamilies[0];
   $scope.fontSize = 22;
@@ -28,12 +37,47 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
-
   $scope.isIntroActive = true;
+
+  //==============================================================
+
+  /**
+   * When user clicks on color variation, make user text that color
+   */
+  $scope.setTextColor = function(color) {
+    $scope.currentTextColor = color;
+    $scope.animateToolbar = true;
+    $timeout(function() {
+      $scope.animateToolbar = false;
+    }, 1000);
+  };
+
+  /**
+   * User can select tile to make that the background color
+   */
+  $scope.setBackgroundColor = function(color) {
+    $scope.backgroundColor = color;
+  };
+
+  /**
+   * User clicks on color to set as Current Color and generate passing colors off of that
+   */
+  $scope.setColor = function(event, color) {
+    $scope.currentCopiedColor = null;
+    if(event.metaKey){
+      $scope.setBackgroundColor(color);
+    }else{
+      $scope.setTextColor(color);
+      var currentColor = tinycolor(color.hex);
+      color.rgb = currentColor.toRgb();
+    }
+    $scope.getPassingColors();
+  };
+
+  //==============================================================
 
   /**
    * Scroll Animation between step 1 to step 2
-   * Takes in two params: @thing and @speed
    * @thing - element to scroll to
    * @speed - duration of animation speed
    */
@@ -50,10 +94,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }
   };
 
-
-
   /**
-   * Show/hide Instructions 1 and 2 Modals. Only show if it's the users' first time to website using HTML5 Local Storage
+   * Show/hide Instructions 1 and 2 Modals.
+   * Only show if it's the users' first time to website using HTML5 Local Storage
    */
   $scope.showInstructions1 = function() {
     if (!localStorage['instructions1']) {
@@ -68,7 +111,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.isInstructions2Active = true;
     $scope.currentCopiedColor = color;
     $scope.currentCopiedColorValue = colorValue;
-
     var color = tinycolor(colorValue);
     if(color.isDark()){
       $scope.modalTextColor = 'text-white';
@@ -83,7 +125,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
   /**
-   * Un-hide Step1 and Step2
+   * Activate Step 1 from Intro screen
    */
   $scope.activateStep1 = function() {
     $scope.isSection1Active = true;
@@ -91,6 +133,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $scope.isIntroActive = false;
     }, 1000);
   };
+
+  /**
+   * Activate Section 2 Color Palette and Color Tiles using MixItUp() https://mixitup.kunkalabs.com/
+   */
   $scope.activatePalette = function() {
     $scope.isSection2Active = true;
     $timeout(function() {
@@ -102,7 +148,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
 
   /**
-   * Pin toolbar to top when picking colors from tiles
+   * On Scroll, pin toolbar to top when picking colors from tiles
    */
   $document.on('scroll', function() {
     if( $('#section2').position().top >= $document.scrollTop() ){
@@ -113,9 +159,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.$apply();
   });
 
-
   /**
-   * Show/hide the color filters bar below the Color Filter drop down 'button'
+   * Show/hide the Filter by Color options below the Color Filter drop down 'button'
    */
   $scope.toggleColorFilters = function() {
     $scope.showColorFilters = !$scope.showColorFilters;
@@ -129,23 +174,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
 
-  /**
-   * Calculate Current Ratio based on user inputs for font size and WCGAG Level AA or AAA
-   */
-  $scope.getCurrentRatio = function() {
-    var currentFS = $scope.fontSize;
-    var currentLevel = $scope.WCAGlevel;
-    var currentFW = $scope.fontWeight;
-    if(currentFW >= 700 && currentFS >= 14){
-      currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
-    }else if(currentFS < 18){
-      currentLevel === 'AA' ? $scope.currentRatio = 4.5 : $scope.currentRatio = 7.0;
-    }else{
-      currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
-    }
-    //console.log('the current ratio is: ', $scope.currentRatio);
-  };
-
+  //=============================================
+  // GENERATE COLOR TILES - uses Tiny Colors http://bgrins.github.io/TinyColor/
+  //=============================================
 
   /**
    * Get all Flat UI Colors
@@ -172,10 +203,15 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
 
   /**
-   * Generate all tinycolors based off color categories
+   * Combine flatUI colors and generated tiny colors
    */
   $scope.allColors = _.union(allFlatColors, allTinyColors);
 
+
+
+  //=============================================
+  // COLOR CONTRAST LOGIC
+  //=============================================
 
   /**
    * Get passing ratios of colors compared with current background color
@@ -189,54 +225,26 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
   /**
-   * VENDOR CODE
-   * Zero Clipboard plugin to copy to clipboard
+   * Calculate Current Ratio based on user inputs for font size and WCGAG Level AA or AAA
    */
-  var client = new ZeroClipboard( document.getElementById("copyHexValue") );
-  var rgbValue = new ZeroClipboard( document.getElementById("copyRgbValue") );
-
-
-  /**
-   * When user clicks on color variation, make user text that color
-   */
-  $scope.setTextColor = function(color) {
-    $scope.currentTextColor = color;
-    $scope.animateToolbar = true;
-    $timeout(function() {
-      $scope.animateToolbar = false;
-    }, 1000);
-  };
-
-  /**
-   * User can select tile to make that the background color
-   */
-  $scope.setBackgroundColor = function(color) {
-    $scope.backgroundColor = color;
-  };
-
-  $scope.setColor = function(event, color) {
-    $scope.currentCopiedColor = null;
-    if(event.metaKey){
-      $scope.setBackgroundColor(color);
+  $scope.getCurrentRatio = function() {
+    var currentFS = $scope.fontSize;
+    var currentLevel = $scope.WCAGlevel;
+    var currentFW = $scope.fontWeight;
+    if(currentFW >= 700 && currentFS >= 14){
+      currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
+    }else if(currentFS < 18){
+      currentLevel === 'AA' ? $scope.currentRatio = 4.5 : $scope.currentRatio = 7.0;
     }else{
-      $scope.setTextColor(color);
-      var currentColor = tinycolor(color.hex);
-      color.rgb = currentColor.toRgb();
+      currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
     }
-    $scope.getPassingColors();
+    //console.log('the current ratio is: ', $scope.currentRatio);
   };
 
 
-  /**
-   * Uses tinycolor to determine if it is a light or dark color
-  $scope.isDark = function(color) {
-    var color = tinycolor(color.hex);
-    return color.isDark();
-  };
-   */
-
-
-
+  //=============================================
+  // VENDOR CODE
+  //=============================================
   /**
    * Sources of awesomeness:
    * http://www.w3.org/TR/WCAG20/#contrast-ratiodef
@@ -302,8 +310,18 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     return (Math.round(((Math.max(L1, L2) + 0.05)/(Math.min(L1, L2) + 0.05))*100)/100);
   }
 
+
+  /**
+   * Zero Clipboard plugin to copy to clipboard
+   */
+  var client = new ZeroClipboard( document.getElementById("copyHexValue") );
+  var rgbValue = new ZeroClipboard( document.getElementById("copyRgbValue") );
+
 });
 
+//=============================================
+// FACTORY (DATA)
+//============================================
 app.factory('appFactory', function() {
   return {
     colorCategories: [
