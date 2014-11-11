@@ -1,4 +1,4 @@
-var app = angular.module('app', ['duScroll']);
+var app = angular.module('app', ['duScroll', 'colorpicker.module']);
 
 app.directive('slideOutLeft', function() {
   return {

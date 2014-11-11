@@ -10,15 +10,18 @@
 .pbxx { padding-bottom: 20rem; }
 .mw-800 { max-width: 800px; }
 .mw-2100 { max-width: 2100px; }
+.ht-75 { height: 75px; }
+.min-ht-85 { min-height: 85px; }
 .ht-130 { height: 130px; }
 .leftPanel { width: 330px; left: -330px; }
-.ht-colorVariations { height: 250px; }
+.ht-colorVariations { height: 150px; }
+
+.top-20 { top: 20px; }
 
 #Container .mix { display: none; }
-.swatch { width: 86px; height: 86px; }
-
-.span_3_of_12-dib  { width: 50%; }
-.span_2_of_12-dib  { width: 50%; }
+.swatch { width: 20%; height: 75px; }
+.hex { width: 40%; height: 75px; }
+.rgb { width: 40%; height: 75px; }
 
 .toolbar-2 { display: none; }
 .toolbar-3 { display: none; }
@@ -36,6 +39,7 @@
   position: absolute;
   bottom: 0;
 }
+
 
 
 /*
@@ -120,32 +124,52 @@ button { font-family: 'Montserrat', sans-serif; }
 .pos-tooltip {
   top: -150px;
 }
+.pos-check { position: absolute; top: 70px; left: 45%; }
+.pos-copied { position: absolute; top: 60px; left: 30%; }
 
+  /* Tile Hover - border-fade */
+  .border-fade {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: inset 0 0 0 2px $near-white, 0 0 1px rgba(0, 0, 0, 0);
+    /* Hack to improve aliasing on mobile/tablet devices */
+  }
+  .border-selected, .border-fade:hover, .border-fade:focus, .border-fade:active {
+    box-shadow: inset 0 0 0 12px $near-white, 0 0 1px rgba(0, 0, 0, 0);
+    /* Hack to improve aliasing on mobile/tablet devices */
+  }
 
 
 /*
  * Media Queries for Screen Size and Retina
  * ====================================== */
+@media only screen and (max-width: 40em) {
+  .wi-half-s { width: 50%; }
+}
+
 // Larger than phone size screens
-@media only screen and (min-width: 30em) {
+@media only screen and (min-width: 40em) {
   .prl-ns  { padding-right: 2rem;   }
   .prm-ns  { padding-right: 1rem;   }
   .plm-ns  { padding-left: 1rem;   }
 
+  .pos-static-ns { position: static; }
   .dt-ns { display: table; }
   .dtc-ns { display: table-cell; }
   .ht-full-ns { height: 100%; }
-  .ht-toolbar-ns { height: 86px; }
-  .vam-ns {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
+  .vam-ns { position: relative; top: 50%; transform: translateY(-50%); }
   .cf-ns { float: none; }
 
-  .span_3_of_12-dib  { width: 25%; }
-  .span_2_of_12-dib  { width: 16.667%; }
+  .ht-toolbar-ns { height: 86px; }
+  .pos-copied-x { position: absolute; top: 120px; left: 40%; }
+  .pos-check-x { position: absolute; top: 120px; left: 45%; }
+  .swatch-ns { width: 86px; height: 86px; }
+  .hex-ns { width: 10%; height: auto; }
+  .rgb-ns { width: 12%; height: auto; }
 
   .toolbar-1ns { width: 100%; }
   .toolbar-2ns { display: block; width: auto; float: left; margin-top: 0.5rem; }
@@ -165,25 +189,19 @@ button { font-family: 'Montserrat', sans-serif; }
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   }
 
-  /* Tile Hover - border-fade */
-  .border-fade-ns {
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: box-shadow;
-    transition-property: box-shadow;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: inset 0 0 0 2px $near-white, 0 0 1px rgba(0, 0, 0, 0);
-    /* Hack to improve aliasing on mobile/tablet devices */
-  }
-  .border-selected, .border-fade-ns:hover, .border-fade-ns:focus, .border-fade:active {
-    box-shadow: inset 0 0 0 12px $near-white, 0 0 1px rgba(0, 0, 0, 0);
-    /* Hack to improve aliasing on mobile/tablet devices */
-  }
+}
+
+// Larger than phone but smaller than Laptop size screens
+@media only screen and (min-width: 70em) {
+  .ht-colorVariations-ns { height: 200px; }
+  .pos-check-ns { position: absolute; top: 100px; left: 45%; }
+  .pos-copied-ns { position: absolute; top: 90px; left: 35%; }
 }
 
 // Larger than 1440px Laptop size screens
 @media only screen and (min-width: 106em) {
+  .ht-colorVariations-x { height: 250px; }
+  .span_2_of_12-x { width: 15%; }
   .toolbar-1x { width: 60%; margin-left: 20%; float: left; }
   .toolbar-2x { width: 20%; margin-left: -80%; float: left; }
   .toolbar-3x { width: auto; float: right; }
@@ -203,6 +221,4 @@ button { font-family: 'Montserrat', sans-serif; }
     background-size: 345px 246px;
   }
 }
-
-
 
