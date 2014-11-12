@@ -99,7 +99,7 @@
             <div class="mrl tal text-white dib pos-rel">
               <label for="colorFilter" class="mbs mts-ns f5 db">Filter by Color</label>
               <a href="javascript:void(0)" id="colorFilter" class="pvs plm bg-colorWheel pr-icon db f4 wi-full pos-rel select ease" ng-click="toggleColorFilters()">
-                <img src="assets/img/colors.png" alt="color-wheel" width="16" height="16" class="mrxs pos-rel pos-color-wheel">
+                <img src="assets/img/Colors.png" alt="color-wheel" width="16" height="16" class="mrxs pos-rel pos-color-wheel">
                 All Colors
               </a>
               <span class="arrow-up pos-arrow-up pos-arrow-up-x" ng-if="showColorFilters"></span>
@@ -137,10 +137,10 @@
       -->
       <article class="ht-toolbarContainer" ng-class="{ 'dn': !pinToolbar, 'opacity-0': pinToolbar }"></article>
       <ul id="Container" class="pan man list-plain list-horz bg-dark cf">
-        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color)" class="dt fl ht-colorVariations ht-colorVariations-ns span_4_of_12-dib span_2_of_12-ns span_1_of_12-x tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'animated pulse': color === currentCopiedColor,  'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor  }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+        <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color); isDarkColor(color.hex)" class="dt fl ht-colorVariations ht-colorVariations-ns span_4_of_12-dib span_2_of_12-ns span_1_of_12-x tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'animated pulse': color === currentCopiedColor,  'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor  }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <span class="assistive-text">HEX: {{color.hex}}</span>
-          <span class="dtc vac f3 text-white fa fa-check fadeInAni" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
-          <span class="dtc vac text-white fadeInAni" ng-if="color === currentCopiedColor">Copied!</span>
+          <span class="dtc vac f3 fa fa-check fadeInAni {{tileIconColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
+          <span class="dtc vac text-white fadeInAni {{tileIconColor}}" ng-if="color === currentCopiedColor">Copied!</span>
         </li>
       </ul>
       <!--

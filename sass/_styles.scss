@@ -54,7 +54,7 @@
 .bg-dark { background-color: $dark-gray; }
 .bg-darker { background-color: $near-black;}
 .bg-green { background-color: $green; }
-.bg-dark-green { background-color: darken($green, 10%); }
+.bg-dark-green { background-color: darken($green, 5%); }
 .bg-panel { background-color: $navy; }
 .bg-blur { background-color: $navy-blur; }
 .bg-colorFilters { background-color: $darker-gray; }
@@ -73,7 +73,7 @@
 .bg-twitter-icon { background: url('../assets/img/icons/Twitter.svg') no-repeat; }
 .bg-dribble-icon { background: url('../assets/img/icons/Dribble.svg') no-repeat; }
 .bg-medium-icon { background: url('../assets/img/icons/Medium.svg') no-repeat; }
-.bg-salesforce-icon { width: 90px; height: 60px; background: url('../assets/img/icons/Salesforce.svg') no-repeat; background-size: 90px 60px; }
+.bg-salesforce-icon { width: 80px; height: 50px; background: url('../assets/img/icons/Salesforce.svg') no-repeat; background-size: 80px 50px; }
 
 
 

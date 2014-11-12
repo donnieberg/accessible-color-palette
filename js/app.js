@@ -60,6 +60,19 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
   /**
+   * Checks if the color is dark or light
+   */
+  $scope.isDarkColor = function(colorValue) {
+    var color = tinycolor(colorValue);
+    if(color.isDark()){
+      $scope.tileIconColor = 'text-white';
+    }else{
+      $scope.tileIconColor = 'text-dark';
+    }
+  };
+
+
+  /**
    * User clicks on color to set as Current Color and generate passing colors off of that
    */
   $scope.setColor = function(event, color) {

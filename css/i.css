@@ -509,7 +509,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .bg-green { background-color: #03a678; }
 
-.bg-dark-green { background-color: #027454; }
+.bg-dark-green { background-color: #038d66; }
 
 .bg-panel { background-color: #405973; }
 
@@ -529,7 +529,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .bg-medium-icon { background: url("../assets/img/icons/Medium.svg") no-repeat; }
 
-.bg-salesforce-icon { width: 90px; height: 60px; background: url("../assets/img/icons/Salesforce.svg") no-repeat; -webkit-background-size: 90px 60px; background-size: 90px 60px; }
+.bg-salesforce-icon { width: 80px; height: 50px; background: url("../assets/img/icons/Salesforce.svg") no-repeat; -webkit-background-size: 80px 50px; background-size: 80px 50px; }
 
 /* Global Styles (Anchor & Form Styles) ====================================== */
 button { font-family: 'Montserrat', sans-serif; }
