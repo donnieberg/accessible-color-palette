@@ -460,8 +460,6 @@ a:visited { text-decoration: none; color: inherit; }
 
 .mw-2100 { max-width: 2100px; }
 
-.ht-52 { height: 52px; }
-
 .ht-75 { height: 75px; }
 
 .min-ht-85 { min-height: 85px; }
@@ -520,6 +518,18 @@ a:visited { text-decoration: none; color: inherit; }
 .bg-colorFilters { background-color: #333333; }
 
 .bg-screenIcon { width: 138px; height: 110px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 138px 110px; background-size: 138px 110px; }
+
+.bg-icon { width: 40px; height: 40px; -webkit-background-size: 40px 40px; background-size: 40px 40px; }
+
+.bg-github-icon { background: url("../assets/img/icons/Github.svg") no-repeat; }
+
+.bg-twitter-icon { background: url("../assets/img/icons/Twitter.svg") no-repeat; }
+
+.bg-dribble-icon { background: url("../assets/img/icons/Dribble.svg") no-repeat; }
+
+.bg-medium-icon { background: url("../assets/img/icons/Medium.svg") no-repeat; }
+
+.bg-salesforce-icon { width: 90px; height: 60px; background: url("../assets/img/icons/Salesforce.svg") no-repeat; -webkit-background-size: 90px 60px; background-size: 90px 60px; }
 
 /* Global Styles (Anchor & Form Styles) ====================================== */
 button { font-family: 'Montserrat', sans-serif; }

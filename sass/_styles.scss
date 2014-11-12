@@ -10,7 +10,6 @@
 .pbxx { padding-bottom: 20rem; }
 .mw-800 { max-width: 800px; }
 .mw-2100 { max-width: 2100px; }
-.ht-52 { height: 52px; }
 .ht-75 { height: 75px; }
 .min-ht-85 { min-height: 85px; }
 .ht-130 { height: 130px; }
@@ -60,11 +59,21 @@
 .bg-blur { background-color: $navy-blur; }
 .bg-colorFilters { background-color: $darker-gray; }
 .bg-screenIcon {
-  width: 138px  ;
+  width: 138px;
   height: 110px;
   background: url('../assets/img/accessible-artwork.png') no-repeat;
   background-size: 138px 110px;
 }
+.bg-icon {
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+}
+.bg-github-icon { background: url('../assets/img/icons/Github.svg') no-repeat; }
+.bg-twitter-icon { background: url('../assets/img/icons/Twitter.svg') no-repeat; }
+.bg-dribble-icon { background: url('../assets/img/icons/Dribble.svg') no-repeat; }
+.bg-medium-icon { background: url('../assets/img/icons/Medium.svg') no-repeat; }
+.bg-salesforce-icon { width: 90px; height: 60px; background: url('../assets/img/icons/Salesforce.svg') no-repeat; background-size: 90px 60px; }
 
 
 

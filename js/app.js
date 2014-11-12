@@ -144,6 +144,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
         layout: { display: 'table' }
       });
     }, 200);
+    //console.log('activatePalette() is working');
   };
 
 
@@ -222,6 +223,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       color.currentRatio = ratio;
       ratio >= $scope.currentRatio ? color.pass = true : color.pass = false;
     })
+    //console.log('getPassingColors() is working');
   };
 
   /**
@@ -238,6 +240,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }else{
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
     }
+    //Determine if current text color passes if the AA or AAA changes
+    $scope.currentTextColor.currentRatio >= $scope.currentRatio ? $scope.currentTextColor.pass = true :  $scope.currentTextColor.pass = false;
     //console.log('the current ratio is: ', $scope.currentRatio);
   };
 

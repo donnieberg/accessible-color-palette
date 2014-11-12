@@ -13,7 +13,9 @@
   <body ng-controller="appController" class="ht-full pos-rel ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
 
     <article id="intro" class="ht-full bg-green tac" ng-show="isIntroActive">
-      <div class="ht-52 bg-dark-green"></div>
+      <div class="tal ht-75 bg-dark-green">
+        <span class="mlm mts dib bg-salesforce-icon"></span>
+      </div>
       <div class="pam vam text-white">
         <h1 class="man caps">Accessible Colors</h1>
         <p>This tool helps ensure your designs meet <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG accessibility standards </a>for text color contrast ratios.</p>
@@ -78,11 +80,11 @@
             <div class="fl cf-ns dtc-ns swatch swatch-ns pos-rel ease" style="background-color: {{currentTextColor.hex}};">
               <span class="arrow-left-ns pos-arrow-left-ns ease" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
             </div>
-            <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Copy hex color" class="phm hex hex-ns fl cf-ns dtc-ns vac bg-light-gray ease" ng-mouseenter="hoverColorHex={ 'color': currentTextColor.hex, 'transition': 'all .2s ease' }" ng-mouseleave="hoverColorHex={ 'color': 'black' }" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
-              <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" ng-style="hoverColorHex" class="pos-rel top-20 pos-static-ns">{{currentTextColor.hex}}</span>
+            <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Copy hex color" class="phm hex hex-ns fl cf-ns dtc-ns vac bg-light-gray ease" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
+              <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="pos-rel top-20 pos-static-ns">{{currentTextColor.hex}}</span>
             </a>
-            <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Copy hex color" class="rgb rgb-ns fl cf-ns dtc-ns vac bg-light-gray ease" ng-mouseenter="hoverColorRgb={ 'color': currentTextColor.hex, 'transition': 'all .2s ease' }" ng-mouseleave="hoverColorRgb={ 'color': 'black' }" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
-              <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" ng-style="hoverColorRgb" class="pos-rel top-20 pos-static-ns">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
+            <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Copy hex color" class="rgb rgb-ns fl cf-ns dtc-ns vac bg-light-gray ease" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
+              <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="pos-rel top-20 pos-static-ns">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
             </a>
             <div class="pam wi-half-s fl cf-ns dtc-ns vac tac bg-gray">
               <span class="db f5">Contrast Ratio</span>
@@ -154,7 +156,7 @@
     <slide-out-left class="text-white leftPanel bg-panel z-top">
     <section class="pvm phl">
       <span class="paxs f2 ss-delete dib ease pointer-cursor" ng-click="toggleInfoPanel()"></span>
-      <h1 class="f4">Brought to you with love by Salesforce UX</h1>
+      <h1 class="ptl f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="dib mtxs ease link link-navy">Salesforce UX</a></h1>
       <p>
         It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content.
       </p>
@@ -175,16 +177,11 @@
           <p class="man f5"><a href="http://adrianrapp.com/" class="ease link link-navy">adrianrapp.com</a></p>
         </div>
       </div>
-      <footer class="mbx fix-footer">
-        <a href="https://github.com/donnieberg/accessible-color-palette" alt="Github" class="prl">
-          <span class="f5 link link-navy ease">Github</span>
-        </a>
-        <a href="https://twitter.com/SalesforceUX" alt="Twitter" class="prl">
-          <span class="f5 link link-navy ease">Twitter</span>
-        </a>
-        <a href="https://medium.com/salesforce-ux" alt="Medium">
-          <span class="f5 link link-navy ease">Medium</span>
-        </a>
+      <footer class="mbm fix-footer span_10_of_12 tac">
+        <a href="https://github.com/donnieberg/accessible-color-palette" alt="Github" class="mrl dib bg-icon bg-github-icon"></a>
+        <a href="https://twitter.com/SalesforceUX" alt="Twitter" class="mrl dib bg-icon bg-twitter-icon"></a>
+        <a href="https://dribbble.com/salesforce" alt="Dribble" class="mrl dib bg-icon bg-dribble-icon"></a>
+        <a href="https://medium.com/salesforce-ux" alt="Medium" class="dib bg-icon bg-medium-icon"></a>
       </footer>
     </section>
     </slide-out-left>

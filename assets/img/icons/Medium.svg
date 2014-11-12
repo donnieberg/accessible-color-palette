@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="17px" viewBox="0 0 20 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>Medium</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Clean" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Sidepanel" sketch:type="MSArtboardGroup" transform="translate(-207.000000, -973.000000)" fill="#BFBFBF">
+            <g id="Medium-logo" sketch:type="MSLayerGroup" transform="translate(207.388186, 973.548387)">
+                <path d="M19.6118143,2.3008489 L18.8361671,2.3008489 C18.5482003,2.3008489 18.1409283,2.71861732 18.1409283,2.98600883 L18.1409283,12.6793209 C18.1409283,12.9470411 18.5482003,13.3120543 18.8361671,13.3120543 L19.6118143,13.3120543 L19.6118143,15.6129032 L12.5842475,15.6129032 L12.5842475,13.3120543 L14.0551336,13.3120543 L14.0551336,3.12258065 L13.9830602,3.12258065 L10.5482143,15.6129032 L7.88901575,15.6129032 L4.49845992,3.12258065 L4.41265823,3.12258065 L4.41265823,13.3120543 L5.8835443,13.3120543 L5.8835443,15.6129032 L-1.13686838e-13,15.6129032 L-1.13686838e-13,13.3120543 L0.753420534,13.3120543 C1.06361406,13.3120543 1.47088608,12.9470411 1.47088608,12.6793209 L1.47088608,2.98600883 C1.47088608,2.71861732 1.06361406,2.3008489 0.753420534,2.3008489 L-1.13686838e-13,2.3008489 L-1.13686838e-13,0 L7.35704529,0 L9.77256709,9.03904924 L9.83908383,9.03904924 L12.2768323,0 L19.6118143,0 L19.6118143,2.3008489" id="Medium" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>
