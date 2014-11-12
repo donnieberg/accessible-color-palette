@@ -107,17 +107,6 @@ button { font-family: 'Montserrat', sans-serif; }
 	border-right: 13px solid transparent;
 	border-bottom: 13px solid $darker-gray;
 }
-.arrow-left {
-	width: 0;
-	height: 0;
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-}
-.pos-arrow-left {
-  position: absolute;
-  top: 30px;
-  left: -7px;
-}
 .pos-arrow-up {
   position: absolute;
   bottom: -20px;
@@ -126,6 +115,7 @@ button { font-family: 'Montserrat', sans-serif; }
 .pos-tooltip {
   top: -150px;
 }
+.pos-color-wheel { top: 2px; }
 
   /* Tile Hover - border-fade */
   .border-fade {
@@ -180,6 +170,17 @@ button { font-family: 'Montserrat', sans-serif; }
     background: url('../assets/img/accessible-artwork.png') no-repeat;
     background-size: 345px 246px;
   }
+  .arrow-left-ns {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+  .pos-arrow-left-ns {
+    position: absolute;
+    top: 30px;
+    left: -7px;
+  }
 
   /* Tile Hover - expand */
   .tile-hover-ns { transition: all .1s ease-in; }
@@ -192,15 +193,18 @@ button { font-family: 'Montserrat', sans-serif; }
 
 // Larger than phone but smaller than Laptop size screens
 @media only screen and (min-width: 70em) {
+  .mts-ns { margin-top: .5rem; }
+  .pts-ns { padding-top: .5rem; }
   .ht-colorVariations-ns { height: 200px; }
+  .span_2_of_12-ns { width: 16.667%; }
 }
 
 // Larger than 1440px Laptop size screens
 @media only screen and (min-width: 106em) {
-  .ht-colorVariations-x { height: 250px; }
+  .span_1_of_12-x { width: 8.333%; }
   .span_2_of_12-x { width: 15%; }
-  .toolbar-1x { width: 60%; margin-left: 20%; float: left; }
-  .toolbar-2x { width: 20%; margin-left: -80%; float: left; }
+  .toolbar-1x { width: 56%; margin-left: 22%; float: left; }
+  .toolbar-2x { width: 22%; margin-left: -78%; float: left; }
   .toolbar-3x { width: auto; float: right; }
   .pos-arrow-up-x {
     position: absolute;

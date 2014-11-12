@@ -3,8 +3,6 @@
 /* ========================================================================== VARIABLES ========================================================================== */
 /* Colors ========================================================================== */
 /*  ============================================================================= BASE STYLES ============================================================================= */
-body { margin: 0; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 300; }
-
 .tac { text-align: center; }
 
 .tal { text-align: left; }
@@ -340,7 +338,11 @@ input, textarea { border: none; }
 .no-border-box { box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; }
 
 /*  ============================================================================= TYPOGRAPHY STYLES ============================================================================= */
+body { margin: 0; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 300; }
+
 h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+
+p, option, select, input, textarea { font-size: 18px; font-family: 'Lato', sans-serif; font-weight: 300; }
 
 h1, .f1 { font-size: 2rem; }
 
@@ -563,13 +565,11 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .arrow-up { width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-bottom: 13px solid #333333; }
 
-.arrow-left { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
-
-.pos-arrow-left { position: absolute; top: 30px; left: -7px; }
-
 .pos-arrow-up { position: absolute; bottom: -20px; left: 40px; }
 
 .pos-tooltip { top: -150px; }
+
+.pos-color-wheel { top: 2px; }
 
 /* Tile Hover - border-fade */
 .border-fade { -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; /* Hack to improve aliasing on mobile/tablet devices */ }
@@ -596,14 +596,19 @@ button { font-family: 'Montserrat', sans-serif; }
   .toolbar-2ns { display: block; width: auto; float: left; margin-top: 0.5rem; }
   .toolbar-3ns { display: block; width: auto; float: right; margin-top: 2rem; }
   .bg-screenIcon-ns { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; }
+  .arrow-left-ns { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
+  .pos-arrow-left-ns { position: absolute; top: 30px; left: -7px; }
   /* Tile Hover - expand */
   .tile-hover-ns { -webkit-transition: all .1s ease-in; transition: all .1s ease-in; }
   .tile-hover-ns:hover { -webkit-transform: scale(1.05); -ms-transform: scale(1.05); transform: scale(1.05); -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); } }
-@media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; } }
-@media only screen and (min-width: 106em) { .ht-colorVariations-x { height: 250px; }
+@media only screen and (min-width: 70em) { .mts-ns { margin-top: .5rem; }
+  .pts-ns { padding-top: .5rem; }
+  .ht-colorVariations-ns { height: 200px; }
+  .span_2_of_12-ns { width: 16.667%; } }
+@media only screen and (min-width: 106em) { .span_1_of_12-x { width: 8.333%; }
   .span_2_of_12-x { width: 15%; }
-  .toolbar-1x { width: 60%; margin-left: 20%; float: left; }
-  .toolbar-2x { width: 20%; margin-left: -80%; float: left; }
+  .toolbar-1x { width: 56%; margin-left: 22%; float: left; }
+  .toolbar-2x { width: 22%; margin-left: -78%; float: left; }
   .toolbar-3x { width: auto; float: right; }
   .pos-arrow-up-x { position: absolute; bottom: -28px; left: 40px; } }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }

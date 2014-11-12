@@ -13,7 +13,7 @@ angular.module('colorpicker.module', [])
         getOffset: function (elem, fixedPosition) {
           var
               x = 0,
-              y = 0,
+              y = -35,
               scrollX = 0,
               scrollY = 0;
           while (elem && !isNaN(elem.offsetLeft) && !isNaN(elem.offsetTop)) {
@@ -151,7 +151,7 @@ angular.module('colorpicker.module', [])
         },
 
         setAlpha: function (a) {
-          this.value.a = parseInt((1 - a) * 100, 10) / 100;
+          this.value.a = parseInt((1 - a) * 150, 10) / 150;
         },
 
         // HSBtoRGB from RaphaelJS
@@ -221,13 +221,13 @@ angular.module('colorpicker.module', [])
 
           pointer = {
             left: event.pageX,
-            top: event.pageY
+            top: event.pageY+35
           };
         },
         setSaturation: function(event, fixedPosition) {
           slider = {
-            maxLeft: 100,
-            maxTop: 100,
+            maxLeft: 150,
+            maxTop: 150,
             callLeft: 'setSaturation',
             callTop: 'setLightness'
           };
@@ -236,7 +236,7 @@ angular.module('colorpicker.module', [])
         setHue: function(event, fixedPosition) {
           slider = {
             maxLeft: 0,
-            maxTop: 100,
+            maxTop: 150,
             callLeft: false,
             callTop: 'setHue'
           };
@@ -245,7 +245,7 @@ angular.module('colorpicker.module', [])
         setAlpha: function(event, fixedPosition) {
           slider = {
             maxLeft: 0,
-            maxTop: 100,
+            maxTop: 150,
             callLeft: false,
             callTop: 'setAlpha'
           };
@@ -264,7 +264,7 @@ angular.module('colorpicker.module', [])
         link: function ($scope, elem, attrs, ngModel) {
           var
               thisFormat = attrs.colorpicker ? attrs.colorpicker : 'hex',
-              position = angular.isDefined(attrs.colorpickerPosition) ? attrs.colorpickerPosition : 'bottom',
+              position = angular.isDefined(attrs.colorpickerPosition) ? attrs.colorpickerPosition : 'top',
               inline = angular.isDefined(attrs.colorpickerInline) ? attrs.colorpickerInline : false,
               fixedPosition = angular.isDefined(attrs.colorpickerFixedPosition) ? attrs.colorpickerFixedPosition : false,
               target = angular.isDefined(attrs.colorpickerParent) ? elem.parent() : angular.element(document.body),
@@ -279,7 +279,7 @@ angular.module('colorpicker.module', [])
                       '<colorpicker-alpha><i></i></colorpicker-alpha>' +
                       '<colorpicker-preview></colorpicker-preview>' +
                       inputTemplate +
-                      closeButton +
+                      //closeButton +
                       '</div>' +
                       '</div>',
               colorpickerTemplate = angular.element(template),
@@ -396,10 +396,10 @@ angular.module('colorpicker.module', [])
             Slider.setKnob(top, left);
 
             if (slider.callLeft) {
-              pickerColor[slider.callLeft].call(pickerColor, left / 100);
+              pickerColor[slider.callLeft].call(pickerColor, left / 150);
             }
             if (slider.callTop) {
-              pickerColor[slider.callTop].call(pickerColor, top / 100);
+              pickerColor[slider.callTop].call(pickerColor, top / 150);
             }
             previewColor();
             var newColor = pickerColor[thisFormat]();
@@ -421,11 +421,11 @@ angular.module('colorpicker.module', [])
           var update = function () {
             pickerColor.setColor(elem.val());
             pickerColorPointers.eq(0).css({
-              left: pickerColor.value.s * 100 + 'px',
-              top: 100 - pickerColor.value.b * 100 + 'px'
+              left: pickerColor.value.s * 150 + 'px',
+              top: 150 - pickerColor.value.b * 150 + 'px'
             });
-            pickerColorPointers.eq(1).css('top', 100 * (1 - pickerColor.value.h) + 'px');
-            pickerColorPointers.eq(2).css('top', 100 * (1 - pickerColor.value.a) + 'px');
+            pickerColorPointers.eq(1).css('top', 150 * (1 - pickerColor.value.h) + 'px');
+            pickerColorPointers.eq(2).css('top', 150 * (1 - pickerColor.value.a) + 'px');
             previewColor();
           };
 
@@ -470,7 +470,7 @@ angular.module('colorpicker.module', [])
             hideColorpickerTemplate();
           };
 
-          if(inline === false) { 
+          if(inline === false) {
             elem.on('click', function () {
               update();
               colorpickerTemplate
