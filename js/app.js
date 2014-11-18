@@ -132,6 +132,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $scope.modalTextColor = 'text-dark';
       $scope.modalBtnColor = 'btn-dark';
     }
+    $timeout($scope.hideInstructions2, 1000);
   };
   $scope.hideInstructions2 = function() {
     $scope.isInstructions2Active = false;
@@ -183,8 +184,17 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   /**
    * Show/hide info left panel
    */
-  $scope.toggleInfoPanel = function() {
-    $scope.isLeftSlideOpen = !$scope.isLeftSlideOpen;
+  $scope.openInfoPanel = function() {
+    $scope.isLeftSlideOpen = true;
+    $timeout(function() {
+      $scope.animateLeftSlide = true;
+    }, 100);
+  };
+  $scope.hideInfoPanel = function() {
+    $scope.animateLeftSlide = false;
+    $timeout(function() {
+      $scope.isLeftSlideOpen = false;
+    }, 500);
   };
 
 

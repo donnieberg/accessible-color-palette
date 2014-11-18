@@ -71,10 +71,10 @@
 
 
     <article id="section2" class="bg-dark ht-vh" ng-show="isSection2Active">
-      <article class="ptl phm " ng-class="{ 'fix-toolbar z-above': pinToolbar }">
+      <article class="ptl phm" ng-class="{ 'fix-toolbar z-above': pinToolbar }">
         <div class="cf mw-2100 center">
-          <section class="toolbar-1ns toolbar-1x br-s ht-toolbar-ns dt-ns cf">
-            <div class="pam dtc-ns vac default-cursor wpan_4_of_12" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">
+          <section class="toolbar-1ns toolbar-1x br-s dt-ns cf">
+            <div class="phm pvs dtc-ns vac default-cursor span_6_of_12" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">
               {{userContent}}
             </div>
             <div class="fl cf-ns dtc-ns swatch swatch-ns pos-rel ease" style="background-color: {{currentTextColor.hex}};">
@@ -86,13 +86,13 @@
             <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Copy hex color" class="rgb rgb-ns fl cf-ns dtc-ns vac bg-light-gray ease" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
               <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="pos-rel top-20 pos-static-ns">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
             </a>
-            <div class="pam wi-half-s fl cf-ns dtc-ns vac tac bg-gray">
-              <span class="db f5">Contrast Ratio</span>
+            <div class="phm pvs wi-half-s fl cf-ns dtc-ns vac tac bg-gray">
+              <span class="db f5">Current Ratio</span>
               {{currentTextColor.currentRatio}}
               <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span>
               <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span>
             </div>
-            <div class="pam wi-half-s fr cf-ns dtc-ns vac bg-gray"><span class="db f5">WCAG Standard</span>{{WCAGlevel}} - {{currentRatio}}</div>
+            <div class="phm pvs wi-half-s fr cf-ns dtc-ns vac bg-gray"><span class="db f5">Goal Ratio</span>{{WCAGlevel}} - {{currentRatio}}</div>
           </section>
 
           <section class="toolbar-2 toolbar-2ns toolbar-2x">
@@ -116,7 +116,7 @@
               <span class="mrs text-green fa fa-refresh"></span>
               Start Over
             </a>
-            <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">About This Tool</a>
+            <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="openInfoPanel();">About This Tool</a>
           </section>
         </div>
         <ul class="tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters pam': showColorFilters, 'mh-none': !showColorFilters }">
@@ -153,9 +153,9 @@
     <!-- ====================================
     Side Bar slide out from Left of Window
     ======================================= -->
-    <slide-out-left class="text-white leftPanel bg-panel z-top">
+    <slide-out-left class="text-white leftPanel bg-panel z-top" ng-if="isLeftSlideOpen">
     <section class="pvm phl">
-      <span class="paxs f2 ss-delete dib ease pointer-cursor" ng-click="toggleInfoPanel()"></span>
+      <span class="paxs f2 ss-delete dib ease pointer-cursor" ng-click="hideInfoPanel()"></span>
       <h1 class="ptl f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="dib mtxs ease link link-navy">Salesforce UX</a></h1>
       <p>
         It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link link-navy">WCGA Guidelines</a>.
@@ -204,15 +204,13 @@
     <!-- ====================================
     Full Screen Modal - Instructions 2
     ======================================= -->
-    <article class="dt pos-fix top-0 wi-full ht-full z-above fadeInAni" style="background-color: rgba({{currentTextColor.rgb.r}}, {{currentTextColor.rgb.g}}, {{currentTextColor.rgb.b}}, .95)" ng-if="isInstructions2Active">
+    <article class="dt pos-fix top-0 wi-full ht-full z-above fadeInAni" style="background-color: rgba({{currentTextColor.rgb.r}}, {{currentTextColor.rgb.g}}, {{currentTextColor.rgb.b}}, .95)" ng-show="isInstructions2Active">
       <div class="dtc vac tac {{modalTextColor}}">
-        <p>
-          {{currentCopiedColorValue}}
-        </p>
-        <p>
-          Copied to Clipboard!
-        </p>
+        <p class="f3">{{currentCopiedColorValue}}</p>
+        <p class="f3">Copied to Clipboard!</p>
+        <!--
         <button class="db pvm phl mvm f4 fw-bold center btn-outline ease {{modalBtnColor}}" ng-click="hideInstructions2()">Got it</button>
+        -->
       </div>
     </article>
 

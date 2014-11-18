@@ -1,0 +1,696 @@
+body
+{
+	background: none;
+	COLOR: #222222;
+    background-color: #ffffff;      
+    margin-top: 0px;
+    margin-left: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px;
+    PADDING-BOTTOM: 0px;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    font-size:9pt;
+/*
+    scrollbar-arrow-color: #FFFFFF;
+    scrollbar-shadow-color: #222222;
+    scrollbar-3Dlight-color: #006633;
+    scrollbar-track-color: #EEEEEE;
+    scrollbar-face-color: #003300;
+    scrollbar-highlight-color: #E7E5D4;
+    scrollbar-darkshadow-color: #08244A;
+*/ 
+}
+
+body.noleft
+{
+	background: none;
+    COLOR: #222222;
+    background-color: #ffffff;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    font-size:9pt;
+    margin-top: 0px;
+    margin-left: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px;
+    PADDING-BOTTOM: 0px;
+}
+
+#contentWellNoLeft
+{
+    position: absolute;
+    top: 130px;
+    left: 0px;
+    color: #222222;
+    background-color: #ffffff;
+    FONT-SIZE: 12px;
+    vertical-align: top;
+    width: 660px;
+   /* overflow: hidden; */
+}
+.Frutiger_30pt_b	
+{
+	font-family: "Frutiger 55 roman,Arial, MS Sans-Serif, sans-serif"; 
+	font-size: 30pt; 
+	font-weight:bold; 
+	color:#006633
+}
+
+
+.Frutiger_24pt_b	
+{
+	font-family: "Frutiger 55 roman,Arial, MS Sans-Serif, sans-serif"; 
+	font-size: 24pt; 
+	font-weight:bold; 
+	color:#006633
+}
+		
+.Frutiger_20pt_b	
+{
+	font-family: "Frutiger 55 roman,Arial, MS Sans-Serif, sans-serif"; 
+	font-size: 20pt; 
+	font-weight:bold; 
+	color:#006633
+}
+
+
+.Frutiger_18pt_b	
+{
+	font-family: "Frutiger 55 roman,Arial, MS Sans-Serif, sans-serif"; 
+	font-size: 18pt; 
+	font-weight:bold; 
+	color:#006633
+}
+
+.Frutiger_18pt_blk	
+{
+	font-family: "Frutiger 55 roman,Arial, MS Sans-Serif, sans-serif"; 
+	font-size: 18pt; 
+	font-weight:bold; 
+	
+}
+
+.Frutiger_16pt_blk	
+{
+	font-family: "Frutiger 55 roman,Arial, MS Sans-Serif, sans-serif"; 
+	font-size: 16pt; 
+	font-weight:bold; 
+	
+}
+
+.Frutiger_16pt_b
+{
+	font-family: "Frutiger 55 roman,Arial, MS Sans-Serif, sans-serif"; 
+	font-size: 16pt; 
+	font-weight:bold;
+	color:#006633 
+}
+.Verdana_16pt_green_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 16pt; 
+	font-weight: bold;
+	color:#006633
+}
+
+.Verdana_16pt_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 16pt; 
+	font-weight: bold;
+}
+.Verdana_13pt
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 13pt; 
+	font-weight: normal;
+}
+.Verdana_13pt_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 13pt; 
+	font-weight: bold;
+}	
+
+.Frutiger_14pt_b
+{
+	font-family: "Frutiger 55 roman,Arial, MS Sans-Serif, sans-serif"; 
+	font-size: 14pt; 
+	font-weight:bold;
+	color:#006633 
+}
+.Verdana_11pt_b 
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size:10pt; 
+	font-weight: bold
+}
+.Verdana_10pt_b 
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 10pt; 
+	font-weight: bold
+}
+.Verdana_10pt_italic 
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 10pt; 
+	font-weight: bold;
+	font-style: italic
+}
+
+.Verdana_10pt_green_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 10pt; 
+	font-weight: bold;
+	color:#006633
+}
+.Verdana_10pt_red_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 10pt; 
+	font-weight: bold;
+	color:#F3110C;
+	float:left;
+}
+
+.Verdana_10pt_green_bu
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 10pt; 
+	font-weight: bold;
+	color:#006633
+}
+
+.Verdana_10pt 
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size:10pt; 
+	font-weight: normal
+}
+
+.Verdana_9pt 
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 9pt; 
+	font-weight: normal
+}
+
+.Verdana_9pt_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 9pt; 
+	font-weight: bold
+}
+.Verdana_9pt_red
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 9pt; 
+	font-weight: normal;
+	color: Red;
+}
+
+.Verdana_8pt 
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 8pt; 
+	font-weight:normal;
+}
+.Verdana_7pt 
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 7pt; 
+	font-weight:normal;
+}
+
+.Verdana_8pt_green
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 8pt; 
+	font-weight: normal;
+	color:#006838;
+}
+
+.Verdana_8pt_red
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 8pt; 
+	font-weight: normal;
+	color:red;
+}
+
+.Verdana_8pt_b 
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 8pt; 
+	font-weight: bold
+}
+
+.Verdana_8pt_italic
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size: 8pt; 
+	font-weight: normal;
+	font-style: italic
+}
+
+.Verdana_10pt_white 
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size:10pt; 
+	font-weight:normal; 
+	color:#ffffff
+}
+
+.Verdana_10pt_white_b 
+{
+	font-family:Arial, MS Sans-Serif, sans-serif; 
+	font-size:10pt; 
+	font-weight: bold; 
+	color:#ffffff
+}
+
+.Verdana_16pt_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif;
+	font-size: 16pt;
+	font-weight: bold
+}
+.Verdana_20pt_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif;
+	font-size: 20pt;
+	font-weight: bold
+}
+
+
+.Verdana_14pt_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif;
+	font-size: 14pt;
+	font-weight: bold
+}
+.Verdana_12pt_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif;
+	font-size: 12pt;
+	font-weight: bold
+}
+	
+.Verdana_18pt_b
+{
+	font-family:Arial, MS Sans-Serif, sans-serif;
+	font-size: 18pt;
+	font-weight: bold
+}
+
+.seatcell
+{
+    text-align: center;
+    font-weight: bold;
+    padding-left: 1pt;
+    padding-right: 1pt;
+}
+.strechseatcell
+{
+    text-align: center;
+    font-weight: bold;
+    padding-left: 1pt;
+    padding-right: 1pt;
+   
+}
+
+.seatStretch_web
+{
+    color: White;
+}
+.seatStretchNR_web
+{
+    color: White;
+}
+.seatStandard_web
+{
+    color: Black;
+}
+.seatCurrent_web
+{
+    color: Black;
+}
+.seat_none
+{
+    color:Red;
+    }
+ .seatUnavail_web
+ {
+     color:White;
+     }  
+
+.seatSelect_web
+{
+    color: White;
+}
+
+.seatStandardNR_web
+{
+    color:Black;
+    }
+    seat_available
+    {
+       color:Red; 
+        }
+ 
+.TypeAExitRowCssClass a img div
+{
+    color: Yellow !important;
+}
+
+
+
+.seatcharges
+{
+    margin-top: -25px;
+    height: 26px;
+    text-decoration: none;
+}
+
+.bp_upperleft { 
+		border-top: 1px solid black; 
+		border-left: 1px solid black;
+		border-right: 1px solid #dddddd;
+}
+
+.bp_upperright { 
+		border-top: 1px solid black; 
+		border-right: 1px solid black; 
+}
+
+.bp_left {
+		border-left: 1px solid black;
+		border-right: 1px solid #dddddd;
+}
+
+.bp_right { 
+		border-right: 1px solid black;
+}
+
+.bp_lowerleft { 
+		border-bottom: 1px solid black;
+		border-left: 1px solid black;
+		border-right: 1px solid #dddddd;
+}
+
+.bp_lowerright { 
+		border-bottom: 1px solid black;
+		border-right: 1px solid black;
+}
+
+.bp_sm_font { 
+		font-family: Verdana; 
+		font-size: 7pt; 
+		
+}
+
+
+
+.bp_med_font { 
+		font-family: Verdana; 
+		font-size: 9pt; 
+		font-weight: bold;
+}
+
+.bp_lg_font { 
+		font-family: Verdana; 
+		font-size: 12pt; 
+		font-weight: bold; 
+}
+
+.unvisitedLink,
+A.unvisitedLink:link,
+A.unvisitedLink:visited,
+A.unvisitedLink:hover,
+A.unvisitedLink:active
+{
+    color: #006633;
+   	TEXT-DECORATION: underline;
+}
+
+
+/******************************** NEW *************************/
+
+
+div.table-position
+{	
+		
+	float:none;
+	
+	
+ }
+
+div.top-bucket
+ {	
+	
+	font-size:medium;
+	width: 600px;
+	float:none;
+	margin-left: 0px;
+	padding-left: 0px;
+	text-align:left;
+	
+ }
+
+ div.top-findres-bucket
+ {	
+	height:120px;
+	vertical-align:baseline;
+	padding-left:30px;	
+	padding-right:30px;
+	
+ }
+ 
+ div.top-findres-bucket-left
+ {
+	float:left;
+	padding-left: 30px;
+	left: 0;
+	
+ }
+ 
+ div.bottom-findres-bucket
+ {
+	height:120px;
+	vertical-align:baseline;	
+	padding-left:30px;	
+	padding-right:30px;
+
+ }
+ 
+ div.bottom-findres-bucket-left
+ {
+	padding-right: 10px;
+	padding-bottom:10px;
+ }
+ 
+  div.top-payment-bucket
+ {	
+	height:80px;
+	vertical-align:baseline;
+	padding-left:30px;	
+	padding-right:30px;
+ }
+ 
+ div.top-payment-bucket-left,
+ div.top-payment-bucket-center,
+ div.top-payment-bucket-right
+ {
+	float:left;
+	padding-right: 20px;
+	padding-bottom:30px;
+ }
+ 
+ div.bottom-payment-bucket
+ {
+	height:60px;
+	vertical-align:baseline;	
+	padding-left:30px;	
+	padding-right:30px;
+ }
+ 
+ div.bottom-payment-bucket-left,
+ div.bottom-payment-bucket-center,
+ div.bottom-payment-bucket-right
+ {
+	float:left;
+	padding-right: 10px;
+	padding-bottom:10px;
+ }
+ 
+ div.payment-amount
+ {
+	padding-left:200px;
+	height:50px;
+	vertical-align:baseline;
+ }
+ 
+ div.mainButton
+ {
+	float:right;
+	padding-right:110px;
+	padding-top:5px;
+ }
+ 
+ div.changeSeatButton
+ {
+	padding-top:5px;	
+ }
+ 
+ div.PremiumSeatingUpsell
+ {
+    clear:both;
+	margin:0px auto;
+	text-align:center;
+	padding-top:5px;
+	
+ }
+ 
+ div.mainButtonA
+ {
+	float:none;
+	padding-right:110px;
+	padding-top:5px;
+	
+ }
+ 
+ div.legend
+ {
+	padding-left: 40px;
+ }
+ 
+ .passengerTable
+ {	
+	border-left:solid 1px #E8E8E8;
+	border-right:solid 1px #E8E8E8;
+ }
+ 
+ .selectPaxTable
+ {	
+	border-left:solid 1px #E8E8E8;
+	border-right:solid 1px #E8E8E8;
+	font-size:8pt;
+ }
+ 
+ .selectPaxTable td
+ {
+	padding-left:5px;
+	padding-bottom:5px;	
+ }
+ 
+ .regularButton
+ {
+	background: url(../images/btn_bg.gif);
+	width:89px;
+	height:24px;
+	color: #464646;
+	font-size:9pt;
+	font-weight: bold;
+	padding-top:1px;
+ }
+ 
+ul 
+{
+	list-style-type:disc;	
+}
+
+ul li 
+{
+	margin-left:15px;	
+}
+
+.headerText
+{
+	color:#666666;
+	font-size:10pt;	
+	font-weight:600;
+}
+
+.bpcopytxt
+{
+	text-align: right;
+	font-size: 8pt;
+}
+.bpcopydiv
+{
+	text-align: center;
+}
+
+.hiddenRow
+{
+	display: none;
+	width:620px;
+} 
+
+.showRow
+{
+	display:block;
+	width:620px;
+}
+
+.printonly
+{
+ 	display: none;
+}
+
+
+.printalways
+{
+	display:block;
+}
+
+
+.unselectedpaxclass
+{
+	background-image: url(../images/btn_seatpax_off.gif);
+	background-repeat: no-repeat;
+	width: 190px;
+	height: 51px;
+	font-size: 11pt;
+	font-weight: bolder;
+	color:White;
+}
+
+.selectedpaxclass
+{
+	background-image:url(../images/btn_seatpax_on.gif);
+	background-repeat: no-repeat;
+	width: 190px;
+	height: 51px;
+	font-size: 11pt;
+	font-weight: bolder;
+	color:Black;
+}
+
+.seatmappaxclass
+{
+	top: 182px;
+	left: 695px;
+	width: 190px;
+	height: 400px;
+	position:absolute;
+}
+
+@media print
+{
+	.printonly
+	{
+		display: block;
+		/*overflow:visible;*/
+		
+	}
+	.printnever
+	{
+		display: none;
+		
+		
+	}
+}

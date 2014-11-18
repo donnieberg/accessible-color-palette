@@ -1,0 +1,1345 @@
+/* ============================================================ */
+/* Critical Mass | CSS Document							        */
+/* ============================================================ */
+/* Name: base.css												*/
+/* Project: Frontier Airlines									*/
+/* Author: Martin L'Heureux										*/
+/* Date: 2005-10-29												*/
+/* Comments: 													*/
+/* ============================================================ */
+
+
+
+/* HTML Elements												*/
+/* ============================================================ */
+
+/*
+html { 
+	min-width:970px;
+}*/
+
+html *{margin:0; padding:0;}
+
+body {
+	font-family:Arial, MS Sans-Serif, sans-serif;
+	font-size:11px;
+	background:#e8e8e8;
+	
+
+	color:#000;
+	text-align:center;
+}
+
+a {}
+a:link {}
+a:visited {}
+a:hover {}
+a:active {}
+
+a img {border:0;}
+
+ul {}
+ul li {}
+
+dl {}
+dl dt {}
+dl dd {}
+
+p {margin:10px 0; line-height:1.5;}
+
+table {}
+table th {}
+table tr {}
+table td {}
+
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+sup{font-size:8px;}
+
+/* Structural Blocks 											*/
+/* ============================================================ */
+
+
+div#wrapper {
+	position:relative;
+	width:982px;
+	background:#ffffff url(../images/wrapper-dropshadow-right.gif) repeat-y 970px 0;
+	margin:0 auto;
+	margin-bottom:50px;
+	padding:0;
+	text-align:left;
+	}
+	
+/* Masthead Section 									*/
+/* ================================================ */
+
+div#masthead-container {
+	background:transparent url(../images/header-dropshadow-top-right.gif) right top no-repeat;
+	}
+	div#masthead {
+		}
+		div#masthead-top {
+			padding-top:3px;
+			padding-right:30px;
+			padding-bottom:10px;
+			padding-left:30px;
+			}
+			div#logo {
+				width:200px;
+				float:left;
+				}
+			div#div-search {
+				padding-top:14px;
+				width:460px;
+				float:right;
+				}
+				div#persistent-nav {
+					float:left;
+					padding:5px 0 0 0;
+					}
+					div#persistent-nav ul li {
+						display:inline;
+						background:transparent url(../images/persistent-nav-separator.gif) right top repeat-y;
+						}
+					div#persistent-nav ul li.last {
+						background:none;
+						}
+					div#persistent-nav ul li a:link,
+					div#persistent-nav ul li a:active,
+					div#persistent-nav ul li a:visited {
+						color:#676767;
+						font-size:9px;
+						font-weight:bold;
+						text-decoration:none;
+						padding:0 14px 0 12px;
+						}
+					div#persistent-nav ul li a:hover {
+						color:#0072bc;
+						}
+				div#global-search {
+					float:right;
+					padding:2px 0 0 0;
+					
+					}
+					div#global-search label {
+						display:none;
+						}
+					div#global-search input {
+						float:left;
+						}
+					td#global-search-button-cell {
+						padding:2px 0 0 10px;
+						}
+						#submit-global-search,
+						#submit-global-search-down {
+							display:block;
+							background:#ffffff url(../images/buttons/arrow.gif) no-repeat top left;
+							height:16px;
+							width:16px;
+							border:none;
+							cursor:pointer;
+							margin:0;
+							padding:0;
+							}
+						#submit-global-search-down {
+							background:#ffffff url(../images/buttons/arrow_down.gif) no-repeat top left;
+							}
+							#submit-global-search span,
+							#submit-global-search-down span {
+								display:none;
+								}
+			div#navigation {
+				}
+
+/* Flash Navigation */
+
+	div#flash-nav {
+		position:relative;
+		z-index:998;
+		width:970px;
+		margin-bottom:-112px;
+		background:transparent;
+		display:none;
+		visibility:hidden;
+		}
+
+/* Global Navigation */
+	
+	div#global-nav {
+		background:transparent url(../images/global-nav/global-nav-bg.gif) 0 0 no-repeat;
+		}
+		div#global-nav ul {
+			padding:0 0 0 15px;
+			height:33px;
+			background:transparent url(../images/global-nav/global-nav_1.gif) no-repeat 15px 0;
+			}
+			div#global-nav ul li {
+				list-style:none;
+				float:left;
+				padding:0;
+				margin:0;
+				}
+				div#global-nav ul li a:link,
+				div#global-nav ul li a:active,
+				div#global-nav ul li a:visited {
+					display:block;
+					height:33px;
+					padding:0;
+					margin:0;
+					}
+
+/* PLAN & BOOK */
+	div#global-nav ul li a.plan-book {
+	width:109px;
+	background:transparent url(../images/global-nav/plan-book_0.gif) no-repeat 0 0;
+		}
+	div#global-nav ul li a.plan-book:hover {
+		background:transparent;
+		}
+/* FLIGHT INFO */
+	div#global-nav ul li a.flight-info {
+	width:102px;
+	background:transparent url(../images/global-nav/flight-info_0.gif) no-repeat 0 0;
+		}
+	div#global-nav ul li a.flight-info:hover {
+		background:transparent;
+		}
+		
+/* SPECIALS */
+	div#global-nav ul li a.specials {
+	width:88px;
+	background:transparent url(../images/global-nav/specials_0.gif) no-repeat 0 0;
+		}
+	div#global-nav ul li a.specials:hover {
+		background:transparent;
+		}
+		
+/* FREQUENT FLYERS */
+	div#global-nav ul li a.frequent-flyers {
+	width:138px;
+	background:transparent url(../images/global-nav/frequent-flyers_0.gif) no-repeat 0 0;
+		}
+	div#global-nav ul li a.frequent-flyers:hover {
+		background:transparent;
+		}
+		
+/* PROGRAMS & SERVICES */
+	div#global-nav ul li a.programs-services {
+	width:164px;
+	background:transparent url(../images/global-nav/programs-services_0.gif) no-repeat 0 0;
+		}
+	div#global-nav ul li a.programs-services:hover {
+		background:transparent;
+		}
+		
+/* CUSTOMER SERVICE */
+	div#global-nav ul li a.customer-service {
+	width:150px;
+	background:transparent url(../images/global-nav/customer-service_0.gif) no-repeat 0 0;
+		}
+	div#global-nav ul li a.customer-service:hover {
+		background:transparent;
+		}
+		
+		div#global-nav ul li a span {
+			display:none;
+			}
+
+/* Global Header */
+div#global-header {
+	height:55px;
+	background:transparent url(../images/global-header-bg.jpg) no-repeat 0 0;
+	}
+	div#global-header h1 {
+		color:white;
+		font-size:24px;
+		font-weight:bold;
+		padding:10px 0 0 30px;
+	}
+
+/* Content Section 									*/
+/* ================================================ */
+
+div#main-container{
+	width:970px;
+	}
+
+div#section-container{
+	float:left;
+	width:784px;
+	background:transparent url(../images/dropshadow-vertical.gif) right top repeat-y;
+	padding-bottom:40px;
+	}
+	div#content-container {
+		float:left;
+		margin:0 0 0 0;
+		width:776px;
+		}
+		div#content-container div#content {
+			padding:30px 0 0 30px;
+			}
+
+		div#content-container div#content div#content-intro {
+			width:716px;
+			}
+
+			div#content-container div#content h2 {
+				color:#0072bc;
+				font-weight:bold;
+				font-size:15px;
+				}
+
+
+/* Progress Indicator */
+	
+div#progress-indicator {
+	}
+	div#progress-indicator ul {
+		height:26px;
+		background:transparent url(../images/progress-indicator/progress-indicator_1.gif) no-repeat 0 0;
+		}
+		div#progress-indicator ul li {
+			list-style:none;
+			float:left;
+			padding:0;
+			margin:0;
+			}
+			div#progress-indicator ul li a:link,
+			div#progress-indicator ul li a:active,
+			div#progress-indicator ul li a:visited {
+				display:block;
+				width:115px;
+				height:26px;
+				padding:0;
+				margin:0;
+				}
+										
+	/* create */
+		div#progress-indicator ul li a#create {
+			background:transparent url(../images/progress-indicator/create_0.gif) no-repeat 0 0;
+			}
+		div#progress-indicator ul li a#create:hover {
+			background:transparent;
+			}
+	/* review */
+		div#progress-indicator ul li a#review {
+			background:transparent url(../images/progress-indicator/review_0.gif) no-repeat 0 0;
+			border-left:1px solid #e8e8e8;
+			border-right:1px solid #e8e8e8;
+			}
+		div#progress-indicator ul li a#review:hover {
+			background:transparent;
+			}
+	/* confirm */
+		div#progress-indicator ul li a#confirm {
+			background:transparent url(../images/progress-indicator/confirm_0.gif) no-repeat 0 0;
+			}
+		div#progress-indicator ul li a#confirm:hover {
+			background:transparent;
+			}
+
+			div#progress-indicator ul li a span {
+				display:none;
+				}
+
+
+/* BUCKETS
+/* -------------------------------------------------------- */
+
+div.bucket-left,
+div.bucket-center,
+div.bucket-right {
+	float:left;
+	min-height:200px;
+	}
+/* IE-only min-height fix */
+##content div.bucket-left,
+##content div.bucket-center,
+##content div.bucket-right {
+	height:200px;
+	}
+
+div.bucket-left {
+	background:transparent url(../images/divider-vertical-dotted.gif) right top repeat-y;
+	}
+	
+	div.bucket-left div.bucket {
+		padding-right:30px;
+		}
+	/*begin special 1 - off this is to allow IE background image to not bump out the borders */	
+	##aa {
+		padding-right:11px;
+		}
+	/* end 1 - off*/
+
+div.bucket-right {
+	margin-left:-1px;
+	background:transparent url(../images/divider-vertical-dotted.gif) left top repeat-y;
+	}
+	
+	div.bucket-right div.bucket {
+		padding-left:30px;
+		}
+
+div.bucket-center {
+	margin-left:-1px;
+	background:transparent url(../images/divider-vertical-dotted.gif) left top repeat-y;
+	}
+	
+	div.bucket-center div.bucket-container {
+		background:transparent url(../images/divider-vertical-dotted.gif) right top repeat-y;
+		}
+
+div.bucket-center div.bucket {
+	padding-left:30px;
+	padding-right:30px;
+	}
+
+		div.bucket-container {
+			margin:0;
+			padding-bottom:30px;
+			}
+
+			div.bucket {
+				background:transparent url(../images/divider-horizontal-dotted.gif) left top repeat-x;
+				}
+
+				div.width-33 {
+					width:198px;
+					}
+					div.width-33 div h3{
+						width:198px;
+						}
+					div.width-33 div p{
+						width:198px;
+						}
+					div.width-33 div ul{
+						width:198px;
+						}
+
+				div.width-50 {
+					width:328px;
+					}
+
+				div.width-66 {
+					width:455px;
+					}
+
+div.bucket-content {
+	padding:0;
+	margin:0;
+	}
+	div.bucket h3 {
+	color:#666666;
+	font-size:18px;
+	padding-bottom:10px;
+	padding-top:15px;
+	}
+	div.bucket p {
+	margin:0;
+	padding-top:20px;
+	}
+	
+	
+	div.displaymessage
+	{
+		color:#666666;
+	font-size:18px;
+	padding-bottom:10px;
+	padding-top:15px;
+	}
+
+
+/* RELATED NAV
+/* -------------------------------------------------------- */
+
+#related-nav {
+	float:left;
+	width:194px;
+	min-height:348px;
+	color:#676767;
+	margin-left:-8px;
+	background:transparent url(../images/dropshadow-vertical.gif) left top repeat-y;
+	}
+/* IE-only fix for min-height */
+##related-nav {
+	height:348px;
+	}
+	#related-nav div {
+		padding-left:22px;
+		padding-bottom:30px;
+		}
+
+	#related-nav a {
+		position:relative;
+		z-index:999;
+		}
+	
+	/* IE-only fix for distorted bullet*/
+	##related-nav a {
+		position:absolute;
+		z-index:999;
+		}
+		
+		#related-nav div h5 {
+			font-size:11px;
+			font-weight:normal;
+			}
+		#related-nav div ul {
+			list-style:none;
+			}
+			#related-nav div ul li {
+				padding:15px 0 0 0;
+				}
+
+/* Logged-in Links Sub-section */
+	#related-nav #logged-in-links {
+		background:transparent url(../images/logged-in-bg.jpg) left top no-repeat;
+		padding-top:25px;
+		padding-left:30px;
+		width:194px;
+		height:109px;
+		}
+			#related-nav #logged-in-links ul li {
+				padding-top:10px;
+				}
+/* Member Links Sub-section */
+	#related-nav #member-links {
+		padding-top:25px;
+		}
+/* Related Links Sub-section */
+	#related-nav #related-links {
+		}
+/* Promo Links Sub-section */
+	#related-nav #promo-links {
+		background:transparent url(../images/promo-bg.jpg) left top no-repeat;
+		padding:0;
+		margin:0;
+		}
+		#related-nav #promo-links ul,
+		#related-nav #promo-links ul li {
+			padding:0;
+			margin:0;
+			}
+
+		#related-nav #promo-links a {
+			display:block;
+			width:194px;
+			height:281px;
+			}
+			#related-nav #promo-links a span {
+				display:block;
+				width:70px;
+				position:relative;
+				top:132px;
+				left:87px;
+				}
+						
+
+/* Footer Section									*/
+/* ================================================ */
+
+div#footer-container {
+	width:982px;
+	background:transparent url(../images/footer/footer-dropshadow-bottom-right.gif) right bottom no-repeat;
+	}
+
+div#footer {
+	width:970px;
+	height:27px;
+	background:#888a8b url(../images/footer/footer-dropshadow-bottom.gif) repeat-x 0 20px;
+	color:#ffffff;
+	font-size:8px;
+	letter-spacing: 1px;
+	padding:0;
+	}
+	div#footer-nav {
+		float:left;
+		height:31px;
+		background:transparent url(../images/footer/footer-dropshadow-bottom-left.gif) left bottom no-repeat;
+		}
+		div#footer-nav ul {
+			background:transparent url(../images/footer/footer-nav_1.gif) 30px top no-repeat;
+			width:377px;
+			height:18px;
+			}
+			div#footer-nav ul li {
+				list-style:none;
+				float:left;
+				padding:0;
+				margin:0;
+				}
+				div#footer-nav ul li a:link,
+				div#footer-nav ul li a:active,
+				div#footer-nav ul li a:visited {
+					display:block;
+					height:18px;
+					padding:0;
+					margin:0;
+					}
+
+	/* CONTACT US */
+		div#footer-nav ul li a.contact-us {
+		width:103px;							
+		background:transparent url(../images/footer/footer-nav-contact-us_0.gif) 30px top no-repeat;
+		}
+		div#footer-nav ul li a.contact-us:hover {
+			background:transparent;
+			}
+	
+	/* HELP */
+		div#footer-nav ul li a.help {
+		width:50px;							
+		background:transparent url(../images/footer/footer-nav-help_0.gif) 12px top no-repeat;
+		}
+		div#footer-nav ul li a.help:hover {
+			background:transparent;
+			}
+	
+	/* SITE MAP */
+		div#footer-nav ul li a.site-map {
+		width:69px;							
+		background:transparent url(../images/footer/footer-nav-site-map_0.gif) 11px top no-repeat;
+		}
+		div#footer-nav ul li a.site-map:hover {
+			background:transparent;
+			}
+	
+	/* PRIVACY */
+		div#footer-nav ul li a.privacy {
+		width:65px;							
+		background:transparent url(../images/footer/footer-nav-privacy_0.gif) 11px top no-repeat;
+		}
+		div#footer-nav ul li a.privacy:hover {
+			background:transparent;
+			}
+	
+	/* TERMS OF USE */
+		div#footer-nav ul li a.terms-use {
+		width:90px;							
+		background:transparent url(../images/footer/footer-nav-terms-use_0.gif) 11px top no-repeat;
+		}
+		div#footer-nav ul li a.terms-use:hover {
+			background:transparent;
+			}
+
+			div#footer-nav ul li a span {
+				display:none;
+				}
+
+	div#footer-legal {
+		background:transparent url(../images/footer/footer-copyright.gif) 0 0 no-repeat;
+		float:right;
+		width:148px;
+		height:18px;
+		}
+	div#footer-legal span {
+		display:none;
+		}
+
+/* Custom Classes 												*/
+/* ============================================================ */
+
+/* Primary Links */
+	a.primary-link:link,
+	a.primary-link:active,
+	a.primary-link:visited {
+		background:transparent url(../images/related-nav-arrow-blue.gif) no-repeat left 3px ;
+		padding-left:10px;
+		font-weight:bold;
+		color:#0072bc;
+		text-decoration:none;
+		}
+	a.primary-link:hover {
+		background:transparent url(../images/related-nav-arrow-black.gif) no-repeat left 3px;
+		padding-left:10px;
+		color:#535353;
+		}
+		
+/* Secondary Links */
+	a.secondary-link:link,
+	a.secondary-link:active,
+	a.secondary-link:visited {
+		color:#0072bc;
+		text-decoration:none;
+		}
+	a.secondary-link:hover {
+		color:#535353;
+		}
+		
+/* Tertiary Links */
+	a.tertiary-link:link,
+	a.tertiary-link:active{
+		color:#0072bc;
+		text-decoration:underline;
+		font-weight:bold;
+		}
+	a.tertiary-link:hover {
+		color:#535353;
+		}
+	a.tertiary-link:visited{
+		color:#005e32;
+		}
+
+/* Paging */
+#paging{
+	position:relative;
+	margin-bottom:40px;
+	width:715px;
+	}
+#paging .previous{
+	position:absolute;
+	top:0;
+	right:65px;
+	}
+#paging .next{
+	position:absolute;
+	top:0;
+	right:0;
+	}
+#paging .page{
+
+	}
+#paging .here{
+	text-decoration:underline;
+	}
+
+.clear {clear:both;}
+.no-bg {background:none}
+.cleaner{display: block; clear: both; float: none; height: 1px; overflow: hidden; font-size: 1px; line-height: 1px;}
+.intro-text{font-size:15px;color:#666666;margin-top:0px;}
+.bucket-links{margin-top:10px;}
+.bucket-links li{margin:0 0 5px 0;padding:0;list-style-type:none;}
+.hide{display:none;}
+.small-label{width:39px;}
+.month{width:50px;}
+.day{width:44px;}
+.year{width:59px;}
+.number{width:39px;}
+
+
+.errorHidden{
+	display:none;
+	margin:0px;
+	padding:0px;
+}
+
+.errorExposed{
+	display:block;
+	color:red;
+	font-size:12px;
+	margin:0px;
+	padding:0px;
+}
+
+.errorSubFormExposed{
+	display:block;
+	color:red;
+	font-size:10px;
+	margin:0px;
+	padding:0px;
+}
+
+
+
+#CarryOnId
+{
+    background:white;
+    border:5px solid Green;
+    margin-left:-20px;
+    margin-top:-50px;
+    z-index:999;
+    text-align:justify;
+    position:absolute
+}
+
+.CheckBags_Charges
+{
+    border:0;
+    width: 25px; 
+    margin-top: -24px; 
+    margin-left:8px; 
+    font-weight: bold;
+    font-size: 12px;  
+    text-align: center; 
+   
+}
+
+ .CheckBags_BagCnt
+{
+	border:0;
+	width:60px;
+    text-align: center; 
+    padding-left: 2px; 
+    font-family: Arial; 
+    font-size: 12px;
+    font-weight:bold;
+    
+}
+
+
+
+.CheckBags_TRPrices
+{
+    font-family: Arial; 
+    font-size: 12px;
+    font-weight:bold;
+    width:75px;
+    vertical-align :middle ;
+    
+ }
+
+
+ 
+ 
+.CarryOn_NoCharges
+{
+	border:0;
+    width: 25px; 
+    margin-top: -24px; 
+    margin-left:12px; 
+    font-weight: bold;
+    font-size: 12px;  
+    text-align: center;
+    
+    
+           
+}
+.CarryOn_NoCharges_LightGreen
+{
+	border:0;
+    width: 25px; 
+    margin-top: -24px; 
+    margin-left:12px; 
+    font-weight: bold;
+    font-size: 12px;  
+    text-align: center;
+    
+           
+}
+
+.CarryOn_Charges
+{
+   
+    
+    border:0;
+    width: 25px; 
+    margin-top: -24px; 
+    margin-left:11px; 
+    font-weight: bold;
+    font-size: 12px;  
+    text-align: center; 
+                 
+}
+
+
+.CheckBags_PriceTD
+{
+	      		
+	padding-bottom:0px;
+	padding-left:15px; 
+	vertical-align:middle; 
+	background-color :#d2d2d1;
+    
+}
+
+
+.CheckBags_CarryOnTD
+{
+  /* background-color:#d2d2d1;*/
+   padding-bottom:0px;
+}
+
+
+.ExcessBagsRecpt_Note
+{
+ 	text-align:left;
+	width:125px;
+}
+
+.CheckBags_Seperator
+{
+	background-color :#e8e8e8	
+}
+
+.CarryOn_PaxNameTD
+{
+	vertical-align: middle; 
+	text-align: left;
+	padding-right:10px;
+	width:125px;
+}
+
+.CarryOn_StateTD
+{
+	padding-right:15px;
+	padding-left: 5px;
+	
+}
+
+.CarryOn_LnkImg
+{
+	
+}
+
+
+.CheckBags_BlankCol
+{
+	width:25px;
+	height:2px;
+}
+
+
+.CarryOn_NoChargesTD
+{	
+	width:15px;
+	padding-left:15px;
+	padding-bottom:5px;
+	text-align:center;
+}
+.CarryOn_ChargesTD
+{
+	 width :15px;
+	 padding-left:5px;
+	
+	 vertical-align:top;
+}
+
+.CarryOn_Footer
+{
+	padding-top: 10px; 
+	text-align: justify;
+	color:Green;
+	width:100%; 	
+}
+
+.CheckBags_unsel
+{
+	color:Green;	
+}
+.CheckBags_flight_sel
+{
+	color:#90EE90;	
+}
+.CheckBags_noflight_sel
+{
+	color:#90EE90;	
+}
+.ChrgImg_flight_sel
+{
+	padding-bottom:0px;
+}
+
+.CarryOn_Confirm
+{
+	width: 300px; 
+	padding-bottom: 16px; 
+	padding-right: 10px; 
+	color:Green;
+	
+}
+#CarryOn-Confirm-container 
+{  
+	width:500px; 
+	left :405px;
+	text-align:left;
+	padding-left:15px;
+	padding-top:10px;	
+}
+#CarryOnConfirmClose
+{
+   position: absolute; 
+   text-align: right; 
+   margin-top: -10px; 
+   width: 480px;
+   margin-left:8px;
+  
+}
+
+#CarryOn-Confirm-data
+{
+	border:solid 5px green; 
+	padding:10px;
+	background-color:White;
+	width:445px;
+}
+
+#CarryOn-overlay
+{
+	background-color: silver;
+    
+}
+
+
+       
+.CarryOn_Charge
+{
+	width: 300px; 
+	padding-bottom: 20px; 
+	padding-right: 10px; 
+	color:Green;
+	
+}
+#CarryOn-Charge-container 
+{
+  
+	width:330px; 
+	left :405px;
+	height:180px;
+	text-align:left;
+	padding-left:0px;
+	padding-top:5px;
+	padding-bottom:0px;
+	top:200px;
+	
+}
+#CarryOnChargeClose
+{
+ text-align: right; 
+ width: 315px; 
+ margin-top: -5px; 
+ position: absolute; 
+ margin-left: 15px;
+}
+
+#CarryOn-Charge-data
+{
+	border:solid 5px green; 
+	padding-right:15px;
+	padding-bottom:15px;
+	padding-top :15px;
+	padding-left :15px;
+	background-color:White;
+	width:285px; 
+}
+
+#CarryOn-Charge-overlay
+{
+	background-color: silver;
+    
+}
+
+#CarryOn-Confirm-overlay
+{
+	background-color: silver;
+	        
+}
+.rotating_div {
+     /*   background-color: #1f06fb;*/
+
+        opacity:1;
+        width: 210px;
+        height: 210px;
+        margin-left: 400px;  
+        border-radius: 50px;
+        box-shadow: 12px 12px 7px #35cee4;       
+       -webkit-transform:rotate(90deg);/*for Chrome and Safari */
+       -ms-transform:rotate(90deg);/*for IE9*/
+      -moz-transform:rotate(90deg);/*for Firefox*/
+       -o-transform:rotate(90deg);/*for Opera*/
+    }
+
+
+.changeseat_unselectedpax
+{	
+	font-size: 11pt;
+	font-weight: bolder;
+	color:White;
+}
+.changeseat_selectedpaxclass
+{
+	font-size: 11pt;
+	font-weight: bolder;
+	color:Black;
+}
+
+.changeseat_legendTD
+{	
+ text-align:left;
+ border-bottom :solid 1px gray; 
+ padding:10px;	
+ vertical-align:middle;
+ width:100%;
+}
+
+.RowClass
+{
+height: 40px; 
+text-align:center;
+padding-top: 15px
+}
+
+
+.fliptopleftwingedge
+{
+	
+  -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
+
+}
+.flipbottomleftwingedge
+{
+	
+   -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+
+
+}
+
+.ExitRowCssClass
+{
+	height: 42px; 
+	padding-top: 0px; 
+	padding-bottom: 0px;
+}
+
+.IsleSeatCssClass
+{
+	text-align:center;
+	font-weight: bold;
+	
+}
+
+.input_seat_change 
+{
+   /* text-align: center;  */
+    font-weight : normal;
+}
+.input_seat_focused
+{
+    /*text-align: center;    */
+    font-family:Arial, MS Sans-Serif, sans-serif;
+	font-size: 8pt; 
+    font-weight : bold;
+}
+
+.input_seat_change_selected
+{
+   	font-family:Arial, MS Sans-Serif, sans-serif;
+	font-size: 8pt; 
+	font-weight:bold;
+}
+
+.currpaxseat
+{
+	font-weight:bold;
+	color:#000000; 	
+	/*text-align:center;*/
+}
+.currpaxseatlable
+{
+	font-weight:bold;
+	color:#000000; 	
+	text-align:left;
+}
+
+.selectedseg
+{
+	font-weight:bold;
+	background:lightblue;
+	text-align:center; 
+    vertical-align:middle; 
+   
+}
+.unselectedseg
+{
+	font-weight:normal;
+	background-color:lightgreen;	
+    text-align:center; 
+    vertical-align:middle; 
+    padding-top:10px;
+}
+
+.gif24x24
+{
+    vertical-align: middle;
+    width : 24px;
+    height : 24px;
+}
+.gif18x18
+{
+    vertical-align: middle;
+    width : 18px;
+    height : 18px;
+}
+.promoWrapper
+{
+    border:2px solid #a8a9ad;
+    padding:10px;
+    width:150px
+}
+
+	.tdLeftColumnProp
+	{
+		vertical-align:top;
+		padding-top:36px;
+	}
+	.tdRightColumnProp
+	{
+		vertical-align:top;
+		padding-top:36px;
+		text-align:left;
+	 }
+
+	
+	#selectpaxinstructions
+	{
+		padding-left:20px;
+	}
+	    
+	 .seatchangeadvisory
+	 {
+		padding-top:5px;
+	 }
+ 
+	.LeftRowIndexClass
+	{
+		height:34px;
+		text-align:right;		
+		vertical-align:middle;
+		font-weight: bold;
+		padding-right:5pt;
+		padding-top: 3pt !important;		
+	}
+
+	.RightRowIndexClass
+	{
+		height:34px;
+		text-align:left;		
+		vertical-align:middle;
+		font-weight: bold;
+		padding-left:5pt;
+		padding-top: 3pt !important;		
+	}
+
+	.LeftWingRowIndexCssClass
+	{	 
+		
+		text-align:right;		
+		vertical-align:middle;		
+		padding-right:5pt;
+		margin-top:-25px;
+		height:26px;	
+		text-decoration:none;
+
+	}
+	.RightWingRowIndexCssClass
+	{	 		
+		
+		text-align:left;		
+		vertical-align:middle;		
+		padding-left:5pt;
+		margin-top:-25px;	
+		height:26px;	
+		
+	}
+	.PrmWingRowCssClass
+	{
+		padding-bottom: 5px;
+		background-color:#dededc; 
+		width:28px;	
+		
+	}
+
+	.WingRowBaseCssClass
+	{
+		background-color:#dededc; 
+		width:28px;
+		margin-top:-1px;
+		
+	}
+	.PrmSeatRowCssClass
+	{
+		padding-bottom: 5px;
+		width:52px;	
+	}
+	 .LeftWingEdgeCssClass
+	{
+		height:40px;
+		padding-bottom: 0px;
+		width:52px;	
+		background-image:url(../images/exit_left.png);  
+		font-family:Arial, MS Sans-Serif, sans-serif; 
+		font-size: 8pt; 
+		font-weight: bold;
+		text-align:right;		
+		vertical-align:middle;	
+		text-decoration:none;	
+	}
+	.RightWingEdgeCssClass
+	{	    
+		height:40px;
+		padding-bottom: 0px;
+		width:52px;	
+		background-image:url(../images/exit_right.png);  
+		font-family:Arial, MS Sans-Serif, sans-serif; 
+		font-size: 8pt; 
+		font-weight: bold;
+		text-align:left;		
+		vertical-align:middle;	
+		text-decoration:none;		
+	 }
+	.exitLeftClass
+	{
+		height:30px;	      
+		margin-top:9px; 
+    	margin-right:5px;
+	   line-height:42px;
+	    
+	}
+	.exitRightClass
+	{
+		height:30px;	      
+		margin-top:9px;
+		margin-left:5px;
+		line-height:42px;
+	    
+	}
+
+	.EdgeRowBaseCssClass
+	{
+		background-image:url(../images/wingedge_web_Left.png);  
+		background-repeat:no-repeat;
+		vertical-align:bottom;
+		width:28px;	
+		height:32px;
+	}
+	
+	.BagInfo_Close
+	{
+	    width:660px;
+	  text-align:right;
+	}
+	
+	.overlay-bg 
+	{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height:100%;
+	width: 100%;
+	cursor: pointer;
+	}
+    
+    .close-btn 
+	{
+	    cursor: pointer;
+	}
+	.overlay-bg:hover 
+	{
+        cursor:pointer;
+    }

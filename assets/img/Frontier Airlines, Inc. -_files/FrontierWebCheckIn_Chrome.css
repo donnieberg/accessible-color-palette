@@ -1,0 +1,102 @@
+﻿ 
+	.CheckBags_Charges
+	{
+	  	margin-top: -20px; 
+		border:0;
+	}
+	
+	.CarryOn_NoCharges
+	{
+	 	margin-top: -20px; 
+		border:0;
+	}
+	
+	.CarryOn_Charges
+	{
+		border:0;
+		font-size: 12px; 
+		line-height: 25px;
+	}
+	
+	.CheckBags_CarryOnTD
+	{
+	   background-color:#d2d2d1;
+	   padding-bottom:5px;
+	}
+
+	.CheckBags_PriceTD
+	{
+		height :25px;
+		padding-bottom:5px;
+	}
+	
+	.CheckBags_PdImg
+	{
+		padding-left:2px;
+		padding-top:5px;
+	}
+	
+	.CarryOn_ChargesTD
+	{
+		vertical-align:top;
+        text-align:center;
+        padding-bottom:7px;
+	}
+	
+	 .CarryOn_NoChargesTD
+	{
+		padding-top:5px;
+	}
+	
+	.CarryOn_NoCharges_LightGreen
+	{
+	   margin-top: -20px; 
+	}
+
+	.LeftRowIndexClass
+	{
+		text-align:right;
+		height:35px;
+		vertical-align:middle;
+		font-weight: bold;
+		padding-right:5pt;
+		
+	}
+	.RightRowIndexClass
+	{
+		text-align:left;
+		height:35px;
+		vertical-align:middle !important;
+		font-weight: bold;
+		padding-left:5pt;
+		
+	}
+	
+	.input_seat_focused
+	{
+		text-align: center;    
+		font-weight : bold;
+	}
+
+	.input_seat_change_selected
+	{
+		font-family:Arial, MS Sans-Serif, sans-serif; 
+		font-size: 8pt; 
+		font-weight:bold;
+	}
+	.tblCenter
+	{
+	    margin: 0 auto;
+	   
+	}
+
+	#CarryOnConfirmClose
+	{
+	    margin-left:5px;
+	}
+	
+	#CarryOn-Confirm-container
+	{
+	    padding-top:160px;
+	    
+	}
