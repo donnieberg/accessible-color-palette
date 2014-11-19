@@ -39,6 +39,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.WCAGlevel = 'AA';
   $scope.isIntroActive = false;
   $scope.isSection1Active = true;
+  $scope.infoPanelTabIndex = -1;
 
   //==============================================================
 
@@ -128,10 +129,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     var color = tinycolor(colorValue);
     if(color.isDark()){
       $scope.modalTextColor = 'text-white';
-      $scope.modalBtnColor = 'btn-white';
     }else{
       $scope.modalTextColor = 'text-dark';
-      $scope.modalBtnColor = 'btn-dark';
     }
     $timeout($scope.hideInstructions2, 1000);
   };
@@ -175,52 +174,45 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.$apply();
   });
 
-  /**
-   * Show/hide the Filter by Color options below the Color Filter drop down 'button'
+
+  /*
+   * Accessibility keyboard - use left/right arrow keys to navigate color filter categories
    */
-  $scope.toggleColorFilters = function() {
-    $scope.showColorFilters = !$scope.showColorFilters;
-  };
+  //$scope.navigateColorFilters = function() {
+  //  var colorFilters = $('.li-item-js');
+  //  var currentItem = $('.li-item-js').first();
 
-  $scope.navigateColorFilters = function() {
-    var colorFilters = $('.li-item-js');
-    var currentItem = $('.li-item-js').first();
-
-    document.onkeydown = function(evt) {
-      evt = evt || window.event;
-      switch (evt.keyCode) {
-        //arrow left
-        case 37:
-          currentItem = currentItem.prev();
-          currentItem.focus();
-          break;
-        //arrow right
-        case 39:
-          currentItem = currentItem.next();
-          currentItem.focus();
-          break;
-          //enter
-        case 13:
-          currentItem.click();
-          break;
-      }
-    };
-  };
+  //  document.onkeydown = function(evt) {
+  //    evt = evt || window.event;
+  //    switch (evt.keyCode) {
+  //      //arrow left
+  //      case 37:
+  //        currentItem = currentItem.prev();
+  //        currentItem.focus();
+  //        break;
+  //      //arrow right
+  //      case 39:
+  //        currentItem = currentItem.next();
+  //        currentItem.focus();
+  //        break;
+  //        //enter
+  //      case 13:
+  //        currentItem.click();
+  //        break;
+  //    }
+  //  };
+  //};
 
   /**
    * Show/hide info left panel
    */
-  $scope.openInfoPanel = function() {
-    $scope.isLeftSlideOpen = true;
-    $timeout(function() {
-      $scope.animateLeftSlide = true;
-    }, 100);
-  };
-  $scope.hideInfoPanel = function() {
-    $scope.animateLeftSlide = false;
-    $timeout(function() {
-      $scope.isLeftSlideOpen = false;
-    }, 500);
+  $scope.toggleInfoPanel = function() {
+    $scope.isLeftSlideOpen = !$scope.isLeftSlideOpen;
+    if($scope.isLeftSlideOpen){
+      $scope.infoPanelTabIndex = 0;
+    }else{
+      $scope.infoPanelTabIndex = -1;
+    }
   };
 
 

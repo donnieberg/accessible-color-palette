@@ -86,10 +86,10 @@
             <div class="fl cf-ns dtc-ns swatch swatch-ns pos-rel ease" style="background-color: {{currentTextColor.hex}};">
               <span class="arrow-left-ns pos-arrow-left-ns ease" style="border-right: 10px solid {{currentTextColor.hex}};"></span>
             </div>
-            <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Copy hex color" class="phm hex hex-ns fl cf-ns dtc-ns vac bg-light-gray ease" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
+            <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm hex hex-ns fl cf-ns dtc-ns vac bg-light-gray ease" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
               <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="pos-rel top-20 pos-static-ns">{{currentTextColor.hex}}</span>
             </a>
-            <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Copy hex color" class="rgb rgb-ns fl cf-ns dtc-ns vac bg-light-gray ease" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
+            <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Click to copy hex color" class="rgb rgb-ns fl cf-ns dtc-ns vac bg-light-gray ease" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
               <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="pos-rel top-20 pos-static-ns">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
             </a>
             <a href="javascript:void(0)" class="phm pvs wi-half-s fl cf-ns dtc-ns vac tac bg-gray">
@@ -102,31 +102,23 @@
           </section>
 
           <section class="toolbar-2 toolbar-2ns toolbar-2x">
-            <div class="mrl tal text-white dib pos-rel">
-              <label for="colorFilter" class="mbs mts-ns f5 db">Filter by Color</label>
-              <a href="javascript:void(0)" id="colorFilter" class="pvs plm bg-colorWheel pr-icon db f4 wi-full pos-rel select ease" ng-click="toggleColorFilters()">
-                <img src="assets/img/Colors.png" alt="color-wheel" width="16" height="16" class="mrxs pos-rel pos-color-wheel">
-                All Colors
-              </a>
-              <span class="arrow-up pos-arrow-up pos-arrow-up-x" ng-if="showColorFilters"></span>
-            </div>
           </section>
           <section class="pts-ns toolbar-3 toolbar-3ns toolbar-3x">
             <a href="javascript:void(0)" class="mrl pvs phm f4 text-white pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
               <span class="mrs text-green fa fa-refresh"></span>
               Start Over
             </a>
-            <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="openInfoPanel();">Who Made this</a>
+            <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
           </section>
         </div>
-        <ul class="tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters pam': showColorFilters, 'mh-none': !showColorFilters }">
-          <li id="allColorsFilter" class="caps fw-light df-child text-white filter no-border-box  li-item-js" ng-class="{ 'border-white': showColorFilters }" data-filter="all">
-            <a href="javascript:void(0)">
+        <ul class="tac list-plain list-horz df mh-auto bg-colorFilters pam">
+          <li id="allColorsFilter" class="caps fw-light df-child text-white filter li-item-js border-white" data-filter="all">
+            <a href="javascript:void(0)" title="Filter by">
             <p class="mvs">All Colors</p>
             </a>
           </li>
-          <li ng-repeat="color in appFactory.colorCategories" class="caps fw-light df-child filter {{color.textColor}} li-item-js" ng-class="{ 'border-white': showColorFilters }" style="background-color: {{color.hex}}" data-filter=".category-{{color.name}}">
-            <a href="javascript:void(0)">
+          <li ng-repeat="color in appFactory.colorCategories" class="caps fw-light df-child filter {{color.textColor}} li-item-js border-white" style="background-color: {{color.hex}}" data-filter=".category-{{color.name}}">
+            <a href="javascript:void(0)" title="Filter by">
             <p class="mvs">{{color.name}}</p>
             </a>
           </li>
@@ -155,12 +147,12 @@
     <!-- ====================================
     Side Bar slide out from Left of Window
     ======================================= -->
-    <slide-out-left class="text-white leftPanel bg-panel z-top" ng-if="isLeftSlideOpen">
+    <slide-out-left class="text-white leftPanel bg-panel z-top">
     <section class="pvm phl">
-      <span class="paxs f2 ss-delete dib ease pointer-cursor" ng-click="hideInfoPanel()"></span>
-      <h1 class="ptl f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="dib mtxs ease link link-navy">Salesforce UX</a></h1>
+      <a href="javascript:void(0)" class="paxs f2 ss-delete dib ease pointer-cursor" ng-click="toggleInfoPanel()" tabindex="{{infoPanelTabIndex}}"></a>
+      <h1 class="ptl f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="dib mtxs ease link link-navy" tabindex="{{infoPanelTabIndex}}">Salesforce UX</a></h1>
       <p>
-        It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link link-navy">WCGA Guidelines</a>.
+        It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link link-navy" tabindex="{{infoPanelTabIndex}}">WCGA Guidelines</a>.
       </p>
       <p>
         Thanks for checking out our tool. We’d love your feedback.
@@ -170,20 +162,20 @@
           <img width="50" height="50" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="circle avatar" />
           <p class="man">Donielle Berg</p>
           <p class="man f5">UX Engineer</p>
-          <p class="man f5"><a href="http://donielleberg.com/" class="ease link link-navy">donielleberg.com</a></p>
+          <p class="man f5"><a href="http://donielleberg.com/" class="ease link link-navy" tabindex="{{infoPanelTabIndex}}">donielleberg.com</a></p>
         </div>
         <div class="fr tac">
           <img width="50" height="50" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="circle avatar" />
           <p class="man">Adrian Rapp</p>
           <p class="man f5">Product Designer</p>
-          <p class="man f5"><a href="http://adrianrapp.com/" class="ease link link-navy">adrianrapp.com</a></p>
+          <p class="man f5"><a href="http://adrianrapp.com/" class="ease link link-navy" tabindex="{{infoPanelTabIndex}}">adrianrapp.com</a></p>
         </div>
       </div>
       <footer class="mbm fix-footer span_10_of_12 tac">
-        <a href="https://github.com/donnieberg/accessible-color-palette" alt="Github" class="mrl dib bg-icon bg-github-icon"></a>
-        <a href="https://twitter.com/SalesforceUX" alt="Twitter" class="mrl dib bg-icon bg-twitter-icon"></a>
-        <a href="https://dribbble.com/salesforce" alt="Dribble" class="mrl dib bg-icon bg-dribble-icon"></a>
-        <a href="https://medium.com/salesforce-ux" alt="Medium" class="dib bg-icon bg-medium-icon"></a>
+        <a href="https://github.com/donnieberg/accessible-color-palette" title="Github" class="mrl dib bg-icon bg-github-icon" tabindex="{{infoPanelTabIndex}}"></a>
+        <a href="https://twitter.com/SalesforceUX" title="Twitter" class="mrl dib bg-icon bg-twitter-icon" tabindex="{{infoPanelTabIndex}}"></a>
+        <a href="https://dribbble.com/salesforce" title="Dribble" class="mrl dib bg-icon bg-dribble-icon" tabindex="{{infoPanelTabIndex}}"></a>
+        <a href="https://medium.com/salesforce-ux" title="Medium" class="dib bg-icon bg-medium-icon" tabindex="{{infoPanelTabIndex}}"></a>
       </footer>
     </section>
     </slide-out-left>
