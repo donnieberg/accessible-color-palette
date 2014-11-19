@@ -37,7 +37,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
-  $scope.isIntroActive = true;
+  $scope.isIntroActive = false;
+  $scope.isSection1Active = true;
 
   //==============================================================
 
@@ -179,6 +180,29 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    */
   $scope.toggleColorFilters = function() {
     $scope.showColorFilters = !$scope.showColorFilters;
+    if($scope.showColorFilters){
+      $scope.navigateColorFilters();
+    }
+  };
+
+  $scope.navigateColorFilters = function() {
+    var currentItem = $('#allColorsFilter');
+    document.onkeydown = function(evt) {
+      evt = evt || window.event;
+      switch (evt.keyCode) {
+        case 37:
+          currentItem = currentItem.prev();
+          currentItem.focus();
+          break;
+        case 39:
+          currentItem = currentItem.next();
+          currentItem.focus();
+          break;
+        case 13:
+          currentItem.click();
+          break;
+      }
+    };
   };
 
   /**
