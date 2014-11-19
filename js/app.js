@@ -66,9 +66,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.isDarkColor = function(colorValue) {
     var color = tinycolor(colorValue);
     if(color.isDark()){
-      $scope.tileIconColor = 'text-white';
+      $scope.textColor = 'text-white';
     }else{
-      $scope.tileIconColor = 'text-dark';
+      $scope.textColor = 'text-dark';
     }
   };
 
@@ -180,24 +180,26 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    */
   $scope.toggleColorFilters = function() {
     $scope.showColorFilters = !$scope.showColorFilters;
-    if($scope.showColorFilters){
-      $scope.navigateColorFilters();
-    }
   };
 
   $scope.navigateColorFilters = function() {
-    var currentItem = $('#allColorsFilter');
+    var colorFilters = $('.li-item-js');
+    var currentItem = $('.li-item-js').first();
+
     document.onkeydown = function(evt) {
       evt = evt || window.event;
       switch (evt.keyCode) {
+        //arrow left
         case 37:
           currentItem = currentItem.prev();
           currentItem.focus();
           break;
+        //arrow right
         case 39:
           currentItem = currentItem.next();
           currentItem.focus();
           break;
+          //enter
         case 13:
           currentItem.click();
           break;
@@ -376,7 +378,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 app.factory('appFactory', function() {
   return {
     colorCategories: [
-      { hex: '#2ECC71', rgb: '46, 204, 113', name: 'green', colorSiblings: ['green', 'aquamarine', 'lightgreen', 'lime', 'limegreen', 'mediumseagreen', 'mediumspringgreen', 'olivedrab', 'palegreen', 'seagreen', 'springgreen', 'yellowgreen'], flatUIcolors: [
+      { hex: '#2ECC71', rgb: '46, 204, 113', name: 'green', textColor: 'text-white', colorSiblings: ['green', 'aquamarine', 'lightgreen', 'lime', 'limegreen', 'mediumseagreen', 'mediumspringgreen', 'olivedrab', 'palegreen', 'seagreen', 'springgreen', 'yellowgreen'], flatUIcolors: [
         { colorParent: 'green', pass: true, hex: '#4ECDC4', rgb: '', name: '' },
         { colorParent: 'green', pass: true, hex: '#A2DED0', rgb: '', name: '' },
         { colorParent: 'green', pass: true, hex: '#87D37C', rgb: '', name: '' },
@@ -404,7 +406,7 @@ app.factory('appFactory', function() {
         { colorParent: 'green', pass: true, hex: '#26C281', rgb: '', name: '' }
         ]
       },
-      { hex: '#3498DB', rgb: '52, 152, 219', name: 'blue', colorSiblings: ['blue', 'aqua', 'cornflowerblue', 'darkblue', 'darkcyan', 'darkslateblue', 'darkturquoise', 'deepskyblue', 'dodgerblue', 'lightblue', 'lightcyan'], flatUIcolors: [
+      { hex: '#3498DB', rgb: '52, 152, 219', name: 'blue', textColor: 'text-white', colorSiblings: ['blue', 'aqua', 'cornflowerblue', 'darkblue', 'darkcyan', 'darkslateblue', 'darkturquoise', 'deepskyblue', 'dodgerblue', 'lightblue', 'lightcyan'], flatUIcolors: [
         { colorParent: 'blue', pass: true, hex: '#E4F1FE', rgb: '', name: 'alice-blue' },
         { colorParent: 'blue', pass: true, hex: '#4183D7', rgb: '', name: 'royal-blue' },
         { colorParent: 'blue', pass: true, hex: '#59ABE3', rgb: '', name: 'picton-blue' },
@@ -429,7 +431,7 @@ app.factory('appFactory', function() {
         { colorParent: 'blue', pass: true, hex: '#5C97BF', rgb: '', name: '' }
         ]
       },
-      { hex: '#9B59B6', rgb: '155, 89, 182', name: 'purple', colorSiblings: ['purple', 'blueviolet', 'darkorchid', 'darkviolet', 'mediumpurple', 'plum'], flatUIcolors: [
+      { hex: '#9B59B6', rgb: '155, 89, 182', name: 'purple', textColor: 'text-white', colorSiblings: ['purple', 'blueviolet', 'darkorchid', 'darkviolet', 'mediumpurple', 'plum'], flatUIcolors: [
         { colorParent: 'purple', pass: true, hex: '#DCC6E0', rgb: '', name: 'snuff' },
         { colorParent: 'purple', pass: true, hex: '#663399', rgb: '', name: 'rebecca-purple' },
         { colorParent: 'purple', pass: true, hex: '#674172', rgb: '', name: 'honey-flower' },
@@ -442,7 +444,7 @@ app.factory('appFactory', function() {
         { colorParent: 'purple', pass: true, hex: '#9B59B6', rgb: '', name: 'wisteria' }
         ]
       },
-      { hex: '#D2527F', rgb: '', name: 'pink', colorSiblings: ['darkmagenta', 'fuchsia'], flatUIcolors: [
+      { hex: '#D2527F', rgb: '', name: 'pink', textColor: 'text-white', colorSiblings: ['darkmagenta', 'fuchsia'], flatUIcolors: [
         { colorParent: 'pink', pass: true, hex: '#DB0A5B', rgb: '', name: 'rassmatazz' },
         { colorParent: 'pink', pass: true, hex: '#FFECDB', rgb: '', name: 'derby' },
         { colorParent: 'pink', pass: true, hex: '#F64747', rgb: '', name: 'sunset-orange' },
@@ -453,7 +455,7 @@ app.factory('appFactory', function() {
         { colorParent: 'pink', pass: true, hex: '#E26A6A', rgb: '', name: 'sunglo' }
         ]
       },
-      { hex: '#34495E', rgb: '52, 73, 94', name: 'gray', colorSiblings: ['black', 'darkgray', 'dimgray', 'gray', 'slategray'], flatUIcolors: [
+      { hex: '#34495E', rgb: '52, 73, 94', name: 'gray', textColor: 'text-white', colorSiblings: ['black', 'darkgray', 'dimgray', 'gray', 'slategray'], flatUIcolors: [
         { colorParent: 'gray', pass: true, hex: '#000000', rgb: '', name: '' },
         { colorParent: 'gray', pass: true, hex: '#FFFFFF', rgb: '', name: '' },
         { colorParent: 'gray', pass: true, hex: '#ECECEC', rgb: '', name: '' },
@@ -469,13 +471,13 @@ app.factory('appFactory', function() {
         { colorParent: 'gray', pass: true, hex: '#BFBFBF', rgb: '', name: '' }
         ]
       },
-      { hex: '#F2CA27', rgb: '242, 202, 39', name: 'yellow', colorSiblings: ['yellow', 'darkgoldenrod', 'gold', 'goldenrod', 'lemonchiffon'], flatUIcolors: [
+      { hex: '#F2CA27', rgb: '242, 202, 39', name: 'yellow', textColor: 'text-dark', colorSiblings: ['yellow', 'darkgoldenrod', 'gold', 'goldenrod', 'lemonchiffon'], flatUIcolors: [
         { colorParent: 'yellow', pass: true, hex: '#F5D76E', rgb: '', name: '' },
         { colorParent: 'yellow', pass: true, hex: '#F7CA18', rgb: '', name: '' },
         { colorParent: 'yellow', pass: true, hex: '#F4D03F', rgb: '', name: '' }
         ]
       },
-      { hex: '#E67E22', rgb: '230, 126, 34', name: 'orange', colorSiblings: ['orange', 'coral', 'darkorange', 'lightsalmon', 'orangered', 'sandybrown'], flatUIcolors: [
+      { hex: '#E67E22', rgb: '230, 126, 34', name: 'orange', textColor: 'text-white', colorSiblings: ['orange', 'coral', 'darkorange', 'lightsalmon', 'orangered', 'sandybrown'], flatUIcolors: [
         { colorParent: 'orange', pass: true, hex: '#FDE3A7', rgb: '', name: '' },
         { colorParent: 'orange', pass: true, hex: '#F89406', rgb: '', name: '' },
         { colorParent: 'orange', pass: true, hex: '#EB9532', rgb: '', name: '' },
@@ -492,7 +494,7 @@ app.factory('appFactory', function() {
         { colorParent: 'orange', pass: true, hex: '#E67E22', rgb: '', name: '' }
         ]
       },
-      { hex: '#E74C3C', rgb: '231, 76, 60', name: 'red', colorSiblings: ['red', 'crimson', 'darkred', 'firebrick', 'maroon', 'tomato'], flatUIcolors: [
+      { hex: '#E74C3C', rgb: '231, 76, 60', name: 'red', textColor: 'text-white', colorSiblings: ['red', 'crimson', 'darkred', 'firebrick', 'maroon', 'tomato'], flatUIcolors: [
         { colorParent: 'red', pass: true, hex: '#D24D57', rgb: '', name: 'chestnut-rose'},
         { colorParent: 'red', pass: true, hex: '#F22613', rgb: '', name: 'pomegranate'},
         { colorParent: 'red', pass: true, hex: '#FF0000', rgb: '', name: 'red'},

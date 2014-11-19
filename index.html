@@ -116,15 +116,19 @@
               <span class="mrs text-green fa fa-refresh"></span>
               Start Over
             </a>
-            <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="openInfoPanel();">About This Tool</a>
+            <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="openInfoPanel();">Who Made this</a>
           </section>
         </div>
-        <ul class="tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters pam': showColorFilters, 'mh-none': !showColorFilters }" role="tablist">
-          <li id="allColorsFilter" class="caps fw-light df-child text-white filter no-border-box" ng-class="{ 'border-white': showColorFilters }" data-filter="all" role="tab" tabindex="0">
+        <ul class="tac list-plain list-horz df slideToggle no-border-box" ng-class="{ 'mh-auto bg-colorFilters pam': showColorFilters, 'mh-none': !showColorFilters }">
+          <li id="allColorsFilter" class="caps fw-light df-child text-white filter no-border-box  li-item-js" ng-class="{ 'border-white': showColorFilters }" data-filter="all">
+            <a href="javascript:void(0)">
             <p class="mvs">All Colors</p>
+            </a>
           </li>
-          <li ng-repeat="color in appFactory.colorCategories" class="caps fw-light text-white df-child filter" ng-class="{ 'border-white': showColorFilters }" style="background-color: {{color.hex}}" data-filter=".category-{{color.name}}" role="tab" tabindex="-1">
+          <li ng-repeat="color in appFactory.colorCategories" class="caps fw-light df-child filter {{color.textColor}} li-item-js" ng-class="{ 'border-white': showColorFilters }" style="background-color: {{color.hex}}" data-filter=".category-{{color.name}}">
+            <a href="javascript:void(0)">
             <p class="mvs">{{color.name}}</p>
+            </a>
           </li>
         </ul>
       </article>
@@ -137,8 +141,8 @@
           <a href="javascript:void(0)">
           <span class="assistive-text">HEX: {{color.hex}}</span>
           </a>
-          <span class="dtc vac f3 fa fa-check fadeInAni {{tileIconColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
-          <span class="dtc vac text-white fadeInAni {{tileIconColor}}" ng-if="color === currentCopiedColor">Copied!</span>
+          <span class="dtc vac f3 fa fa-check fadeInAni {{textColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
+          <span class="dtc vac text-white fadeInAni {{textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
         </li>
       </ul>
       <!--
