@@ -37,8 +37,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
-  $scope.isIntroActive = false;
-  $scope.isSection1Active = true;
+  $scope.isIntroActive = true;
+  //$scope.isSection1Active = true;
   $scope.infoPanelTabIndex = -1;
 
   //==============================================================
@@ -219,6 +219,17 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   //=============================================
   // GENERATE COLOR TILES - uses Tiny Colors http://bgrins.github.io/TinyColor/
   //=============================================
+  /**
+   * Get all color category siblings
+   */
+  var allColorSiblings = [];
+  _.each($scope.appFactory.colorCategories, function(color) {
+    var allColorSiblingsHex = _.map(color.colorSiblings, function(colorSib) {
+      return { colorParent: color.name, pass: true, hex: tinycolor(colorSib).toHexString(), rgb: '', name: '' }
+    });
+    allColorSiblings.push(allColorSiblingsHex);
+  });
+  allColorSiblings = _.flatten(allColorSiblings);
 
   /**
    * Get all Flat UI Colors
@@ -233,9 +244,15 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Generate all tinycolors based off color categories
    */
   var allTinyColors = [];
+  var tinyColorsM = [];
+  var tinyColorsA = [];
+  var tinyColorsS = [];
   var tinyColors = [];
+
   _.each($scope.appFactory.colorCategories, function(color) {
-    tinyColors = tinycolor(color.hex).monochromatic();
+    tinyColorsM = tinycolor(color.hex).monochromatic();
+    tinyColorsA = tinycolor(color.hex).analogous();
+    tinyColors = _.union(tinyColorsM, tinyColorsA);
     var tinyColorsHex = _.map(tinyColors, function(col) {
       return { colorParent: color.name, pass: true, hex: col.toHexString(), rgb: '', name: '' }
     })
@@ -245,10 +262,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
 
   /**
-   * Combine flatUI colors and generated tiny colors
+   * Combine Color category siblings, flatUI colors, and generated tiny colors
    */
-  $scope.allColors = _.union(allFlatColors, allTinyColors);
-
+  $scope.allColors = _.union(allColorSiblings, allFlatColors, allTinyColors);
 
 
   //=============================================
