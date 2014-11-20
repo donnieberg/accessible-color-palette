@@ -264,7 +264,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   /**
    * Combine Color category siblings, flatUI colors, and generated tiny colors
    */
-  $scope.allColors = _.union(allColorSiblings, allFlatColors, allTinyColors);
+  $scope.allColors = _.union(allFlatColors, allTinyColors, allColorSiblings);
 
 
   //=============================================
