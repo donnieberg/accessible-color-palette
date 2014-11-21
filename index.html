@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="css/i.css">
   </head>
   <body ng-controller="appController" class="ht-full pos-rel ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
-
     <article id="intro" class="ht-full bg-green tac" ng-show="isIntroActive">
       <div class="tal ht-75 bg-dark-green">
         <span class="mlm mts dib bg-salesforce-icon"></span>
@@ -118,7 +117,7 @@
             <p class="mvs">All Colors</p>
             </a>
           </li>
-          <li ng-repeat="color in appFactory.colorCategories" class="caps fw-light df-child filter {{color.textColor}} li-item-js border-white" style="background-color: {{color.hex}}" data-filter=".category-{{color.name}}">
+          <MaMaMaMaMa      Yli ng-repeat="color in appFactory.colorCategories" class="caps fw-light df-child filter {{color.textColor}} li-item-js border-white" style="background-color: {{color.hex}}" data-filter=".category-{{color.name}}">
             <a href="javascript:void(0)" title="Filter by">
             <p class="mvs">{{color.name}}</p>
             </a>
