@@ -83,7 +83,7 @@
 
     <article id="section2" class="bg-dark ht-vh" ng-show="isSection2Active">
       <article class="ptl phm" ng-class="{ 'fix-toolbar z-above': pinToolbar }">
-        <div class="cf mw-2100 center">
+        <div class="pbl pan-ns cf mw-2100 center">
           <section class="toolbar-1ns toolbar-1x br-s dt-ns cf">
             <div class="phm pvs dtc-ns vac default-cursor span_6_of_12" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">
               {{userContent}}
@@ -116,13 +116,13 @@
             <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
           </section>
         </div>
-        <ul class="tac list-plain list-horz df mh-auto bg-colorFilters pam">
+        <ul class="tac dn df-ns list-plain list-horz mh-auto bg-colorFilters pam">
           <li id="allColorsFilter" class="caps fw-light df-child text-white filter li-item-js border-white" data-filter="all">
             <a href="javascript:void(0)" title="Filter by">
             <p class="mvs">All Colors</p>
             </a>
           </li>
-          <MaMaMaMaMa      Yli ng-repeat="color in appFactory.colorCategories" class="caps fw-light df-child filter {{color.textColor}} li-item-js border-white" style="background-color: {{color.hex}}" data-filter=".category-{{color.name}}">
+          <li ng-repeat="color in appFactory.colorCategories" class="caps fw-light df-child filter {{color.textColor}} li-item-js border-white" style="background-color: {{color.hex}}" data-filter=".category-{{color.name}}">
             <a href="javascript:void(0)" title="Filter by">
             <p class="mvs">{{color.name}}</p>
             </a>

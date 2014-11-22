@@ -151,7 +151,8 @@ input, textarea { border: none; }
   .span_3_of_12 { width: 25%; }
   .span_2_of_12, .span_2_of_12-ns { width: 16.667%; }
   .span_1_of_12, .span_1_of_12-ns { width: 8.333%; }
-  .wi-10-ns { width: 10%; } }
+  .wi-10-ns { width: 10%; }
+  .df-ns { display: -webkit-flex; display: -ms-flexbox; display: flex; } }
 /* SPACING  ============================================================================= */
 /* Padding */
 .pan { padding: 0; }
@@ -588,7 +589,8 @@ button { font-family: 'Montserrat', sans-serif; }
 
 /* Media Queries for Screen Size and Retina ====================================== */
 @media only screen and (max-width: 40em) { .wi-half-s { width: 50%; } }
-@media only screen and (min-width: 40em) { .ptl-ns { padding-top: 2rem; }
+@media only screen and (min-width: 40em) { .pan-ns { padding: 0; }
+  .ptl-ns { padding-top: 2rem; }
   .prl-ns { padding-right: 2rem; }
   .prm-ns { padding-right: 1rem; }
   .plm-ns { padding-left: 1rem; }

@@ -152,6 +152,7 @@ button { font-family: 'Montserrat', sans-serif; }
 
 // Larger than phone size screens
 @media only screen and (min-width: 40em) {
+  .pan-ns  { padding: 0;   }
   .ptl-ns  { padding-top: 2rem;   }
   .prl-ns  { padding-right: 2rem;   }
   .prm-ns  { padding-right: 1rem;   }
