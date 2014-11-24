@@ -118,8 +118,6 @@ input, textarea { border: none; }
 
 .span_5_of_12 { width: 100%; }
 
-.span_5_of_12-dib { width: 41.666%; }
-
 .span_4_of_12 { width: 100%; }
 
 .span_4_of_12-dib { width: 33.333%; }
@@ -127,8 +125,6 @@ input, textarea { border: none; }
 .span_3_of_12 { width: 100%; }
 
 .span_2_of_12 { width: 100%; }
-
-.span_2_of_12-dib { width: 16.667%; }
 
 .span_1_of_12 { width: 100%; }
 
@@ -153,6 +149,20 @@ input, textarea { border: none; }
   .span_1_of_12, .span_1_of_12-ns { width: 8.333%; }
   .wi-10-ns { width: 10%; }
   .df-ns { display: -webkit-flex; display: -ms-flexbox; display: flex; } }
+/* OTHER PEOPLE'S CODE ============================================================================= */
+/** For modern browsers 1. The space content is one way to avoid an Opera bug when the contenteditable attribute is included anywhere else in the document. Otherwise it causes space to appear at the top and bottom of elements that are clearfixed. 2. The use of `table` rather than `block` is only necessary if using `:before` to contain the top-margins of child elements. */
+.cf:before, .cf:after { content: " "; /* 1 */ display: table; /* 2 */ }
+
+.cf:after { clear: both; }
+
+/** For IE 6/7 only Include this rule to trigger hasLayout and contain floats. */
+.cf { *zoom: 1; }
+
+/** Paul Irish Border Box Sizing Fixes padding, border, etc. so that they don't affect the elements' real width  */
+* { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+.no-border-box { box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; }
+
 /* SPACING  ============================================================================= */
 /* Padding */
 .pan { padding: 0; }
@@ -324,20 +334,93 @@ input, textarea { border: none; }
 
 .mhx { margin-left: 4rem; margin-right: 4rem; }
 
-/* OTHER PEOPLE'S CODE ============================================================================= */
-/** For modern browsers 1. The space content is one way to avoid an Opera bug when the contenteditable attribute is included anywhere else in the document. Otherwise it causes space to appear at the top and bottom of elements that are clearfixed. 2. The use of `table` rather than `block` is only necessary if using `:before` to contain the top-margins of child elements. */
-.cf:before, .cf:after { content: " "; /* 1 */ display: table; /* 2 */ }
-
-.cf:after { clear: both; }
-
-/** For IE 6/7 only Include this rule to trigger hasLayout and contain floats. */
-.cf { *zoom: 1; }
-
-/** Paul Irish Border Box Sizing Fixes padding, border, etc. so that they don't affect the elements' real width  */
-* { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
-
-.no-border-box { box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; }
-
+/* SPACING  (bigger than phone screen size - ns) ============================================================================= */
+/* Padding */
+@media only screen and (min-width: 40em) { .pan-ns { padding: 0; }
+  .paxs-ns { padding: .25rem; }
+  .pas-ns { padding: .5rem; }
+  .pam-ns { padding: 1rem; }
+  .pal-ns { padding: 2rem; }
+  .pax-ns { padding: 4rem; }
+  .pln-ns { padding-left: 0; }
+  .plxs-ns { padding-left: .25rem; }
+  .pls-ns { padding-left: .5rem; }
+  .plm-ns { padding-left: 1rem; }
+  .pll-ns { padding-left: 2rem; }
+  .plx-ns { padding-left: 4rem; }
+  .prn-ns { padding-right: 0; }
+  .prxs-ns { padding-right: .25rem; }
+  .prs-ns { padding-right: .5rem; }
+  .prm-ns { padding-right: 1rem; }
+  .prl-ns { padding-right: 2rem; }
+  .prx-ns { padding-right: 4rem; }
+  .pbn-ns { padding-bottom: 0; }
+  .pbxs-ns { padding-bottom: .25rem; }
+  .pbs-ns { padding-bottom: .5rem; }
+  .pbm-ns { padding-bottom: 1rem; }
+  .pbl-ns { padding-bottom: 2rem; }
+  .pbx-ns { padding-bottom: 4rem; }
+  .ptn-ns { padding-top: 0; }
+  .ptxs-ns { padding-top: .25rem; }
+  .pts-ns { padding-top: .5rem; }
+  .ptm-ns { padding-top: 1rem; }
+  .ptl-ns { padding-top: 2rem; }
+  .ptx-ns { padding-top: 4rem; }
+  .pvn-ns { padding-top: 0; padding-bottom: 0; }
+  .pvxs-ns { padding-top: .25rem; padding-bottom: .25rem; }
+  .pvs-ns { padding-top: .5rem; padding-bottom: .5rem; }
+  .pvm-ns { padding-top: 1rem; padding-bottom: 1rem; }
+  .pvl-ns { padding-top: 2rem; padding-bottom: 2rem; }
+  .pvx-ns { padding-top: 4rem; padding-bottom: 4rem; }
+  .phn-ns { padding-left: 0; padding-right: 0; }
+  .phxs-ns { padding-left: .25rem; padding-right: .25rem; }
+  .phs-ns { padding-left: .5rem; padding-right: .5rem; }
+  .phm-ns { padding-left: 1rem; padding-right: 1rem; }
+  .phl-ns { padding-left: 2rem; padding-right: 2rem; }
+  .phx-ns { padding-left: 4rem; padding-right: 4rem; }
+  /* Margins */
+  .man-ns { margin: 0; }
+  .maxs-ns { margin: .25rem; }
+  .mas-ns { margin: .5rem; }
+  .mam-ns { margin: 1rem; }
+  .mal-ns { margin: 2rem; }
+  .max-ns { margin: 4rem; }
+  .mln-ns { margin-left: 0; }
+  .mlxs-ns { margin-left: .25rem; }
+  .mls-ns { margin-left: .5rem; }
+  .mlm-ns { margin-left: 1rem; }
+  .mll-ns { margin-left: 2rem; }
+  .mlx-ns { margin-left: 4rem; }
+  .mrn-ns { margin-right: 0; }
+  .mrxs-ns { margin-right: .25rem; }
+  .mrs-ns { margin-right: .5rem; }
+  .mrm-ns { margin-right: 1rem; }
+  .mrl-ns { margin-right: 2rem; }
+  .mrx-ns { margin-right: 4rem; }
+  .mbn-ns { margin-bottom: 0; }
+  .mbxs-ns { margin-bottom: .25rem; }
+  .mbs-ns { margin-bottom: .5rem; }
+  .mbm-ns { margin-bottom: 1rem; }
+  .mbl-ns { margin-bottom: 2rem; }
+  .mbx-ns { margin-bottom: 4rem; }
+  .mtn-ns { margin-top: 0; }
+  .mtxs-ns { margin-top: .25rem; }
+  .mts-ns { margin-top: .5rem; }
+  .mtm-ns { margin-top: 1rem; }
+  .mtl-ns { margin-top: 2rem; }
+  .mtx-ns { margin-top: 4rem; }
+  .mvn-ns { margin-top: 0; margin-bottom: 0; }
+  .mvxs-ns { margin-top: .25rem; margin-bottom: .25rem; }
+  .mvs-ns { margin-top: .5rem; margin-bottom: .5rem; }
+  .mvm-ns { margin-top: 1rem; margin-bottom: 1rem; }
+  .mvl-ns { margin-top: 2rem; margin-bottom: 2rem; }
+  .mvx-ns { margin-top: 4rem; margin-bottom: 4rem; }
+  .mhn-ns { margin-left: 0; margin-right: 0; }
+  .mhxs-ns { margin-left: .25rem; margin-right: .25rem; }
+  .mhs-ns { margin-left: .5rem; margin-right: .5rem; }
+  .mhm-ns { margin-left: 1rem; margin-right: 1rem; }
+  .mhl-ns { margin-left: 2rem; margin-right: 2rem; }
+  .mhx-ns { margin-left: 4rem; margin-right: 4rem; } }
 /*  ============================================================================= TYPOGRAPHY STYLES ============================================================================= */
 body { margin: 0; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 300; }
 
@@ -453,23 +536,19 @@ a:visited { text-decoration: none; color: inherit; }
 .ng-cloak { display: none; }
 
 /* Component Specific Styles ====================================== */
-.ht-toolbarContainer { height: 195px; width: 100%; }
-
 .pbxx { padding-bottom: 20rem; }
 
 .mw-900 { max-width: 950px; }
 
 .mw-2100 { max-width: 2100px; }
 
-.ht-75 { height: 75px; }
+.ht-header { height: 75px; }
 
-.min-ht-85 { min-height: 85px; }
-
-.ht-130 { height: 130px; }
-
-.leftPanel { width: 330px; left: -330px; }
+.ht-textArea { min-height: 85px; }
 
 .ht-colorVariations { height: 150px; }
+
+.leftPanel { width: 330px; left: -330px; }
 
 .top-20 { top: 20px; }
 
@@ -480,14 +559,6 @@ a:visited { text-decoration: none; color: inherit; }
 .hex { width: 40%; height: 75px; }
 
 .rgb { width: 40%; height: 75px; }
-
-.toolbar-2 { display: none; }
-
-.toolbar-3 { display: none; }
-
-.pr-icon { padding-right: 2.5rem; }
-
-.pt-tiles { padding-top: 5rem; }
 
 .fix-toolbar { position: fixed; top: 0; width: 100%; background: rgba(59, 63, 69, 0.95); }
 
@@ -565,62 +636,31 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .btn-white:hover { background: rgba(255, 255, 255, 0.3); }
 
-.btn-dark { border: 1px solid #333333; color: #333333; }
-
-.btn-dark:hover { background: rgba(59, 63, 69, 0.2); }
-
 /* Shapes & Positioning ====================================== */
 .circle { border-radius: 100%; }
 
 .avatar { border: 2px solid #f2f2f2; }
 
-.arrow-up { width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-bottom: 13px solid #333333; }
-
-.pos-arrow-up { position: absolute; bottom: -20px; left: 40px; }
-
-.pos-tooltip { top: -150px; }
-
-.pos-color-wheel { top: 2px; }
-
 /* Tile Hover - border-fade */
-.border-fade { -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; /* Hack to improve aliasing on mobile/tablet devices */ }
+.border-fade { -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; }
 
-.border-selected, .border-fade:hover, .border-fade:focus, .border-fade:active { -webkit-box-shadow: inset 0 0 0 12px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 12px #f2f2f2, 0 0 1px transparent; /* Hack to improve aliasing on mobile/tablet devices */ }
+.border-selected, .border-fade:hover, .border-fade:focus, .border-fade:active { -webkit-box-shadow: inset 0 0 0 12px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 12px #f2f2f2, 0 0 1px transparent; }
 
 /* Media Queries for Screen Size and Retina ====================================== */
 @media only screen and (max-width: 40em) { .wi-half-s { width: 50%; } }
-@media only screen and (min-width: 40em) { .pan-ns { padding: 0; }
-  .ptl-ns { padding-top: 2rem; }
-  .prl-ns { padding-right: 2rem; }
-  .prm-ns { padding-right: 1rem; }
-  .plm-ns { padding-left: 1rem; }
-  .pos-static-ns { position: static; }
+@media only screen and (min-width: 40em) { .pos-static-ns { position: static; }
   .dt-ns { display: table; }
   .dtc-ns { display: table-cell; }
   .ht-full-ns { height: 100%; }
-  .vam-ns { position: relative; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
   .fr-ns { float: right; }
   .cf-ns { float: none; }
   .swatch-ns { width: 75px; height: 75px; }
   .hex-ns { width: 10%; height: auto; }
   .rgb-ns { width: 12%; height: auto; }
-  .toolbar-1ns { width: 100%; }
-  .toolbar-2ns { display: block; width: auto; float: left; margin-top: 0.5rem; }
-  .toolbar-3ns { display: block; width: auto; float: right; margin-top: 2rem; }
   .bg-screenIcon-ns { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; }
   .arrow-left-ns { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
-  .pos-arrow-left-ns { position: absolute; top: 30px; left: -7px; }
-  /* Tile Hover - expand */
-  .tile-hover-ns { -webkit-transition: all .1s ease-in; transition: all .1s ease-in; }
-  .tile-hover-ns:hover { -webkit-transform: scale(1.05); -ms-transform: scale(1.05); transform: scale(1.05); -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); } }
-@media only screen and (min-width: 70em) { .mts-ns { margin-top: .5rem; }
-  .pts-ns { padding-top: .5rem; }
-  .ht-colorVariations-ns { height: 200px; }
+  .pos-arrow-left-ns { position: absolute; top: 30px; left: -7px; } }
+@media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; }
   .span_2_of_12-ns { width: 16.667%; } }
-@media only screen and (min-width: 106em) { .span_1_of_12-x { width: 8.333%; }
-  .span_2_of_12-x { width: 15%; }
-  .toolbar-1x { width: 56%; margin-left: 22%; float: left; }
-  .toolbar-2x { width: 22%; margin-left: -78%; float: left; }
-  .toolbar-3x { width: auto; float: right; }
-  .pos-arrow-up-x { position: absolute; bottom: -28px; left: 40px; } }
+@media only screen and (min-width: 106em) { .span_1_of_12-x { width: 8.333%; } }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }

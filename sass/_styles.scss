@@ -6,15 +6,13 @@
 /*
  * Component Specific Styles
  * ====================================== */
-.ht-toolbarContainer { height: 195px; width: 100%; }
 .pbxx { padding-bottom: 20rem; }
 .mw-900 { max-width: 950px; }
 .mw-2100 { max-width: 2100px; }
-.ht-75 { height: 75px; }
-.min-ht-85 { min-height: 85px; }
-.ht-130 { height: 130px; }
-.leftPanel { width: 330px; left: -330px; }
+.ht-header { height: 75px; }
+.ht-textArea { min-height: 85px; }
 .ht-colorVariations { height: 150px; }
+.leftPanel { width: 330px; left: -330px; }
 
 .top-20 { top: 20px; }
 
@@ -22,12 +20,6 @@
 .swatch { width: 20%; height: 75px; }
 .hex { width: 40%; height: 75px; }
 .rgb { width: 40%; height: 75px; }
-
-.toolbar-2 { display: none; }
-.toolbar-3 { display: none; }
-
-.pr-icon { padding-right: 2.5rem; }
-.pt-tiles { padding-top: 5rem; }
 
 .fix-toolbar {
   position: fixed;
@@ -84,7 +76,7 @@ button { font-family: 'Montserrat', sans-serif; }
 .link { font-weight: bold; padding-top: .25rem; padding-bottom: .25rem; border-bottom: 2px solid rgba(255,255,255,.5); }
 .link-green:hover { background: darken($green, 5%); border-bottom: 2px solid rgba(255,255,255,0); }
 .link-navy:hover { background: darken($navy, 5%); border-bottom: 2px solid rgba(255,255,255,0); }
-.ss-delete:hover { background: darken($navy, 5%);}
+.ss-delete:hover { background: darken($navy, 5%); }
 
 .input { border: 1px solid white; border-radius: 3px; }
 .select {  border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
@@ -92,14 +84,12 @@ button { font-family: 'Montserrat', sans-serif; }
 .select:hover {  background: rgba(255,255,255,.2) url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
 
 .btn-primary { cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
-.btn-primary:hover { background: darken($blue, 10%)};
+.btn-primary:hover { background: darken($blue, 10%); }
 .btn-secondary { border: 4px solid $darker-gray; border-radius: 5px; -webkit-appearance: none; cursor: pointer; }
-.btn-secondary:hover { border: 4px solid darken($darker-gray, 10%); background: darken($darker-gray, 10%)}
+.btn-secondary:hover { border: 4px solid darken($darker-gray, 10%); background: darken($darker-gray, 10%); }
 .btn-outline { width: 300px; cursor: pointer; border-radius: 3px; background: none; }
 .btn-white { border: 1px solid white; color: white; }
-.btn-white:hover { background: rgba(255,255,255,.3);}
-.btn-dark { border: 1px solid $darker-gray; color: $darker-gray; }
-.btn-dark:hover { background: rgba(59,63,69,.2);}
+.btn-white:hover { background: rgba(255,255,255,.3); }
 
 
 
@@ -109,70 +99,41 @@ button { font-family: 'Montserrat', sans-serif; }
 .circle { border-radius: 100%; }
 .avatar { border: 2px solid $near-white; }
 
-.arrow-up {
-	width: 0;
-	height: 0;
-	border-left: 13px solid transparent;
-	border-right: 13px solid transparent;
-	border-bottom: 13px solid $darker-gray;
+/* Tile Hover - border-fade */
+.border-fade {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: inset 0 0 0 2px $near-white, 0 0 1px rgba(0, 0, 0, 0);
 }
-.pos-arrow-up {
-  position: absolute;
-  bottom: -20px;
-  left: 40px;
+.border-selected, .border-fade:hover, .border-fade:focus, .border-fade:active {
+  box-shadow: inset 0 0 0 12px $near-white, 0 0 1px rgba(0, 0, 0, 0);
 }
-.pos-tooltip {
-  top: -150px;
-}
-.pos-color-wheel { top: 2px; }
-
-  /* Tile Hover - border-fade */
-  .border-fade {
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: box-shadow;
-    transition-property: box-shadow;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: inset 0 0 0 2px $near-white, 0 0 1px rgba(0, 0, 0, 0);
-    /* Hack to improve aliasing on mobile/tablet devices */
-  }
-  .border-selected, .border-fade:hover, .border-fade:focus, .border-fade:active {
-    box-shadow: inset 0 0 0 12px $near-white, 0 0 1px rgba(0, 0, 0, 0);
-    /* Hack to improve aliasing on mobile/tablet devices */
-  }
 
 
 /*
  * Media Queries for Screen Size and Retina
  * ====================================== */
+//Only phone
 @media only screen and (max-width: 40em) {
   .wi-half-s { width: 50%; }
 }
 
 // Larger than phone size screens
 @media only screen and (min-width: 40em) {
-  .pan-ns  { padding: 0;   }
-  .ptl-ns  { padding-top: 2rem;   }
-  .prl-ns  { padding-right: 2rem;   }
-  .prm-ns  { padding-right: 1rem;   }
-  .plm-ns  { padding-left: 1rem;   }
-
   .pos-static-ns { position: static; }
   .dt-ns { display: table; }
   .dtc-ns { display: table-cell; }
   .ht-full-ns { height: 100%; }
-  .vam-ns { position: relative; top: 50%; transform: translateY(-50%); }
   .fr-ns { float: right; }
   .cf-ns { float: none; }
 
   .swatch-ns { width: 75px; height: 75px; }
   .hex-ns { width: 10%; height: auto; }
   .rgb-ns { width: 12%; height: auto; }
-
-  .toolbar-1ns { width: 100%; }
-  .toolbar-2ns { display: block; width: auto; float: left; margin-top: 0.5rem; }
-  .toolbar-3ns { display: block; width: auto; float: right; margin-top: 2rem; }
 
   .bg-screenIcon-ns {
     width: 345px;
@@ -191,20 +152,10 @@ button { font-family: 'Montserrat', sans-serif; }
     top: 30px;
     left: -7px;
   }
-
-  /* Tile Hover - expand */
-  .tile-hover-ns { transition: all .1s ease-in; }
-  .tile-hover-ns:hover {
-    transform: scale(1.05);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-  }
-
 }
 
 // Larger than phone but smaller than Laptop size screens
 @media only screen and (min-width: 70em) {
-  .mts-ns { margin-top: .5rem; }
-  .pts-ns { padding-top: .5rem; }
   .ht-colorVariations-ns { height: 200px; }
   .span_2_of_12-ns { width: 16.667%; }
 }
@@ -212,15 +163,6 @@ button { font-family: 'Montserrat', sans-serif; }
 // Larger than 1440px Laptop size screens
 @media only screen and (min-width: 106em) {
   .span_1_of_12-x { width: 8.333%; }
-  .span_2_of_12-x { width: 15%; }
-  .toolbar-1x { width: 56%; margin-left: 22%; float: left; }
-  .toolbar-2x { width: 22%; margin-left: -78%; float: left; }
-  .toolbar-3x { width: auto; float: right; }
-  .pos-arrow-up-x {
-    position: absolute;
-    bottom: -28px;
-    left: 40px;
-  }
 }
 
 // Retina screen
