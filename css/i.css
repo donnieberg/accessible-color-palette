@@ -540,7 +540,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .mw-900 { max-width: 950px; }
 
-.mw-2100 { max-width: 2100px; }
+.mw-toolBar { max-width: 1600px; }
 
 .ht-header { height: 75px; }
 
@@ -606,7 +606,7 @@ a:visited { text-decoration: none; color: inherit; }
 /* Global Styles (Anchor & Form Styles) ====================================== */
 button { font-family: 'Montserrat', sans-serif; }
 
-.link { font-weight: bold; padding-top: .25rem; padding-bottom: .25rem; border-bottom: 2px solid rgba(255, 255, 255, 0.5); }
+.link { padding-top: .25rem; padding-bottom: .25rem; border-bottom: 2px solid rgba(255, 255, 255, 0.5); }
 
 .link-green:hover { background: #038d66; border-bottom: 2px solid rgba(255, 255, 255, 0); }
 

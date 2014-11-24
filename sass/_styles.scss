@@ -8,7 +8,7 @@
  * ====================================== */
 .pbxx { padding-bottom: 20rem; }
 .mw-900 { max-width: 950px; }
-.mw-2100 { max-width: 2100px; }
+.mw-toolBar { max-width: 1600px; }
 .ht-header { height: 75px; }
 .ht-textArea { min-height: 85px; }
 .ht-colorVariations { height: 150px; }
@@ -73,7 +73,7 @@
  * Global Styles (Anchor & Form Styles)
  * ====================================== */
 button { font-family: 'Montserrat', sans-serif; }
-.link { font-weight: bold; padding-top: .25rem; padding-bottom: .25rem; border-bottom: 2px solid rgba(255,255,255,.5); }
+.link { padding-top: .25rem; padding-bottom: .25rem; border-bottom: 2px solid rgba(255,255,255,.5); }
 .link-green:hover { background: darken($green, 5%); border-bottom: 2px solid rgba(255,255,255,0); }
 .link-navy:hover { background: darken($navy, 5%); border-bottom: 2px solid rgba(255,255,255,0); }
 .ss-delete:hover { background: darken($navy, 5%); }
