@@ -84,7 +84,14 @@
     <article id="section2" class="bg-dark ht-vh" ng-show="isSection2Active">
       <article class="ptl phm" ng-class="{ 'fix-toolbar z-above': pinToolbar }">
         <div class="pbl pan-ns cf mw-2100 center">
-          <section class="toolbar-1ns toolbar-1x br-s dt-ns cf">
+          <section class="mbl fr-ns">
+            <a href="javascript:void(0)" class="mrl pvs phm f4 text-white pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
+              <span class="mrs text-green fa fa-refresh"></span>
+              Start Over
+            </a>
+            <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
+          </section>
+          <section class="wi-full br-s dt-ns cf">
             <div class="phm pvs dtc-ns vac default-cursor span_6_of_12" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};">
               {{userContent}}
             </div>
@@ -104,16 +111,6 @@
               <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
             </a>
             <a href="javascript:void(0)" class="phm pvs wi-half-s fr cf-ns dtc-ns vac bg-gray"><span class="db f5">Goal Ratio</span>{{WCAGlevel}} - {{currentRatio}}</a>
-          </section>
-
-          <section class="toolbar-2 toolbar-2ns toolbar-2x">
-          </section>
-          <section class="pts-ns toolbar-3 toolbar-3ns toolbar-3x">
-            <a href="javascript:void(0)" class="mrl pvs phm f4 text-white pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
-              <span class="mrs text-green fa fa-refresh"></span>
-              Start Over
-            </a>
-            <a href="javascript:void(0)" class="f4 pvs phm text-white btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
           </section>
         </div>
         <ul class="tac dn df-ns list-plain list-horz mh-auto bg-colorFilters pam">
