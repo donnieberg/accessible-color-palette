@@ -9,17 +9,17 @@
 .pbxx { padding-bottom: 20rem; }
 .mw-900 { max-width: 950px; }
 .mw-toolBar { max-width: 1600px; }
-.ht-header { height: 75px; }
 .ht-textArea { min-height: 85px; }
 .ht-colorVariations { height: 150px; }
 .leftPanel { width: 330px; left: -330px; }
+.filter { width: 62px; height: 62px; }
+.wi-third { width: 33.333%; }
 
 .top-20 { top: 20px; }
 
 #Container .mix { display: none; }
-.swatch { width: 20%; height: 75px; }
-.hex { width: 40%; height: 75px; }
-.rgb { width: 40%; height: 75px; }
+.ht-75 { height: 75px; }
+.lht-75 { line-height: 75px; }
 
 .fix-toolbar {
   position: fixed;
@@ -46,10 +46,8 @@
 .bg-dark { background-color: $dark-gray; }
 .bg-darker { background-color: $near-black;}
 .bg-green { background-color: $green; }
-.bg-dark-green { background-color: darken($green, 5%); }
 .bg-panel { background-color: $navy; }
 .bg-blur { background-color: $navy-blur; }
-.bg-colorFilters { background-color: $darker-gray; }
 .bg-screenIcon {
   width: 138px;
   height: 110px;
@@ -65,7 +63,6 @@
 .bg-twitter-icon { background: url('../assets/img/icons/Twitter.svg') no-repeat; }
 .bg-dribble-icon { background: url('../assets/img/icons/Dribble.svg') no-repeat; }
 .bg-medium-icon { background: url('../assets/img/icons/Medium.svg') no-repeat; }
-.bg-salesforce-icon { width: 80px; height: 50px; background: url('../assets/img/icons/Salesforce.svg') no-repeat; background-size: 80px 50px; }
 
 
 
@@ -125,15 +122,13 @@ button { font-family: 'Montserrat', sans-serif; }
 // Larger than phone size screens
 @media only screen and (min-width: 40em) {
   .pos-static-ns { position: static; }
+  .db-ns { display: block; }
   .dt-ns { display: table; }
   .dtc-ns { display: table-cell; }
   .ht-full-ns { height: 100%; }
   .fr-ns { float: right; }
+  .fl-ns { float: left; }
   .cf-ns { float: none; }
-
-  .swatch-ns { width: 75px; height: 75px; }
-  .hex-ns { width: 10%; height: auto; }
-  .rgb-ns { width: 12%; height: auto; }
 
   .bg-screenIcon-ns {
     width: 345px;
@@ -141,16 +136,16 @@ button { font-family: 'Montserrat', sans-serif; }
     background: url('../assets/img/accessible-artwork.png') no-repeat;
     background-size: 345px 246px;
   }
-  .arrow-left-ns {
+  .arrow-right-ns {
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
   }
-  .pos-arrow-left-ns {
+  .pos-arrow-right-ns {
     position: absolute;
     top: 30px;
-    left: -7px;
+    right: -7px;
   }
 }
 
@@ -158,6 +153,9 @@ button { font-family: 'Montserrat', sans-serif; }
 @media only screen and (min-width: 70em) {
   .ht-colorVariations-ns { height: 200px; }
   .span_2_of_12-ns { width: 16.667%; }
+  .span_3_of_12-ns { width: 25%; }
+  .span_5_of_12-ns { width: 41.666%; }
+
 }
 
 // Larger than 1440px Laptop size screens

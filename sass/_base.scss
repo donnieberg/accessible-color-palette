@@ -125,8 +125,6 @@ textarea { border: none; }
 .span_3_of_12  { width: 25%; }
 .span_2_of_12, .span_2_of_12-ns  { width: 16.667%; }
 .span_1_of_12, .span_1_of_12-ns  { width: 8.333%;  }
-.wi-10-ns { width: 10%; }
-.df-ns { display: flex; }
 }
 
 /*
@@ -141,13 +139,13 @@ textarea { border: none; }
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.cf:before,
-.cf:after {
+.cf:before, .cf-ns:before,
+.cf:after, .cf-ns:after {
     content: " "; /* 1 */
     display: table; /* 2 */
 }
 
-.cf:after {
+.cf:after, .cf-ns:after {
     clear: both;
 }
 
@@ -155,7 +153,7 @@ textarea { border: none; }
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-.cf {
+.cf, .cf-ns {
     *zoom: 1;
 }
 

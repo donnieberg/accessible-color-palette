@@ -146,17 +146,15 @@ input, textarea { border: none; }
   .span_4_of_12 { width: 33.333%; }
   .span_3_of_12 { width: 25%; }
   .span_2_of_12, .span_2_of_12-ns { width: 16.667%; }
-  .span_1_of_12, .span_1_of_12-ns { width: 8.333%; }
-  .wi-10-ns { width: 10%; }
-  .df-ns { display: -webkit-flex; display: -ms-flexbox; display: flex; } }
+  .span_1_of_12, .span_1_of_12-ns { width: 8.333%; } }
 /* OTHER PEOPLE'S CODE ============================================================================= */
 /** For modern browsers 1. The space content is one way to avoid an Opera bug when the contenteditable attribute is included anywhere else in the document. Otherwise it causes space to appear at the top and bottom of elements that are clearfixed. 2. The use of `table` rather than `block` is only necessary if using `:before` to contain the top-margins of child elements. */
-.cf:before, .cf:after { content: " "; /* 1 */ display: table; /* 2 */ }
+.cf:before, .cf-ns:before, .cf:after, .cf-ns:after { content: " "; /* 1 */ display: table; /* 2 */ }
 
-.cf:after { clear: both; }
+.cf:after, .cf-ns:after { clear: both; }
 
 /** For IE 6/7 only Include this rule to trigger hasLayout and contain floats. */
-.cf { *zoom: 1; }
+.cf, .cf-ns { *zoom: 1; }
 
 /** Paul Irish Border Box Sizing Fixes padding, border, etc. so that they don't affect the elements' real width  */
 * { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
@@ -542,23 +540,23 @@ a:visited { text-decoration: none; color: inherit; }
 
 .mw-toolBar { max-width: 1600px; }
 
-.ht-header { height: 75px; }
-
 .ht-textArea { min-height: 85px; }
 
 .ht-colorVariations { height: 150px; }
 
 .leftPanel { width: 330px; left: -330px; }
 
+.filter { width: 62px; height: 62px; }
+
+.wi-third { width: 33.333%; }
+
 .top-20 { top: 20px; }
 
 #Container .mix { display: none; }
 
-.swatch { width: 20%; height: 75px; }
+.ht-75 { height: 75px; }
 
-.hex { width: 40%; height: 75px; }
-
-.rgb { width: 40%; height: 75px; }
+.lht-75 { line-height: 75px; }
 
 .fix-toolbar { position: fixed; top: 0; width: 100%; background: rgba(59, 63, 69, 0.95); }
 
@@ -581,13 +579,9 @@ a:visited { text-decoration: none; color: inherit; }
 
 .bg-green { background-color: #03a678; }
 
-.bg-dark-green { background-color: #038d66; }
-
 .bg-panel { background-color: #405973; }
 
 .bg-blur { background-color: rgba(64, 89, 115, 0.95); }
-
-.bg-colorFilters { background-color: #333333; }
 
 .bg-screenIcon { width: 138px; height: 110px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 138px 110px; background-size: 138px 110px; }
 
@@ -600,8 +594,6 @@ a:visited { text-decoration: none; color: inherit; }
 .bg-dribble-icon { background: url("../assets/img/icons/Dribble.svg") no-repeat; }
 
 .bg-medium-icon { background: url("../assets/img/icons/Medium.svg") no-repeat; }
-
-.bg-salesforce-icon { width: 80px; height: 50px; background: url("../assets/img/icons/Salesforce.svg") no-repeat; -webkit-background-size: 80px 50px; background-size: 80px 50px; }
 
 /* Global Styles (Anchor & Form Styles) ====================================== */
 button { font-family: 'Montserrat', sans-serif; }
@@ -649,18 +641,19 @@ button { font-family: 'Montserrat', sans-serif; }
 /* Media Queries for Screen Size and Retina ====================================== */
 @media only screen and (max-width: 40em) { .wi-half-s { width: 50%; } }
 @media only screen and (min-width: 40em) { .pos-static-ns { position: static; }
+  .db-ns { display: block; }
   .dt-ns { display: table; }
   .dtc-ns { display: table-cell; }
   .ht-full-ns { height: 100%; }
   .fr-ns { float: right; }
+  .fl-ns { float: left; }
   .cf-ns { float: none; }
-  .swatch-ns { width: 75px; height: 75px; }
-  .hex-ns { width: 10%; height: auto; }
-  .rgb-ns { width: 12%; height: auto; }
   .bg-screenIcon-ns { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; }
-  .arrow-left-ns { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
-  .pos-arrow-left-ns { position: absolute; top: 30px; left: -7px; } }
+  .arrow-right-ns { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
+  .pos-arrow-right-ns { position: absolute; top: 30px; right: -7px; } }
 @media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; }
-  .span_2_of_12-ns { width: 16.667%; } }
+  .span_2_of_12-ns { width: 16.667%; }
+  .span_3_of_12-ns { width: 25%; }
+  .span_5_of_12-ns { width: 41.666%; } }
 @media only screen and (min-width: 106em) { .span_1_of_12-x { width: 8.333%; } }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }

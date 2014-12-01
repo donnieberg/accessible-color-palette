@@ -38,24 +38,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
-  $scope.isIntroActive = true;
-  $scope.isSection1Active = false;
+  //$scope.isIntroActive = true;
+  $scope.isSection1Active = true;
   $scope.infoPanelTabIndex = -1;
-
-  /*
-  var colorSiblings = [];
-  var tinyColors = [];
-  _.each($scope.allColors, function(color) {
-    if(color.type === 'colorSibling'){
-      tinyColors = tinycolor(color.hex).monochromatic();
-      var tinyColorsHex = _.map(tinyColors, function(col) {
-        return { type: 'colorSiblingTinyColor', colorParent: color.colorParent, colorSiblingParent: color.name, pass: true, hex: col.toHexString(), rgb: '', name: '' }
-      })
-      colorSiblings.push(tinyColorsHex);
-      colorSiblings = _.flatten(colorSiblings);
-    }
-  })
-  $scope.colorSiblings = colorSiblings;
 
 
   //==============================================================
