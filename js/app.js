@@ -38,8 +38,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
-  $scope.isIntroActive = true;
-  $scope.isSection1Active = false;
+  $scope.isIntroActive = false;
+  $scope.isSection1Active = true;
   $scope.infoPanelTabIndex = -1;
 
 
@@ -159,7 +159,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
         layout: { display: 'table' }
       });
       $scope.showToolbar2 = true;
-    }, 800);
+    }, 700);
     //console.log('activatePalette() is working');
   };
 
@@ -168,7 +168,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * On Scroll, pin toolbar to top when picking colors from tiles
    */
   $document.on('scroll', function() {
-    if( $('#section2').position().top >= $document.scrollTop() ){
+    var userContentTop = $('#userContentTextArea').position().top - 20;
+    if(userContentTop >= $document.scrollTop() ){
       $scope.pinToolbar = false;
     }else{
       $scope.pinToolbar = true;

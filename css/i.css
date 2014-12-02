@@ -519,6 +519,13 @@ a:visited { text-decoration: none; color: inherit; }
 
 @keyframes fadeIn { 0% { opacity: 0; }
   100% { opacity: 1; } }
+.fadeOutAni { -webkit-animation: fadeOut 0.5s forwards; animation: fadeOut 0.5s forwards; }
+
+@-webkit-keyframes fadeOut { 0% { opacity: 1; }
+  100% { opacity: 0; } }
+
+@keyframes fadeOut { 0% { opacity: 1; }
+  100% { opacity: 0; } }
 /* slide out left panel */
 .slideOut-left.slideOut-open { left: 0px; }
 
@@ -540,8 +547,6 @@ a:visited { text-decoration: none; color: inherit; }
 
 .mw-toolBar { max-width: 1600px; }
 
-.ht-textArea { min-height: 85px; }
-
 .ht-colorVariations { height: 150px; }
 
 .leftPanel { width: 330px; left: -330px; }
@@ -555,8 +560,6 @@ a:visited { text-decoration: none; color: inherit; }
 .ht-75 { height: 75px; }
 
 .lht-75 { line-height: 75px; }
-
-.pt-toolbar { padding-top: 205px; }
 
 .fix-toolbar { position: fixed; top: 0; width: 100%; background: rgba(59, 63, 69, 0.95); }
 

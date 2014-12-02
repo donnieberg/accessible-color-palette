@@ -22,7 +22,7 @@
       </div>
     </article>
 
-    <article id="section1" class="ht-full-ns bg-dark dt-ns wi-full" ng-show="isSection1Active">
+    <article id="section1" class="bg-dark dt-ns wi-full" ng-show="isSection1Active" ng-class="{ 'ht-full-ns': !isSection2Active }">
       <div class="dtc-ns vac">
         <header class="pam tac text-white mw-900 center border-bottom-gray">
           <h2>Set Up your Canvas and Text</h2>
@@ -59,9 +59,9 @@
               </div>
             </div>
           </section>
-          <div id="userContentTextArea" class="mtm tal">
+          <div id="userContentTextArea" class="tal" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }">
             <label for="userContent" class="mvs db">Editable Text</label>
-            <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptm ptl-ns tac wi-full ht-textArea bg-white ban br-s" ng-model="userContent"></textarea>
+            <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptm ptl-ns tac wi-full ht-75 bg-white ban br-s" ng-model="userContent"></textarea>
           </div>
           <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); activatePalette(); showInstructions1()">Generate Color Palette</button>
         </form>
@@ -69,8 +69,8 @@
     </article>
 
 
-    <article id="section2" class="ht-vh bg-dark" ng-show="isSection2Active">
-      <section id="toolbar" class="ptl" ng-class="{ 'fix-toolbar z-above': pinToolbar }">
+    <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
+      <section id="toolbar" class="ptl pos-abs wi-full" ng-class="{ 'fix-toolbar z-above': pinToolbar }">
         <div class="pbl pan-ns center cf" ng-class="{ 'mw-900': !isSection2Active, 'mw-toolBar': isSection2Active }">
           <section class="span_3_of_12-ns fl-ns">
             <div class="wi-third span_3_of_12-ns ht-75 pos-rel fl ease" style="background-color: {{currentTextColor.hex}};">
@@ -120,7 +120,7 @@
         </div>
       </section>
 
-      <ul id="Container" class="pln ptn prn pbxx man list-plain list-horz bg-dark cf" ng-class="{ 'pt-toolbar': pinToolbar }">
+      <ul id="Container" class="pln ptn prn pbxx man list-plain list-horz bg-dark cf">
         <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color); isDarkColor(color.hex)" class="dt span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps fl mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'animated pulse': color === currentCopiedColor,  'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor  }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <a href="javascript:void(0)">
             <span class="assistive-text">HEX: {{color.hex}}</span>
