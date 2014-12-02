@@ -652,6 +652,7 @@ button { font-family: 'Montserrat', sans-serif; }
 @media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; }
   .span_2_of_12-ns { width: 16.667%; }
   .span_3_of_12-ns { width: 25%; }
+  .span_4_of_12-ns { width: 33.333%; }
   .span_5_of_12-ns { width: 41.666%; } }
 @media only screen and (min-width: 106em) { .span_1_of_12-x { width: 8.333%; } }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }

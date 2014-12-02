@@ -79,17 +79,15 @@
                 <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
               </a>
             </section>
-            <section class="tac ht-75" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" ng-class="{ 'span_5_of_12 fl': isSection2Active, 'wi-full': !isSection2Active }">
-              {{userContent}}
-            </section>
+            <textarea class="tac ht-75" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" ng-class="{ 'span_6_of_12 fl': isSection2Active, 'wi-full': !isSection2Active }">{{userContent}}</textarea>
             <section class="span_3_of_12 dt" ng-if="isSection2Active">
-              <a href="javascript:void(0)" class="phm pvs wi-half ht-75 dtc vac bg-gray">
+              <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 dtc vac bg-gray">
                 <span class="f5 db">Current Ratio</span>
                 {{currentTextColor.currentRatio}}
                 <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span><span class="assistive-text" ng-if="currentTextColor.pass">Pass</span>
                 <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
               </a>
-              <a href="javascript:void(0)" class="phm pvs wi-half ht-75 dtc vac bg-gray">
+              <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 dtc vac bg-gray">
                 <span class="db f5">Goal Ratio</span>
                 {{WCAGlevel}} - {{currentRatio}}
               </a>
