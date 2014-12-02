@@ -38,8 +38,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
-  //$scope.isIntroActive = true;
-  $scope.isSection1Active = true;
+  $scope.isIntroActive = true;
+  $scope.isSection1Active = false;
   $scope.infoPanelTabIndex = -1;
 
 
@@ -101,7 +101,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     var offset = 0;
     var speed = speed;
     var thing = angular.element(document.getElementById(thing));
-    if(!$scope.isSection2Active){
+    if($scope.isIntroActive){
       $timeout(function() {
         $document.scrollToElementAnimated(thing, offset, speed);
       }, 200);
@@ -158,7 +158,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $('#Container').mixItUp({
         layout: { display: 'table' }
       });
-    }, 200);
+      $scope.showToolbar2 = true;
+    }, 800);
     //console.log('activatePalette() is working');
   };
 
@@ -167,7 +168,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * On Scroll, pin toolbar to top when picking colors from tiles
    */
   $document.on('scroll', function() {
-    if( $('#toolbar').position().top >= $document.scrollTop() ){
+    if( $('#section2').position().top >= $document.scrollTop() ){
       $scope.pinToolbar = false;
     }else{
       $scope.pinToolbar = true;

@@ -556,6 +556,8 @@ a:visited { text-decoration: none; color: inherit; }
 
 .lht-75 { line-height: 75px; }
 
+.pt-toolbar { padding-top: 205px; }
+
 .fix-toolbar { position: fixed; top: 0; width: 100%; background: rgba(59, 63, 69, 0.95); }
 
 .fix-footer { position: absolute; bottom: 0; }
