@@ -179,6 +179,17 @@
 	transition: all 0.3s ease;
 }
 
+.l-slideOutFadeInAni { animation: l-slideOutFadeIn 0.5s forwards; }
+@keyframes l-slideOutFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; transform: translateX(-300px); }
+}
+.r-slideOutFadeInAni { animation: r-slideOutFadeIn 0.5s forwards; }
+@keyframes r-slideOutFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; transform: translateX(300px); }
+}
+
 
 /* Toolbar Animations - shimmer */
 .shimmer {

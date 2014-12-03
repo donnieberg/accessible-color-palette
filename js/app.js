@@ -158,8 +158,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $('#Container').mixItUp({
         layout: { display: 'table' }
       });
-      $scope.showToolbar2 = true;
-    }, 700);
+      $scope.transformToolbar = true;
+    }, 900);
     //console.log('activatePalette() is working');
   };
 
@@ -168,7 +168,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * On Scroll, pin toolbar to top when picking colors from tiles
    */
   $document.on('scroll', function() {
-    var userContentTop = $('#userContentTextArea').position().top - 20;
+    var userContentTop = $('#userContentTextArea').position().top;
     if(userContentTop >= $document.scrollTop() ){
       $scope.pinToolbar = false;
     }else{

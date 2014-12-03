@@ -48,6 +48,8 @@
 
 .right-0 { right: 0; }
 
+.right-half { right: 50%; }
+
 .fl { float: left; }
 
 .fr { float: right; }
@@ -531,6 +533,20 @@ a:visited { text-decoration: none; color: inherit; }
 
 .slideOut { -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
 
+.l-slideOutFadeInAni { -webkit-animation: l-slideOutFadeIn 0.5s forwards; animation: l-slideOutFadeIn 0.5s forwards; }
+
+@-webkit-keyframes l-slideOutFadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; -webkit-transform: translateX(-300px); transform: translateX(-300px); } }
+
+@keyframes l-slideOutFadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; -webkit-transform: translateX(-300px); transform: translateX(-300px); } }
+.r-slideOutFadeInAni { -webkit-animation: r-slideOutFadeIn 0.5s forwards; animation: r-slideOutFadeIn 0.5s forwards; }
+
+@-webkit-keyframes r-slideOutFadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; -webkit-transform: translateX(300px); transform: translateX(300px); } }
+
+@keyframes r-slideOutFadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; -webkit-transform: translateX(300px); transform: translateX(300px); } }
 /* Toolbar Animations - shimmer */
 .shimmer { background: -webkit-gradient(linear, left top, right top, color-stop(0, #4d4d4d), color-stop(0.4, #4d4d4d), color-stop(0.5, white), color-stop(0.6, #4d4d4d), color-stop(1, #4d4d4d)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation-name: shimmerAni; -webkit-animation-duration: 2s; -webkit-animation-delay: 200ms; -webkit-animation-timing-function: ease-out; width: 200%; }
 
@@ -544,6 +560,8 @@ a:visited { text-decoration: none; color: inherit; }
 .pbxx { padding-bottom: 20rem; }
 
 .mw-900 { max-width: 950px; }
+
+.wi-900 { width: 900px; }
 
 .mw-toolBar { max-width: 1600px; }
 
