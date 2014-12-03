@@ -159,7 +159,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
         layout: { display: 'table' }
       });
       $scope.transformToolbar = true;
-    }, 900);
+    }, 800);
+
     //console.log('activatePalette() is working');
   };
 

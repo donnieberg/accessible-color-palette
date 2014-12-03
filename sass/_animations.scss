@@ -186,7 +186,7 @@
 }
 .r-slideOutFadeInAni { animation: r-slideOutFadeIn 0.5s forwards; }
 @keyframes r-slideOutFadeIn {
-  0% { opacity: 0; transform: translateX(-300px);  }
+  0% { opacity: 0; transform: translateX(-300px); }
   100% { opacity: 1; transform: translateX(0px); }
 }
 
