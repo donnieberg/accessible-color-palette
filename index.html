@@ -15,23 +15,24 @@
     <article id="intro" class="tac ht-full bg-green" ng-show="isIntroActive">
       <div class="pam vam text-white">
         <h1 class="man caps">Accessible Colors</h1>
-        <p class="mw-900 center">Brought to you with love from Salesforce UX. It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link link-green">WCGA Guidelines</a> of text and background contrast ratios.
+        <h3 class="mas">Brought to you with love from Salesforce UX.</h3>
+        <p class="mw-900 center">It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers explore beautiful, readable color palettes based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link link-green">WCGA Guidelines</a> of text and background contrast ratios.
         </p>
         <div class="mvl center bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs"></div>
         <button class="pvm phl mvm f4 fw-bold caps center btn-outline btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
       </div>
     </article>
 
-    <article id="section1" class="bg-dark dt-ns wi-full" ng-show="isSection1Active">
+    <article id="section1" class="bg-dark dt-ns wi-full" ng-class="{ 'ht-full': !transformToolbar }" ng-show="isSection1Active">
       <div class="dtc-ns vac">
         <header class="pam tac text-white mw-900 center border-bottom-gray">
           <h2>Set Up your Canvas and Text</h2>
           <p>
-            Enter in a background color, and determine the styling of your text. An accessible color palette will then be generated with WCAG's recommend contrast ratio of 4.5 for small text or 3.1 for large text<br/> (18 pixels+ or 14 pixels+ bold).
+            Enter in a background color, and determine the styling of your text. Accessible text colors will be generated with WCAG's recommend contrast ratio of 4.5 for small text or 3.1 for large text (18 pixels+ or 14 pixels+ bold).
           </p>
         </header>
         <form accept-charset="utf-8" class="mtm cf">
-          <section class="pvm text-white mw-900 center cf">
+          <section class="pam text-white mw-900 center cf">
             <div class="prl-ns tal span_3_of_12 fl">
               <label for="backgroundColor" class="mvs db">Background Color</label>
               <input colorpicker colorpicker-position="top" id="backgroundColor" class="pas f4 wi-full text-white bg-dark input ease" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
@@ -59,98 +60,68 @@
               </div>
             </div>
           </section>
+
           <section id="toolbar" ng-class="{ 'fix-toolbar z-above pos-abs wi-full': pinToolbar }">
-            <div class="pvm mw-toolbar center cf">
-            <section class="span_3_of_12-ns opacity-0 fl l-slideOutFadeInAni" ng-if="transformToolbar">
-              <div class="wi-third span_3_of_12-ns ht-75 pos-rel fl ease" style="background-color: {{currentTextColor.hex}};">
-                <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
+            <div class="phm ptm mw-toolbar center cf">
+              <section class="span_4_of_12 opacity-0 fl l-slideOutFadeInAni" ng-if="transformToolbar">
+                <div class="wi-20-s span_3_of_12-ns ht-75 pos-rel fl ease" style="background-color: {{currentTextColor.hex}};">
+                  <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
+                </div>
+                <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm tac wi-40-s span_4_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
+                  <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="lht-75">{{currentTextColor.hex}}</span>
+                </a>
+                <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
+                  <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
+                </a>
+              </section>
+
+              <div id="userContentTextArea" class="tal span_5_of_12 mw-900 center ease" ng-class="{ 'fl': transformToolbar }">
+                <label for="userContent" class="mvs text-white db" ng-if="!transformToolbar">Editable Text</label>
+                <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptm ptl-ns tac wi-full ht-75 bg-white ban" ng-class="{ 'br-s': !transformToolbar }" ng-model="userContent"></textarea>
               </div>
-              <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm tac wi-third span_4_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
-                <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="lht-75">{{currentTextColor.hex}}</span>
-              </a>
-              <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Click to copy hex color" class="phm tac wi-third span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
-                <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
-              </a>
+
+              <section class="span_3_of_12 fr opacity-0 r-slideOutFadeInAni cf" ng-if="transformToolbar">
+                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-gray fl">
+                  <span class="f5 db">Current Ratio</span>
+                  {{currentTextColor.currentRatio}}
+                  <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span><span class="assistive-text" ng-if="currentTextColor.pass">Pass</span>
+                  <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
+                </a>
+                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-gray fr">
+                  <span class="db f5">Goal Ratio</span>
+                  {{WCAGlevel}} - {{currentRatio}}
+                </a>
+              </section>
+            </div>
+            <section class="phm mw-toolbar center fadeInAni cf" ng-show="transformToolbar">
+              <ul class="pan dn db-ns fl-ns list-plain list-horz">
+                <li id="allColorsFilter" class="mrxs caps fw-light text-white border-white filter circle li-item-js" data-filter="all">
+                  <a href="javascript:void(0)" title="Filter by" class="db">
+                    <p class="caps tac">All</p>
+                  </a>
+                </li>
+                <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light border-white filter circle {{color.textColor}} li-item-js" style="background-color: {{color.hex}}" data-filter=".category-{{color.name}}">
+                  <a href="javascript:void(0)" title="Filter by">
+                    <p class="assistive-text">{{color.name}}</p>
+                  </a>
+                </li>
+              </ul>
+              <div class="mtm f4 text-white fr-ns">
+                <a href="javascript:void(0)" class="pvs phm mrm dib pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
+                  <span class="mrs text-green fa fa-refresh"></span>
+                  Start Over
+                </a>
+                <a href="javascript:void(0)" class="pvs phm dib btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
+              </div>
             </section>
-
-            <div id="userContentTextArea" class="tal span_6_of_12 mw-900 center ease" ng-class="{ 'fl': transformToolbar }">
-              <label for="userContent" class="mvs text-white db" ng-if="!transformToolbar">Editable Text</label>
-              <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptm ptl-ns tac wi-full ht-75 bg-white ban" ng-class="{ 'br-s': !transformToolbar }" ng-model="userContent"></textarea>
-            </div>
-
-          <section class="span_3_of_12 fr opacity-0 r-slideOutFadeInAni cf" ng-if="transformToolbar">
-            <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-gray fl">
-              <span class="f5 db">Current Ratio</span>
-              {{currentTextColor.currentRatio}}
-              <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span><span class="assistive-text" ng-if="currentTextColor.pass">Pass</span>
-              <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
-            </a>
-            <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-gray fr">
-              <span class="db f5">Goal Ratio</span>
-              {{WCAGlevel}} - {{currentRatio}}
-            </a>
           </section>
 
-            </div>
-          </section>
-          <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); activatePalette(); showInstructions1()">Generate Color Palette</button>
+          <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); activatePalette(); showInstructions1()" ng-if="!transformToolbar">Generate Color Palette</button>
         </form>
       </div>
     </article>
 
-    <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
-      <!--
-      <section id="toolbar" class="ptl pos-abs wi-full" ng-class="{ 'fix-toolbar z-above': pinToolbar }">
-        <div class="pbl pan-ns center cf" ng-class="{ 'mw-900': !isSection2Active, 'mw-toolBar': isSection2Active }">
-          <section class="span_3_of_12-ns fl-ns">
-            <div class="wi-third span_3_of_12-ns ht-75 pos-rel fl ease" style="background-color: {{currentTextColor.hex}};">
-              <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
-            </div>
-            <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm tac wi-third span_4_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
-              <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="lht-75">{{currentTextColor.hex}}</span>
-            </a>
-            <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Click to copy hex color" class="phm tac wi-third span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
-              <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
-            </a>
-          </section>
-          <textarea class="tac ht-75" style="color: {{currentTextColor.hex}}; font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" ng-class="{ 'span_6_of_12 fl': isSection2Active, 'wi-full': !isSection2Active }">{{userContent}}</textarea>
-          <section class="span_3_of_12 dt">
-            <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 dtc vac bg-gray">
-              <span class="f5 db">Current Ratio</span>
-              {{currentTextColor.currentRatio}}
-              <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span><span class="assistive-text" ng-if="currentTextColor.pass">Pass</span>
-              <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
-            </a>
-            <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 dtc vac bg-gray">
-              <span class="db f5">Goal Ratio</span>
-              {{WCAGlevel}} - {{currentRatio}}
-            </a>
-          </section>
-          <section class="cf">
-            <ul class="pan dn db-ns fl-ns list-plain list-horz">
-              <li id="allColorsFilter" class="mrxs caps fw-light text-white border-white filter circle li-item-js" data-filter="all">
-                <a href="javascript:void(0)" title="Filter by" class="db">
-                  <p class="caps tac">All</p>
-                </a>
-              </li>
-              <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light border-white filter circle {{color.textColor}} li-item-js" style="background-color: {{color.hex}}" data-filter=".category-{{color.name}}">
-                <a href="javascript:void(0)" title="Filter by">
-                  <p class="assistive-text">{{color.name}}</p>
-                </a>
-              </li>
-            </ul>
-            <div class="mtm f4 text-white fr-ns">
-              <a href="javascript:void(0)" class="pvs phm mrm dib pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
-                <span class="mrs text-green fa fa-refresh"></span>
-                Start Over
-              </a>
-              <a href="javascript:void(0)" class="pvs phm dib btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
-            </div>
-          </section>
-        </div>
-      </section>
-      -->
-
+    <article id="section2" class="ht-vh bg-dark fadeInAni" ng-class="{ 'pt-fixToolbar': pinToolbar }" ng-show="isSection2Active">
       <ul id="Container" class="pln ptn prn pbxx man list-plain list-horz bg-dark cf">
         <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color); isDarkColor(color.hex)" class="dt span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps fl mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'animated pulse': color === currentCopiedColor,  'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor  }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <a href="javascript:void(0)">

@@ -38,8 +38,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
-  $scope.isIntroActive = false;
-  $scope.isSection1Active = true;
+  $scope.isIntroActive = true;
+  $scope.isSection1Active = false;
   $scope.infoPanelTabIndex = -1;
 
 
@@ -133,7 +133,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }else{
       $scope.modalTextColor = 'text-dark';
     }
-    $timeout($scope.hideInstructions2, 1000);
+    $timeout($scope.hideInstructions2, 1300);
   };
   $scope.hideInstructions2 = function() {
     $scope.isInstructions2Active = false;
