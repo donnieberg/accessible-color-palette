@@ -66,7 +66,7 @@
 
           <section ng-class="{ 'pinToolbar z-above pos-abs wi-full': pinToolbar }">
             <div class="phm ptm mw-toolbar center cf">
-              <section class="span_4_of_12 opacity-0 fl l-slideOutFadeInAni" ng-if="pinToolbar && pinToolbar">
+              <section class="span_4_of_12 opacity-0 fl l-slideOutFadeInAni" ng-show="pinToolbar && pinToolbar">
                 <div class="wi-20-s span_3_of_12-ns ht-75 pos-rel fl ease" style="background-color: {{currentTextColor.hex}};">
                   <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
                 </div>
@@ -80,19 +80,23 @@
 
               <div id="userContentTextArea" class="tal mw-900 center ease" ng-class="{ 'phm': !pinToolbar, 'span_5_of_12 fl': pinToolbar }">
                 <label for="userContent" class="mvs text-white db" ng-if="!pinToolbar">Editable Text</label>
-                <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}};" class="ptm ptl-ns tac wi-full ht-75 bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent"></textarea>
+                <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ptm ptl-ns tac wi-full ht-75 bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent"></textarea>
               </div>
 
               <section class="span_3_of_12 fr opacity-0 r-slideOutFadeInAni cf" ng-if="pinToolbar">
-                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-gray fl">
-                  <span class="f5 db">Current Ratio</span>
-                  {{currentTextColor.currentRatio}}
-                  <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span><span class="assistive-text" ng-if="currentTextColor.pass">Pass</span>
-                  <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
+                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-gray fl dt">
+                  <div class="dtc vac">
+                    <span class="f5 db">Current Ratio</span>
+                    {{currentTextColor.currentRatio}}
+                    <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span><span class="assistive-text" ng-if="currentTextColor.pass">Pass</span>
+                    <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
+                  </div>
                 </a>
-                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-gray fr">
-                  <span class="db f5">Goal Ratio</span>
-                  {{WCAGlevel}} - {{currentRatio}}
+                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-gray fr dt">
+                  <div class="dtc vac">
+                    <span class="db f5">Goal Ratio</span>
+                    {{WCAGlevel}} - {{currentRatio}}
+                  </div>
                 </a>
               </section>
             </div>

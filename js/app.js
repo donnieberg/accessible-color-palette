@@ -300,7 +300,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   /**
    * Zero Clipboard plugin to copy to clipboard
    */
-  var client = new ZeroClipboard( document.getElementById("copyHexValue") );
+  console.log( document.getElementById("copyHexValue") );
+
+  var hexValue = new ZeroClipboard( document.getElementById("copyHexValue") );
   var rgbValue = new ZeroClipboard( document.getElementById("copyRgbValue") );
 
 });
