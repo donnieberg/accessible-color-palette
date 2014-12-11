@@ -133,7 +133,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }else{
       $scope.modalTextColor = 'text-dark';
     }
-    $timeout($scope.hideInstructions2, 1300);
+    $timeout($scope.hideInstructions2, 2000);
   };
   $scope.hideInstructions2 = function() {
     $scope.isInstructions2Active = false;
@@ -300,8 +300,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   /**
    * Zero Clipboard plugin to copy to clipboard
    */
-  console.log( document.getElementById("copyHexValue") );
-
   var hexValue = new ZeroClipboard( document.getElementById("copyHexValue") );
   var rgbValue = new ZeroClipboard( document.getElementById("copyRgbValue") );
 

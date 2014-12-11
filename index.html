@@ -5,7 +5,7 @@
     <title>Accessible Color Palette</title>
     <link href="assets/fonts/ss-gizmo/ss-gizmo.css" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400|Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700|Montserrat' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" type="text/css" href="css/colorpicker.css">
     <link rel="stylesheet" type="text/css" href="css/i.css">
@@ -15,8 +15,8 @@
     <article id="intro" class="tac ht-full bg-green" ng-show="isIntroActive">
       <div class="pam vam text-white">
         <h1 class="man caps">Accessible Colors</h1>
-        <h3 class="mas">Brought to you with love from Salesforce UX.</h3>
-        <p class="mw-900 center">It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers explore beautiful, readable color palettes based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link link-green">WCGA Guidelines</a> of text and background contrast ratios.
+        <p class="mw-800 center">A tool to help designers explore beautiful, readable color palettes based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link link-green">WCGA Guidelines</a> of text and background contrast ratios.
+          Brought to you with love from <a href="https://medium.com/salesforce-ux" alt="Salesforce on Medium" class="ease link">Salesforce UX.</a>
         </p>
         <div class="mvl center bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs"></div>
         <button class="pvm phl mvm f4 fw-bold caps center btn-outline btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
@@ -73,14 +73,14 @@
                 <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm tac wi-40-s span_4_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)">
                   <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="lht-75">{{currentTextColor.hex}}</span>
                 </a>
-                <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ', ' + currentTextColor.rgb.g + ', ' + currentTextColor.rgb.b + ')' )">
+                <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ',' + currentTextColor.rgb.g + ',' + currentTextColor.rgb.b + ')' )">
                   <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
                 </a>
               </section>
 
               <div id="userContentTextArea" class="tal mw-900 center ease" ng-class="{ 'phm': !pinToolbar, 'span_5_of_12 fl': pinToolbar }">
                 <label for="userContent" class="mvs text-white db" ng-if="!pinToolbar">Editable Text</label>
-                <textarea style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ptm ptl-ns tac wi-full ht-75 bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent"></textarea>
+                <input style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ht-75 tac wi-full bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent"></input>
               </div>
 
               <section class="span_3_of_12 fr opacity-0 r-slideOutFadeInAni cf" ng-if="pinToolbar">
@@ -102,23 +102,23 @@
             </div>
             <section class="phm mw-toolbar center fadeInAni cf" ng-show="pinToolbar">
               <ul class="pan dn db-ns fl-ns list-plain list-horz">
-                <li id="allColorsFilter" class="mrxs caps fw-light pos-rel color-filter circle border-white li-item-js">
-                  <a href="javascript:void(0)" title="Filter by" class="filter db pos-rel" data-filter="all">
-                    <p class="caps tac text-white pos-rel pos-allColorsFilter">All</p>
+                <li id="allColorsFilter" class="mrxs caps fw-light pos-rel color-filter filter circle border border--white border-fade-circle li-item-js" data-filter="all">
+                  <a href="javascript:void(0)" title="Filter by">
+                    <p class="f5 caps tac text-white fw-700">All</p>
                   </a>
                 </li>
-                <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light pos-rel color-filter circle border-white {{'bg-' + color.name + '-filter'}} {{color.textColor}} li-item-js">
-                  <a href="javascript:void(0)" class="filter db pos-rel" title="Filter by" data-filter=".category-{{color.name}}">
+                <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light color-filter filter circle border-fade-circle {{'bg-' + color.name + '-filter'}} {{color.textColor}} li-item-js" data-filter=".category-{{color.name}}">
+                  <a href="javascript:void(0)" title="Filter by">
                     <p class="assistive-text">{{color.name}}</p>
                   </a>
                 </li>
               </ul>
               <div class="mtm f4 text-white fr-ns">
-                <a href="javascript:void(0)" class="pvs phm mrm dib pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
+                <a href="javascript:void(0)" class="phm mrm dib pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
                   <span class="mrs text-green fa fa-refresh"></span>
                   Start Over
                 </a>
-                <a href="javascript:void(0)" class="pvs phm dib btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
+                <a href="javascript:void(0)" class="phm dib btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
               </div>
             </section>
           </section>
@@ -147,9 +147,9 @@
     <slide-out-left class="text-white leftPanel bg-panel z-top">
     <section class="pvm phl">
       <a href="javascript:void(0)" class="paxs f2 dib ss-delete ease pointer-cursor" ng-click="toggleInfoPanel()" tabindex="{{infoPanelTabIndex}}"></a>
-      <h1 class="ptl f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="mtxs dib ease link link-navy" tabindex="{{infoPanelTabIndex}}">Salesforce UX</a></h1>
+      <h1 class="ptl f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="mtxs dib ease link" tabindex="{{infoPanelTabIndex}}">Salesforce UX</a></h1>
       <p>
-        It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link link-navy" tabindex="{{infoPanelTabIndex}}">WCGA Guidelines</a>.
+        It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link" tabindex="{{infoPanelTabIndex}}">WCGA Guidelines</a>.
       </p>
       <p>
         Thanks for checking out our tool. We’d love your feedback.
@@ -159,13 +159,13 @@
           <img width="50" height="50" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="circle avatar" />
           <p class="man">Donielle Berg</p>
           <p class="man f5">UX Engineer</p>
-          <p class="man f5"><a href="http://donielleberg.com/" class="ease link link-navy" tabindex="{{infoPanelTabIndex}}">donielleberg.com</a></p>
+          <p class="man f5"><a href="http://donielleberg.com/" class="ease link" tabindex="{{infoPanelTabIndex}}">donielleberg.com</a></p>
         </div>
         <div class="tac fr">
           <img width="50" height="50" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="circle avatar" />
           <p class="man">Adrian Rapp</p>
           <p class="man f5">Product Designer</p>
-          <p class="man f5"><a href="http://adrianrapp.com/" class="ease link link-navy" tabindex="{{infoPanelTabIndex}}">adrianrapp.com</a></p>
+          <p class="man f5"><a href="http://adrianrapp.com/" class="ease link" tabindex="{{infoPanelTabIndex}}">adrianrapp.com</a></p>
         </div>
       </div>
       <footer class="mbm span_10_of_12 tac fix-footer">
@@ -195,9 +195,9 @@
     <!-- ====================================
     Full Screen Modal - Instructions 2
     ======================================= -->
-    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" style="background-color: rgba({{currentTextColor.rgb.r}}, {{currentTextColor.rgb.g}}, {{currentTextColor.rgb.b}}, .95)" ng-show="isInstructions2Active">
+    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" ng-class="{ 'fadeOuAni': !isInstructions2Active }" style="background-color: rgba({{currentTextColor.rgb.r}}, {{currentTextColor.rgb.g}}, {{currentTextColor.rgb.b}}, .95)" ng-show="isInstructions2Active">
       <div class="f3 dtc vac tac {{modalTextColor}}">
-        <p>{{currentCopiedColorValue}}</p>
+        <h2>{{currentCopiedColorValue}}</h2>
         <p>Copied to Clipboard!</p>
       </div>
     </article>

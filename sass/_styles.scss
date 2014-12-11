@@ -7,24 +7,18 @@
  * Component Specific Styles
  * ====================================== */
 .pbxx { padding-bottom: 20rem; }
-.mw-900 { max-width: 950px; }
-.wi-900 { width: 900px; }
+.mw-800 { max-width: 800px; }
+.mw-900 { max-width: 900px; }
 .mw-toolbar { max-width: 1600px; }
 .ht-colorVariations { height: 150px; }
 .ht-pinToolbar { height: 305px; }
 .leftPanel { width: 330px; left: -330px; }
 .color-filter{
     border-radius: 50%;
-    //background: $light-gray;
-    //box-shadow: 0px 0px 0px 2px $light-gray;
-    //border-width: 3px;
-    //border-style: solid;
     width:60px;
     height:60px;
 }
-.active { width: 40px; height: 40px; background: $light-gray; border-radius: 50%; top: -10px; left: 8px; }
-.active p { top: 5px; color: $darker-gray; }
-.pos-allColorsFilter { top: -3px; }
+.fw-700 { font-weight: 700; }
 .bg-all-filter { background-color: rgba(59, 63, 69, 0.95); }
 .bg-green-filter { background-color: #2ECC71; }
 .bg-blue-filter { background-color: #3498DB; }
@@ -101,9 +95,8 @@
  * Global Styles (Anchor & Form Styles)
  * ====================================== */
 button { font-family: 'Montserrat', sans-serif; }
-.link { padding-top: .25rem; padding-bottom: .25rem; border-bottom: 2px solid rgba(255,255,255,.5); }
-.link-green:hover { background: darken($green, 5%); border-bottom: 2px solid rgba(255,255,255,0); }
-.link-navy:hover { background: darken($navy, 5%); border-bottom: 2px solid rgba(255,255,255,0); }
+.link { border-bottom: 2px solid rgba(255,255,255,.5); }
+.link:hover { border-bottom: 2px solid rgba(255,255,255,1); }
 .ss-delete:hover { background: darken($navy, 5%); }
 
 .input { border: 1px solid white; border-radius: 3px; }
@@ -113,7 +106,7 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .btn-primary { cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
 .btn-primary:hover { background: darken($blue, 10%); }
-.btn-secondary { border: 4px solid $darker-gray; border-radius: 5px; -webkit-appearance: none; cursor: pointer; }
+.btn-secondary { margin-top: 10px; padding-top: .7rem; padding-bottom: .7rem; border: 4px solid $darker-gray; border-radius: 5px; -webkit-appearance: none; cursor: pointer; }
 .btn-secondary:hover { border: 4px solid darken($darker-gray, 10%); background: darken($darker-gray, 10%); }
 .btn-outline { width: 300px; cursor: pointer; border-radius: 3px; background: none; }
 .btn-white { border: 1px solid white; color: white; }
@@ -139,6 +132,19 @@ button { font-family: 'Montserrat', sans-serif; }
 }
 .border-selected, .border-fade:hover, .border-fade:focus, .border-fade:active {
   box-shadow: inset 0 0 0 12px $near-white, 0 0 1px rgba(0, 0, 0, 0);
+}
+/* Tile Hover - border-fade */
+.border-fade-circle {
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: inset 0 0 0 0px $near-white, 0 0 1px rgba(0, 0, 0, 0);
+}
+.active, .border-selected, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active {
+  box-shadow: inset 0 0 0 5px $near-white, 0 0 1px rgba(0, 0, 0, 0);
 }
 
 
