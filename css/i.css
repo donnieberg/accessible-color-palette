@@ -472,7 +472,9 @@ a:visited { text-decoration: none; color: inherit; }
   h4, .f4-ns { font-size: 1rem; }
   h5, .f5-ns { font-size: 0.8rem; }
   h6, .f6-ns { font-size: 0.5rem; } }
-/*  ============================================================================= ANIMATION STYLES ============================================================================= */
+/* =============================================================================
+*  ANIMATION STYLES
+*  ============================================================================= */
 .fadeInOutAni.ng-enter, .fadeInOutAni.ng-leave { -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s; transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s; }
 
 .fadeInOutAni.ng-enter, .fadeInOutAni.ng-leave.ng-leave-active { opacity: 0; }
@@ -603,21 +605,21 @@ a:visited { text-decoration: none; color: inherit; }
 
 .all-filter { border-color: rgba(59, 63, 69, 0.95); }
 
-.active.br-green-filter { border-color: #2ECC71; }
+.border-fade-circle:hover.br-green-filter, .active.br-green-filter { border-color: #2ECC71; }
 
-.active.br-blue-filter { border-color: #3498DB; }
+.border-fade-circle:hover.br-blue-filter, .active.br-blue-filter { border-color: #3498DB; }
 
-.active.br-purple-filter { border-color: #9B59B6; }
+.border-fade-circle:hover.br-purple-filter, .active.br-purple-filter { border-color: #9B59B6; }
 
-.active.br-pink-filter { border-color: #D2527F; }
+.border-fade-circle:hover.br-pink-filter, .active.br-pink-filter { border-color: #D2527F; }
 
-.active.br-gray-filter { border-color: #34495E; }
+.border-fade-circle:hover.br-gray-filter, .active.br-gray-filter { border-color: #34495E; }
 
-.active.br-yellow-filter { border-color: #F2CA27; }
+.border-fade-circle:hover.br-yellow-filter, .active.br-yellow-filter { border-color: #F2CA27; }
 
-.active.br-orange-filter { border-color: #E67E22; }
+.border-fade-circle:hover.br-orange-filter, .active.br-orange-filter { border-color: #E67E22; }
 
-.active.br-red-filter { border-color: #E74C3C; }
+.border-fade-circle:hover.br-red-filter, .active.br-red-filter { border-color: #E74C3C; }
 
 .wi-20-s { width: 20%; }
 
@@ -636,7 +638,7 @@ a:visited { text-decoration: none; color: inherit; }
 /* Borders & Backgrounds ====================================== */
 .border { border-width: 2px; border-style: solid; }
 
-.border-white { border: 1px solid #f2f2f2; }
+.border-white { border-color: #f2f2f2; }
 
 .border-bottom-gray { border-bottom: 1px solid #d9d9d9; }
 
@@ -716,9 +718,7 @@ button { font-family: 'Montserrat', sans-serif; }
 /* Color Filter Circles Hover - border-fade */
 .border-fade-circle { -webkit-transition-duration: 0.2s; transition-duration: 0.2s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 0px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 0px #f2f2f2, 0 0 1px transparent; }
 
-.border-selected, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active { -webkit-box-shadow: inset 0 0 0 5px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 5px #f2f2f2, 0 0 1px transparent; }
-
-.active { -webkit-box-shadow: inset 0 0 0 5px #3b3f45, 0 0 1px transparent; box-shadow: inset 0 0 0 5px #3b3f45, 0 0 1px transparent; }
+.active, .border-selected, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active { -webkit-box-shadow: inset 0 0 0 5px #3b3f45, 0 0 1px transparent; box-shadow: inset 0 0 0 5px #3b3f45, 0 0 1px transparent; }
 
 /* Media Queries for Screen Size and Retina ====================================== */
 @media only screen and (max-width: 40em) { .wi-half-s { width: 50%; } }

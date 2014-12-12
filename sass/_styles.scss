@@ -30,14 +30,15 @@
 .bg-red-filter { background-color: #E74C3C; }
 
 .all-filter { border-color: rgba(59, 63, 69, 0.95); }
-.active.br-green-filter { border-color: #2ECC71; }
-.active.br-blue-filter { border-color: #3498DB; }
-.active.br-purple-filter { border-color: #9B59B6; }
-.active.br-pink-filter { border-color: #D2527F; }
-.active.br-gray-filter { border-color: #34495E; }
-.active.br-yellow-filter { border-color: #F2CA27; }
-.active.br-orange-filter { border-color: #E67E22; }
-.active.br-red-filter { border-color: #E74C3C; }
+.border-fade-circle:hover.br-green-filter, .active.br-green-filter { border-color: #2ECC71; }
+.border-fade-circle:hover.br-blue-filter, .active.br-blue-filter { border-color: #3498DB; }
+.border-fade-circle:hover.br-purple-filter, .active.br-purple-filter { border-color: #9B59B6; }
+.border-fade-circle:hover.br-pink-filter, .active.br-pink-filter { border-color: #D2527F; }
+.border-fade-circle:hover.br-gray-filter,.active.br-gray-filter { border-color: #34495E; }
+.border-fade-circle:hover.br-yellow-filter, .active.br-yellow-filter { border-color: #F2CA27; }
+.border-fade-circle:hover.br-orange-filter , .active.br-orange-filter { border-color: #E67E22; }
+.border-fade-circle:hover.br-red-filter, .active.br-red-filter { border-color: #E74C3C; }
+
 
 .wi-20-s { width: 20%; }
 .wi-40-s { width: 40%; }
@@ -63,7 +64,7 @@
  * Borders & Backgrounds
  * ====================================== */
 .border { border-width: 2px; border-style: solid; }
-.border-white { border: 1px solid $near-white; }
+.border-white { border-color: $near-white; }
 .border-bottom-gray { border-bottom: 1px solid $light-gray; }
 
 .bg-white { background-color: white; }
@@ -150,10 +151,7 @@ button { font-family: 'Montserrat', sans-serif; }
   transform: translateZ(0);
   box-shadow: inset 0 0 0 0px $near-white, 0 0 1px rgba(0, 0, 0, 0);
 }
-.border-selected, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active {
-  box-shadow: inset 0 0 0 5px $near-white, 0 0 1px rgba(0, 0, 0, 0);
-}
-.active {
+.active, .border-selected, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active  {
   box-shadow: inset 0 0 0 5px $dark-gray, 0 0 1px rgba(0, 0, 0, 0);
 }
 
