@@ -107,7 +107,7 @@
                     <p class="f5 caps tac text-white fw-700">All</p>
                   </a>
                 </li>
-                <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light color-filter filter circle border-fade-circle {{'bg-' + color.name + '-filter'}} {{color.textColor}} li-item-js" data-filter=".category-{{color.name}}">
+                <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light color-filter filter circle border-fade-circle border {{ 'br-' + color.name + '-filter'}} {{'bg-' + color.name + '-filter'}} {{color.textColor}} li-item-js" data-filter=".category-{{color.name}}">
                   <a href="javascript:void(0)" title="Filter by" class="db">
                     <p class="f5 caps tac text-white fw-700 opacity-0">{{color.name}}</p>
                   </a>

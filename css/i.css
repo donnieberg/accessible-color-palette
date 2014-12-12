@@ -603,21 +603,21 @@ a:visited { text-decoration: none; color: inherit; }
 
 .all-filter { border-color: rgba(59, 63, 69, 0.95); }
 
-.green-filter { border-color: #2ECC71; }
+.active.br-green-filter { border-color: #2ECC71; }
 
-.blue-filter { border-color: #3498DB; }
+.active.br-blue-filter { border-color: #3498DB; }
 
-.purple-filter { border-color: #9B59B6; }
+.active.br-purple-filter { border-color: #9B59B6; }
 
-.pink-filter { border-color: #D2527F; }
+.active.br-pink-filter { border-color: #D2527F; }
 
-.gray-filter { border-color: #34495E; }
+.active.br-gray-filter { border-color: #34495E; }
 
-.yellow-filter { border-color: #F2CA27; }
+.active.br-yellow-filter { border-color: #F2CA27; }
 
-.orange-filter { border-color: #E67E22; }
+.active.br-orange-filter { border-color: #E67E22; }
 
-.red-filter { border-color: #E74C3C; }
+.active.br-red-filter { border-color: #E74C3C; }
 
 .wi-20-s { width: 20%; }
 
@@ -634,6 +634,8 @@ a:visited { text-decoration: none; color: inherit; }
 .fix-footer { position: absolute; bottom: 0; }
 
 /* Borders & Backgrounds ====================================== */
+.border { border-width: 2px; border-style: solid; }
+
 .border-white { border: 1px solid #f2f2f2; }
 
 .border-bottom-gray { border-bottom: 1px solid #d9d9d9; }
@@ -714,7 +716,9 @@ button { font-family: 'Montserrat', sans-serif; }
 /* Color Filter Circles Hover - border-fade */
 .border-fade-circle { -webkit-transition-duration: 0.2s; transition-duration: 0.2s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 0px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 0px #f2f2f2, 0 0 1px transparent; }
 
-.active, .border-selected, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active { -webkit-box-shadow: inset 0 0 0 5px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 5px #f2f2f2, 0 0 1px transparent; }
+.border-selected, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active { -webkit-box-shadow: inset 0 0 0 5px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 5px #f2f2f2, 0 0 1px transparent; }
+
+.active { -webkit-box-shadow: inset 0 0 0 5px #3b3f45, 0 0 1px transparent; box-shadow: inset 0 0 0 5px #3b3f45, 0 0 1px transparent; }
 
 /* Media Queries for Screen Size and Retina ====================================== */
 @media only screen and (max-width: 40em) { .wi-half-s { width: 50%; } }
