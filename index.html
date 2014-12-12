@@ -102,14 +102,14 @@
             </div>
             <section class="phm mw-toolbar center fadeInAni cf" ng-show="pinToolbar">
               <ul class="pan dn db-ns fl-ns list-plain list-horz">
-                <li id="allColorsFilter" class="mrxs caps fw-light pos-rel color-filter filter circle border border--white border-fade-circle li-item-js" data-filter="all">
-                  <a href="javascript:void(0)" title="Filter by">
+                <li class="mhxs caps fw-light color-filter filter circle border border-white border-fade-circle li-item-js" data-filter="all">
+                  <a href="javascript:void(0)" title="Filter by" class="db">
                     <p class="f5 caps tac text-white fw-700">All</p>
                   </a>
                 </li>
-                <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light color-filter circle border-fade-circle {{'bg-' + color.name + '-filter'}} {{color.textColor}} li-item-js">
-                  <a href="javascript:void(0)" title="Filter by" class="db filter" data-filter=".category-{{color.name}}">
-                    <p class="assistive-text">{{color.name}}</p>
+                <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light color-filter filter circle border-fade-circle {{'bg-' + color.name + '-filter'}} {{color.textColor}} li-item-js" data-filter=".category-{{color.name}}">
+                  <a href="javascript:void(0)" title="Filter by" class="db">
+                    <p class="f5 caps tac text-white fw-700 opacity-0">{{color.name}}</p>
                   </a>
                 </li>
               </ul>
@@ -131,10 +131,14 @@
     <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
       <ul id="Container" class="pln ptn prn pbxx man list-plain list-horz bg-dark cf">
         <li ng-repeat="color in allColors" ng-if="color.pass" ng-click="setColor($event, color); isDarkColor(color.hex)" class="dt span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps fl mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'animated pulse': color === currentCopiedColor,  'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor  }" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
-          <span class="f3 dtc vac fadeInAni fa fa-check {{textColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
-          <span class="f3 dtc vac fadeInAni {{textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
+          <div class="dtc vac">
+            <span class="f3 fadeInAni fa fa-check {{textColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
+            <span class="f3 fadeInAni {{textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
+          </div>
           <a href="javascript:void(0)" class="pbs dtc vab">
+          <!--
             <span class="ease fadeInHover">HEX: {{color.hex}}</span>
+          -->
           </a>
         </li>
       </ul>
@@ -195,7 +199,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 2
     ======================================= -->
-    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInOutAni" style="background-color: rgba({{currentTextColor.rgb.r}}, {{currentTextColor.rgb.g}}, {{currentTextColor.rgb.b}}, .95)" ng-if="isInstructions2Active">
+    <article class="dt wi-full ht-full pos-fix top-0 z-above" style="background-color: rgba({{currentTextColor.rgb.r}}, {{currentTextColor.rgb.g}}, {{currentTextColor.rgb.b}}, .95)" ng-if="isInstructions2Active">
       <div class="f3 dtc vac tac {{modalTextColor}}">
         <h2>{{currentCopiedColorValue}}</h2>
         <p>Copied to Clipboard!</p>

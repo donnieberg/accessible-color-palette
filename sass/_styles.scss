@@ -62,7 +62,7 @@
 /*
  * Borders & Backgrounds
  * ====================================== */
-.border-white { border: 2px solid $near-white; }
+.border-white { border: 1px solid $near-white; }
 .border-bottom-gray { border-bottom: 1px solid $light-gray; }
 
 .bg-white { background-color: white; }
@@ -149,7 +149,7 @@ button { font-family: 'Montserrat', sans-serif; }
   transform: translateZ(0);
   box-shadow: inset 0 0 0 0px $near-white, 0 0 1px rgba(0, 0, 0, 0);
 }
-.border-selected, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active {
+.active, .border-selected, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active {
   box-shadow: inset 0 0 0 5px $near-white, 0 0 1px rgba(0, 0, 0, 0);
 }
 //.active {

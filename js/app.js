@@ -1,4 +1,4 @@
-var app = angular.module('app', ['duScroll', 'colorpicker.module', 'ngAnimate']);
+var app = angular.module('app', ['duScroll', 'colorpicker.module']);
 
 //=============================================
 // DIRECTIVES
