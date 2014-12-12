@@ -1,4 +1,4 @@
-var app = angular.module('app', ['duScroll', 'colorpicker.module']);
+var app = angular.module('app', ['duScroll', 'colorpicker.module', 'ngAnimate']);
 
 //=============================================
 // DIRECTIVES
@@ -38,8 +38,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
-  $scope.isIntroActive = true;
-  $scope.isSection1Active = false;
+  //$scope.isIntroActive = true;
+  $scope.isSection1Active = true;
   $scope.infoPanelTabIndex = -1;
 
 
@@ -124,7 +124,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.isInstructions1Active = false;
   };
   $scope.showInstructions2 = function(color, colorValue) {
-    $scope.isInstructions2Active = true;
     $scope.currentCopiedColor = color;
     $scope.currentCopiedColorValue = colorValue;
     var color = tinycolor(colorValue);
@@ -133,7 +132,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }else{
       $scope.modalTextColor = 'text-dark';
     }
-    $timeout($scope.hideInstructions2, 2000);
+    $scope.isInstructions2Active = true;
+    $timeout($scope.hideInstructions2, 1800);
   };
   $scope.hideInstructions2 = function() {
     $scope.isInstructions2Active = false;

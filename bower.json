@@ -32,6 +32,7 @@
     "mixitup": "~2.1.7",
     "jquery": "~2.1.1",
     "tinycolor": "~1.0.0",
-    "angular-scroll": "~0.6.2"
+    "angular-scroll": "~0.6.2",
+    "angular-animate": "~1.3.6"
   }
 }
