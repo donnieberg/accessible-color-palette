@@ -1,22 +1,6 @@
  /* =============================================================================
  *  ANIMATION STYLES
  *  ============================================================================= */
-.fadeInOutAni.ng-enter, .fadeInOutAni.ng-leave {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s;
-}
-
-.fadeInOutAni.ng-enter,
-.fadeInOutAni.ng-leave.ng-leave-active {
-  opacity:0;
-}
-
-.fadeInOutAni.ng-leave,
-.fadeInOutAni.ng-enter.ng-enter-active {
-  opacity:1;
-}
-
-
 .animated {
   -webkit-animation-duration: .5s;
   animation-duration: .5s;

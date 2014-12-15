@@ -23,6 +23,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    */
   $scope.appFactory = appFactory;
   $scope.allFontFamilies = $scope.appFactory.fonts;
+  $scope.colorModels = $scope.appFactory.colorModels;
   $scope.accessibilityGrades = $scope.appFactory.accessibilityGrades;
   $scope.textSizes = $scope.appFactory.textSizes;
   $scope.fontWeights = $scope.appFactory.fontWeights;
@@ -41,6 +42,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   //$scope.isIntroActive = true;
   $scope.isSection1Active = true;
   $scope.infoPanelTabIndex = -1;
+  $scope.colorModel = $scope.colorModels[0];
 
 
   //==============================================================
@@ -133,10 +135,15 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $scope.modalTextColor = 'text-dark';
     }
     $scope.isInstructions2Active = true;
-    $timeout($scope.hideInstructions2, 1800);
+    $timeout(function() {
+      $scope.fadeOutInstructions = true;
+    }, 1800);
+    $timeout($scope.hideInstructions2, 2500);
   };
+
   $scope.hideInstructions2 = function() {
     $scope.isInstructions2Active = false;
+    $scope.fadeOutInstructions = false;
   };
 
   /**
@@ -903,6 +910,10 @@ app.factory('appFactory', function() {
     ],
     accessibilityGrades: [ 'AA', 'AAA' ],
     textSizes: [ 'small text', 'large text' ],
-    fontWeights: [ 100, 200, 300, 400, 500, 600, 700, 800, 900 ]
+    fontWeights: [ 100, 200, 300, 400, 500, 600, 700, 800, 900 ],
+    colorModels: [
+      { label: 'hex'},
+      { label: 'rgb' }
+    ]
   }
 });
