@@ -8,7 +8,7 @@
  * ====================================== */
 .pbxx { padding-bottom: 20rem; }
 .mw-800 { max-width: 800px; }
-.mw-900 { max-width: 900px; }
+.mw-950 { max-width: 950px; }
 .mw-toolbar { max-width: 1600px; }
 .ht-colorVariations { height: 150px; }
 .ht-pinToolbar { height: 305px; }
@@ -63,7 +63,8 @@
 /*
  * Borders & Backgrounds
  * ====================================== */
-.border { border-width: 2px; border-style: solid; }
+.border-thin { border-width: 1px; border-style: solid;  }
+.border-thick { border-width: 2px; border-style: solid; }
 .border-white { border-color: $near-white; }
 .border-bottom-gray { border-bottom: 1px solid $light-gray; }
 
@@ -98,7 +99,9 @@
  * ====================================== */
 button { font-family: 'Montserrat', sans-serif; }
 .link { border-bottom: 2px solid rgba(255,255,255,.5); }
-.link:hover { border-bottom: 2px solid rgba(255,255,255,1); }
+.link:hover { border-bottom: 3px solid rgba(255,255,255,1); }
+.link-drk { border-bottom: 2px solid rgba(0,0,0,.3); }
+.link-drk:hover { border-bottom: 2px solid rgba(0,0,0,1); }
 .ss-delete:hover { background: darken($navy, 5%); }
 
 .input { border: 1px solid white; border-radius: 3px; }
@@ -140,7 +143,7 @@ button { font-family: 'Montserrat', sans-serif; }
               inset 12px 0 0 $near-white, 0 0 1px rgba(0, 0, 0, 0);
 }
 .border-selected { box-shadow: inset 0 0 0 2px $near-white, 0 0 1px rgba(0, 0, 0, 0);}
-.fadeInHover { display: none; opacity: 0; }
+.fadeInHover { display: none; opacity: 0; transition: opacity 1s ease-in-out; }
 .border-fade:hover .fadeInHover { display: block; opacity: 1; }
 
 /* Color Filter Circles Hover - border-fade */
@@ -154,7 +157,7 @@ button { font-family: 'Montserrat', sans-serif; }
   box-shadow: inset 0 0 0 2px transparent, 0 0 1px rgba(0, 0, 0, 0);
 }
 .active, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active  {
-  box-shadow: inset 0 0 0 5px $dark-gray, 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 0 9px $dark-gray, 0 0 1px rgba(0, 0, 0, 0);
 }
 
 
@@ -169,6 +172,7 @@ button { font-family: 'Montserrat', sans-serif; }
 // Larger than phone size screens
 @media only screen and (min-width: 40em) {
   .pos-static-ns { position: static; }
+  .di-ns { display: inline; }
   .db-ns { display: block; }
   .dt-ns { display: table; }
   .dtc-ns { display: table-cell; }
@@ -194,6 +198,23 @@ button { font-family: 'Montserrat', sans-serif; }
     top: 30px;
     right: -7px;
   }
+  .arrow-down-ns {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+  }
+  .pos-arrow-down-ns {
+    position: absolute;
+    bottom: -10px;
+    left: 120px;
+  }
+  .pos-WCAGToolTip-ns {
+    top: -200px;
+    left: 13px;
+    width: 250px;
+  }
 }
 
 // Larger than phone but smaller than Laptop size screens
@@ -211,7 +232,7 @@ button { font-family: 'Montserrat', sans-serif; }
 }
 
 // Retina screen
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
   .bg-screenIcon-rs {
     width: 345px;
     height: 246px;

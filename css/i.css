@@ -565,7 +565,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .mw-800 { max-width: 800px; }
 
-.mw-900 { max-width: 900px; }
+.mw-950 { max-width: 950px; }
 
 .mw-toolbar { max-width: 1600px; }
 
@@ -630,7 +630,9 @@ a:visited { text-decoration: none; color: inherit; }
 .fix-footer { position: absolute; bottom: 0; }
 
 /* Borders & Backgrounds ====================================== */
-.border { border-width: 2px; border-style: solid; }
+.border-thin { border-width: 1px; border-style: solid; }
+
+.border-thick { border-width: 2px; border-style: solid; }
 
 .border-white { border-color: #f2f2f2; }
 
@@ -669,7 +671,11 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .link { border-bottom: 2px solid rgba(255, 255, 255, 0.5); }
 
-.link:hover { border-bottom: 2px solid white; }
+.link:hover { border-bottom: 3px solid white; }
+
+.link-drk { border-bottom: 2px solid rgba(0, 0, 0, 0.3); }
+
+.link-drk:hover { border-bottom: 2px solid black; }
 
 .ss-delete:hover { background: #374c63; }
 
@@ -709,18 +715,19 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .border-selected { -webkit-box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; }
 
-.fadeInHover { display: none; opacity: 0; }
+.fadeInHover { display: none; opacity: 0; -webkit-transition: opacity 1s ease-in-out; transition: opacity 1s ease-in-out; }
 
 .border-fade:hover .fadeInHover { display: block; opacity: 1; }
 
 /* Color Filter Circles Hover - border-fade */
 .border-fade-circle { -webkit-transition-duration: 0.2s; transition-duration: 0.2s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 2px transparent, 0 0 1px transparent; box-shadow: inset 0 0 0 2px transparent, 0 0 1px transparent; }
 
-.active, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active { -webkit-box-shadow: inset 0 0 0 5px #3b3f45, 0 0 1px transparent; box-shadow: inset 0 0 0 5px #3b3f45, 0 0 1px transparent; }
+.active, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active { -webkit-box-shadow: inset 0 0 0 9px #3b3f45, 0 0 1px transparent; box-shadow: inset 0 0 0 9px #3b3f45, 0 0 1px transparent; }
 
 /* Media Queries for Screen Size and Retina ====================================== */
 @media only screen and (max-width: 40em) { .wi-half-s { width: 50%; } }
 @media only screen and (min-width: 40em) { .pos-static-ns { position: static; }
+  .di-ns { display: inline; }
   .db-ns { display: block; }
   .dt-ns { display: table; }
   .dtc-ns { display: table-cell; }
@@ -730,11 +737,14 @@ button { font-family: 'Montserrat', sans-serif; }
   .cf-ns { float: none; }
   .bg-screenIcon-ns { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; }
   .arrow-right-ns { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
-  .pos-arrow-right-ns { position: absolute; top: 30px; right: -7px; } }
+  .pos-arrow-right-ns { position: absolute; top: 30px; right: -7px; }
+  .arrow-down-ns { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid white; }
+  .pos-arrow-down-ns { position: absolute; bottom: -10px; left: 120px; }
+  .pos-WCAGToolTip-ns { top: -200px; left: 13px; width: 250px; } }
 @media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; }
   .span_2_of_12-ns { width: 16.667%; }
   .span_3_of_12-ns { width: 25%; }
   .span_4_of_12-ns { width: 33.333%; }
   .span_5_of_12-ns { width: 41.666%; } }
 @media only screen and (min-width: 106em) { .span_1_of_12-x { width: 8.333%; } }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }

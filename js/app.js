@@ -39,8 +39,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
-  //$scope.isIntroActive = true;
-  $scope.isSection1Active = true;
+  $scope.isIntroActive = true;
+  $scope.isSection1Active = false;
   $scope.infoPanelTabIndex = -1;
   $scope.colorModel = $scope.colorModels[0];
 
@@ -163,7 +163,18 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.isSection2Active = true;
     $timeout(function() {
       $('#Container').mixItUp({
-        layout: { display: 'table' }
+        layout: { display: 'table' },
+        callbacks: {
+          onMixEnd: function(state){
+            var filteredColorsCount = state.totalShow;
+            if(filteredColorsCount < 8){
+              $scope.lowOptionsCount = true;
+              console.log('lowOptionsCount is true');
+            } else {
+              $scope.lowOptionsCount = false;
+            }
+          }
+        }
       });
       $scope.pinToolbar = true;
     }, 800);
@@ -229,6 +240,12 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }else{
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
     }
+
+    //Show tips at bottom to get more colors
+    if(currentLevel === 'AAA' || currentFS < 18){
+      $scope.canConfigParams = true;
+    }
+
     //Determine if current text color passes if the AA or AAA changes
     $scope.currentTextColor.currentRatio >= $scope.currentRatio ? $scope.currentTextColor.pass = true :  $scope.currentTextColor.pass = false;
     //console.log('the current ratio is: ', $scope.currentRatio);
