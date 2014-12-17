@@ -163,15 +163,13 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.isSection2Active = true;
     $timeout(function() {
       $('#Container').mixItUp({
-        layout: { display: 'table' },
         callbacks: {
           onMixEnd: function(state){
-            var filteredColorsCount = state.totalShow;
-            if(filteredColorsCount < 8){
-              $scope.lowOptionsCount = true;
-              console.log('lowOptionsCount is true');
-            } else {
-              $scope.lowOptionsCount = false;
+            $scope.filteredColorsCount = state.totalShow;
+            if($scope.filteredColorsCount < 8){
+              $scope.lowOptions = true;
+            }else {
+              $scope.lowOptions = false;
             }
           }
         }
@@ -210,6 +208,14 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
 
+  $scope.focusWCAGlevel = function() {
+    $('#WCAGlevel').focus();
+  }
+  $scope.focusFontInputs = function() {
+    $('#fontSize').focus();
+  }
+
+
   //=============================================
   // COLOR CONTRAST LOGIC
   //=============================================
@@ -235,16 +241,16 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     var currentFW = $scope.fontWeight;
     if(currentFW >= 700 && currentFS >= 14){
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
+      $scope.smallFontSize = false;
     }else if(currentFS < 18){
       currentLevel === 'AA' ? $scope.currentRatio = 4.5 : $scope.currentRatio = 7.0;
+      $scope.smallFontSize = true;
     }else{
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
     }
 
     //Show tips at bottom to get more colors
-    if(currentLevel === 'AAA' || currentFS < 18){
-      $scope.canConfigParams = true;
-    }
+    currentLevel === 'AAA' ? $scope.AAAlevel = true : $scope.AAAlevel = false;
 
     //Determine if current text color passes if the AA or AAA changes
     $scope.currentTextColor.currentRatio >= $scope.currentRatio ? $scope.currentTextColor.pass = true :  $scope.currentTextColor.pass = false;

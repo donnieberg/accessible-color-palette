@@ -571,6 +571,8 @@ a:visited { text-decoration: none; color: inherit; }
 
 .ht-colorVariations { height: 150px; }
 
+.bmn-colorVariations { margin-bottom: -4px; }
+
 .ht-pinToolbar { height: 305px; }
 
 .leftPanel { width: 330px; left: -330px; }
