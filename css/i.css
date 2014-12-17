@@ -581,7 +581,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .fw-700 { font-weight: 700; }
 
-.bg-all-filter { background-color: rgba(59, 63, 69, 0.95); }
+.bg-all-filter { background-color: rgba(255, 255, 255, 0.95); }
 
 .bg-green-filter { background-color: #2ECC71; }
 
@@ -599,7 +599,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .bg-red-filter { background-color: #E74C3C; }
 
-.all-filter { border-color: rgba(59, 63, 69, 0.95); }
+.border-fade-circle:hover.br-all-filter, .active.br-all-filter { border-color: rgba(255, 255, 255, 0.95); }
 
 .border-fade-circle:hover.br-green-filter, .active.br-green-filter { border-color: #2ECC71; }
 

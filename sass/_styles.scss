@@ -20,7 +20,7 @@
     height:60px;
 }
 .fw-700 { font-weight: 700; }
-.bg-all-filter { background-color: rgba(59, 63, 69, 0.95); }
+.bg-all-filter { background-color: rgba(255, 255, 255, 0.95); }
 .bg-green-filter { background-color: #2ECC71; }
 .bg-blue-filter { background-color: #3498DB; }
 .bg-purple-filter { background-color: #9B59B6; }
@@ -30,7 +30,7 @@
 .bg-orange-filter { background-color: #E67E22; }
 .bg-red-filter { background-color: #E74C3C; }
 
-.all-filter { border-color: rgba(59, 63, 69, 0.95); }
+.border-fade-circle:hover.br-all-filter, .active.br-all-filter { border-color: rgba(255, 255, 255, 0.95); }
 .border-fade-circle:hover.br-green-filter, .active.br-green-filter { border-color: #2ECC71; }
 .border-fade-circle:hover.br-blue-filter, .active.br-blue-filter { border-color: #3498DB; }
 .border-fade-circle:hover.br-purple-filter, .active.br-purple-filter { border-color: #9B59B6; }

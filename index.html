@@ -117,9 +117,9 @@
             </div>
             <section class="phm mw-toolbar center fadeInAni cf" ng-show="pinToolbar">
               <ul class="pan dn db-ns fl-ns list-plain list-horz">
-                <li class="mhxs caps fw-light color-filter filter circle border-fade-circle border-thick border-white li-item-js" data-filter="all">
+                <li class="mhxs caps fw-light color-filter filter circle border-fade-circle border-thick border-white br-all-filter bg-all-filter li-item-js" data-filter="all">
                   <a href="javascript:void(0)" title="Show all" class="db">
-                    <p class="f5 caps tac text-white fw-700">All</p>
+                    <p class="f5 caps tac fw-700">All</p>
                   </a>
                 </li>
                 <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light color-filter filter circle border-fade-circle border-thick border-white {{ 'br-' + color.name + '-filter'}} {{'bg-' + color.name + '-filter'}} li-item-js" data-filter=".category-{{color.name}}">
@@ -138,7 +138,7 @@
             </section>
           </section>
 
-          <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); activatePalette(); showInstructions1()" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }">Generate Color Palette</button>
+          <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1(); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }">Generate Color Palette</button>
         </form>
       </div>
     </article>
@@ -161,7 +161,7 @@
         </li>
       </ul>
 
-      <div class="pts pbxx tac bg-dark fadeInAni" ng-if="lowOptions">
+      <div class="pts pbxx tac bg-dark" ng-show="lowOptions">
         <div ng-if="smallFontSize || AAAlevel">
           <h4 class="text-white">Want more color options?</h4>
           <div ng-if="AAAlevel">

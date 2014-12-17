@@ -164,7 +164,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $timeout(function() {
       $('#Container').mixItUp({
         callbacks: {
-          onMixEnd: function(state){
+          load: {
+            filter: 'all'
+          },
+            onMixEnd: function(state){
             $scope.filteredColorsCount = state.totalShow;
             if($scope.filteredColorsCount < 8){
               $scope.lowOptions = true;
@@ -207,7 +210,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }
   };
 
-
+  /*
+   * Autofocus on input fields that should be modified when you have too few color options
+   */
   $scope.focusWCAGlevel = function() {
     $('#WCAGlevel').focus();
   }
