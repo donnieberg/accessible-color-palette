@@ -54,7 +54,7 @@
               </div>
             </div>
             <div class="span_2_of_12 fl">
-              <label for="WCAGlevel" class="mvs db pos-rel">
+              <label for="WCAGlevel" class="mvs db pos-rel" ng-mouseenter="showWCAGToolTip = true" ng-mouseleave="showWCAGToolTip = false">
                 <div class="pas dn db-ns text-dark pos-abs pos-WCAGToolTip-ns bg-white br-m" ng-if="showWCAGToolTip">
                   Most of the time, AA is good enough. However some companies and government institutions must meet the AAA level of conformance.
                   <span class="pvm db">
@@ -63,7 +63,7 @@
                   <span class="arrow-down-ns pos-arrow-down-ns"></span>
                 </div>
                 WCAG Standard
-                <span class="dn di-ns ss-info pos-abs right-0" ng-mouseenter="showWCAGToolTip = true" ng-mouseleave="showWCAGToolTip = false"></span>
+                <span class="dn di-ns ss-info pos-abs right-0"></span>
               </label>
               <div class="pos-rel">
                 <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full text-white bg-dark select ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>

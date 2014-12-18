@@ -742,7 +742,8 @@ button { font-family: 'Montserrat', sans-serif; }
   .pos-arrow-right-ns { position: absolute; top: 30px; right: -7px; }
   .arrow-down-ns { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid white; }
   .pos-arrow-down-ns { position: absolute; bottom: -10px; left: 120px; }
-  .pos-WCAGToolTip-ns { top: -200px; left: 13px; width: 250px; } }
+  .pos-WCAGToolTip-ns { top: -186px; left: 13px; width: 250px; }
+  .pos-WCAGselect-ns { top: 35px; } }
 @media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; }
   .span_2_of_12-ns { width: 16.667%; }
   .span_3_of_12-ns { width: 25%; }
