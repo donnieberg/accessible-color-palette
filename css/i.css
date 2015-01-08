@@ -638,13 +638,11 @@ a:visited { text-decoration: none; color: inherit; }
 
 .border-white { border-color: #f2f2f2; }
 
-.border-bottom-gray { border-bottom: 1px solid #d9d9d9; }
+.border-bottom-gray { border-bottom: 1px solid #eeeeee; }
 
 .bg-white { background-color: white; }
 
-.bg-light-gray { background-color: #d9d9d9; }
-
-.bg-gray { background-color: #b3b3b3; }
+.bg-light-gray { background-color: #eeeeee; }
 
 .bg-dark { background-color: #3b3f45; }
 
