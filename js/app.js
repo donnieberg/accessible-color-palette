@@ -30,7 +30,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.allColors = $scope.appFactory.allColors;
 
 
-
+  //Used to create ul of all colors
   /*
   var test = function() {
     var newArray = _.each($scope.allColors, function(color) {
@@ -44,9 +44,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   */
 
 
-
-
-
   /**
    * Default States when App Loads
    */
@@ -55,7 +52,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.fontSize = 22;
   $scope.fontWeight = 400;
   $scope.backgroundColor = { hex: '#ffffff'};
-  $scope.currentTextColor = { hex: '#000', rgb: { r: 0, g: 0, b: 0}, currentRatio: 21, pass: true };
+  $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
   $scope.isIntroActive = true;
   $scope.isSection1Active = false;
@@ -73,8 +70,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $scope.setBackgroundColor(color);
     }else{
       $scope.setTextColor(color);
-      var currentColor = tinycolor(color.hex);
-      color.rgb = currentColor.toRgb();
     }
     $scope.getPassingColors();
   };

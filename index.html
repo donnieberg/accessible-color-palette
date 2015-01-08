@@ -84,8 +84,8 @@
                   <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="lht-75">{{currentTextColor.hex}}</span>
                 </a>
 
-                <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, 'rgb(' + currentTextColor.rgb.r + ',' + currentTextColor.rgb.g + ',' + currentTextColor.rgb.b + ')' )" ng-show="colorModel.label === 'rgb'">
-                  <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb.r}},{{currentTextColor.rgb.g}},{{currentTextColor.rgb.b}})</span>
+                <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb}})" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, currentTextColor.rgb)" ng-show="colorModel.label === 'rgb'">
+                  <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb}})</span>
                 </a>
                 <div class="phm wi-40-s span_4_of_12-ns ht-75 fl bg-light-gray ease pos-rel">
                   <select name="colorModel" id="colorModel" class="plm prl f4 caps lht-75 select-colorModel ease" ng-model="colorModel" ng-options="model.label for model in colorModels"></select>
@@ -154,7 +154,7 @@
               <span class="f3 fadeInAni {{textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
             </div>
             <div class="pbs tal dtc vab">
-              <span class="pls fadeInHover" ng-if="colorModel.label === 'hex'" ng-click="showInstructions2(color, color.hex)">HEX: {{color.hex}}</span>
+              <span class="pls fadeInHover ease link-drkn" ng-if="colorModel.label === 'hex'" ng-click="showInstructions2(color, color.hex)">HEX: {{color.hex}}</span>
               <span class="pls fadeInHover" ng-if="colorModel.label === 'rgb'" ng-click="showInstructions2(color, color.rgb)">RGB: {{color.rgb}}</span>
             </div>
           </div>
@@ -231,7 +231,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 2
     ======================================= -->
-    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" ng-class="{ 'fadeOutAni': fadeOutInstructions }" style="background-color: rgba({{currentTextColor.rgb.r}}, {{currentTextColor.rgb.g}}, {{currentTextColor.rgb.b}}, .95)" ng-if="isInstructions2Active">
+    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" ng-class="{ 'fadeOutAni': fadeOutInstructions }" style="background-color: rgba({{currentTextColor.rgb}},.95)" ng-if="isInstructions2Active">
       <div class="f3 dtc vac tac {{modalTextColor}}">
         <h2>{{currentCopiedColorValue}}</h2>
         <p>Copied to Clipboard!</p>
