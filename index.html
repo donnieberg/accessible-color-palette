@@ -144,14 +144,14 @@
 
     <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
       <ul id="Container" class="pln ptn prn man list-plain bg-dark" ng-class="{ 'pbxx': !lowOptions }">
-        <li ng-repeat="color in allColors" ng-if="color.pass" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor  }" ng-click="setColor($event, color); isDarkColor(color.hex)" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+        <li ng-repeat="color in allColors" ng-if="color.pass" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor  }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <div class="dt wi-full ht-full">
             <a href="javascript:void(0)">
               <span class="assistive-text">{{color.hex}}</span>
             </a>
             <div class="dtc vac">
-              <span class="f3 fadeInAni fa fa-check {{textColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
-              <span class="f3 fadeInAni {{textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
+              <span class="f3 fadeInAni fa fa-check {{color.textColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
+              <span class="f3 fadeInAni {{color.textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
             </div>
             <div class="pbs tal dtc vab">
               <span class="pls fadeInHover ease link-drkn" ng-if="colorModel.label === 'hex'" ng-click="showInstructions2(color, color.hex)">HEX: {{color.hex}}</span>

@@ -48,20 +48,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
   //==============================================================
   /**
-   * User clicks on color to set as Current Color and generate passing colors off of that
-   */
-  $scope.setColor = function(event, color) {
-    $scope.currentCopiedColor = null;
-    if(event.metaKey){
-      $scope.setBackgroundColor(color);
-    }else{
-      $scope.setTextColor(color);
-    }
-    $scope.getPassingColors();
-  };
-
-  /**
    * When user clicks on color variation, make user text that color
+   * @color - the color the user selects
    */
   $scope.setTextColor = function(color) {
     $scope.currentTextColor = color;
@@ -71,27 +59,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }, 1000);
   };
 
-  /**
-   * User can select tile to make that the background color
-   */
-  $scope.setBackgroundColor = function(color) {
-    $scope.backgroundColor = color;
-  };
-
-  /**
-   * Checks if the color is dark or light
-   */
-  $scope.isDarkColor = function(colorValue) {
-    var color = tinycolor(colorValue);
-    if(color.isDark()){
-      $scope.textColor = 'text-white';
-    }else{
-      $scope.textColor = 'text-dark';
-    }
-  };
-
-
-  //==============================================================
 
   /**
    * Scroll Animation between step 1 to step 2
