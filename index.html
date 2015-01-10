@@ -80,11 +80,11 @@
                   <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
                 </div>
 
-                <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, currentTextColor.hex)" ng-show="colorModel.label === 'hex'">
+                <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'hex'">
                   <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="lht-75">{{currentTextColor.hex}}</span>
                 </a>
 
-                <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb}})" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor, currentTextColor.rgb)" ng-show="colorModel.label === 'rgb'">
+                <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb}})" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'rgb'">
                   <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb}})</span>
                 </a>
                 <div class="phm wi-40-s span_4_of_12-ns ht-75 fl bg-light-gray ease pos-rel">
@@ -144,18 +144,19 @@
 
     <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
       <ul id="Container" class="pln ptn prn man list-plain bg-dark" ng-class="{ 'pbxx': !lowOptions }">
-        <li ng-repeat="color in allColors" ng-if="color.pass" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor  }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+        <li ng-repeat="color in allColors" ng-if="color.pass" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor && color !== currentCopiedColor }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <div class="dt wi-full ht-full">
             <a href="javascript:void(0)">
-              <span class="assistive-text">{{color.hex}}</span>
+              <span class="assistive-text" ng-show="colorModel.label === 'hex'">{{color.hex}}</span>
+              <span class="assistive-text" ng-show="colorModel.label === 'rgb'">{{color.rgb}}</span>
             </a>
             <div class="dtc vac">
               <span class="f3 fadeInAni fa fa-check {{color.textColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
               <span class="f3 fadeInAni {{color.textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
             </div>
-            <div class="pbs tal dtc vab">
-              <span class="pls fadeInHover ease link-drkn" ng-if="colorModel.label === 'hex'" ng-click="showInstructions2(color, color.hex)">HEX: {{color.hex}}</span>
-              <span class="pls fadeInHover" ng-if="colorModel.label === 'rgb'" ng-click="showInstructions2(color, color.rgb)">RGB: {{color.rgb}}</span>
+            <div class="pbs tal dtc vab" ng-if="color !== currentCopiedColor && color !== currentTextColor">
+              <div id="{{color.hex}}" data-clipboard-text="{{color.hex}}" class="pls" ng-show="colorModel.label === 'hex'" ng-click="showInstructions2(color)">HEX: {{color.hex}}</div>
+              <div id="{{color.rgb}}" data-clipboard-text="{{color.rgb}}" class="pls" ng-show="colorModel.label === 'rgb'" ng-click="showInstructions2(color)">RGB: {{color.rgb}}</div>
             </div>
           </div>
         </li>
@@ -231,9 +232,10 @@
     <!-- ====================================
     Full Screen Modal - Instructions 2
     ======================================= -->
-    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" ng-class="{ 'fadeOutAni': fadeOutInstructions }" style="background-color: rgba({{currentTextColor.rgb}},.95)" ng-if="isInstructions2Active">
-      <div class="f3 dtc vac tac {{modalTextColor}}">
-        <h2>{{currentCopiedColorValue}}</h2>
+    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" ng-class="{ 'fadeOutAni': fadeOutInstructions }" style="background-color: rgba({{currentCopiedColor.rgb}},.95)" ng-if="isInstructions2Active">
+      <div class="f3 dtc vac tac {{currentCopiedColor.textColor}}">
+        <h2 ng-if="colorModel.label === 'hex'">{{currentCopiedColor.hex}}</h2>
+        <h2 ng-if="colorModel.label === 'rgb'">{{currentCopiedColor.rgb}}</h2>
         <p>Copied to Clipboard!</p>
       </div>
     </article>

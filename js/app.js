@@ -40,8 +40,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AA';
-  $scope.isIntroActive = true;
-  $scope.isSection1Active = false;
+  //$scope.isIntroActive = true;
+  $scope.isSection1Active = true;
   $scope.infoPanelTabIndex = -1;
   $scope.colorModel = $scope.colorModels[0];
 
@@ -88,18 +88,13 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $scope.isInstructions1Active = true;
     }
   };
+
   $scope.hideInstructions1 = function() {
     $scope.isInstructions1Active = false;
   };
-  $scope.showInstructions2 = function(color, colorValue) {
+
+  $scope.showInstructions2 = function(color) {
     $scope.currentCopiedColor = color;
-    $scope.currentCopiedColorValue = colorValue;
-    var color = tinycolor(colorValue);
-    if(color.isDark()){
-      $scope.modalTextColor = 'text-white';
-    }else{
-      $scope.modalTextColor = 'text-dark';
-    }
     $scope.isInstructions2Active = true;
     $timeout(function() {
       $scope.fadeOutInstructions = true;
@@ -113,7 +108,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
   /**
-   * Activate Step 1 from Intro screen
+   * Activate Step 1 from Intro screen & hide intro screen
    */
   $scope.activateStep1 = function() {
     $scope.isSection1Active = true;
@@ -127,6 +122,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    */
   $scope.activatePalette = function() {
     $scope.isSection2Active = true;
+    $('#Container').html('');
     $timeout(function() {
       $('#Container').mixItUp({
         callbacks: {
@@ -233,6 +229,19 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   // VENDOR CODE
   //=============================================
   /**
+   * Zero Clipboard plugin to copy to clipboard
+   */
+  new ZeroClipboard( document.getElementById("copyHexValue") );
+  new ZeroClipboard( document.getElementById("copyRgbValue") );
+
+  $timeout(function() {
+    _.each($scope.allColors, function(color) {
+      new ZeroClipboard( document.getElementById(color.hex) );
+    });
+  }, 800);
+
+
+  /**
    * Sources of awesomeness:
    * http://www.w3.org/TR/WCAG20/#contrast-ratiodef
    * http://webaim.org/resources/contrastchecker/
@@ -297,12 +306,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     return (Math.round(((Math.max(L1, L2) + 0.05)/(Math.min(L1, L2) + 0.05))*100)/100);
   }
 
-
-  /**
-   * Zero Clipboard plugin to copy to clipboard
-   */
-  var hexValue = new ZeroClipboard( document.getElementById("copyHexValue") );
-  var rgbValue = new ZeroClipboard( document.getElementById("copyRgbValue") );
 
   /*
   //Used to create ul of all colors

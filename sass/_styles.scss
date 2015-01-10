@@ -2,6 +2,7 @@
  *  CUSTOM STYLES
  *  ============================================================================= */
 .ng-cloak { display:none; }
+.gold { outline: 1px solid gold; }
 
 /*
  * Component Specific Styles
@@ -144,8 +145,8 @@ button { font-family: 'Montserrat', sans-serif; }
               inset 12px 0 0 $near-white, 0 0 1px rgba(0, 0, 0, 0);
 }
 .border-selected { box-shadow: inset 0 0 0 2px $near-white, 0 0 1px rgba(0, 0, 0, 0);}
-.fadeInHover { display: none; opacity: 0; transition: opacity 1s ease-in-out; }
-.border-fade:hover .fadeInHover { display: block; opacity: 1; }
+.fadeInHover { visibility: hidden; opacity: 0; transition: opacity 0.5s ease-in-out; }
+.border-fade:hover .fadeInHover { visibility: visible; opacity: 1; }
 
 /* Color Filter Circles Hover - border-fade */
 .border-fade-circle {

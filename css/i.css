@@ -560,6 +560,8 @@ a:visited { text-decoration: none; color: inherit; }
 /*  ============================================================================= CUSTOM STYLES ============================================================================= */
 .ng-cloak { display: none; }
 
+.gold { outline: 1px solid gold; }
+
 /* Component Specific Styles ====================================== */
 .pbxx { padding-bottom: 20rem; }
 
@@ -717,9 +719,9 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .border-selected { -webkit-box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; }
 
-.fadeInHover { display: none; opacity: 0; -webkit-transition: opacity 1s ease-in-out; transition: opacity 1s ease-in-out; }
+.fadeInHover { visibility: hidden; opacity: 0; -webkit-transition: opacity 0.5s ease-in-out; transition: opacity 0.5s ease-in-out; }
 
-.border-fade:hover .fadeInHover { display: block; opacity: 1; }
+.border-fade:hover .fadeInHover { visibility: visible; opacity: 1; }
 
 /* Color Filter Circles Hover - border-fade */
 .border-fade-circle { -webkit-transition-duration: 0.2s; transition-duration: 0.2s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 2px transparent, 0 0 1px transparent; box-shadow: inset 0 0 0 2px transparent, 0 0 1px transparent; }
