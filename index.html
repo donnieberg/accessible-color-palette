@@ -155,8 +155,8 @@
               <span class="f3 fadeInAni {{color.textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
             </div>
             <div class="pbs tal dtc vab" ng-if="color !== currentCopiedColor && color !== currentTextColor">
-              <div class="pls fadeInHover" ng-show="colorModel.label === 'hex'" ng-click="showInstructions2(color)">HEX: {{color.hex}}</div>
-              <div class="pls fadeInHover" ng-show="colorModel.label === 'rgb'" ng-click="showInstructions2(color)">RGB: {{color.rgb}}</div>
+              <div class="pls text-cursor fadeInHover" ng-show="colorModel.label === 'hex'" ng-click="preventDefault($event)">HEX: {{color.hex}}</div>
+              <div class="pls text-cursor fadeInHover" ng-show="colorModel.label === 'rgb'" ng-click="preventDefault($event)">RGB: {{color.rgb}}</div>
             </div>
           </div>
         </li>

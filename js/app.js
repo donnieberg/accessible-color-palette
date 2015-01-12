@@ -59,7 +59,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }, 1000);
   };
 
-
+  $scope.preventDefault = function(event) {
+    event.stopPropagation();
+  };
 
   /**
    * Scroll Animation between step 1 to step 2

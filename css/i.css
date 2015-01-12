@@ -79,6 +79,8 @@
 
 .pointer-cursor { cursor: pointer; }
 
+.text-cursor { cursor: text; }
+
 /* SHAPES ============================================================================= */
 button, input[type="submit"] { border: none; background-color: transparent; }
 
