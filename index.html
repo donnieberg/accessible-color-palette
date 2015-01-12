@@ -101,7 +101,7 @@
                 <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
                   <div class="dtc vac">
                     <span class="f5 db">Current Ratio</span>
-                    {{currentTextColor.currentRatio}}
+                    <span>{{currentTextColor.currentRatio}}</span>
                     <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span><span class="assistive-text" ng-if="currentTextColor.pass">Pass</span>
                     <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
                   </div>
@@ -109,7 +109,7 @@
                 <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fr dt">
                   <div class="dtc vac">
                     <span class="db f5">Goal Ratio</span>
-                    {{WCAGlevel}} - {{currentRatio}}
+                    <span ng-class="{ 'animated-delay1 bounceIn': updatedWCAGlevel }">{{WCAGlevel}} - {{currentRatio}}</span>
                   </div>
                 </a>
               </section>
@@ -162,16 +162,22 @@
         </li>
       </ul>
 
-      <div class="pts pbxx tac bg-dark" ng-show="lowOptions">
-        <div ng-if="smallFontSize || AAAlevel">
+      <div class="pbxx tac bg-dark" ng-class="{ 'fadeInAni': lowOptions, 'fadeOutAni': fadeOutSection }" ng-show="lowOptions">
+        <div ng-show="smallFontSize || AAAlevel" class="wi-500 center">
           <h4 class="text-white">Want more color options?</h4>
-          <div ng-if="AAAlevel">
-            <p class="text-white">Try changing the WCAG Level to AA instead.</p>
-            <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-white ease" ng-click="slideToElement('section1', 400); focusWCAGlevel(); destroyMixItUp()">Try it</button>
+          <div ng-show="AAAlevel">
+            <p class="text-white">Changing the WCAG level to AA is less strict and will give you more color options.</p>
+            <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-white ease" ng-click="updateWCAGlevel(); destroyMixItUp()">Try it</button>
           </div>
-          <div ng-if="smallFontSize && fontWeight < 700">
-            <p class="text-white">Try increasing font-size to 18px or change the font-weight to 700.</p>
-            <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-white ease" ng-click="slideToElement('section1', 400); focusFontInputs(); destroyMixItUp()">Try it</button>
+          <div ng-show="smallFontSize && fontWeight < 700">
+            <p class="text-white">Increase font size to 18px OR make font weight bold. Doing one of those will make the text 'Large Text' and give you more color options.</p>
+            <p class="tal text-white">
+              <input type="checkbox" name="updateFS" ng-model="updateFS" /><span class="plm">Change Font Size to 18px</span>
+            </p>
+            <p class="tal text-white">
+              <input type="checkbox" name="updateFW" ng-model="updateFW" /><span class="plm">Make font bold</span>
+            </p>
+            <button class="pvm phl mvl f4 fw-bold db center btn-outline btn-white ease" ng-click="updateTextInputs(); destroyMixItUp();">Try it</button>
           </div>
         </div>
       </div>
@@ -235,7 +241,7 @@
     <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" ng-class="{ 'fadeOutAni': fadeOutInstructions }" style="background-color: rgba({{currentCopiedColor.rgb}},.95)" ng-if="isInstructions2Active">
       <div class="f3 dtc vac tac {{currentCopiedColor.textColor}}">
         <h2 ng-if="colorModel.label === 'hex'">{{currentCopiedColor.hex}}</h2>
-        <h2 ng-if="colorModel.label === 'rgb'">{{currentCopiedColor.rgb}}</h2>
+        <h2 ng-if="colorModel.label === 'rgb'">rgb({{currentCopiedColor.rgb}})</h2>
         <p>Copied to Clipboard!</p>
       </div>
     </article>

@@ -66,8 +66,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * @thing - element to scroll to
    * @speed - duration of animation speed
    */
-  $scope.slideToElement = function(thing, speed) {
-    var offset = 0;
+  $scope.slideToElement = function(thing, speed, offset) {
+    var offset = offset;
     var speed = speed;
     var thing = angular.element(document.getElementById(thing));
     if($scope.isIntroActive){
@@ -75,7 +75,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
         $document.scrollToElementAnimated(thing, offset, speed);
       }, 200);
     }else{
-      $document.scrollToElementAnimated(thing, offset, speed);
+      $document.scrollToElement(thing, offset, speed);
     }
   };
 
@@ -135,6 +135,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
             if(state.activeFilter !== '.mix'){
               $scope.currentColorFilter = state.activeFilter;
             }
+            $scope.slideToElement('section2', 0, 200);
           }
         }
       });
@@ -178,11 +179,34 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   /*
    * Autofocus on input fields that should be modified when you have too few color options
    */
-  $scope.focusWCAGlevel = function() {
-    $('#WCAGlevel').focus();
+  $scope.updateWCAGlevel = function() {
+    $scope.updatedWCAGlevel = true;
+    $scope.WCAGlevel = 'AA';
+    $scope.getCurrentRatio();
+    $scope.getPassingColors();
+    $scope.activatePalette();
+    $timeout(function() {
+      $scope.updatedWCAGlevel = false;
+    }, 600)
   }
-  $scope.focusFontInputs = function() {
-    $('#fontSize').focus();
+  $scope.updateTextInputs = function() {
+    $scope.updatedTextInputs = true;
+    if($scope.updateFS){
+      $scope.fontSize = 18;
+    }
+    if($scope.updateFW){
+      $scope.fontWeight = 700;
+    }
+    $scope.getCurrentRatio();
+    $scope.getPassingColors();
+    $scope.activatePalette();
+    $scope.fadeOutSection = true;
+    $timeout(function() {
+      $scope.updatedTextInputs = false;
+      $scope.updateFS = false;
+      $scope.updateFW = false;
+      $scope.fadeOutSection = false;
+    }, 600)
   }
 
 

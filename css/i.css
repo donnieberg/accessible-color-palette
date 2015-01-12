@@ -565,6 +565,8 @@ a:visited { text-decoration: none; color: inherit; }
 /* Component Specific Styles ====================================== */
 .pbxx { padding-bottom: 20rem; }
 
+.wi-500 { width: 500px; }
+
 .mw-800 { max-width: 800px; }
 
 .mw-950 { max-width: 950px; }
