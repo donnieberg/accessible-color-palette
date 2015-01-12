@@ -167,11 +167,11 @@
           <h4 class="text-white">Want more color options?</h4>
           <div ng-if="AAAlevel">
             <p class="text-white">Try changing the WCAG Level to AA instead.</p>
-            <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-white ease" ng-click="slideToElement('section1', 400); focusFontInputs(); recalcInputs()">Try it</button>
+            <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-white ease" ng-click="slideToElement('section1', 400); focusWCAGlevel(); destroyMixItUp()">Try it</button>
           </div>
           <div ng-if="smallFontSize && fontWeight < 700">
             <p class="text-white">Try increasing font-size to 18px or change the font-weight to 700.</p>
-            <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-white ease" ng-click="slideToElement('section1', 400); focusFontInputs()">Try it</button>
+            <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-white ease" ng-click="slideToElement('section1', 400); focusFontInputs(); destroyMixItUp()">Try it</button>
           </div>
         </div>
       </div>

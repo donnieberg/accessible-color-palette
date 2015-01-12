@@ -40,8 +40,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ec8b20'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true };
   $scope.WCAGlevel = 'AAA';
-  //$scope.isIntroActive = true;
-  $scope.isSection1Active = true;
+  $scope.isIntroActive = true;
+  $scope.isSection1Active = false;
   $scope.infoPanelTabIndex = -1;
   $scope.colorModel = $scope.colorModels[0];
 
@@ -60,14 +60,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
 
-  $scope.recalcInputs = function() {
-    $scope.currentColorFilter = $scope.currentColorFilter.replace('.category-', '');
-    $scope.initialFilteredColors = _.filter($scope.passingColors, function(col) {
-      if(col.colorParent === $scope.currentColorFilter){
-        return col;
-      }
-    });
-  };
 
   /**
    * Scroll Animation between step 1 to step 2
@@ -133,25 +125,27 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.isSection2Active = true;
     $timeout(function() {
       $('#Container').mixItUp({
+        load: {
+          filter: $scope.currentColorFilter
+        },
         callbacks: {
           onMixEnd: function(state){
             $scope.filteredColorsCount = state.totalShow;
-            if($scope.filteredColorsCount < 8){
-              $scope.lowOptions = true;
-              if(state.activeFilter !== '.mix'){
-                $scope.currentColorFilter = state.activeFilter;
-              }
-            }else {
-              $scope.lowOptions = false;
+            $scope.filteredColorsCount < 8 ? $scope.lowOptions = true : $scope.lowOptions = false;
+            if(state.activeFilter !== '.mix'){
+              $scope.currentColorFilter = state.activeFilter;
             }
           }
         }
       });
       $scope.pinToolbar = true;
-
-    }, 800);
-
+    }, 600);
     //console.log('activatePalette() is working');
+  };
+
+  //Remove MixItUp from dom but leave visible nodes there
+  $scope.destroyMixItUp = function() {
+    $('#Container').mixItUp('destroy');
   };
 
 
@@ -212,20 +206,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       }
     })
     //console.log('getPassingColors() is working', $scope.passingColors.length);
-    $scope.getNewGeneratedColors();
   };
 
-  $scope.getNewGeneratedColors = function() {
-    if($scope.lowOptions){
-      $scope.newFilteredColors = _.filter($scope.passingColors, function(col) {
-        if(col.colorParent === $scope.currentColorFilter){
-          return col;
-        }
-      });
-      console.log('it was low options before', $scope.initialFilteredColors);
-      console.log('the new options for this filter are: ', $scope.newFilteredColors);
-    }
-  };
 
   /**
    * Calculate Current Ratio based on user inputs for font size and WCGAG Level AA or AAA
