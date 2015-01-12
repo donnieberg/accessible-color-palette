@@ -144,7 +144,7 @@
 
     <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
       <ul id="Container" class="pln ptn prn man list-plain bg-dark" ng-class="{ 'pbxx': !lowOptions }">
-        <li ng-repeat="color in allColors" ng-if="color.pass" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor && color !== currentCopiedColor }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+        <li ng-repeat="color in passingColors" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor && color !== currentCopiedColor }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <div class="dt wi-full ht-full">
             <a href="javascript:void(0)">
               <span class="assistive-text" ng-show="colorModel.label === 'hex'">{{color.hex}}</span>
@@ -167,7 +167,7 @@
           <h4 class="text-white">Want more color options?</h4>
           <div ng-if="AAAlevel">
             <p class="text-white">Try changing the WCAG Level to AA instead.</p>
-            <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-white ease" ng-click="slideToElement('section1', 400); focusWCAGlevel()">Try it</button>
+            <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-white ease" ng-click="slideToElement('section1', 400); focusFontInputs(); recalcInputs()">Try it</button>
           </div>
           <div ng-if="smallFontSize && fontWeight < 700">
             <p class="text-white">Try increasing font-size to 18px or change the font-weight to 700.</p>

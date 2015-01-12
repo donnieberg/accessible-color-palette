@@ -60,6 +60,15 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
 
+  $scope.recalcInputs = function() {
+    $scope.currentColorFilter = $scope.currentColorFilter.replace('.category-', '');
+    $scope.initialFilteredColors = _.filter($scope.passingColors, function(col) {
+      if(col.colorParent === $scope.currentColorFilter){
+        return col;
+      }
+    });
+  };
+
   /**
    * Scroll Animation between step 1 to step 2
    * @thing - element to scroll to
@@ -129,6 +138,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
             $scope.filteredColorsCount = state.totalShow;
             if($scope.filteredColorsCount < 8){
               $scope.lowOptions = true;
+              if(state.activeFilter !== '.mix'){
+                $scope.currentColorFilter = state.activeFilter;
+              }
             }else {
               $scope.lowOptions = false;
             }
@@ -136,6 +148,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
         }
       });
       $scope.pinToolbar = true;
+
     }, 800);
 
     //console.log('activatePalette() is working');
@@ -187,12 +200,31 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Get passing ratios of colors compared with current background color
    */
   $scope.getPassingColors = function() {
+    $scope.passingColors = [];
     _.each($scope.allColors, function(color) {
       var ratio = contrastRatio(color.hex, $scope.backgroundColor.hex);
       color.currentRatio = ratio;
-      ratio >= $scope.currentRatio ? color.pass = true : color.pass = false;
+      if(color.currentRatio >= $scope.currentRatio){
+        color.pass = true;
+        $scope.passingColors.push(color);
+      }else{
+        color.pass = false;
+      }
     })
-    //console.log('getPassingColors() is working');
+    //console.log('getPassingColors() is working', $scope.passingColors.length);
+    $scope.getNewGeneratedColors();
+  };
+
+  $scope.getNewGeneratedColors = function() {
+    if($scope.lowOptions){
+      $scope.newFilteredColors = _.filter($scope.passingColors, function(col) {
+        if(col.colorParent === $scope.currentColorFilter){
+          return col;
+        }
+      });
+      console.log('it was low options before', $scope.initialFilteredColors);
+      console.log('the new options for this filter are: ', $scope.newFilteredColors);
+    }
   };
 
   /**
@@ -229,13 +261,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    */
   new ZeroClipboard( document.getElementById("copyHexValue") );
   new ZeroClipboard( document.getElementById("copyRgbValue") );
-
-  $timeout(function() {
-    _.each($scope.allColors, function(color) {
-      new ZeroClipboard( document.getElementById(color.hex) );
-    });
-  }, 800);
-
 
   /**
    * Sources of awesomeness:
