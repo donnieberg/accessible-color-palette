@@ -37,9 +37,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.fontFamily = $scope.allFontFamilies[0];
   $scope.fontSize = 22;
   $scope.fontWeight = 400;
-  $scope.backgroundColor = { hex: '#ffffff'};
+  $scope.backgroundColor = { hex: '#ec8b20'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true };
-  $scope.WCAGlevel = 'AA';
+  $scope.WCAGlevel = 'AAA';
   //$scope.isIntroActive = true;
   $scope.isSection1Active = true;
   $scope.infoPanelTabIndex = -1;
@@ -122,14 +122,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    */
   $scope.activatePalette = function() {
     $scope.isSection2Active = true;
-    $('#Container').html('');
     $timeout(function() {
       $('#Container').mixItUp({
         callbacks: {
-          load: {
-            filter: 'all'
-          },
-            onMixEnd: function(state){
+          onMixEnd: function(state){
             $scope.filteredColorsCount = state.totalShow;
             if($scope.filteredColorsCount < 8){
               $scope.lowOptions = true;
