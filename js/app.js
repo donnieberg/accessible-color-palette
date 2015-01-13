@@ -146,7 +146,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
           onMixEnd: function(state){
             $scope.slideToElement('section2', 0, 200);
             $scope.filteredColorsCount = state.totalShow;
-            $scope.filteredColorsCount < 8 ? $scope.lowOptions = true : $scope.lowOptions = false;
+            $scope.$apply(function () {
+              $scope.filteredColorsCount < 8 ? $scope.lowOptions = true : $scope.lowOptions = false;
+            });
             if(state.activeFilter !== '.mix'){
               $scope.currentColorFilter = state.activeFilter;
             }
