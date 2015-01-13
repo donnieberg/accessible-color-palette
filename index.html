@@ -142,8 +142,8 @@
       </div>
     </article>
 
-    <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
-      <ul id="Container" class="pln ptn prn man list-plain bg-dark" ng-class="{ 'pbxx': !lowOptions }">
+    <article id="section2" class="bg-dark fadeInAni" ng-show="isSection2Active">
+      <ul id="Container" class="pan man list-plain">
         <li ng-repeat="color in passingColors" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor && color !== currentCopiedColor }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
           <div class="dt wi-full ht-full">
             <a href="javascript:void(0)">
@@ -162,8 +162,8 @@
         </li>
       </ul>
 
-      <div class="pbxx tac bg-dark" ng-class="{ 'fadeInAni': lowOptions, 'fadeOutAni': fadeOutSection }" ng-hide="!lowOptions">
-        <div class="wi-500 center">
+      <div class="pbxx tac">
+        <div class="wi-500 opacity-0 center" ng-class="{ 'fadeInAni': lowOptions, 'fadeOutAni': fadeOutSection }">
           <div ng-show="AAAlevel">
           <h4 class="text-white">Want more color options?</h4>
             <p class="text-white">Changing the WCAG level to AA is less strict and will give you more color options.</p>
