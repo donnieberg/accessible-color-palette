@@ -37,9 +37,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.fontFamily = $scope.allFontFamilies[0];
   $scope.fontSize = 22;
   $scope.fontWeight = 400;
-  $scope.backgroundColor = { hex: '#ffffff'};
+  $scope.backgroundColor = { hex: '#ec8b20'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true, textColor: 'text-white' };
-  $scope.WCAGlevel = 'AA';
+  $scope.WCAGlevel = 'AAA';
   $scope.isIntroActive = true;
   $scope.isSection1Active = false;
   $scope.infoPanelTabIndex = -1;
@@ -160,6 +160,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
   //Remove MixItUp from dom but leave visible nodes there
   $scope.destroyMixItUp = function() {
+    //console.log('the currentColorFilter before destroy is: ', $scope.currentColorFilter);
     $('#Container').mixItUp('destroy');
   };
 
