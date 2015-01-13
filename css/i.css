@@ -597,7 +597,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .bg-pink-filter { background-color: #D2527F; }
 
-.bg-gray-filter { background-color: #34495E; }
+.bg-gray-filter { background-color: #6C7A89; }
 
 .bg-yellow-filter { background-color: #F2CA27; }
 
@@ -615,7 +615,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .border-fade-circle:hover.br-pink-filter, .active.br-pink-filter { border-color: #D2527F; }
 
-.border-fade-circle:hover.br-gray-filter, .active.br-gray-filter { border-color: #34495E; }
+.border-fade-circle:hover.br-gray-filter, .active.br-gray-filter { border-color: #6C7A89; }
 
 .border-fade-circle:hover.br-yellow-filter, .active.br-yellow-filter { border-color: #F2CA27; }
 
@@ -677,7 +677,7 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .link { border-bottom: 2px solid rgba(255, 255, 255, 0.5); }
 
-.link:hover { border-bottom: 3px solid white; }
+.link:hover { border-bottom: 2px solid white; }
 
 .link-drk { border-bottom: 2px solid rgba(0, 0, 0, 0.3); }
 
@@ -690,6 +690,8 @@ button { font-family: 'Montserrat', sans-serif; }
 .input { border: 1px solid white; border-radius: 3px; }
 
 .select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
+
+.checkbox { -webkit-transform: scale(1.2); -ms-transform: scale(1.2); transform: scale(1.2); }
 
 .select-colorModel { border: none; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
 

@@ -37,9 +37,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.fontFamily = $scope.allFontFamilies[0];
   $scope.fontSize = 22;
   $scope.fontWeight = 400;
-  $scope.backgroundColor = { hex: '#ec8b20'};
-  $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true };
-  $scope.WCAGlevel = 'AAA';
+  $scope.backgroundColor = { hex: '#ffffff'};
+  $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true, textColor: 'text-white' };
+  $scope.WCAGlevel = 'AA';
   $scope.isIntroActive = true;
   $scope.isSection1Active = false;
   $scope.infoPanelTabIndex = -1;
@@ -110,6 +110,18 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.fadeOutInstructions = false;
   };
 
+  $scope.showInstructions3 = function(message) {
+    if (!localStorage['instructions3']) {
+      localStorage['instructions3'] = 'yes';
+      $scope.isInstructions3Active = true;
+      $scope.instructions3message = message;
+    }
+  };
+
+  $scope.hideInstructions3 = function() {
+    $scope.isInstructions3Active = false;
+  };
+
   /**
    * Activate Step 1 from Intro screen & hide intro screen
    */
@@ -132,17 +144,17 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
         },
         callbacks: {
           onMixEnd: function(state){
+            $scope.slideToElement('section2', 0, 200);
             $scope.filteredColorsCount = state.totalShow;
             $scope.filteredColorsCount < 8 ? $scope.lowOptions = true : $scope.lowOptions = false;
             if(state.activeFilter !== '.mix'){
               $scope.currentColorFilter = state.activeFilter;
             }
-            $scope.slideToElement('section2', 0, 200);
           }
         }
       });
       $scope.pinToolbar = true;
-    }, 600);
+    }, 0);
     //console.log('activatePalette() is working');
   };
 
@@ -187,6 +199,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.getCurrentRatio();
     $scope.getPassingColors();
     $scope.activatePalette();
+    $scope.showInstructions3('We lowered the WCAG level from AAA to AA. This lowers the contrast ratio requirement to 3.1 and allows more colors to meet it.');
     $timeout(function() {
       $scope.updatedWCAGlevel = false;
     }, 600)
@@ -195,9 +208,11 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.updatedTextInputs = true;
     if($scope.updateFS){
       $scope.fontSize = 18;
+      $scope.showInstructions3('We increased the font size to 18px which is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
     }
     if($scope.updateFW){
       $scope.fontWeight = 700;
+      $scope.showInstructions3('We increased the font weight to 700. Text 14px and above and bold is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
     }
     $scope.getCurrentRatio();
     $scope.getPassingColors();
