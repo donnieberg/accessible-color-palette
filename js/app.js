@@ -37,9 +37,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.fontFamily = $scope.allFontFamilies[0];
   $scope.fontSize = 22;
   $scope.fontWeight = 400;
-  $scope.backgroundColor = { hex: '#ffffff'};
+  $scope.backgroundColor = { hex: '#ec8b20'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true, textColor: 'text-white' };
-  $scope.WCAGlevel = 'AA';
+  $scope.WCAGlevel = 'AAA';
   $scope.isIntroActive = true;
   $scope.isSection1Active = false;
   $scope.infoPanelTabIndex = -1;
@@ -146,7 +146,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
           onMixEnd: function(state){
             $scope.slideToElement('section2', 0, 200);
             $scope.filteredColorsCount = state.totalShow;
-            $scope.filteredColorsCount < 8 ? $scope.lowOptions = true : $scope.lowOptions = false;
+            $scope.$apply(function () {
+              $scope.filteredColorsCount < 8 ? $scope.lowOptions = true : $scope.lowOptions = false;
+            });
             if(state.activeFilter !== '.mix'){
               $scope.currentColorFilter = state.activeFilter;
             }
