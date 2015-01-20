@@ -109,7 +109,6 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .input { border: 1px solid white; border-radius: 3px; }
 .select {  border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
-.checkbox { transform: scale(1.2); }
 .select-colorModel {  border: none; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; background-size: 28px; }
 .input:hover {  background: rgba(255,255,255,.2); }
 .select:hover {  background: rgba(255,255,255,.2) url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
@@ -248,3 +247,10 @@ button { font-family: 'Montserrat', sans-serif; }
   }
 }
 
+
+// Firefox styling for select
+@-moz-document url-prefix() {
+.select {  border: 1px solid white; border-radius: 3px; cursor: pointer; background: none; }
+.select:hover {  background: rgba(255,255,255,.2); }
+.select-colorModel {  margin-top: 25px; border: none; cursor: pointer; background: none;  }
+}

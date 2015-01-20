@@ -197,18 +197,13 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Autofocus on input fields that should be modified when you have too few color options
    */
   $scope.updateWCAGlevel = function() {
-    $scope.updatedWCAGlevel = true;
     $scope.WCAGlevel = 'AA';
     $scope.getCurrentRatio();
     $scope.getPassingColors();
     $scope.activatePalette();
     $scope.showInstructions3('We lowered the WCAG level from AAA to AA. This lowers the contrast ratio requirement to 3.1 and allows more colors to meet it.');
-    $timeout(function() {
-      $scope.updatedWCAGlevel = false;
-    }, 600)
   }
   $scope.updateTextInputs = function() {
-    $scope.updatedTextInputs = true;
     if($scope.updateFS){
       $scope.fontSize = 18;
       $scope.showInstructions3('We increased the font size to 18px which is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
@@ -220,12 +215,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.getCurrentRatio();
     $scope.getPassingColors();
     $scope.activatePalette();
-    $scope.fadeOutSection = true;
     $timeout(function() {
-      $scope.updatedTextInputs = false;
       $scope.updateFS = false;
       $scope.updateFW = false;
-      $scope.fadeOutSection = false;
     }, 600)
   }
 

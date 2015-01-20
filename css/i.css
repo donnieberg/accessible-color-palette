@@ -691,8 +691,6 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
 
-.checkbox { -webkit-transform: scale(1.2); -ms-transform: scale(1.2); transform: scale(1.2); }
-
 .select-colorModel { border: none; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
 
 .input:hover { background: rgba(255, 255, 255, 0.2); }
@@ -759,3 +757,6 @@ button { font-family: 'Montserrat', sans-serif; }
   .span_5_of_12-ns { width: 41.666%; } }
 @media only screen and (min-width: 106em) { .span_1_of_12-x { width: 8.333%; } }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }
+@-moz-document url-prefix() { .select { border: 1px solid white; border-radius: 3px; cursor: pointer; background: none; }
+  .select:hover { background: rgba(255, 255, 255, 0.2); }
+  .select-colorModel { margin-top: 25px; border: none; cursor: pointer; background: none; } }
