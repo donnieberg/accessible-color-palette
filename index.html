@@ -39,7 +39,7 @@
             <div class="prl-ns tal span_3_of_12 fl">
               <label for="fontFamily" class="mvs db">Font-Family</label>
               <div class="pos-rel">
-                <select name="fontFamily" id="fontFamily" class="pvs phm f4 wi-full text-white bg-dark select ease" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+                <select name="fontFamily" id="fontFamily" class="pvs phm f4 wi-full text-white bg-dark select" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
               </div>
             </div>
             <div class="prl wi-half-s span_2_of_12-ns fl">
@@ -71,9 +71,9 @@
           </section>
 
           <!-- TODO: make less hacky -->
-          <div ng-class="{ 'ht-pinToolbar': pinToolbar }"></div>
+          <div id="pinToolbar" ng-class="{ 'ht-pinToolbar': pinToolbar }"></div>
 
-          <section id="pinToolbar" ng-class="{ 'pinToolbar z-above pos-abs wi-full': pinToolbar }">
+          <section ng-class="{ 'pinToolbar z-above pos-abs wi-full': pinToolbar }">
             <div class="phm ptm mw-toolbar center cf">
               <section class="span_4_of_12 opacity-0 fl l-slideOutFadeInAni" ng-show="pinToolbar && pinToolbar">
                 <div class="wi-20-s span_3_of_12-ns ht-75 pos-rel fl ease" style="background-color: {{currentTextColor.hex}};">
@@ -92,7 +92,7 @@
                 </div>
               </section>
 
-              <div id="userContentTextArea" class="tal mw-950 center ease" ng-class="{ 'phm-ns': !pinToolbar, 'span_5_of_12 fl': pinToolbar }">
+              <div id="userContentTextArea" class="tal mw-950 center" ng-class="{ 'phm-ns': !pinToolbar, 'span_5_of_12 fl': pinToolbar }">
                 <label for="userContent" class="mvs text-white db" ng-if="!pinToolbar">Editable Text</label>
                 <input style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ht-75 tac wi-full bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent"></input>
               </div>
