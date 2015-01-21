@@ -760,3 +760,7 @@ button { font-family: 'Montserrat', sans-serif; }
 @-moz-document url-prefix() { .select { border: 1px solid white; border-radius: 3px; cursor: pointer; background: none; }
   .select:hover { background: rgba(255, 255, 255, 0.2); }
   .select-colorModel { margin-top: 25px; border: none; cursor: pointer; background: none; } }
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { .select { border: 1px solid white; border-radius: 3px; cursor: pointer; background: none; }
+  .select::-ms-expand { display: none; }
+  .select:hover { background: rgba(255, 255, 255, 0.2); }
+  .select-colorModel { margin-top: 25px; border: none; cursor: pointer; background: none; } }
