@@ -37,22 +37,22 @@
           <section class="pam text-white mw-950 center cf">
             <div class="prl-ns tal span_3_of_12 fl">
               <label for="backgroundColor" class="mvs db">Background Color</label>
-              <input colorpicker colorpicker-position="top" id="backgroundColor" class="pas f4 wi-full text-white bg-dark input ease" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
+              <input colorpicker colorpicker-position="top" id="backgroundColor" class="pas f4 wi-full inputColor input ease" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
             </div>
             <div class="prl-ns tal span_3_of_12 fl">
               <label for="fontFamily" class="mvs db">Font-Family</label>
               <div class="pos-rel">
-                <select name="fontFamily" id="fontFamily" class="pvs phm f4 wi-full text-white bg-dark select" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+                <select name="fontFamily" id="fontFamily" class="pvs phm f4 wi-full inputColor select" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
               </div>
             </div>
             <div class="prl wi-half-s span_2_of_12-ns fl">
               <label for="fontSize" class="mvs db">Font-Size (px)</label>
-              <input id="fontSize" class="pas f4 wi-full text-white bg-dark input ease" type="text" name="textfield" ng-model="fontSize" />
+              <input id="fontSize" class="pas f4 wi-full inputColor input ease" type="text" name="textfield" ng-model="fontSize" />
             </div>
             <div class="prl-ns wi-half-s span_2_of_12-ns fl">
               <label for="fontWeight" class="mvs db">Font-Weight</label>
               <div class="pos-rel">
-                <select name="fontWeight" id="fontWeight" class="pvs phm f4 wi-full text-white bg-dark select ease" ng-model="fontWeight" ng-options="value for value in fontWeights"></select>
+                <select name="fontWeight" id="fontWeight" class="pvs phm f4 wi-full inputColor select ease" ng-model="fontWeight" ng-options="value for value in fontWeights"></select>
               </div>
             </div>
             <div class="span_2_of_12 fl">
@@ -68,7 +68,7 @@
                 <span class="dn di-ns ss-info pos-abs right-0"></span>
               </label>
               <div class="pos-rel">
-                <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full text-white bg-dark select ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
+                <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full inputColor select ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
               </div>
             </div>
           </section>
