@@ -763,7 +763,7 @@ button { font-family: 'Montserrat', sans-serif; }
   .select:hover { background: rgba(255, 255, 255, 0.2); }
   .select-colorModel { margin-top: 25px; border: none; cursor: pointer; background: none; } }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { .inputColor { color: black; background-color: white; }
+  .select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: white url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
   .select::-ms-expand { display: none; }
-  .select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
-  .input:hover { background: rgba(0, 0, 0, 0.2); }
-  .select:hover { background: rgba(0, 0, 0, 0.2) url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; } }
+  .select-colorModel { margin-top: 25px; }
+  .select-colorModel::-ms-expand { display: none; } }
