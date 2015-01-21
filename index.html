@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" type="text/css" href="css/colorpicker.css">
     <link rel="stylesheet" type="text/css" href="css/i.css">
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="css/ie.css" />
+    <![endif]-->
   </head>
   <body ng-controller="appController" class="ht-full pos-rel bg-dark ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
     <article id="intro" class="tac ht-full bg-green" ng-show="isIntroActive">
@@ -143,8 +146,8 @@
     </article>
 
     <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
-      <ul id="Container" class="pan man list-plain">
-        <li ng-repeat="color in passingColors" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor && color !== currentCopiedColor }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" style="background-color: {{color.hex}}">
+      <ul id="Container" class="pan man tac list-plain">
+        <li ng-repeat="color in passingColors" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor && color !== currentCopiedColor }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" ng-style={"background-color":"blue"}>
           <div class="dt wi-full ht-full">
             <a href="javascript:void(0)">
               <span class="assistive-text" ng-show="colorModel.label === 'hex'">{{color.hex}}</span>
