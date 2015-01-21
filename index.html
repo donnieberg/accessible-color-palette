@@ -147,7 +147,7 @@
 
     <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
       <ul id="Container" class="pan man tac list-plain">
-        <li ng-repeat="color in passingColors" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor && color !== currentCopiedColor }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" ng-style={"background-color":"blue"}>
+        <li ng-repeat="color in passingColors" class="bmn-colorVariations span_4_of_12-dib span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-fade pointer-cursor" ng-class="{ 'border-selected': color === currentTextColor, 'border-fade': color !== currentTextColor && color !== currentCopiedColor }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" ng-style="setTileBgColor(color)">
           <div class="dt wi-full ht-full">
             <a href="javascript:void(0)">
               <span class="assistive-text" ng-show="colorModel.label === 'hex'">{{color.hex}}</span>
@@ -242,7 +242,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 2
     ======================================= -->
-    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" ng-class="{ 'fadeOutAni': fadeOutInstructions }" style="background-color: rgba({{currentCopiedColor.rgb}},.95)" ng-if="isInstructions2Active">
+    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" ng-class="{ 'fadeOutAni': fadeOutInstructions }" ng-style="setModalBgColor(currentCopiedColor)" ng-if="isInstructions2Active">
       <div class="f3 dtc vac tac {{currentCopiedColor.textColor}}">
         <h2 ng-if="colorModel.label === 'hex'">{{currentCopiedColor.hex}}</h2>
         <h2 ng-if="colorModel.label === 'rgb'">rgb({{currentCopiedColor.rgb}})</h2>

@@ -271,6 +271,18 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
 
+  /**
+   * Dynamically set inline style of color tiles (using ng-style for IE)
+   */
+  $scope.setTileBgColor = function(item) {
+    return { 'background-color' : item.hex }
+  };
+  $scope.setModalBgColor = function(item) {
+    return { 'background-color' : 'rgba(' + item.rgb + ', .95)' }
+  };
+
+
+
   //=============================================
   // VENDOR CODE
   //=============================================
