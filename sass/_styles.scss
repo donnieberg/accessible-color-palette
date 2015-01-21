@@ -108,6 +108,7 @@ button { font-family: 'Montserrat', sans-serif; }
 .ss-delete:hover { background: darken($navy, 5%); }
 
 .input { border: 1px solid white; border-radius: 3px; }
+.inputColor { color: white; background-color: $dark-gray; }
 .select {  border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
 .select-colorModel {  border: none; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; background-size: 28px; }
 .input:hover {  background: rgba(255,255,255,.2); }
@@ -258,8 +259,6 @@ button { font-family: 'Montserrat', sans-serif; }
 
 //IE only styles
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-.select {  border: 1px solid white; border-radius: 3px; cursor: pointer; background: none; }
+.inputColor { color: black; background-color: white; }
 .select::-ms-expand { display: none; }
-.select:hover {  background: rgba(255,255,255,.2); }
-.select-colorModel {  margin-top: 25px; border: none; cursor: pointer; background: none;  }
 }
