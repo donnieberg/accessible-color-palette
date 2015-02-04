@@ -635,8 +635,6 @@ a:visited { text-decoration: none; color: inherit; }
 
 .pinToolbar { position: fixed; top: 0; width: 100%; background: rgba(59, 63, 69, 0.95); }
 
-.fix-footer { position: absolute; bottom: 0; }
-
 /* Borders & Backgrounds ====================================== */
 .border-thin { border-width: 1px; border-style: solid; }
 
@@ -735,7 +733,9 @@ button { font-family: 'Montserrat', sans-serif; }
 .active, .border-fade-circle:hover, .border-fade-circle:focus, .border-fade-circle:active { -webkit-box-shadow: inset 0 0 0 9px #3b3f45, 0 0 1px transparent; box-shadow: inset 0 0 0 9px #3b3f45, 0 0 1px transparent; }
 
 /* Media Queries for Screen Size and Retina ====================================== */
-@media only screen and (max-width: 40em) { .wi-half-s { width: 50%; } }
+@media only screen and (max-width: 40em) { .wi-half-s { width: 50%; }
+  .mbm-s { margin-bottom: 1rem; }
+  .dn-s { display: none; } }
 @media only screen and (min-width: 40em) { .pos-static-ns { position: static; }
   .di-ns { display: inline; }
   .db-ns { display: block; }
@@ -751,7 +751,8 @@ button { font-family: 'Montserrat', sans-serif; }
   .arrow-down-ns { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid white; }
   .pos-arrow-down-ns { position: absolute; bottom: -10px; left: 120px; }
   .pos-WCAGToolTip-ns { top: -186px; left: 13px; width: 250px; }
-  .pos-WCAGselect-ns { top: 35px; } }
+  .pos-WCAGselect-ns { top: 35px; }
+  .fix-footer-ns { position: absolute; bottom: 0; } }
 @media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; }
   .span_2_of_12-ns { width: 16.667%; }
   .span_3_of_12-ns { width: 25%; }

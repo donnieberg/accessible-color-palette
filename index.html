@@ -26,15 +26,15 @@
       </div>
     </article>
 
-    <article id="section1" class="bg-dark dt-ns wi-full" ng-class="{ 'ht-full': !pinToolbar }" ng-show="isSection1Active">
+    <article id="section1" class="bg-dark dt-ns wi-full" ng-class="{ 'ht-full-ns': !pinToolbar }" ng-show="isSection1Active">
       <div class="dtc-ns vac">
         <header class="pam tac text-white mw-950 center border-bottom-gray">
-          <h2>Set Up your Canvas and Text</h2>
-          <p>
+          <h2>Set Up Canvas and Text</h2>
+          <p class="dn-s">
             Enter in a background color, and determine the styling of your text. Accessible text colors will be generated with WCAG's recommend contrast ratio of 4.5 for small text or 3.1 for large text (18 pixels+ or 14 pixels+ bold).
           </p>
         </header>
-        <form accept-charset="utf-8" class="mtm cf">
+        <form accept-charset="utf-8" class="mtm-ns cf">
           <section class="pam text-white mw-950 center cf">
             <div class="prl-ns tal span_3_of_12 fl">
               <label for="backgroundColor" class="mvs db">Background Color</label>
@@ -131,7 +131,7 @@
                   </a>
                 </li>
               </ul>
-              <div class="mtm f4 text-white fr-ns">
+              <div class="mtm mbm-s f4 tac text-white fr-ns">
                 <a href="javascript:void(0)" class="phm mrm dib pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
                   <span class="mrs text-green fa fa-refresh"></span>
                   Start Over
@@ -195,14 +195,14 @@
     <slide-out-left class="text-white leftPanel bg-panel z-top">
     <section class="pvm phl">
       <a href="javascript:void(0)" class="paxs f2 dib ss-delete ease pointer-cursor" ng-click="toggleInfoPanel()" tabindex="{{infoPanelTabIndex}}"></a>
-      <h1 class="ptl f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="mtxs dib ease link" tabindex="{{infoPanelTabIndex}}">Salesforce UX</a></h1>
+      <h1 class="ptl-ns f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="mtxs dib ease link" tabindex="{{infoPanelTabIndex}}">Salesforce UX</a></h1>
       <p>
         It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link" tabindex="{{infoPanelTabIndex}}">WCAG Guidelines</a>.
       </p>
       <p>
         Thanks for checking out our tool. We’d love your feedback.
       </p>
-      <div class="mtx cf">
+      <div class="mtx-ns cf">
         <div class="tac fl">
           <img width="50" height="50" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="circle avatar" />
           <p class="man">Donielle Berg</p>
@@ -216,10 +216,10 @@
           <p class="man f5"><a href="http://adrianrapp.com/" class="ease link" tabindex="{{infoPanelTabIndex}}">adrianrapp.com</a></p>
         </div>
       </div>
-      <footer class="mbm span_10_of_12 tac fix-footer">
-        <a href="https://github.com/donnieberg/accessible-color-palette" title="Github" class="mrl dib bg-icon bg-github-icon" tabindex="{{infoPanelTabIndex}}"></a>
-        <a href="https://twitter.com/SalesforceUX" title="Twitter" class="mrl dib bg-icon bg-twitter-icon" tabindex="{{infoPanelTabIndex}}"></a>
-        <a href="https://dribbble.com/salesforce" title="Dribble" class="mrl dib bg-icon bg-dribble-icon" tabindex="{{infoPanelTabIndex}}"></a>
+      <footer class="ptl mbm tac fix-footer-ns">
+        <a href="https://github.com/donnieberg/accessible-color-palette" title="Github" class="mrm mrl-ns dib bg-icon bg-github-icon" tabindex="{{infoPanelTabIndex}}"></a>
+        <a href="https://twitter.com/SalesforceUX" title="Twitter" class="mrm mrl-ns dib bg-icon bg-twitter-icon" tabindex="{{infoPanelTabIndex}}"></a>
+        <a href="https://dribbble.com/salesforce" title="Dribble" class="mrm mrl-ns dib bg-icon bg-dribble-icon" tabindex="{{infoPanelTabIndex}}"></a>
         <a href="https://medium.com/salesforce-ux" title="Medium" class="dib bg-icon bg-medium-icon" tabindex="{{infoPanelTabIndex}}"></a>
       </footer>
     </section>

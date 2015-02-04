@@ -56,10 +56,6 @@
   width: 100%;
   background: rgba(59,63,69,.95);
 }
-.fix-footer {
-  position: absolute;
-  bottom: 0;
-}
 
 
 
@@ -171,6 +167,8 @@ button { font-family: 'Montserrat', sans-serif; }
 //Only phone
 @media only screen and (max-width: 40em) {
   .wi-half-s { width: 50%; }
+  .mbm-s { margin-bottom: 1rem; }
+  .dn-s { display: none; }
 }
 
 // Larger than phone size screens
@@ -222,6 +220,10 @@ button { font-family: 'Montserrat', sans-serif; }
   .pos-WCAGselect-ns{
     top: 35px;
   }
+  .fix-footer-ns {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 // Larger than phone but smaller than Laptop size screens
@@ -239,7 +241,15 @@ button { font-family: 'Montserrat', sans-serif; }
 }
 
 // Retina screen
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
+//@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx), (max-width: 40em) {
+//  .bg-screenIcon {
+//    width: 206px;
+//    height: 147px;
+//    background: url('../assets/img/accessible-artwork@2x.png') no-repeat;
+//    background-size: 206px 147px;
+//  }
+//}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx){
   .bg-screenIcon-rs {
     width: 345px;
     height: 246px;
