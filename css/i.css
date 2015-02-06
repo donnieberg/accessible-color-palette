@@ -683,7 +683,7 @@ button { font-family: 'Montserrat', sans-serif; }
 
 .link-drkn:hover { font-weight: 700; }
 
-.ss-delete:hover { background: #374c63; }
+.hover-icon:hover { background: #374c63; }
 
 .input { border: 1px solid white; border-radius: 3px; }
 

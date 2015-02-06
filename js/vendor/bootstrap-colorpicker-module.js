@@ -513,6 +513,10 @@ angular.module('colorpicker.module', [])
           colorpickerTemplate.find('button').on('click', function () {
             hideColorpickerTemplate();
           });
+
+          $('#backgroundColor').blur(function() {
+            hideColorpickerTemplate();
+          });
         }
       };
     }]);

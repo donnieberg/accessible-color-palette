@@ -101,7 +101,7 @@ button { font-family: 'Montserrat', sans-serif; }
 .link-drk { border-bottom: 2px solid rgba(0,0,0,.3); }
 .link-drk:hover { border-bottom: 2px solid rgba(0,0,0,1); }
 .link-drkn:hover { font-weight: 700; }
-.ss-delete:hover { background: darken($navy, 5%); }
+.hover-icon:hover { background: darken($navy, 5%); }
 
 .input { border: 1px solid white; border-radius: 3px; }
 .inputColor { color: white; background-color: $dark-gray; }
