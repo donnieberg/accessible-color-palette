@@ -19,8 +19,8 @@
     <article id="intro" class="tac ht-full bg-green" ng-show="isIntroActive">
       <div class="pam vam text-white">
         <h1 class="man caps">Color Safe</h1>
-        <p class="mw-800 center">A tool to help designers explore beautiful, readable color palettes based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link link-green">WCAG Guidelines</a> of text and background contrast ratios.
-          Brought to you with love from <a href="https://medium.com/salesforce-ux" alt="Salesforce on Medium" class="ease link">Salesforce UX.</a>
+        <p class="mw-800 center">A tool to help designers explore beautiful, readable color palettes based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines</a> of text and background contrast ratios.
+          Brought to you with love from <a href="https://medium.com/salesforce-ux" class="ease link">Salesforce UX.</a>
         </p>
         <div class="mvl center bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs"></div>
         <button class="pvm phl mvm f4 fw-bold caps center btn-outline btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
@@ -99,7 +99,7 @@
 
               <div id="userContentTextArea" class="tal mw-950 center" ng-class="{ 'phm-ns': !pinToolbar, 'span_5_of_12 fl': pinToolbar }">
                 <label for="userContent" class="mvs text-white db" ng-if="!pinToolbar">Editable Text</label>
-                <input style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ht-75 tac wi-full bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent"></input>
+                <input id="userContent" style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ht-75 tac wi-full bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent" />
               </div>
 
               <section class="span_3_of_12 fr opacity-0 r-slideOutFadeInAni cf" ng-if="pinToolbar">
@@ -198,20 +198,20 @@
       <a href="javascript:void(0)" class="paxs f2 dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()" tabindex="{{infoPanelTabIndex}}"></a>
       <h1 class="ptl-ns f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="mtxs dib ease link" tabindex="{{infoPanelTabIndex}}">Salesforce UX</a></h1>
       <p>
-        It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" alt="WCAG Guidelines" class="ease link" tabindex="{{infoPanelTabIndex}}">WCAG Guidelines</a>.
+        It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link" tabindex="{{infoPanelTabIndex}}">WCAG Guidelines</a>.
       </p>
       <p>
         Thanks for checking out our tool. We’d love your feedback.
       </p>
       <div class="mtx-ns cf">
         <div class="tac fl">
-          <img width="50" height="50" src="assets/img/donielle.jpeg" alt="Donielle Berg" class="circle avatar" />
+          <img width="50" height="50" src="assets/img/donielle.jpeg" class="circle avatar" />
           <p class="man">Donielle Berg</p>
           <p class="man f5">UX Engineer</p>
           <p class="man f5"><a href="http://donielleberg.com/" class="ease link" tabindex="{{infoPanelTabIndex}}">donielleberg.com</a></p>
         </div>
         <div class="tac fr">
-          <img width="50" height="50" src="assets/img/adrian.jpeg" alt="Adrian Rapp" class="circle avatar" />
+          <img width="50" height="50" src="assets/img/adrian.jpeg" class="circle avatar" />
           <p class="man">Adrian Rapp</p>
           <p class="man f5">Product Designer</p>
           <p class="man f5"><a href="http://adrianrapp.com/" class="ease link" tabindex="{{infoPanelTabIndex}}">adrianrapp.com</a></p>
