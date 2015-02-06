@@ -56,10 +56,6 @@
   width: 100%;
   background: rgba(59,63,69,.95);
 }
-.fix-footer {
-  position: absolute;
-  bottom: 0;
-}
 
 
 
@@ -105,11 +101,11 @@ button { font-family: 'Montserrat', sans-serif; }
 .link-drk { border-bottom: 2px solid rgba(0,0,0,.3); }
 .link-drk:hover { border-bottom: 2px solid rgba(0,0,0,1); }
 .link-drkn:hover { font-weight: 700; }
-.ss-delete:hover { background: darken($navy, 5%); }
+.hover-icon:hover { background: darken($navy, 5%); }
 
 .input { border: 1px solid white; border-radius: 3px; }
+.inputColor { color: white; background-color: $dark-gray; }
 .select {  border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
-.checkbox { transform: scale(1.2); }
 .select-colorModel {  border: none; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; background-size: 28px; }
 .input:hover {  background: rgba(255,255,255,.2); }
 .select:hover {  background: rgba(255,255,255,.2) url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
@@ -171,6 +167,8 @@ button { font-family: 'Montserrat', sans-serif; }
 //Only phone
 @media only screen and (max-width: 40em) {
   .wi-half-s { width: 50%; }
+  .mbm-s { margin-bottom: 1rem; }
+  .dn-s { display: none; }
 }
 
 // Larger than phone size screens
@@ -222,6 +220,10 @@ button { font-family: 'Montserrat', sans-serif; }
   .pos-WCAGselect-ns{
     top: 35px;
   }
+  .fix-footer-ns {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 // Larger than phone but smaller than Laptop size screens
@@ -239,7 +241,15 @@ button { font-family: 'Montserrat', sans-serif; }
 }
 
 // Retina screen
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
+//@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx), (max-width: 40em) {
+//  .bg-screenIcon {
+//    width: 206px;
+//    height: 147px;
+//    background: url('../assets/img/accessible-artwork@2x.png') no-repeat;
+//    background-size: 206px 147px;
+//  }
+//}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx){
   .bg-screenIcon-rs {
     width: 345px;
     height: 246px;
@@ -248,3 +258,20 @@ button { font-family: 'Montserrat', sans-serif; }
   }
 }
 
+
+// Firefox styling for select
+@-moz-document url-prefix() {
+.select {  border: 1px solid white; border-radius: 3px; cursor: pointer; background: none; }
+.select:hover {  background: rgba(255,255,255,.2); }
+.select-colorModel {  margin-top: 25px; border: none; cursor: pointer; background: none;  }
+}
+
+
+//IE only styles
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+.inputColor { color: black; background-color: white; }
+.select {  border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: white url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; background-size: 28px; }
+.select::-ms-expand { display: none; }
+.select-colorModel { margin-top: 25px; }
+.select-colorModel::-ms-expand { display: none; }
+}

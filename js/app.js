@@ -146,7 +146,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
           onMixEnd: function(state){
             $scope.slideToElement('section2', 0, 200);
             $scope.filteredColorsCount = state.totalShow;
-            $scope.filteredColorsCount < 8 ? $scope.lowOptions = true : $scope.lowOptions = false;
+            $scope.$apply(function () {
+              $scope.filteredColorsCount < 8 ? $scope.lowOptions = true : $scope.lowOptions = false;
+            });
             if(state.activeFilter !== '.mix'){
               $scope.currentColorFilter = state.activeFilter;
             }
@@ -160,6 +162,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
   //Remove MixItUp from dom but leave visible nodes there
   $scope.destroyMixItUp = function() {
+    //console.log('the currentColorFilter before destroy is: ', $scope.currentColorFilter);
     $('#Container').mixItUp('destroy');
   };
 
@@ -194,18 +197,13 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Autofocus on input fields that should be modified when you have too few color options
    */
   $scope.updateWCAGlevel = function() {
-    $scope.updatedWCAGlevel = true;
     $scope.WCAGlevel = 'AA';
     $scope.getCurrentRatio();
     $scope.getPassingColors();
     $scope.activatePalette();
     $scope.showInstructions3('We lowered the WCAG level from AAA to AA. This lowers the contrast ratio requirement to 3.1 and allows more colors to meet it.');
-    $timeout(function() {
-      $scope.updatedWCAGlevel = false;
-    }, 600)
   }
   $scope.updateTextInputs = function() {
-    $scope.updatedTextInputs = true;
     if($scope.updateFS){
       $scope.fontSize = 18;
       $scope.showInstructions3('We increased the font size to 18px which is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
@@ -217,12 +215,9 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.getCurrentRatio();
     $scope.getPassingColors();
     $scope.activatePalette();
-    $scope.fadeOutSection = true;
     $timeout(function() {
-      $scope.updatedTextInputs = false;
       $scope.updateFS = false;
       $scope.updateFW = false;
-      $scope.fadeOutSection = false;
     }, 600)
   }
 
@@ -274,6 +269,18 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.currentTextColor.currentRatio >= $scope.currentRatio ? $scope.currentTextColor.pass = true :  $scope.currentTextColor.pass = false;
     //console.log('the current ratio is: ', $scope.currentRatio);
   };
+
+
+  /**
+   * Dynamically set inline style of color tiles (using ng-style for IE)
+   */
+  $scope.setTileBgColor = function(item) {
+    return { 'background-color' : item.hex }
+  };
+  $scope.setModalBgColor = function(item) {
+    return { 'background-color' : 'rgba(' + item.rgb + ', .95)' }
+  };
+
 
 
   //=============================================
