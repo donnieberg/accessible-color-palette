@@ -17,12 +17,12 @@
   </head>
   <body ng-controller="appController" class="ht-full pos-rel bg-dark ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
     <article id="intro" class="tac ht-full bg-green" ng-show="isIntroActive">
+
+      <!--
       <ul class="list-plain">
         <li ng-repeat="item in uniqColors">{{item}},</li>
       </ul>
-
-
-
+      -->
 
       <div class="pam vam text-white">
         <h1 class="man caps">Color Safe</h1>
@@ -40,7 +40,7 @@
         <header class="pam tac text-white mw-950 center border-bottom-gray">
           <h2>Set Up Canvas and Text</h2>
           <p class="dn-s">
-            Enter in a background color, and determine the styling of your text. Accessible text colors will be generated with WCAG's recommend contrast ratio of 4.5 for small text or 3.1 for large text (18 pixels+ or 14 pixels+ bold).
+            Enter in a background color, and determine the styling of your text. Accessible text colors will be generated with <br/><a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines'</a> recommend contrast ratio of 4.5 for small text or 3.1 for large text (18 pixels+ or 14 pixels+ bold).
           </p>
         </header>
         <form accept-charset="utf-8" class="mtm-ns cf">
