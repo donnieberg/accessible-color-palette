@@ -35,7 +35,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    */
   $scope.userContent = 'The quick brown fox jumps over the lazy dog.';
   $scope.fontFamily = $scope.allFontFamilies[0];
-  $scope.fontSize = 22;
+  $scope.fontSize = 16;
   $scope.fontWeight = 400;
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true, textColor: 'text-white' };
@@ -176,8 +176,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
   //Remove MixItUp from dom but leave visible nodes there
   $scope.destroyMixItUp = function() {
-    //console.log('the currentColorFilter before destroy is: ', $scope.currentColorFilter);
     $('#Container').mixItUp('destroy');
+    //console.log('the currentColorFilter before destroy is: ', $scope.currentColorFilter);
   };
 
 
@@ -208,7 +208,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
   /*
-   * Autofocus on input fields that should be modified when you have too few color options
+   * Auto Update Font Size, Font Weight, or WCAG level to return more color options
    */
   $scope.updateWCAGlevel = function() {
     $scope.WCAGlevel = 'AA';
@@ -219,12 +219,12 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   }
   $scope.updateTextInputs = function() {
     if($scope.updateFS){
-      $scope.fontSize = 18;
-      $scope.showInstructions3('We increased the font size to 18px which is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
+      $scope.fontSize = 24;
+      $scope.showInstructions3('We increased the font size to 18pt (24px) which is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
     }
     if($scope.updateFW){
       $scope.fontWeight = 700;
-      $scope.showInstructions3('We increased the font weight to 700. Text 14px and above and bold is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
+      $scope.showInstructions3('We increased the font weight to 700. Text 14pt and above and bold is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
     }
     $scope.getCurrentRatio();
     $scope.getPassingColors();
@@ -266,10 +266,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     var currentFS = $scope.fontSize;
     var currentLevel = $scope.WCAGlevel;
     var currentFW = $scope.fontWeight;
-    if(currentFW >= 700 && currentFS >= 14){
+    if(currentFW >= 700 && currentFS >= 18){
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
       $scope.smallFontSize = false;
-    }else if(currentFS < 18){
+    }else if(currentFS < 24){
       currentLevel === 'AA' ? $scope.currentRatio = 4.5 : $scope.currentRatio = 7.0;
       $scope.smallFontSize = true;
     }else{

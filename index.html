@@ -33,7 +33,7 @@
         <header class="pam-ns tac text-white mw-950 center border-bottom-gray-ns">
           <h2>Set Up Canvas and Text</h2>
           <p class="dn-s">
-            Enter in a background color, and determine the styling of your text. Accessible text colors will be generated with <br/><a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines'</a> recommend contrast ratio of 4.5 for small text or 3.1 for large text (18 pixels+ or 14 pixels+ bold).
+            Enter in a background color, and determine the styling of your text. Accessible text colors will be generated with <br/><a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines'</a> recommend contrast ratio of 4.5 for small text or 3.1 for large text which is text over 18 pt or 14pt bold (24px or 18px bold).
           </p>
         </header>
         <form accept-charset="utf-8" class="mtm-ns cf">
@@ -103,8 +103,8 @@
                 <input id="userContent" style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ht-75 tac wi-full bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent" />
               </div>
 
-              <section class="span_3_of_12 fr-ns opacity-0-ns r-slideOutFadeInAni-ns cf" ng-if="pinToolbar">
-                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
+              <section class="span_3_of_12 fl-ns opacity-0-ns r-slideOutFadeInAni-ns cf" ng-if="pinToolbar">
+                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fl-ns dt">
                   <div class="dtc vac">
                     <span class="f5 db">Current Ratio</span>
                     <span>{{currentTextColor.currentRatio}}</span>
@@ -112,7 +112,7 @@
                     <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
                   </div>
                 </a>
-                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fr dt">
+                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray dt">
                   <div class="dtc vac">
                     <span class="db f5">Goal Ratio</span>
                     <span ng-class="{ 'animated-delay1 bounceIn': updatedWCAGlevel }">{{WCAGlevel}} - {{currentRatio}}</span>
@@ -177,9 +177,9 @@
           </div>
           <div ng-show="smallFontSize && !AAAlevel">
           <h4 class="text-white">Want more color options?</h4>
-            <p class="text-white">Increase font size to 18px OR make font weight bold. Doing one of those will make the text 'Large Text' and give you more color options.</p>
+            <p class="text-white">Increase font size to 18pt (24px) or make font weight bold. Doing one of those will make the text 'Large Text' and give you more color options.</p>
             <p class="tal text-white">
-              <input type="checkbox" name="updateFS" ng-model="updateFS" /><span class="plm">Change Font Size to 18px</span>
+              <input type="checkbox" name="updateFS" ng-model="updateFS" /><span class="plm">Change Font Size to 18pt (24px)</span>
             </p>
             <p class="tal text-white">
               <input type="checkbox" name="updateFW" ng-model="updateFW" /><span class="plm">Make font bold</span>

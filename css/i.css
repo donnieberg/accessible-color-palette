@@ -458,7 +458,7 @@ p { line-height: 1.75rem; }
 
 .text-dark { color: #333333; }
 
-.text-green { color: #03a678; }
+.text-green { color: #008040; }
 
 .text-red { color: #d91e18; }
 
@@ -629,7 +629,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .bg-darker { background-color: #333333; }
 
-.bg-green { background-color: #03a678; }
+.bg-green { background-color: #008040; }
 
 .bg-panel { background-color: #405973; }
 
