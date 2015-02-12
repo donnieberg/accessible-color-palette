@@ -179,17 +179,6 @@
 	transition: all 0.3s ease;
 }
 
-.l-slideOutFadeInAni { animation: l-slideOutFadeIn 0.5s forwards; }
-@keyframes l-slideOutFadeIn {
-  0% { opacity: 0; transform: translateX(300px); }
-  100% { opacity: 1; transform: translateX(0px); }
-}
-.r-slideOutFadeInAni { animation: r-slideOutFadeIn 0.5s forwards; }
-@keyframes r-slideOutFadeIn {
-  0% { opacity: 0; transform: translateX(-300px); }
-  100% { opacity: 1; transform: translateX(0px); }
-}
-
 
 /* Toolbar Animations - shimmer */
 .shimmer {
@@ -207,3 +196,16 @@
   100% { background-position: 458px 0; }
 }
 
+// Larger than phone size screens
+@media only screen and (min-width: 40em) {
+  .l-slideOutFadeInAni-ns { animation: l-slideOutFadeIn 0.5s forwards; }
+  @keyframes l-slideOutFadeIn {
+    0% { opacity: 0; transform: translateX(300px); }
+    100% { opacity: 1; transform: translateX(0px); }
+  }
+  .r-slideOutFadeInAni-ns { animation: r-slideOutFadeIn 0.5s forwards; }
+  @keyframes r-slideOutFadeIn {
+    0% { opacity: 0; transform: translateX(-300px); }
+    100% { opacity: 1; transform: translateX(0px); }
+  }
+}

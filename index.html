@@ -23,7 +23,7 @@
           Empowering designers with accessible, beautiful, and readable color palettes for apps and interfaces based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines</a> of text and background contrast ratios.<br />
           Brought to you with love from Salesforce UX.
         </p>
-        <div class="mvl center dn-s bg-screenIcon-ns bg-screenIcon-rs"></div>
+        <div class="mvl center bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs"></div>
         <button class="pvm phl mvm f4 fw-bold caps center btn-outline btn-outline-ns btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
       </div>
     </article>
@@ -81,7 +81,7 @@
 
           <section ng-class="{ 'pinToolbar z-above pos-abs wi-full': pinToolbar }">
             <div class="phm ptm mw-toolbar center cf">
-              <section class="span_4_of_12 opacity-0 fl l-slideOutFadeInAni" ng-show="pinToolbar && pinToolbar">
+              <section class="span_4_of_12 border-dark-s opacity-0-ns fl l-slideOutFadeInAni-ns" ng-show="pinToolbar && pinToolbar">
                 <div class="wi-20-s span_3_of_12-ns ht-75 pos-rel fl ease" style="background-color: {{currentTextColor.hex}};">
                   <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
                 </div>
@@ -103,7 +103,7 @@
                 <input id="userContent" style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ht-75 tac wi-full bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent" />
               </div>
 
-              <section class="span_3_of_12 fr opacity-0 r-slideOutFadeInAni cf" ng-if="pinToolbar">
+              <section class="span_3_of_12 fr-ns opacity-0-ns r-slideOutFadeInAni-ns cf" ng-if="pinToolbar">
                 <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
                   <div class="dtc vac">
                     <span class="f5 db">Current Ratio</span>

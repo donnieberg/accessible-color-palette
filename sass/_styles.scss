@@ -119,6 +119,7 @@ button { font-family: 'Montserrat', sans-serif; }
   .mbm-s { margin-bottom: 1rem; }
   .dn-s { display: none; }
   .border-white-s { border: 1px solid white; }
+  .border-dark-s { border-bottom: 1px solid $dark-gray; }
 }
 
 //For slightly wider phones like iphone6 and samsung
@@ -137,6 +138,7 @@ button { font-family: 'Montserrat', sans-serif; }
   .fr-ns { float: right; }
   .fl-ns { float: left; }
   .cf-ns { float: none; }
+  .opacity-0-ns { opacity: 0; }
 
   .btn-outline-ns { width: 300px; cursor: pointer; border-radius: 3px; background: none; }
   .border-bottom-gray-ns { border-bottom: 1px solid $light-gray; }
@@ -250,6 +252,14 @@ button { font-family: 'Montserrat', sans-serif; }
   }
 }
 
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx), (max-width: 40em) {
+  .bg-screenIcon {
+    width: 241px;
+    height: 172px;
+    background: url('../assets/img/accessible-artwork@2x.png') no-repeat;
+    background-size: 241px 172px;
+  }
+}
 
 // Firefox styling for select
 @-moz-document url-prefix() {
