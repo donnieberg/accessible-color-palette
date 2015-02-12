@@ -603,24 +603,6 @@ a:visited { text-decoration: none; color: inherit; }
 
 .bg-red-filter { background-color: #E74C3C; }
 
-.border-fade-circle:hover.br-all-filter, .active.br-all-filter { border-color: rgba(255, 255, 255, 0.95); }
-
-.border-fade-circle:hover.br-green-filter, .active.br-green-filter { border-color: #2ECC71; }
-
-.border-fade-circle:hover.br-blue-filter, .active.br-blue-filter { border-color: #3498DB; }
-
-.border-fade-circle:hover.br-purple-filter, .active.br-purple-filter { border-color: #9B59B6; }
-
-.border-fade-circle:hover.br-pink-filter, .active.br-pink-filter { border-color: #D2527F; }
-
-.border-fade-circle:hover.br-gray-filter, .active.br-gray-filter { border-color: #6C7A89; }
-
-.border-fade-circle:hover.br-yellow-filter, .active.br-yellow-filter { border-color: #F2CA27; }
-
-.border-fade-circle:hover.br-orange-filter, .active.br-orange-filter { border-color: #E67E22; }
-
-.border-fade-circle:hover.br-red-filter, .active.br-red-filter { border-color: #E74C3C; }
-
 .wi-20-s { width: 20%; }
 
 .wi-40-s { width: 40%; }
@@ -745,15 +727,23 @@ button { font-family: 'Montserrat', sans-serif; }
   .border-selected-ns { -webkit-box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; box-shadow: inset 0 0 0 2px #f2f2f2, 0 0 1px transparent; }
   /* Color Filter Circles Hover - border-fade */
   .border-fade-circle-ns { -webkit-transition-duration: 0.2s; transition-duration: 0.2s; -webkit-transition-property: -webkit-box-shadow; transition-property: box-shadow; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-box-shadow: inset 0 0 0 2px transparent, 0 0 1px transparent; box-shadow: inset 0 0 0 2px transparent, 0 0 1px transparent; }
-  .active, .border-fade-circle-ns:hover, .border-fade-circle-ns:focus, .border-fade-circle-ns:active { -webkit-box-shadow: inset 0 0 0 9px #3b3f45, 0 0 1px transparent; box-shadow: inset 0 0 0 9px #3b3f45, 0 0 1px transparent; } }
+  .active, .border-fade-circle-ns:hover, .border-fade-circle-ns:focus, .border-fade-circle-ns:active { -webkit-box-shadow: inset 0 0 0 9px #3b3f45, 0 0 1px transparent; box-shadow: inset 0 0 0 9px #3b3f45, 0 0 1px transparent; }
+  .border-fade-circle-ns:hover.br-all-filter, .active.br-all-filter { border-color: rgba(255, 255, 255, 0.95); }
+  .border-fade-circle-ns:hover.br-green-filter, .active.br-green-filter { border-color: #2ECC71; }
+  .border-fade-circle-ns:hover.br-blue-filter, .active.br-blue-filter { border-color: #3498DB; }
+  .border-fade-circle-ns:hover.br-purple-filter, .active.br-purple-filter { border-color: #9B59B6; }
+  .border-fade-circle-ns:hover.br-pink-filter, .active.br-pink-filter { border-color: #D2527F; }
+  .border-fade-circle-ns:hover.br-gray-filter, .active.br-gray-filter { border-color: #6C7A89; }
+  .border-fade-circle-ns:hover.br-yellow-filter, .active.br-yellow-filter { border-color: #F2CA27; }
+  .border-fade-circle-ns:hover.br-orange-filter, .active.br-orange-filter { border-color: #E67E22; }
+  .border-fade-circle-ns:hover.br-red-filter, .active.br-red-filter { border-color: #E74C3C; } }
 @media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; }
   .span_2_of_12-ns { width: 16.667%; }
   .span_3_of_12-ns { width: 25%; }
   .span_4_of_12-ns { width: 33.333%; }
   .span_5_of_12-ns { width: 41.666%; } }
 @media only screen and (min-width: 106em) { .span_1_of_12-x { width: 8.333%; } }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; }
-  .bg-screenIcon-s { display: none; } }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) { .bg-screenIcon-rs { width: 345px; height: 246px; background: url("../assets/img/accessible-artwork@2x.png") no-repeat; -webkit-background-size: 345px 246px; background-size: 345px 246px; } }
 @-moz-document url-prefix() { .select { border: 1px solid white; border-radius: 3px; cursor: pointer; background: none; }
   .select:hover { background: rgba(255, 255, 255, 0.2); }
   .select-colorModel { margin-top: 25px; border: none; cursor: pointer; background: none; } }
