@@ -17,13 +17,6 @@
   </head>
   <body ng-controller="appController" class="ht-full pos-rel bg-dark ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
     <article id="intro" class="tac ht-full bg-green" ng-show="isIntroActive">
-
-      <!--
-      <ul class="list-plain">
-        <li ng-repeat="item in uniqColors">{{item}},</li>
-      </ul>
-      -->
-
       <div class="pam vam text-white">
         <h1 class="man caps">Color Safe</h1>
         <p class="mw-800 center">
@@ -168,8 +161,8 @@
               <span class="f3 fadeInAni {{color.textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
             </div>
             <div class="pbs tal dtc vab" ng-if="color !== currentCopiedColor && color !== currentTextColor">
-              <div class="pls text-cursor fadeInHover {{color.textColor}}" ng-show="colorModel.label === 'hex'" ng-click="preventDefault($event)">HEX: {{color.hex}}</div>
-              <div class="pls text-cursor fadeInHover {{color.textColor}}" ng-show="colorModel.label === 'rgb'" ng-click="preventDefault($event)">RGB: {{color.rgb}}</div>
+              <div class="pls text-cursor fadeInHover text-dark-ns {{color.textColor}}" ng-show="colorModel.label === 'hex'" ng-click="preventDefault($event)">HEX: {{color.hex}}</div>
+              <div class="pls text-cursor fadeInHover text-dark-ns {{color.textColor}}" ng-show="colorModel.label === 'rgb'" ng-click="preventDefault($event)">RGB: {{color.rgb}}</div>
             </div>
           </div>
         </li>
