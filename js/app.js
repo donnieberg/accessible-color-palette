@@ -85,10 +85,22 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Show/hide Instructions 1 and 2 Modals.
    * Only show if it's the users' first time to website using HTML5 Local Storage
    */
+  var isLocalStorageNameSupported = function() {
+    var testKey = 'test', storage = window.sessionStorage;
+    try {
+      storage.setItem(testKey, '1');
+      storage.removeItem(testKey);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
   $scope.showInstructions1 = function() {
-    if (!localStorage['instructions1']) {
-      localStorage['instructions1'] = 'yes';
-      $scope.isInstructions1Active = true;
+    if(isLocalStorageNameSupported()){
+      if (!localStorage['instructions1']) {
+        localStorage['instructions1'] = 'yes';
+        $scope.isInstructions1Active = true;
+      }
     }
   };
 
@@ -111,10 +123,12 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   };
 
   $scope.showInstructions3 = function(message) {
-    if (!localStorage['instructions3']) {
-      localStorage['instructions3'] = 'yes';
-      $scope.isInstructions3Active = true;
-      $scope.instructions3message = message;
+    if(isLocalStorageNameSupported()){
+      if (!localStorage['instructions3']) {
+        localStorage['instructions3'] = 'yes';
+        $scope.isInstructions3Active = true;
+        $scope.instructions3message = message;
+      }
     }
   };
 
