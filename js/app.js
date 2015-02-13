@@ -40,8 +40,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true, textColor: 'text-white' };
   $scope.WCAGlevel = 'AA';
-  $scope.isIntroActive = true;
-  $scope.isSection1Active = false;
+  $scope.isIntroActive = false;
+  $scope.isSection1Active = true;
   $scope.colorModel = $scope.colorModels[0];
 
 
@@ -94,13 +94,26 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       return false;
     }
   };
-  $scope.showInstructions1 = function() {
-    if(isLocalStorageNameSupported()){
-      if (!localStorage['instructions1']) {
-        localStorage['instructions1'] = 'yes';
-        $scope.isInstructions1Active = true;
+
+  $scope.showInstructions1 = function(event) {
+    $scope.isInstructions1Active = true;
+    $(document).bind('keyup', function(event) {
+      if(event.which === 9){
+        event.preventDefault();
+        $('#instructions1Btn').focus();
       }
-    }
+    });
+    $timeout(function() {
+      $('#instructions1Btn').focus();
+    }, 0);
+
+
+    //if(isLocalStorageNameSupported()){
+    //  if (!localStorage['instructions1']) {
+    //    localStorage['instructions1'] = 'yes';
+    //    $scope.isInstructions1Active = true;
+    //  }
+    //}
   };
 
   $scope.hideInstructions1 = function() {

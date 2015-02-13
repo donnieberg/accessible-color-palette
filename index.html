@@ -144,7 +144,7 @@
               </section>
             </section>
 
-            <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1(); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }" tabindex="{{blurGenerateBtn}}">Generate Color Palette</button>
+            <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1($event); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }" tabindex="{{blurGenerateBtn}}">Generate Color Palette</button>
 
           </form>
         </div>
@@ -228,7 +228,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 1
     ======================================= -->
-    <article class="dt wi-full ht-full pos-fix top-0 bg-blur z-above fadeInAni" ng-if="isInstructions1Active" role="dialog">
+    <article id="instructions1" class="dt wi-full ht-full pos-fix top-0 bg-blur z-above fadeInAni" ng-if="isInstructions1Active" role="dialog">
       <div class="dtc vac tac text-white">
         <h3>
           Pick a color to set the text color
@@ -236,14 +236,14 @@
         <p>
           Click on a color square to preview text color in the upper toolbar. <br>Click on the Hex or RGB value in the toolbar to copy to your clipboard.
         </p>
-        <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions1()">Got it</button>
+        <button id="instructions1Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions1()">Got it</button>
       </div>
     </article>
 
     <!-- ====================================
     Full Screen Modal - Instructions 2
     ======================================= -->
-    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" ng-class="{ 'fadeOutAni': fadeOutInstructions }" ng-style="setModalBgColor(currentCopiedColor)" ng-if="isInstructions2Active">
+    <article class="dt wi-full ht-full pos-fix top-0 z-above fadeInAni" ng-class="{ 'fadeOutAni': fadeOutInstructions }" ng-style="setModalBgColor(currentCopiedColor)" ng-if="isInstructions2Active" role="dialog">
       <div class="f3 dtc vac tac {{currentCopiedColor.textColor}}">
         <h2 ng-if="colorModel.label === 'hex'">{{currentCopiedColor.hex}}</h2>
         <h2 ng-if="colorModel.label === 'rgb'">rgb({{currentCopiedColor.rgb}})</h2>
@@ -254,7 +254,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 3
     ======================================= -->
-    <article class="dt wi-full ht-full pos-fix top-0 bg-blur z-above fadeInAni" ng-if="isInstructions3Active">
+    <article class="dt wi-full ht-full pos-fix top-0 bg-blur z-above fadeInAni" ng-if="isInstructions3Active" role="dialog">
       <div class="dtc vac tac text-white">
         <p class="wi-500 center">
           {{instructions3message}}
