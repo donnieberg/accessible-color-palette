@@ -228,7 +228,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 1
     ======================================= -->
-    <article id="instructions1" class="dt wi-full ht-full pos-fix top-0 bg-blur z-above fadeInAni" ng-if="isInstructions1Active" role="dialog">
+    <article class="dt wi-full ht-full pos-fix top-0 bg-blur z-above fadeInAni" ng-if="isInstructions1Active" role="dialog">
       <div class="dtc vac tac text-white">
         <h3>
           Pick a color to set the text color
@@ -259,7 +259,7 @@
         <p class="wi-500 center">
           {{instructions3message}}
         </p>
-        <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions3()">Got it</button>
+        <button id="instructions3Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions3()">Got it</button>
       </div>
     </article>
 

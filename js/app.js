@@ -95,29 +95,32 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }
   };
 
-  $scope.showInstructions1 = function(event) {
-    $scope.isInstructions1Active = true;
+  var trapKeyEventToBtn = function(event, itemToFocus) {
     $(document).bind('keyup', function(event) {
       if(event.which === 9){
         event.preventDefault();
-        $('#instructions1Btn').focus();
+        $(itemToFocus).focus();
       }
     });
-    $timeout(function() {
-      $('#instructions1Btn').focus();
-    }, 0);
+  };
 
-
-    //if(isLocalStorageNameSupported()){
-    //  if (!localStorage['instructions1']) {
-    //    localStorage['instructions1'] = 'yes';
-    //    $scope.isInstructions1Active = true;
-    //  }
-    //}
+  $scope.showInstructions1 = function(event) {
+    if(isLocalStorageNameSupported()){
+      if (!localStorage['instructions1']) {
+        localStorage['instructions1'] = 'yes';
+        $scope.isInstructions1Active = true;
+        $timeout(function() {
+          var btn = $('#instructions1Btn');
+          btn.focus();
+          trapKeyEventToBtn(event, btn);
+        }, 0);
+      }
+    }
   };
 
   $scope.hideInstructions1 = function() {
     $scope.isInstructions1Active = false;
+    $('#Container li:first-child a').focus();
   };
 
   $scope.showInstructions2 = function(color) {
@@ -140,12 +143,18 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
         localStorage['instructions3'] = 'yes';
         $scope.isInstructions3Active = true;
         $scope.instructions3message = message;
+        $timeout(function() {
+          var btn = $('#instructions3Btn');
+          btn.focus();
+          trapKeyEventToBtn(event, btn);
+        }, 0);
       }
     }
   };
 
   $scope.hideInstructions3 = function() {
     $scope.isInstructions3Active = false;
+    $('#Container li:first-child a').focus();
   };
 
   /**
