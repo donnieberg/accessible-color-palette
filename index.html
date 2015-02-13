@@ -16,7 +16,6 @@
     <![endif]-->
   </head>
   <body ng-controller="appController" class="ht-full pos-rel bg-dark ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
-    <section aria-hidden="{{isMainAppAriaHidden}}">
       <article id="intro" class="tac ht-full bg-green" ng-show="isIntroActive">
         <div class="pam vam text-white">
           <h1 class="man caps">Color Safe</h1>
@@ -69,10 +68,11 @@
                     <span class="arrow-down-ns pos-arrow-down-ns"></span>
                   </div>
                   WCAG Standard
-                  <button class="f2 dn di-ns ss-info pos-abs pos-info text-white" ng-click="showWCAGToolTip = !showWCAGToolTip"></button>
+                  <span class="dn di-ns ss-info pos-abs right-0 text-white"></span>
                 </label>
+
                 <div class="pos-rel">
-                  <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full inputColor select ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
+                  <select name="WCAGlevel" ng-focus="showWCAGToolTip = true" ng-blur="showWCAGToolTip = false" id="WCAGlevel" class="pvs phm f4 wi-full inputColor select ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
                 </div>
               </div>
             </section>
@@ -186,13 +186,12 @@
           </div>
         </div>
       </article>
-    </section>
 
 
     <!-- ====================================
     Side Bar slide out from Left of Window
     ======================================= -->
-    <slide-out-left class="text-white leftPanel bg-panel z-top" aria-hidden="{{isSlideOutAriaHidden}}">
+    <slide-out-left class="text-white leftPanel bg-panel z-top">
     <section class="pvm phl">
       <a href="javascript:void(0)" class="paxs f2 dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()"></a>
       <h1 class="ptl-ns f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="mtxs dib ease link">Salesforce UX</a></h1>
