@@ -144,7 +144,8 @@
               </section>
             </section>
 
-            <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1(); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }">Generate Color Palette</button>
+            <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1(); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }" tabindex="{{blurGenerateBtn}}">Generate Color Palette</button>
+
           </form>
         </div>
       </article>
@@ -227,7 +228,7 @@
     <!-- ====================================
     Full Screen Modal - Instructions 1
     ======================================= -->
-    <article class="dt wi-full ht-full pos-fix top-0 bg-blur z-above fadeInAni" ng-if="isInstructions1Active">
+    <article class="dt wi-full ht-full pos-fix top-0 bg-blur z-above fadeInAni" ng-if="isInstructions1Active" role="dialog">
       <div class="dtc vac tac text-white">
         <h3>
           Pick a color to set the text color

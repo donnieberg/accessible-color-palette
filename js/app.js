@@ -187,8 +187,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     var userContentTop = $('#pinToolbar').position().top;
     if(userContentTop >= $document.scrollTop() ){
       $scope.pinToolbar = false;
+      $scope.blurGenerateBtn = 0;
     }else{
       $scope.pinToolbar = true;
+      $scope.blurGenerateBtn = -1;
     }
     $scope.$apply();
   });
@@ -198,14 +200,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Show/hide info left panel
    */
   $scope.toggleInfoPanel = function() {
-    var focusedElementBeforeModal;
-    if(!$scope.isLeftSlideOpen){
-      //when opening info panel, save current tab position in body
-      focusedElementBeforeModal = $(':focus');
-    }else{
-      //when closing info panel, go back to previous tab position in body
-      focusedElementBeforeModal.focus();
-    };
     $scope.isLeftSlideOpen = !$scope.isLeftSlideOpen;
   };
 
