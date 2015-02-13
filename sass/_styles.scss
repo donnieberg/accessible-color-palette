@@ -173,7 +173,7 @@ button { font-family: 'Montserrat', sans-serif; }
     left: 120px;
   }
   .pos-WCAGToolTip-ns {
-    top: -186px;
+    top: -190px;
     left: 13px;
     width: 250px;
   }
@@ -183,6 +183,10 @@ button { font-family: 'Montserrat', sans-serif; }
   .fix-footer-ns {
     position: absolute;
     bottom: 0;
+  }
+  .pos-info {
+    top: -5px;
+    right: -8px;
   }
 
   /* Tile Hover - border-fade */
@@ -195,13 +199,13 @@ button { font-family: 'Montserrat', sans-serif; }
     transform: translateZ(0);
     box-shadow: inset 0 0 0 2px $near-white, 0 0 1px rgba(0, 0, 0, 0);
   }
-  .border-fade-ns:hover, .border-fade-ns:focus, .border-fade-ns:active {
+  .tabAnimation:focus, .border-fade-ns:hover, .border-fade-ns:focus, .border-fade-ns:active {
     box-shadow: inset -12px 0 0 $near-white, 0 0 1px rgba(0, 0, 0, 0),
                 inset 0 -40px 0 $near-white, 0 0 1px rgba(0, 0, 0, 0),
                 inset 0 12px 0 $near-white, 0 0 1px rgba(0, 0, 0, 0),
                 inset 12px 0 0 $near-white, 0 0 1px rgba(0, 0, 0, 0);
   }
-  .border-fade-ns:hover .fadeInHover { visibility: visible; opacity: 1; }
+  .tabAnimation:focus .fadeInHover, .border-fade-ns:hover .fadeInHover { visibility: visible; opacity: 1; }
   .fadeInHover { visibility: hidden; opacity: 0; transition: opacity 0.5s ease-in-out; }
   .border-selected-ns { box-shadow: inset 0 0 0 2px $near-white, 0 0 1px rgba(0, 0, 0, 0);}
 

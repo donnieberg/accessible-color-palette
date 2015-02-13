@@ -16,190 +16,188 @@
     <![endif]-->
   </head>
   <body ng-controller="appController" class="ht-full pos-rel bg-dark ng-cloak" ng-class="{ 'of-hidden': isIntroActive }" ng-cloak>
-    <article id="intro" class="tac ht-full bg-green" ng-show="isIntroActive">
-      <div class="pam vam text-white">
-        <h1 class="man caps">Color Safe</h1>
-        <p class="mw-800 center">
-          Empowering designers with accessible, beautiful, and readable color palettes for apps and interfaces based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines</a> of text and background contrast ratios.<br />
-          Brought to you with love from Salesforce UX.
-        </p>
-        <div class="mvl center bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs"></div>
-        <button class="pvm phl mvm f4 fw-bold caps center btn-outline btn-outline-ns btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
-      </div>
-    </article>
-
-    <article id="section1" class="bg-dark dt-ns wi-full" ng-class="{ 'ht-full-ns': !pinToolbar }" ng-show="isSection1Active">
-      <div class="dtc-ns vac">
-        <header class="pam-ns tac text-white mw-950 center border-bottom-gray-ns">
-          <h2>Set Up Canvas and Text</h2>
-          <p class="dn-s">
-            Enter in a background color, and determine the styling of your text. Accessible text colors will be generated with <br/><a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines'</a> recommend contrast ratio of 4.5 for small text or 3.1 for large text which is text over 18 pt or 14pt bold (24px or 18px bold).
+    <section aria-hidden="{{isMainAppAriaHidden}}">
+      <article id="intro" class="tac ht-full bg-green" ng-show="isIntroActive">
+        <div class="pam vam text-white">
+          <h1 class="man caps">Color Safe</h1>
+          <p class="mw-800 center">
+            Empowering designers with accessible, beautiful, and readable color palettes for apps and interfaces based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines</a> of text and background contrast ratios.<br />
+            Brought to you with love from Salesforce UX.
           </p>
-        </header>
-        <form accept-charset="utf-8" class="mtm-ns cf">
-          <section class="phm pvm-ns text-white mw-950 center cf">
-            <div class="prl-ns tal span_3_of_12 fl">
-              <label for="backgroundColor" class="mvs db">Background Color</label>
-              <input colorpicker colorpicker-position="top" id="backgroundColor" class="pas f4 wi-full inputColor input ease" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
-            </div>
-            <div class="prl-ns tal span_3_of_12 fl">
-              <label for="fontFamily" class="mvs db">Font-Family</label>
-              <div class="pos-rel">
-                <select name="fontFamily" id="fontFamily" class="pvs phm f4 wi-full inputColor select" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
+          <div class="mvl center bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs"></div>
+          <button class="pvm phl mvm f4 fw-bold caps center btn-outline btn-outline-ns btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
+        </div>
+      </article>
+
+      <article id="section1" class="bg-dark dt-ns wi-full" ng-class="{ 'ht-full-ns': !pinToolbar }" ng-show="isSection1Active">
+        <div class="dtc-ns vac">
+          <header class="pam-ns tac text-white mw-950 center border-bottom-gray-ns">
+            <h2>Set Up Canvas and Text</h2>
+            <p class="dn-s">
+              Enter in a background color, and determine the styling of your text. Accessible text colors will be generated with <br/><a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines'</a> recommend contrast ratio of 4.5 for small text or 3.1 for large text which is text over 18 pt or 14pt bold (24px or 18px bold).
+            </p>
+          </header>
+          <form accept-charset="utf-8" class="mtm-ns cf">
+            <section class="phm pvm-ns text-white mw-950 center cf">
+              <div class="prl-ns tal span_3_of_12 fl">
+                <label for="backgroundColor" class="mvs db">Background Color</label>
+                <input colorpicker colorpicker-position="top" id="backgroundColor" class="pas f4 wi-full inputColor input ease" type="text" name="textfield" placeholder="Type hex or rgb value" ng-model="backgroundColor.hex" />
               </div>
-            </div>
-            <div class="prl wi-half-s span_2_of_12-ns fl">
-              <label for="fontSize" class="mvs db">Font-Size (px)</label>
-              <input id="fontSize" class="pas f4 wi-full inputColor input ease" type="text" name="textfield" ng-model="fontSize" />
-            </div>
-            <div class="prl-ns wi-half-s span_2_of_12-ns fl">
-              <label for="fontWeight" class="mvs db">Font-Weight</label>
-              <div class="pos-rel">
-                <select name="fontWeight" id="fontWeight" class="pvs phm f4 wi-full inputColor select ease" ng-model="fontWeight" ng-options="value for value in fontWeights"></select>
-              </div>
-            </div>
-            <div class="span_2_of_12 fl">
-              <label for="WCAGlevel" class="mvs db pos-rel" ng-mouseenter="showWCAGToolTip = true" ng-mouseleave="showWCAGToolTip = false">
-                <div class="pas dn db-ns text-dark pos-abs pos-WCAGToolTip-ns bg-white br-m" ng-if="showWCAGToolTip">
-                  Most of the time, AA is good enough. However some companies and government institutions must meet the AAA level of conformance.
-                  <span class="pvm db">
-                    <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" class="ease link-drk">Learn more at W3C</a>
-                  </span>
-                  <span class="arrow-down-ns pos-arrow-down-ns"></span>
+              <div class="prl-ns tal span_3_of_12 fl">
+                <label for="fontFamily" class="mvs db">Font-Family</label>
+                <div class="pos-rel">
+                  <select name="fontFamily" id="fontFamily" class="pvs phm f4 wi-full inputColor select" ng-model="fontFamily" ng-options="font.alias for font in allFontFamilies"></select>
                 </div>
-                WCAG Standard
-                <span class="dn di-ns ss-info pos-abs right-0"></span>
-              </label>
-              <div class="pos-rel">
-                <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full inputColor select ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
               </div>
-            </div>
-          </section>
-
-          <!-- TODO: make less hacky -->
-          <div id="pinToolbar" ng-class="{ 'ht-pinToolbar': pinToolbar }"></div>
-
-          <section ng-class="{ 'pinToolbar z-above pos-abs wi-full': pinToolbar }">
-            <div class="phm ptm mw-toolbar center cf">
-              <section class="span_4_of_12 border-dark-s opacity-0-ns fl l-slideOutFadeInAni-ns" ng-show="pinToolbar && pinToolbar">
-                <div class="wi-20-s span_3_of_12-ns ht-75 pos-rel fl ease" style="background-color: {{currentTextColor.hex}};">
-                  <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
-                </div>
-
-                <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'hex'">
-                  <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="lht-75">{{currentTextColor.hex}}</span>
-                </a>
-
-                <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb}})" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'rgb'">
-                  <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb}})</span>
-                </a>
-                <div class="phm wi-40-s span_4_of_12-ns ht-75 fl bg-light-gray ease pos-rel">
-                  <select name="colorModel" id="colorModel" class="plm prl f4 caps lht-75 select-colorModel ease" ng-model="colorModel" ng-options="model.label for model in colorModels"></select>
-                </div>
-              </section>
-
-              <div id="userContentTextArea" class="dn-s tal mw-950 center" ng-class="{ 'phm-ns': !pinToolbar, 'span_5_of_12 fl': pinToolbar }">
-                <label for="userContent" class="mvs text-white db" ng-if="!pinToolbar">Editable Text</label>
-                <input id="userContent" style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ht-75 tac wi-full bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent" />
+              <div class="prl wi-half-s span_2_of_12-ns fl">
+                <label for="fontSize" class="mvs db">Font-Size (px)</label>
+                <input id="fontSize" class="pas f4 wi-full inputColor input ease" type="text" name="textfield" ng-model="fontSize" />
               </div>
-
-              <section class="span_3_of_12 fl-ns opacity-0-ns r-slideOutFadeInAni-ns cf" ng-if="pinToolbar">
-                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
-                  <div class="dtc vac">
-                    <span class="f5 db">Current Ratio</span>
-                    <span>{{currentTextColor.currentRatio}}</span>
-                    <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span><span class="assistive-text" ng-if="currentTextColor.pass">Pass</span>
-                    <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
+              <div class="prl-ns wi-half-s span_2_of_12-ns fl">
+                <label for="fontWeight" class="mvs db">Font-Weight</label>
+                <div class="pos-rel">
+                  <select name="fontWeight" id="fontWeight" class="pvs phm f4 wi-full inputColor select ease" ng-model="fontWeight" ng-options="value for value in fontWeights"></select>
+                </div>
+              </div>
+              <div class="span_2_of_12 fl">
+                <label for="WCAGlevel" class="mvs db pos-rel" ng-mouseenter="showWCAGToolTip = true" ng-mouseleave="showWCAGToolTip = false">
+                  <div class="pas dn db-ns text-dark pos-abs pos-WCAGToolTip-ns bg-white br-m" ng-if="showWCAGToolTip">
+                    Most of the time, AA is good enough. However some companies and government institutions must meet the AAA level of conformance.
+                    <span class="pvm db">
+                      <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" class="ease link-drk">Learn more at W3C</a>
+                    </span>
+                    <span class="arrow-down-ns pos-arrow-down-ns"></span>
                   </div>
-                </a>
-                <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
-                  <div class="dtc vac">
-                    <span class="db f5">Goal Ratio</span>
-                    <span ng-class="{ 'animated-delay1 bounceIn': updatedWCAGlevel }">{{WCAGlevel}} - {{currentRatio}}</span>
-                  </div>
-                </a>
-              </section>
-            </div>
-            <section class="phm mw-toolbar center fadeInAni cf" ng-show="pinToolbar">
-              <ul class="pan dn db-ns fl-ns list-plain list-horz">
-                <li class="mhxs caps fw-light color-filter filter circle border-fade-circle-ns border-thick border-white br-all-filter bg-all-filter li-item-js" data-filter="all">
-                  <a href="javascript:void(0)" title="Show all" class="db">
-                    <p class="f5 caps tac fw-700">All</p>
-                  </a>
-                </li>
-                <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light color-filter filter circle border-fade-circle-ns border-thick border-white {{ 'br-' + color.name + '-filter'}} {{'bg-' + color.name + '-filter'}} li-item-js" data-filter=".category-{{color.name}}">
-                  <a href="javascript:void(0)" title="Filter by {{color.name}}" class="db">
-                    <p class="f5 caps tac fw-700 opacity-0">{{color.name}}</p>
-                  </a>
-                </li>
-              </ul>
-              <div class="mtm mbm-s f4 tac text-white fr-ns">
-                <a href="javascript:void(0)" class="phm mrm-sm mrm-ns dib pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
-                  <span class="mrs text-green fa fa-refresh"></span>
-                  Start Over
-                </a>
-                <a href="javascript:void(0)" class="phm dib btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
+                  WCAG Standard
+                  <button class="f2 dn di-ns ss-info pos-abs pos-info text-white" ng-click="showWCAGToolTip = !showWCAGToolTip"></button>
+                </label>
+                <div class="pos-rel">
+                  <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full inputColor select ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
+                </div>
               </div>
             </section>
-          </section>
 
-          <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1(); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }">Generate Color Palette</button>
-        </form>
-      </div>
-    </article>
+            <!-- TODO: make less hacky -->
+            <div id="pinToolbar" ng-class="{ 'ht-pinToolbar': pinToolbar }"></div>
 
-    <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
-      <ul id="Container" class="pan man tac list-plain">
-        <li ng-repeat="color in passingColors" class="bmn-colorVariations wi-half-s span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} border-white-s border-fade-ns pointer-cursor" ng-class="{ 'border-selected-ns': color === currentTextColor, 'border-fade-ns': color !== currentTextColor && color !== currentCopiedColor }" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" ng-style="setTileBgColor(color)">
-          <div class="dt wi-full ht-full">
-            <a href="javascript:void(0)">
-              <span class="assistive-text" ng-show="colorModel.label === 'hex'">{{color.hex}}</span>
-              <span class="assistive-text" ng-show="colorModel.label === 'rgb'">{{color.rgb}}</span>
+            <section ng-class="{ 'pinToolbar z-above pos-abs wi-full': pinToolbar }">
+              <div class="phm ptm mw-toolbar center cf">
+                <section class="span_4_of_12 border-dark-s opacity-0-ns fl l-slideOutFadeInAni-ns" ng-show="pinToolbar && pinToolbar">
+                  <div class="wi-20-s span_3_of_12-ns ht-75 pos-rel fl ease" style="background-color: {{currentTextColor.hex}};">
+                    <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
+                  </div>
+
+                  <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'hex'">
+                    <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="lht-75">{{currentTextColor.hex}}</span>
+                  </a>
+
+                  <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb}})" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'rgb'">
+                    <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb}})</span>
+                  </a>
+                  <div class="phm wi-40-s span_4_of_12-ns ht-75 fl bg-light-gray ease pos-rel">
+                    <select name="colorModel" id="colorModel" class="plm prl f4 caps lht-75 select-colorModel ease" ng-model="colorModel" ng-options="model.label for model in colorModels"></select>
+                  </div>
+                </section>
+
+                <div id="userContentTextArea" class="dn-s tal mw-950 center" ng-class="{ 'phm-ns': !pinToolbar, 'span_5_of_12 fl': pinToolbar }">
+                  <label for="userContent" class="mvs text-white db" ng-if="!pinToolbar">Editable Text</label>
+                  <input id="userContent" style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ht-75 tac wi-full bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent" />
+                </div>
+
+                <section class="span_3_of_12 fl-ns opacity-0-ns r-slideOutFadeInAni-ns cf" ng-if="pinToolbar">
+                  <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
+                    <div class="dtc vac">
+                      <span class="f5 db">Current Ratio</span>
+                      <span>{{currentTextColor.currentRatio}}</span>
+                      <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span><span class="assistive-text" ng-if="currentTextColor.pass">Pass</span>
+                      <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
+                    <div class="dtc vac">
+                      <span class="db f5">Goal Ratio</span>
+                      <span ng-class="{ 'animated-delay1 bounceIn': updatedWCAGlevel }">{{WCAGlevel}} - {{currentRatio}}</span>
+                    </div>
+                  </a>
+                </section>
+              </div>
+              <section class="phm mw-toolbar center fadeInAni cf" ng-show="pinToolbar">
+                <ul class="pan dn db-ns fl-ns list-plain list-horz">
+                  <li class="mhxs caps fw-light color-filter filter circle border-fade-circle-ns border-thick border-white br-all-filter bg-all-filter li-item-js" data-filter="all">
+                    <a href="javascript:void(0)" title="Show all" class="db">
+                      <p class="f5 caps tac fw-700">All</p>
+                    </a>
+                  </li>
+                  <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light color-filter filter circle border-fade-circle-ns border-thick border-white {{ 'br-' + color.name + '-filter'}} {{'bg-' + color.name + '-filter'}} li-item-js" data-filter=".category-{{color.name}}">
+                    <a href="javascript:void(0)" title="Filter by {{color.name}}" class="db">
+                      <p class="f5 caps tac fw-700 opacity-0">{{color.name}}</p>
+                    </a>
+                  </li>
+                </ul>
+                <div class="mtm mbm-s f4 tac text-white fr-ns">
+                  <a href="javascript:void(0)" class="phm mrm-sm mrm-ns dib pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
+                    <span class="mrs text-green fa fa-refresh"></span>
+                    Start Over
+                  </a>
+                  <a href="javascript:void(0)" class="phm dib btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
+                </div>
+              </section>
+            </section>
+
+            <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1(); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }">Generate Color Palette</button>
+          </form>
+        </div>
+      </article>
+
+      <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
+        <ul id="Container" class="pan man tac list-plain">
+          <li ng-repeat="color in passingColors" class="bmn-colorVariations wi-half-s span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} pointer-cursor" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" ng-style="setTileBgColor(color)">
+            <a href="javascript:void(0)" class="dt wi-full ht-full border-white-s tabAnimation" ng-class="{ 'border-selected-ns': color === currentTextColor, 'border-fade-ns': color !== currentTextColor && color !== currentCopiedColor }">
+              <div class="dtc vac">
+                <span class="f3 fadeInAni fa fa-check {{color.textColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
+                <span class="f3 fadeInAni {{color.textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
+              </div>
+              <div class="pbs tal dtc vab" ng-if="color !== currentCopiedColor && color !== currentTextColor">
+                <span class="pls text-cursor fadeInHover text-dark-ns {{color.textColor}}" ng-show="colorModel.label === 'hex'" ng-click="preventDefault($event)">HEX: {{color.hex}}</span>
+                <span class="pls text-cursor fadeInHover text-dark-ns {{color.textColor}}" ng-show="colorModel.label === 'rgb'" ng-click="preventDefault($event)">RGB: {{color.rgb}}</span>
+              </div>
             </a>
-            <div class="dtc vac">
-              <span class="f3 fadeInAni fa fa-check {{color.textColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
-              <span class="f3 fadeInAni {{color.textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
-            </div>
-            <div class="pbs tal dtc vab" ng-if="color !== currentCopiedColor && color !== currentTextColor">
-              <div class="pls text-cursor fadeInHover text-dark-ns {{color.textColor}}" ng-show="colorModel.label === 'hex'" ng-click="preventDefault($event)">HEX: {{color.hex}}</div>
-              <div class="pls text-cursor fadeInHover text-dark-ns {{color.textColor}}" ng-show="colorModel.label === 'rgb'" ng-click="preventDefault($event)">RGB: {{color.rgb}}</div>
-            </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
 
-      <div class="pbxx tac">
-        <div class="wi-500 opacity-0 center" ng-class="{ 'fadeInAni': lowOptions && (smallFontSize || AAAlevel) }">
-          <div ng-show="AAAlevel">
-          <h4 class="text-white">Want more color options?</h4>
-            <p class="text-white">Changing the WCAG level to AA is less strict and will give you more color options.</p>
-            <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateWCAGlevel(); destroyMixItUp()">Try it</button>
-          </div>
-          <div ng-show="smallFontSize && !AAAlevel">
-          <h4 class="text-white">Want more color options?</h4>
-            <p class="text-white">Increase font size to 18pt (24px) or make font weight bold. Doing one of those will make the text 'Large Text' and give you more color options.</p>
-            <p class="tal text-white">
-              <input type="checkbox" name="updateFS" ng-model="updateFS" /><span class="plm">Change Font Size to 18pt (24px)</span>
-            </p>
-            <p class="tal text-white">
-              <input type="checkbox" name="updateFW" ng-model="updateFW" /><span class="plm">Make font bold</span>
-            </p>
-            <button class="pvm phl mvl f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateTextInputs(); destroyMixItUp();">Try it</button>
+        <div class="pbxx tac">
+          <div class="wi-500 opacity-0 center" ng-class="{ 'fadeInAni': lowOptions && (smallFontSize || AAAlevel) }">
+            <div ng-show="AAAlevel">
+              <h4 class="text-white">Want more color options?</h4>
+              <p class="text-white">Changing the WCAG level to AA is less strict and will give you more color options.</p>
+              <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateWCAGlevel(); destroyMixItUp()">Try it</button>
+            </div>
+            <div ng-show="smallFontSize && !AAAlevel">
+              <h4 class="text-white">Want more color options?</h4>
+              <p class="text-white">Increase font size to 18pt (24px) or make font weight bold. Doing one of those will make the text 'Large Text' and give you more color options.</p>
+              <p class="tal text-white">
+                <input type="checkbox" name="updateFS" ng-model="updateFS" /><span class="plm">Change Font Size to 18pt (24px)</span>
+              </p>
+              <p class="tal text-white">
+                <input type="checkbox" name="updateFW" ng-model="updateFW" /><span class="plm">Make font bold</span>
+              </p>
+              <button class="pvm phl mvl f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateTextInputs(); destroyMixItUp();">Try it</button>
+            </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </section>
 
 
     <!-- ====================================
     Side Bar slide out from Left of Window
     ======================================= -->
-    <slide-out-left class="text-white leftPanel bg-panel z-top">
+    <slide-out-left class="text-white leftPanel bg-panel z-top" aria-hidden="{{isSlideOutAriaHidden}}">
     <section class="pvm phl">
-      <a href="javascript:void(0)" class="paxs f2 dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()" tabindex="{{infoPanelTabIndex}}"></a>
-      <h1 class="ptl-ns f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="mtxs dib ease link" tabindex="{{infoPanelTabIndex}}">Salesforce UX</a></h1>
+      <a href="javascript:void(0)" class="paxs f2 dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()"></a>
+      <h1 class="ptl-ns f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="mtxs dib ease link">Salesforce UX</a></h1>
       <p>
-        It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link" tabindex="{{infoPanelTabIndex}}">WCAG Guidelines</a>.
+        It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link">WCAG Guidelines</a>.
       </p>
       <p>
         Thanks for checking out our tool. We’d love your feedback.
@@ -209,20 +207,20 @@
           <img width="50" height="50" src="assets/img/donielle.jpeg" class="circle avatar" />
           <p class="man">Donielle Berg</p>
           <p class="man f5">UX Engineer</p>
-          <p class="man f5"><a href="http://donielleberg.com/" class="ease link" tabindex="{{infoPanelTabIndex}}">donielleberg.com</a></p>
+          <p class="man f5"><a href="http://donielleberg.com/" class="ease link">donielleberg.com</a></p>
         </div>
         <div class="tac fr">
           <img width="50" height="50" src="assets/img/adrian.jpeg" class="circle avatar" />
           <p class="man">Adrian Rapp</p>
           <p class="man f5">Product Designer</p>
-          <p class="man f5"><a href="http://adrianrapp.com/" class="ease link" tabindex="{{infoPanelTabIndex}}">adrianrapp.com</a></p>
+          <p class="man f5"><a href="http://adrianrapp.com/" class="ease link">adrianrapp.com</a></p>
         </div>
       </div>
       <footer class="ptl mbm tac fix-footer-ns">
-        <a href="https://github.com/donnieberg/accessible-color-palette" title="Github" class="mrm mrl-ns dib bg-icon bg-github-icon" tabindex="{{infoPanelTabIndex}}"></a>
-        <a href="https://twitter.com/SalesforceUX" title="Twitter" class="mrm mrl-ns dib bg-icon bg-twitter-icon" tabindex="{{infoPanelTabIndex}}"></a>
-        <a href="https://dribbble.com/salesforce" title="Dribble" class="mrm mrl-ns dib bg-icon bg-dribble-icon" tabindex="{{infoPanelTabIndex}}"></a>
-        <a href="https://medium.com/salesforce-ux" title="Medium" class="dib bg-icon bg-medium-icon" tabindex="{{infoPanelTabIndex}}"></a>
+        <a href="https://github.com/donnieberg/accessible-color-palette" title="Github" class="mrm mrl-ns dib bg-icon bg-github-icon"></a>
+        <a href="https://twitter.com/SalesforceUX" title="Twitter" class="mrm mrl-ns dib bg-icon bg-twitter-icon"></a>
+        <a href="https://dribbble.com/salesforce" title="Dribble" class="mrm mrl-ns dib bg-icon bg-dribble-icon"></a>
+        <a href="https://medium.com/salesforce-ux" title="Medium" class="dib bg-icon bg-medium-icon"></a>
       </footer>
     </section>
     </slide-out-left>
@@ -282,12 +280,12 @@
     <!-- Google Analytics -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-59442283-1', 'auto');
-      ga('send', 'pageview');
+ga('create', 'UA-59442283-1', 'auto');
+ga('send', 'pageview');
 
     </script>
   </body>

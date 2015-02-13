@@ -40,9 +40,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true, textColor: 'text-white' };
   $scope.WCAGlevel = 'AA';
-  $scope.isIntroActive = true;
-  $scope.isSection1Active = false;
-  $scope.infoPanelTabIndex = -1;
+  $scope.isIntroActive = false;
+  $scope.isSection1Active = true;
   $scope.colorModel = $scope.colorModels[0];
 
 
@@ -199,12 +198,15 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Show/hide info left panel
    */
   $scope.toggleInfoPanel = function() {
-    $scope.isLeftSlideOpen = !$scope.isLeftSlideOpen;
-    if($scope.isLeftSlideOpen){
-      $scope.infoPanelTabIndex = 0;
+    var focusedElementBeforeModal;
+    if(!$scope.isLeftSlideOpen){
+      //when opening info panel, save current tab position in body
+      focusedElementBeforeModal = $(':focus');
     }else{
-      $scope.infoPanelTabIndex = -1;
-    }
+      //when closing info panel, go back to previous tab position in body
+      focusedElementBeforeModal.focus();
+    };
+    $scope.isLeftSlideOpen = !$scope.isLeftSlideOpen;
   };
 
   /*
