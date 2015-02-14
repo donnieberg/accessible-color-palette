@@ -120,7 +120,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
   $scope.hideInstructions1 = function() {
     $scope.isInstructions1Active = false;
-    $('#Container li:first-child a').focus();
+    $(document).unbind('keyup');
+    $scope.focus1stColorTile();
   };
 
   $scope.showInstructions2 = function(color) {
@@ -154,7 +155,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
   $scope.hideInstructions3 = function() {
     $scope.isInstructions3Active = false;
-    $('#Container li:first-child a').focus();
+    $scope.focus1stColorTile();
+    $(document).unbind('keyup');
   };
 
   /**
@@ -275,7 +277,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       });
     }else{
       $scope.isLeftSlideOpen = false;
-      $('#Container li:first-child a').focus();
+      $scope.focus1stColorTile();
       $(document).unbind('keydown');
     }
   };
@@ -308,6 +310,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $scope.updateFW = false;
     }, 600)
   }
+
+  $scope.focus1stColorTile = function() {
+    $('#Container li:first-child a').focus();
+  };
 
 
   //=============================================
