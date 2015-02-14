@@ -40,8 +40,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true, textColor: 'text-white' };
   $scope.WCAGlevel = 'AA';
-  $scope.isIntroActive = false;
-  $scope.isSection1Active = true;
+  $scope.isIntroActive = true;
+  $scope.isSection1Active = false;
   $scope.colorModel = $scope.colorModels[0];
 
 
@@ -221,9 +221,65 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   /**
    * Show/hide info left panel
    */
+  var focusableElementsString ="a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+
   $scope.toggleInfoPanel = function() {
-    $scope.isLeftSlideOpen = !$scope.isLeftSlideOpen;
+    if(!$scope.isLeftSlideOpen){
+      $scope.isLeftSlideOpen = true;
+      $('#closePanel').focus();
+
+      $(document).bind('keydown', function(evt) {
+        // if tab or shift-tab pressed
+        if ( evt.which == 9 ) {
+
+          // get list of all children elements in given object
+          var o = $('#infoPanel').find('*');
+
+          // get list of focusable items
+          var focusableItems;
+          focusableItems = o.filter(focusableElementsString).filter(':visible')
+
+          // get currently focused item
+          var focusedItem;
+          focusedItem = jQuery(':focus');
+
+          // get the number of focusable items
+          var numberOfFocusableItems;
+          numberOfFocusableItems = focusableItems.length
+
+          // get the index of the currently focused item
+          var focusedItemIndex;
+          focusedItemIndex = focusableItems.index(focusedItem);
+
+          if (evt.shiftKey) {
+              console.log('backwards');
+            //back tab
+            // if focused on first item and user preses back-tab, go to the last focusable item
+            if(focusedItemIndex==0){
+              //console.log('backwards from first item');
+              focusableItems.get(numberOfFocusableItems-1).focus();
+              evt.preventDefault();
+            }
+
+          } else {
+              console.log('forwards');
+            //forward tab
+            // if focused on the last item and user preses tab, go to the first focusable item
+            if(focusedItemIndex==numberOfFocusableItems-1){
+              //console.log('forwards from last item');
+              focusableItems.get(0).focus();
+              evt.preventDefault();
+            }
+          }
+        }
+      });
+    }else{
+      $scope.isLeftSlideOpen = false;
+      $('#Container li:first-child a').focus();
+      $(document).unbind('keydown');
+    }
   };
+
 
   /*
    * Auto Update Font Size, Font Weight, or WCAG level to return more color options
