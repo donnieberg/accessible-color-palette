@@ -59,7 +59,7 @@
                 </div>
               </div>
               <div class="span_2_of_12 fl">
-                <label for="WCAGlevel" class="mvs db pos-rel" ng-mouseenter="showWCAGToolTip = true" ng-mouseleave="showWCAGToolTip = false">
+                <label for="WCAGlevel" class="mvs db pos-rel" ng-mouseenter="toggleWCAGToolTip()" ng-mouseleave="toggleWCAGToolTip()">
                   <div class="pas dn db-ns text-dark pos-abs pos-WCAGToolTip-ns bg-white br-m" ng-if="showWCAGToolTip">
                     Most of the time, AA is good enough. However some companies and government institutions must meet the AAA level of conformance.
                     <span class="pvm db">
@@ -68,11 +68,13 @@
                     <span class="arrow-down-ns pos-arrow-down-ns"></span>
                   </div>
                   WCAG Standard
-                  <span class="dn di-ns ss-info pos-abs right-0 text-white"></span>
+                  <a href="javascript:void(0)" ng-click="toggleWCAGToolTip()">
+                    <span class="dn di-ns ss-info pos-abs right-0 text-white"></span>
+                    <span class="assistive-text">Click for more info on WCAG levels</span>
+                  </a>
                 </label>
-
                 <div class="pos-rel">
-                  <select name="WCAGlevel" ng-focus="showWCAGToolTip = true" ng-blur="showWCAGToolTip = false" id="WCAGlevel" class="pvs phm f4 wi-full inputColor select ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
+                  <select name="WCAGlevel" id="WCAGlevel" class="pvs phm f4 wi-full inputColor select ease" ng-model="WCAGlevel" ng-options="grade for grade in accessibilityGrades"></select>
                 </div>
               </div>
             </section>
@@ -130,7 +132,7 @@
                   </li>
                   <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light color-filter filter circle border-fade-circle-ns border-thick border-white {{ 'br-' + color.name + '-filter'}} {{'bg-' + color.name + '-filter'}} li-item-js" data-filter=".category-{{color.name}}">
                     <a href="javascript:void(0)" title="Filter by {{color.name}}" class="db">
-                      <p class="f5 caps tac fw-700 opacity-0">{{color.name}}</p>
+                      <p class="f5 caps tac fw-700 opacity-0"><span class="assistive-text">Filter by </span>{{color.name}}</p>
                     </a>
                   </li>
                 </ul>
@@ -167,7 +169,7 @@
         </ul>
 
         <div class="pbxx tac">
-          <div class="wi-500 opacity-0 center" ng-class="{ 'fadeInAni': lowOptions && (smallFontSize || AAAlevel) }">
+          <div class="wi-500 opacity-0 fadeInAni center" ng-if="lowOptions && (smallFontSize || AAAlevel)">
             <div ng-show="AAAlevel">
               <h4 class="text-white">Want more color options?</h4>
               <p class="text-white">Changing the WCAG level to AA is less strict and will give you more color options.</p>
@@ -177,7 +179,7 @@
               <h4 class="text-white">Want more color options?</h4>
               <p class="text-white">Increase font size to 18pt (24px) or make font weight bold. Doing one of those will make the text 'Large Text' and give you more color options.</p>
               <p class="tal text-white">
-                <input type="checkbox" name="updateFS" ng-model="updateFS" /><span class="plm">Change Font Size to 18pt (24px)</span>
+                <input type="checkbox" name="updateFS" ng-model="$parent.updateFS" /><span class="plm">Change Font Size to 18pt (24px)</span>
               </p>
               <p class="tal text-white">
                 <input type="checkbox" name="updateFW" ng-model="updateFW" /><span class="plm">Make font bold</span>
@@ -192,9 +194,11 @@
     <!-- ====================================
     Side Bar slide out from Left of Window
     ======================================= -->
-    <slide-out-left class="text-white leftPanel bg-panel z-top">
+    <slide-out-left class="text-white leftPanel bg-panel z-top" ng-if="isLeftSlideOpen">
     <section id="infoPanel" class="pvm phl">
-      <a id="closePanel" href="javascript:void(0)" class="paxs f2 dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()"></a>
+      <a id="closePanel" href="javascript:void(0)" class="paxs f2 dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()">
+        <span class="assistive-text">Close Color Safe Info Panel</span>
+      </a>
       <h1 class="ptl-ns f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="mtxs dib ease link">Salesforce UX</a></h1>
       <p>
         It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link">WCAG Guidelines</a>.
@@ -236,7 +240,7 @@
         <p>
           Click on a color square to preview text color in the upper toolbar. <br>Click on the Hex or RGB value in the toolbar to copy to your clipboard.
         </p>
-        <button id="instructions1Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions1()">Got it</button>
+        <button id="instructions1Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions1(); focusFirstTile()">Got it</button>
       </div>
     </article>
 
@@ -259,7 +263,7 @@
         <p class="wi-500 center">
           {{instructions3message}}
         </p>
-        <button id="instructions3Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions3()">Got it</button>
+        <button id="instructions3Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions3(); focusFirstTile()">Got it</button>
       </div>
     </article>
 

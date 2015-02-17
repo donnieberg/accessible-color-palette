@@ -44,6 +44,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.isSection1Active = false;
   $scope.colorModel = $scope.colorModels[0];
 
+  $scope.focusFirstTile = function() {
+    $('#Container li:first-child a').focus();
+  };
+
 
   //==============================================================
   /**
@@ -121,7 +125,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.hideInstructions1 = function() {
     $scope.isInstructions1Active = false;
     $(document).unbind('keyup');
-    $scope.focus1stColorTile();
   };
 
   $scope.showInstructions2 = function(color) {
@@ -155,7 +158,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
   $scope.hideInstructions3 = function() {
     $scope.isInstructions3Active = false;
-    $scope.focus1stColorTile();
     $(document).unbind('keyup');
   };
 
@@ -228,56 +230,58 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.toggleInfoPanel = function() {
     if(!$scope.isLeftSlideOpen){
       $scope.isLeftSlideOpen = true;
-      $('#closePanel').focus();
+      $timeout(function() {
+        $('#closePanel').focus();
 
-      $(document).bind('keydown', function(evt) {
-        // if tab or shift-tab pressed
-        if ( evt.which == 9 ) {
+        $(document).bind('keydown', function(evt) {
+          // if tab or shift-tab pressed
+          if ( evt.which == 9 ) {
 
-          // get list of all children elements in given object
-          var o = $('#infoPanel').find('*');
+            // get list of all children elements in given object
+            var o = $('#infoPanel').find('*');
 
-          // get list of focusable items
-          var focusableItems;
-          focusableItems = o.filter(focusableElementsString).filter(':visible')
+            // get list of focusable items
+            var focusableItems;
+            focusableItems = o.filter(focusableElementsString).filter(':visible')
 
           // get currently focused item
           var focusedItem;
-          focusedItem = jQuery(':focus');
+        focusedItem = jQuery(':focus');
 
-          // get the number of focusable items
-          var numberOfFocusableItems;
-          numberOfFocusableItems = focusableItems.length
+        // get the number of focusable items
+        var numberOfFocusableItems;
+        numberOfFocusableItems = focusableItems.length
 
           // get the index of the currently focused item
           var focusedItemIndex;
-          focusedItemIndex = focusableItems.index(focusedItem);
+        focusedItemIndex = focusableItems.index(focusedItem);
 
-          if (evt.shiftKey) {
-              console.log('backwards');
-            //back tab
-            // if focused on first item and user preses back-tab, go to the last focusable item
-            if(focusedItemIndex==0){
-              //console.log('backwards from first item');
-              focusableItems.get(numberOfFocusableItems-1).focus();
-              evt.preventDefault();
-            }
+        if (evt.shiftKey) {
+          console.log('backwards');
+          //back tab
+          // if focused on first item and user preses back-tab, go to the last focusable item
+          if(focusedItemIndex==0){
+            //console.log('backwards from first item');
+            focusableItems.get(numberOfFocusableItems-1).focus();
+            evt.preventDefault();
+          }
 
-          } else {
-              console.log('forwards');
-            //forward tab
-            // if focused on the last item and user preses tab, go to the first focusable item
-            if(focusedItemIndex==numberOfFocusableItems-1){
-              //console.log('forwards from last item');
-              focusableItems.get(0).focus();
-              evt.preventDefault();
-            }
+        } else {
+          console.log('forwards');
+          //forward tab
+          // if focused on the last item and user preses tab, go to the first focusable item
+          if(focusedItemIndex==numberOfFocusableItems-1){
+            //console.log('forwards from last item');
+            focusableItems.get(0).focus();
+            evt.preventDefault();
           }
         }
-      });
+          }
+        });
+      }, 500);
     }else{
       $scope.isLeftSlideOpen = false;
-      $scope.focus1stColorTile();
+      $scope.focusfirstColorTile();
       $(document).unbind('keydown');
     }
   };
@@ -292,8 +296,10 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.getPassingColors();
     $scope.activatePalette();
     $scope.showInstructions3('We lowered the WCAG level from AAA to AA. This lowers the contrast ratio requirement to 3.1 and allows more colors to meet it.');
+    firstColorTile.focus();
   }
   $scope.updateTextInputs = function() {
+    console.log('updateFS is ', $scope.updateFS);
     if($scope.updateFS){
       $scope.fontSize = 24;
       $scope.showInstructions3('We increased the font size to 18pt (24px) which is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
@@ -309,10 +315,11 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $scope.updateFS = false;
       $scope.updateFW = false;
     }, 600)
+    firstColorTile.focus();
   }
 
-  $scope.focus1stColorTile = function() {
-    $('#Container li:first-child a').focus();
+  $scope.toggleWCAGToolTip = function() {
+    $scope.showWCAGToolTip = !$scope.showWCAGToolTip;
   };
 
 
