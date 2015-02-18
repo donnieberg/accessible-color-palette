@@ -37,7 +37,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.fontFamily = $scope.allFontFamilies[0];
   $scope.fontSize = 18;
   $scope.fontWeight = 400;
-  $scope.backgroundColor = { hex: '#ffffff'};
+  $scope.backgroundColor = { hex: '#945e2b'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true, textColor: 'text-white' };
   $scope.WCAGlevel = 'AA';
   $scope.isIntroActive = true;
@@ -356,16 +356,15 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     var currentFW = $scope.fontWeight;
     if(currentFW >= 700 && currentFS >= 18){
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
-      $scope.smallFontSize = false;
     }else if(currentFS < 24){
       currentLevel === 'AA' ? $scope.currentRatio = 4.5 : $scope.currentRatio = 7.0;
-      $scope.smallFontSize = true;
     }else{
       currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
     }
 
     //Show tips at bottom to get more colors
     currentLevel === 'AAA' ? $scope.AAAlevel = true : $scope.AAAlevel = false;
+    (currentFS >= 24 || (currentFS >= 18 && currentFW >=700)) ? $scope.smallFontSize = false : $scope.smallFontSize = true;
 
     //Determine if current text color passes if the AA or AAA changes
     $scope.currentTextColor.currentRatio >= $scope.currentRatio ? $scope.currentTextColor.pass = true :  $scope.currentTextColor.pass = false;
