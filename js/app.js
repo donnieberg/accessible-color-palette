@@ -35,7 +35,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    */
   $scope.userContent = 'The quick brown fox jumps over the lazy dog.';
   $scope.fontFamily = $scope.allFontFamilies[0];
-  $scope.fontSize = 16;
+  $scope.fontSize = 18;
   $scope.fontWeight = 400;
   $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true, textColor: 'text-white' };
@@ -43,10 +43,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.isIntroActive = true;
   $scope.isSection1Active = false;
   $scope.colorModel = $scope.colorModels[0];
-
-  $scope.focusFirstTile = function() {
-    $('#Container li:first-child a').focus();
-  };
 
 
   //==============================================================
@@ -83,6 +79,14 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $document.scrollToElement(thing, offset, speed);
     }
   };
+
+  /**
+   * Set focus to first color tile
+   */
+  $scope.focusFirstTile = function() {
+    $('#Container li:first-child a').focus();
+  };
+
 
   /**
    * Show/hide Instructions 1 and 2 Modals.
@@ -257,7 +261,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
         focusedItemIndex = focusableItems.index(focusedItem);
 
         if (evt.shiftKey) {
-          console.log('backwards');
+          //console.log('backwards');
           //back tab
           // if focused on first item and user preses back-tab, go to the last focusable item
           if(focusedItemIndex==0){
@@ -267,7 +271,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
           }
 
         } else {
-          console.log('forwards');
+          //console.log('forwards');
           //forward tab
           // if focused on the last item and user preses tab, go to the first focusable item
           if(focusedItemIndex==numberOfFocusableItems-1){
@@ -281,8 +285,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       }, 500);
     }else{
       $scope.isLeftSlideOpen = false;
-      $scope.focusfirstColorTile();
       $(document).unbind('keydown');
+      $scope.focusFirstTile();
     }
   };
 
@@ -296,10 +300,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     $scope.getPassingColors();
     $scope.activatePalette();
     $scope.showInstructions3('We lowered the WCAG level from AAA to AA. This lowers the contrast ratio requirement to 3.1 and allows more colors to meet it.');
-    firstColorTile.focus();
   }
   $scope.updateTextInputs = function() {
-    console.log('updateFS is ', $scope.updateFS);
     if($scope.updateFS){
       $scope.fontSize = 24;
       $scope.showInstructions3('We increased the font size to 18pt (24px) which is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
@@ -315,7 +317,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
       $scope.updateFS = false;
       $scope.updateFW = false;
     }, 600)
-    firstColorTile.focus();
   }
 
   $scope.toggleWCAGToolTip = function() {

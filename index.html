@@ -168,12 +168,12 @@
           </li>
         </ul>
 
-        <div class="pbxx tac">
+        <div class="dn-s pbxx tac">
           <div class="wi-500 opacity-0 fadeInAni center" ng-if="lowOptions && (smallFontSize || AAAlevel)">
             <div ng-show="AAAlevel">
               <h4 class="text-white">Want more color options?</h4>
               <p class="text-white">Changing the WCAG level to AA is less strict and will give you more color options.</p>
-              <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateWCAGlevel(); destroyMixItUp()">Try it</button>
+              <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateWCAGlevel(); destroyMixItUp(); focusFirstTile();">Try it</button>
             </div>
             <div ng-show="smallFontSize && !AAAlevel">
               <h4 class="text-white">Want more color options?</h4>
@@ -184,7 +184,7 @@
               <p class="tal text-white">
                 <input type="checkbox" name="updateFW" ng-model="updateFW" /><span class="plm">Make font bold</span>
               </p>
-              <button class="pvm phl mvl f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateTextInputs(); destroyMixItUp();">Try it</button>
+              <button class="pvm phl mvl f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateTextInputs(); destroyMixItUp(); focusFirstTile();">Try it</button>
             </div>
           </div>
         </div>
