@@ -736,7 +736,7 @@ button { font-family: 'Montserrat', sans-serif; }
   .border-fade-circle-ns:hover.br-yellow-filter, .active.br-yellow-filter { border-color: #F2CA27; }
   .border-fade-circle-ns:hover.br-orange-filter, .active.br-orange-filter { border-color: #E67E22; }
   .border-fade-circle-ns:hover.br-red-filter, .active.br-red-filter { border-color: #E74C3C; } }
-@media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; }
+@media only screen and (min-width: 70em) { .ht-colorVariations-ns { height: 200px; min-width: 236px; }
   .span_2_of_12-ns { width: 16.667%; }
   .span_3_of_12-ns { width: 25%; }
   .span_4_of_12-ns { width: 33.333%; }

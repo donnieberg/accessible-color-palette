@@ -231,8 +231,8 @@ button { font-family: 'Montserrat', sans-serif; }
 
 // ipad and smaller laptop screens
 @media only screen and (min-width: 70em) {
-  .ht-colorVariations-ns { height: 200px; }
-  .span_2_of_12-ns { width: 16.667%; }
+  .ht-colorVariations-ns { height: 200px; min-width: 236px; }
+  .span_2_of_12-ns { width: 16.667%;}
   .span_3_of_12-ns { width: 25%; }
   .span_4_of_12-ns { width: 33.333%; }
   .span_5_of_12-ns { width: 41.666%; }

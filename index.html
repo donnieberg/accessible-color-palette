@@ -152,8 +152,8 @@
         </div>
       </article>
 
-      <article id="section2" class="ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
-        <ul id="Container" class="pan man tac list-plain">
+      <article id="section2" class="tac ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
+        <ul id="Container" class="pan man tal dib list-plain">
           <li ng-repeat="color in passingColors" class="bmn-colorVariations wi-half-s span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} pointer-cursor" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" ng-style="setTileBgColor(color)">
             <a href="javascript:void(0)" class="dt wi-full ht-full border-white-s tabAnimation" ng-class="{ 'border-selected-ns': color === currentTextColor, 'border-fade-ns': color !== currentTextColor && color !== currentCopiedColor }">
               <div class="dtc vac">
