@@ -37,7 +37,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.fontFamily = $scope.allFontFamilies[0];
   $scope.fontSize = 18;
   $scope.fontWeight = 400;
-  $scope.backgroundColor = { hex: '#945e2b'};
+  $scope.backgroundColor = { hex: '#ffffff'};
   $scope.currentTextColor = { hex: '#000', rgb: '0,0,0', currentRatio: 21, pass: true, textColor: 'text-white' };
   $scope.WCAGlevel = 'AA';
   $scope.isIntroActive = true;
