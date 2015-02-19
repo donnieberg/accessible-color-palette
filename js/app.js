@@ -351,20 +351,14 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Calculate Current Ratio based on user inputs for font size and WCGAG Level AA or AAA
    */
   $scope.getCurrentRatio = function() {
-    var currentFS = $scope.fontSize;
-    var currentLevel = $scope.WCAGlevel;
-    var currentFW = $scope.fontWeight;
-    if(currentFW >= 700 && currentFS >= 18){
-      currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
-    }else if(currentFS < 24){
-      currentLevel === 'AA' ? $scope.currentRatio = 4.5 : $scope.currentRatio = 7.0;
-    }else{
-      currentLevel === 'AA' ? $scope.currentRatio = 3.1 : $scope.currentRatio = 4.5;
-    }
+    $scope.WCAGlevel === 'AAA' ? $scope.AAAlevel = true : $scope.AAAlevel = false;
+    ($scope.fontSize >= 24 || ($scope.fontSize >= 18 && $scope.fontWeight >=700)) ? $scope.smallFontSize = false : $scope.smallFontSize = true;
 
-    //Show tips at bottom to get more colors
-    currentLevel === 'AAA' ? $scope.AAAlevel = true : $scope.AAAlevel = false;
-    (currentFS >= 24 || (currentFS >= 18 && currentFW >=700)) ? $scope.smallFontSize = false : $scope.smallFontSize = true;
+    if($scope.smallFontSize){
+      $scope.AAAlevel ? $scope.currentRatio = 7.0 : $scope.currentRatio = 4.5;
+    }else{
+      $scope.AAAlevel ? $scope.currentRatio = 4.5 : $scope.currentRatio = 3.1;
+    }
 
     //Determine if current text color passes if the AA or AAA changes
     $scope.currentTextColor.currentRatio >= $scope.currentRatio ? $scope.currentTextColor.pass = true :  $scope.currentTextColor.pass = false;
@@ -457,44 +451,6 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     var L2 = luminance(rgb(background));
     return (Math.round(((Math.max(L1, L2) + 0.05)/(Math.min(L1, L2) + 0.05))*100)/100);
   }
-
-
-  /*
-  //Used to create ul of all colors
-
-  var removeDupes = function() {
-    var toLowerCaseArray = _.map($scope.allColors, function(color) {
-      return {type: color.type, colorParent: color.colorParent, pass: true, hex: color.hex.toLowerCase(), rgb: color.rgb, name: color.name, textColor: color.textColor};
-    });
-    var uniqColors = _.uniq(toLowerCaseArray, function(color) {
-      return color.hex;
-    });
-    return uniqColors;
-  };
-  $scope.uniqColors = removeDupes();
-
-  var colorCategory = [];
-  _.each($scope.allColors, function(color) {
-    if(color.colorParent === 'red'){
-      colorCategory.push(color);
-    }
-  })
-  $scope.test = _.map(colorCategory, function(color) {
-    var rgbcolor = tinycolor(color.hex).toRgb();
-    var R = rgbcolor.r;
-    var G = rgbcolor.g;
-    var B = rgbcolor.b;
-    var rgbCalc = (R * R * .241) + (G * G * .691) + (B * B * .068);
-    var brightness = Math.sqrt(rgbCalc);
-    return {"type": color.type, "colorParent":color.colorParent, "pass":true, "hex":color.hex, "rgb":color.rgb, "name":color.name, "textColor":color.textColor, "brightness": brightness};
-  });
-
-  $scope.test = _.sortBy($scope.test, function(color) {
-    return color.brightness;
-  });
-  $scope.test.reverse();
-  */
-
 });
 
 //=============================================
