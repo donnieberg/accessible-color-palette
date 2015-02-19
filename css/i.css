@@ -428,7 +428,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
 
 p, option, select, input, textarea { font-size: 18px; font-family: 'Lato', sans-serif; font-weight: 300; }
 
-.introText { font-size: 24px; line-height: 2.3rem; }
+.introText { font-size: 16px; line-height: 1.4rem; }
 
 h1, .f1 { font-size: 2rem; }
 
@@ -474,7 +474,8 @@ a:visited { text-decoration: none; color: inherit; }
   h4, .f4-ns { font-size: 1rem; }
   h5, .f5-ns { font-size: 0.8rem; }
   h6, .f6-ns { font-size: 0.5rem; }
-  .text-dark-ns { color: #333333; } }
+  .text-dark-ns { color: #333333; }
+  .introText-ns { font-size: 24px; line-height: 2.3rem; } }
 /* =============================================================================
 *  ANIMATION STYLES
 *  ============================================================================= */
