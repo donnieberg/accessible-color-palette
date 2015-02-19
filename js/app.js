@@ -58,6 +58,19 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }, 1000);
   };
 
+  /**
+   * Pressing space or enter on color tile triggers setTextColor()
+   * Had to create this function to make section dom element 'clickable' with keyboard. Could not use anchor tag because that prevented user from selecting and copying color values.
+   * @event
+   * @color - the color the user selects
+   */
+  $scope.triggerSetTextColorFromKeyboard = function(event, color) {
+    if(event.keyCode === 13 || event.keyCode === 32){
+      event.preventDefault();
+      $scope.setTextColor(color);
+    }
+  };
+
   $scope.preventDefault = function(event) {
     event.stopPropagation();
   };
