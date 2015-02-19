@@ -235,6 +235,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     if(!$scope.isLeftSlideOpen){
       $scope.isLeftSlideOpen = true;
       $timeout(function() {
+        $scope.slideOutAni = true;
         $('#closePanel').focus();
 
         $(document).bind('keydown', function(evt) {
@@ -282,11 +283,14 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
         }
           }
         });
-      }, 500);
+      }, 200);
     }else{
-      $scope.isLeftSlideOpen = false;
+      $scope.slideOutAni = false;
+      $timeout(function() {
+        $scope.isLeftSlideOpen = false;
+        $scope.focusFirstTile();
+      }, 200);
       $(document).unbind('keydown');
-      $scope.focusFirstTile();
     }
   };
 
