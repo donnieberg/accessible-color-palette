@@ -4,7 +4,7 @@
 body { margin: 0; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 300; }
 h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
 p, option, select, input, textarea { font-size: 18px; font-family: 'Lato', sans-serif; font-weight: 300; }
-.introText { font-size: 24px; line-height: 2.3rem; }
+.introText { font-size: 16px; line-height: 1.4rem; }
 
 h1,.f1 { font-size: 2rem; }
 h2,.f2 { font-size: 1.5rem; }
@@ -41,4 +41,5 @@ a:visited { text-decoration: none; color: inherit;}
   h5,.f5-ns { font-size: 0.8rem; }
   h6,.f6-ns { font-size: 0.5rem; }
   .text-dark-ns { color: $darker-gray; }
+  .introText-ns { font-size: 24px; line-height: 2.3rem; }
 }
