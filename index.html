@@ -19,9 +19,9 @@
       <article id="intro" class="tac ht-full bg-green" ng-show="isIntroActive">
         <div class="pam vam text-white">
           <h1 class="man caps">Color Safe</h1>
-          <p class="mw-800 center">
-            Empowering designers with accessible, beautiful, and readable color palettes for apps and interfaces based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines</a> of text and background contrast ratios.<br />
-            Brought to you with love from Salesforce UX.
+          <p class="introText mw-800 center">
+            Empowering designers with accessible, beautiful, and readable color palettes for apps and interfaces based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines</a> of text and background contrast ratios.
+            Brought to you with love from <a href="http://www.salesforce.com/ux" class="ease link link-green">Salesforce UX</a>.
           </p>
           <div class="mvl center bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs"></div>
           <button class="pvm phl mvm f4 fw-bold caps center btn-outline btn-outline-ns btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
@@ -60,7 +60,7 @@
               </div>
               <div class="span_2_of_12 fl">
                 <label for="WCAGlevel" class="mvs db pos-rel" ng-mouseenter="toggleWCAGToolTip()" ng-mouseleave="toggleWCAGToolTip()">
-                  <div class="pas dn db-ns text-dark pos-abs pos-WCAGToolTip-ns bg-white br-m" ng-if="showWCAGToolTip">
+                  <div class="pam dn db-ns text-dark pos-abs pos-WCAGToolTip-ns bg-white br-m" ng-if="showWCAGToolTip">
                     Most of the time, AA is good enough. However some companies and government institutions must meet the AAA level of conformance.
                     <span class="pvm db">
                       <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" class="ease link-drk">Learn more at W3C</a>
@@ -153,9 +153,9 @@
       </article>
 
       <article id="section2" class="tac ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
-        <ul id="Container" class="pan man tal dib list-plain">
+        <ul id="Container" class="pan man tac list-plain">
           <li ng-repeat="color in passingColors" class="bmn-colorVariations wi-half-s span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} pointer-cursor" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" ng-style="setTileBgColor(color)">
-            <a href="javascript:void(0)" class="dt wi-full ht-full border-white-s tabAnimation" ng-class="{ 'border-selected-ns': color === currentTextColor, 'border-fade-ns': color !== currentTextColor && color !== currentCopiedColor }">
+            <a href="javascript:void(0)" class="dt wi-full ht-full border-white-s" ng-class="{ 'border-selected-ns': color === currentTextColor, 'border-fade-ns': color !== currentTextColor && color !== currentCopiedColor }">
               <div class="dtc vac">
                 <span class="f3 fadeInAni fa fa-check {{color.textColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
                 <span class="f3 fadeInAni {{color.textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
