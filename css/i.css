@@ -754,4 +754,5 @@ button { font-family: 'Montserrat', sans-serif; }
   .select { border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: white url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
   .select::-ms-expand { display: none; }
   .select-colorModel { margin-top: 25px; }
-  .select-colorModel::-ms-expand { display: none; } }
+  .select-colorModel::-ms-expand { display: none; }
+  .opacity-0-ns { opacity: 1; } }
