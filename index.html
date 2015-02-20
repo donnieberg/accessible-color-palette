@@ -85,7 +85,7 @@
             <section ng-class="{ 'pinToolbar z-above pos-abs wi-full': pinToolbar }">
               <div class="phm ptm mw-toolbar center cf">
                 <section class="span_4_of_12 border-dark-s opacity-0-ns fl l-slideOutFadeInAni-ns" ng-show="pinToolbar && pinToolbar">
-                  <div class="wi-20-s span_3_of_12-ns ht-75 pos-rel fl ease" style="background-color: {{currentTextColor.hex}};">
+                  <div class="wi-20-s span_3_of_12-ns ht-75 pos-rel fl ease" ng-style="setTileBgColor(currentTextColor);">
                     <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
                   </div>
 
