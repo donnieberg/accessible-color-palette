@@ -6,7 +6,7 @@ Empowering designers with beautiful and accessible color palettes based on [WCAG
 To install:
 
 1. Clone repo
-2. In your terminal, run `npm install .
-3. Run `gulp
+2. In your terminal, run `npm install .`
+3. Run `gulp`
 4. Have fun!
 
