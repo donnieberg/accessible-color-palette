@@ -3,3 +3,4 @@
 .select::-ms-expand { display: none; }
 .select:hover {  background: rgba(255,255,255,.2); }
 .select-colorModel {  margin-top: 25px; border: none; cursor: pointer; background: none;  }
+.opacity-0-ns { opacity: 1; }

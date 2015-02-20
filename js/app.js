@@ -325,7 +325,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     }
     if($scope.updateFW){
       $scope.fontWeight = 700;
-      $scope.showInstructions3('We increased the font weight to 700. Text 14pt and above and bold is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
+      $scope.showInstructions3('We increased the font weight to 700. Text 18px and above and bold is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
     }
     $scope.getCurrentRatio();
     $scope.getPassingColors();
