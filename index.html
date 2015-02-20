@@ -103,7 +103,7 @@
 
                 <div id="userContentTextArea" class="dn-s tal mw-950 center" ng-class="{ 'phm-ns': !pinToolbar, 'span_5_of_12 fl': pinToolbar }">
                   <label for="userContent" class="mvs text-white db" ng-if="!pinToolbar">Editable Text</label>
-                  <input id="userContent" style="font-family: {{fontFamily.name}}; font-size: {{fontSize}}px; font-weight: {{fontWeight}}; background-color: {{backgroundColor.hex}}; color: {{currentTextColor.hex}}" class="ht-75 tac wi-full bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent" />
+                  <input id="userContent" ng-style="setUserContentStyles(fontFamily.name, fontSize, fontWeight, backgroundColor.hex, currentTextColor.hex)" class="ht-75 tac wi-full bg-white ban" ng-class="{ 'br-s': !pinToolbar }" ng-model="userContent" />
                 </div>
 
                 <section class="span_3_of_12 fl-ns opacity-0-ns r-slideOutFadeInAni-ns cf" ng-if="pinToolbar">

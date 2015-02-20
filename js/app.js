@@ -392,6 +392,15 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.setModalBgColor = function(item) {
     return { 'background-color' : 'rgba(' + item.rgb + ', .95)' }
   };
+  $scope.setUserContentStyles = function(fontFamily, fontSize, fontWeight, bgColor, color) {
+    return {
+      'font-family' : fontFamily,
+      'font-size' : fontSize,
+      'font-weight' : fontWeight,
+      'background-color' : bgColor,
+      'color' : color
+    }
+  };
 
 
 
