@@ -97,7 +97,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
    * Set focus to first color tile
    */
   $scope.focusFirstTile = function() {
-    $('#Container li:first-child a').focus();
+    $('#Container li:first-child section').focus();
   };
 
 
@@ -142,6 +142,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.hideInstructions1 = function() {
     $scope.isInstructions1Active = false;
     $(document).unbind('keyup');
+    $scope.focusFirstTile();
   };
 
   $scope.showInstructions2 = function(color) {
@@ -176,6 +177,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.hideInstructions3 = function() {
     $scope.isInstructions3Active = false;
     $(document).unbind('keyup');
+    $('#Container li:first-child section').focus();
   };
 
   /**

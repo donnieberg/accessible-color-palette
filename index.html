@@ -21,7 +21,7 @@
           <h1 class="man caps">Color Safe</h1>
           <p class="introText introText-ns mw-800 center">
             Empowering designers with beautiful and accessible color palettes based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link link-green">WCAG Guidelines</a> of text and background contrast ratios.
-            Brought to you with love from <a href="http://www.salesforce.com/ux" class="ease link link-green">Salesforce UX</a>.
+            Brought to you with love from <a href="https://medium.com/salesforce-ux" class="ease link link-green">Salesforce UX</a>.
           </p>
           <div class="mvl center bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs"></div>
           <button class="pvm phl mvm f4 fw-bold caps center btn-outline btn-outline-ns btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
@@ -93,7 +93,7 @@
                     <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="lht-75">{{currentTextColor.hex}}</span>
                   </a>
 
-                  <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb}})" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'rgb'">
+                  <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb}})" title="Click to copy rgb color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'rgb'">
                     <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb}})</span>
                   </a>
                   <div class="phm wi-40-s span_4_of_12-ns ht-75 fl bg-light-gray ease pos-rel">
@@ -107,20 +107,20 @@
                 </div>
 
                 <section class="span_3_of_12 fl-ns opacity-0-ns r-slideOutFadeInAni-ns cf" ng-if="pinToolbar">
-                  <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
+                  <div class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
                     <div class="dtc vac">
                       <span class="f5 db">Current Ratio</span>
                       <span>{{currentTextColor.currentRatio}}</span>
                       <span class="mls text-green fa fa-check" ng-if="currentTextColor.pass"></span><span class="assistive-text" ng-if="currentTextColor.pass">Pass</span>
                       <span class="mls text-red fa fa-ban" ng-if="!currentTextColor.pass"></span><span class="assistive-text" ng-if="!currentTextColor.pass">Fail</span>
                     </div>
-                  </a>
-                  <a href="javascript:void(0)" class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
+                  </div>
+                  <div class="phm pvs tac wi-half ht-75 bg-light-gray fl dt">
                     <div class="dtc vac">
                       <span class="db f5">Goal Ratio</span>
                       <span ng-class="{ 'animated-delay1 bounceIn': updatedWCAGlevel }">{{WCAGlevel}} - {{currentRatio}}</span>
                     </div>
-                  </a>
+                  </div>
                 </section>
               </div>
               <section class="phm mw-toolbar center fadeInAni cf" ng-show="pinToolbar">
@@ -141,7 +141,7 @@
                     <span class="mrs text-green fa fa-refresh"></span>
                     Start Over
                   </a>
-                  <a href="javascript:void(0)" class="phm dib btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made this</a>
+                  <a href="javascript:void(0)" class="phm dib btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made This</a>
                 </div>
               </section>
             </section>
@@ -173,7 +173,7 @@
             <div ng-show="AAAlevel">
               <h4 class="text-white">Want more color options?</h4>
               <p class="text-white">Changing the WCAG level to AA is less strict and will give you more color options.</p>
-              <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateWCAGlevel(); destroyMixItUp(); focusFirstTile();">Try it</button>
+              <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateWCAGlevel(); destroyMixItUp()">Try it</button>
             </div>
             <div ng-show="smallFontSize && !AAAlevel">
               <h4 class="text-white">Want more color options?</h4>
@@ -184,7 +184,7 @@
               <p class="tal text-white">
                 <input type="checkbox" name="updateFW" ng-model="$parent.updateFW" /><span class="plm">Make font bold</span>
               </p>
-              <button class="pvm phl mvl f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateTextInputs(); destroyMixItUp(); focusFirstTile();">Try it</button>
+              <button class="pvm phl mvl f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateTextInputs(); destroyMixItUp()">Try it</button>
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@
       <a id="closePanel" href="javascript:void(0)" class="paxs f2 dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()">
         <span class="assistive-text">Close Color Safe Info Panel</span>
       </a>
-      <h1 class="ptl-ns f4">Brought to you with love by <a href="http://www.salesforce.com/ux" class="mtxs dib ease link">Salesforce UX</a></h1>
+      <h1 class="ptl-ns f4">Brought to you with love by <a href="https://medium.com/salesforce-ux" class="mtxs dib ease link">Salesforce UX</a></h1>
       <p>
         It is important to design meaningful products that work for everyone. We’ve come up with this tool to help designers ensure their color choices allow users to read their content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link">WCAG Guidelines</a>.
       </p>
@@ -240,7 +240,7 @@
         <p class="mw-800 center">
           Click on a color square to preview text color in the upper toolbar. Click on the Hex or RGB value in the toolbar to copy to your clipboard.
         </p>
-        <button id="instructions1Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions1(); focusFirstTile()">Got it</button>
+        <button id="instructions1Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions1()">Got it</button>
       </div>
     </article>
 
@@ -263,7 +263,7 @@
         <p class="wi-500 center">
           {{instructions3message}}
         </p>
-        <button id="instructions3Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions3(); focusFirstTile()">Got it</button>
+        <button id="instructions3Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions3()">Got it</button>
       </div>
     </article>
 
