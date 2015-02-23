@@ -323,7 +323,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.updateTextInputs = function() {
     if($scope.updateFS){
       $scope.fontSize = 24;
-      $scope.showInstructions3('We increased the font size to 18pt (24px) which is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
+      $scope.showInstructions3('We increased the font size to 24px which is considered "Large Text" by WCAG standards. Large Text has a lower contrast ratio requirement of 3.1 and allows more colors to meet it.');
     }
     if($scope.updateFW){
       $scope.fontWeight = 700;
