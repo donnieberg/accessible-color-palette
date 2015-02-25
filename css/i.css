@@ -428,6 +428,8 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
 
 p, option, select, input, textarea { font-size: 18px; font-family: 'Lato', sans-serif; font-weight: 300; }
 
+.ff-montserrat { font-family: 'Montserrat', sans-serif; }
+
 .introText { font-size: 16px; line-height: 1.4rem; }
 
 h1, .f1 { font-size: 2rem; }
@@ -445,6 +447,8 @@ h6, .f6 { font-size: 0.5rem; }
 p { line-height: 1.75rem; }
 
 .lhs { line-height: 1.4rem; }
+
+.lhm { line-height: 1.6rem; }
 
 .caps { text-transform: uppercase; }
 
@@ -649,8 +653,6 @@ a:visited { text-decoration: none; color: inherit; }
 .bg-medium-icon { background: url("../assets/img/icons/Medium.svg") no-repeat; }
 
 /* Global Styles (Anchor & Form Styles) ====================================== */
-button { font-family: 'Montserrat', sans-serif; }
-
 .link { border-bottom: 2px solid rgba(255, 255, 255, 0.5); }
 
 .link:hover { border-bottom: 2px solid white; }

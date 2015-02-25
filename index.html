@@ -24,7 +24,7 @@
             Brought to you with love from <a href="https://medium.com/salesforce-ux" class="ease link link-green">Salesforce UX</a>.
           </p>
           <div class="mvl center bg-screenIcon bg-screenIcon-ns bg-screenIcon-rs"></div>
-          <button class="pvm phl mvm f4 fw-bold caps center btn-outline btn-outline-ns btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
+          <button type="button" class="pvm phl mvm f4 ff-montserrat fw-bold caps center btn-outline btn-outline-ns btn-white ease" ng-click="activateStep1(); slideToElement('section1', 900);">Get Started</button>
         </div>
       </article>
 
@@ -89,13 +89,13 @@
                     <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
                   </div>
 
-                  <a href="javascript:void(0)" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'hex'">
+                  <button type="button" id="copyHexValue" data-clipboard-text="{{currentTextColor.hex}}" title="Click to copy hex color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'hex'">
                     <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="lht-75">{{currentTextColor.hex}}</span>
-                  </a>
+                  </button>
 
-                  <a href="javascript:void(0)" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb}})" title="Click to copy rgb color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'rgb'">
+                  <button type="button" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb}})" title="Click to copy rgb color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'rgb'">
                     <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="lht-75">rgb({{currentTextColor.rgb}})</span>
-                  </a>
+                  </button>
                   <div class="phm wi-40-s span_4_of_12-ns ht-75 fl bg-light-gray ease pos-rel">
                     <select name="colorModel" id="colorModel" class="plm prl f4 caps lht-75 select-colorModel ease" ng-model="colorModel" ng-options="model.label for model in colorModels"></select>
                   </div>
@@ -125,28 +125,28 @@
               </div>
               <section class="phm mw-toolbar center fadeInAni cf" ng-show="pinToolbar">
                 <ul class="pan dn db-ns fl-ns list-plain list-horz">
-                  <li class="mhxs caps fw-light color-filter filter circle border-fade-circle-ns border-thick border-white br-all-filter bg-all-filter li-item-js" data-filter="all">
-                    <a href="javascript:void(0)" title="Show all" class="db">
-                      <p class="f5 caps tac fw-700">All</p>
-                    </a>
+                  <li class="mhxs caps tac fw-light color-filter filter circle border-fade-circle-ns border-thick border-white br-all-filter bg-all-filter li-item-js" data-filter="all">
+                    <button type="button" title="Show all">
+                      <p class="f5 caps tac fw-700 lhm"><span class="assistive-text">Show </span>All</p>
+                    </button>
                   </li>
                   <li ng-repeat="color in appFactory.colorCategories" class="mhxs caps fw-light color-filter filter circle border-fade-circle-ns border-thick border-white {{ 'br-' + color.name + '-filter'}} {{'bg-' + color.name + '-filter'}} li-item-js" data-filter=".category-{{color.name}}">
-                    <a href="javascript:void(0)" title="Filter by {{color.name}}" class="db">
+                    <button type="button" title="Filter by {{color.name}}">
                       <p class="f5 caps tac fw-700 opacity-0"><span class="assistive-text">Filter by </span>{{color.name}}</p>
-                    </a>
+                    </button>
                   </li>
                 </ul>
-                <div class="mtm mbm-s f4 tac text-white fr-ns">
-                  <a href="javascript:void(0)" class="phm mrm-sm mrm-ns dib pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
+                <div class="mtm mbm-s tac fr-ns">
+                  <button type="button" class="phm mrm-sm mrm-ns f4 ff-montserrat text-white dib pos-rel btn-secondary bg-darker ease" ng-click="slideToElement('section1', 400)">
                     <span class="mrs text-green fa fa-refresh"></span>
                     Start Over
-                  </a>
-                  <a href="javascript:void(0)" class="phm dib btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made This</a>
+                  </button>
+                  <button type="button" class="phm f4 ff-montserrat text-white dib btn-secondary bg-darker ease" ng-click="toggleInfoPanel();">Who Made This</button>
                 </div>
               </section>
             </section>
 
-            <button class="pvm phl mvl db caps f4 fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1($event); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }" tabindex="{{blurGenerateBtn}}">Generate Color Palette</button>
+            <button type="button" class="pvm phl mvl db caps f4 ff-montserrat fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1($event); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }" tabindex="{{blurGenerateBtn}}">Generate Color Palette</button>
 
           </form>
         </div>
@@ -173,7 +173,7 @@
             <div ng-show="AAAlevel">
               <h4 class="text-white">Want more color options?</h4>
               <p class="text-white">Changing the WCAG level to AA is less strict and will give you more color options.</p>
-              <button class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateWCAGlevel(); destroyMixItUp()">Try it</button>
+              <button type="button" class="pvm phl mvm f4 ff-montserrat fw-bold caps db center btn-outline btn-outline-ns btn-white ease" ng-click="updateWCAGlevel(); destroyMixItUp()">Try it</button>
             </div>
             <div ng-show="smallFontSize && !AAAlevel">
               <h4 class="text-white">Want more color options?</h4>
@@ -184,7 +184,7 @@
               <p class="tal text-white">
                 <input type="checkbox" name="updateFW" ng-model="$parent.updateFW" /><span class="plm">Make font bold</span>
               </p>
-              <button class="pvm phl mvl f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="updateTextInputs(); destroyMixItUp()">Try it</button>
+              <button type="button" class="pvm phl mvl f4 ff-montserrat fw-bold caps db center btn-outline btn-outline-ns btn-white ease" ng-click="updateTextInputs(); destroyMixItUp()">Try it</button>
             </div>
           </div>
         </div>
@@ -196,9 +196,9 @@
     ======================================= -->
     <slide-out-left class="text-white leftPanel bg-panel z-top" ng-if="isLeftSlideOpen">
     <section id="infoPanel" class="pvm phl">
-      <a id="closePanel" href="javascript:void(0)" class="paxs f2 dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()">
+      <button type="button" id="closePanel" class="paxs f2 text-white dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()">
         <span class="assistive-text">Close Color Safe Info Panel</span>
-      </a>
+      </button>
       <h1 class="ptl-ns f4">Brought to you with love by <a href="https://medium.com/salesforce-ux" class="mtxs dib ease link">Salesforce UX</a></h1>
       <p>
         It is important to design products that work for everyone. We’ve come up with this tool to help designers ensure color choices allow users to read content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link">WCAG Guidelines</a>.
@@ -240,7 +240,7 @@
         <p class="mw-800 center">
           Click on a color square to preview text color in the upper toolbar. Click on the Hex or RGB value in the toolbar to copy to your clipboard.
         </p>
-        <button id="instructions1Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions1()">Got it</button>
+        <button type="button" id="instructions1Btn" class="pvm phl mvm f4 ff-montserrat fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions1()">Got it</button>
       </div>
     </article>
 
@@ -263,7 +263,7 @@
         <p class="wi-500 center">
           {{instructions3message}}
         </p>
-        <button id="instructions3Btn" class="pvm phl mvm f4 fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions3()">Got it</button>
+        <button type="button" id="instructions3Btn" class="pvm phl mvm f4 ff-montserrat fw-bold db center btn-outline btn-outline-ns btn-white ease" ng-click="hideInstructions3()">Got it</button>
       </div>
     </article>
 
