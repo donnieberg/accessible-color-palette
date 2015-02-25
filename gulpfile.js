@@ -31,6 +31,13 @@ gulp.task('sass', function(){
     .pipe(connect.reload());
 });
 
+gulp.task('minifyIconFonts', function() {
+  return gulp.src('assets/fonts/**/*.css')
+    .pipe(minifyCSS())
+    .pipe(concat('icon-fonts.min.css'))
+    .pipe(gulp.dest('./css/'))
+})
+
 //Don't need to compile anything but clone src/js to outputDir and livereload that shit
 gulp.task('js', function(){
   return gulp.src('js/**/*.js')
@@ -57,4 +64,4 @@ gulp.task('connect', function(){
 });
 
 //When you run gulp command in cli, run all these tasks
-gulp.task('default', ['watch', 'html', 'sass', 'js', 'connect']);
+gulp.task('default', ['watch', 'html', 'sass', 'js', 'connect', 'minifyIconFonts']);

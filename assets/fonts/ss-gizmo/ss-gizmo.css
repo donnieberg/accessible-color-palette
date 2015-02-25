@@ -12,11 +12,11 @@
 
 @font-face {
   font-family: "SSGizmo";
-  src: url('ss-gizmo.eot');
-  src: url('ss-gizmo.eot?#iefix') format('embedded-opentype'),
-       url('ss-gizmo.woff') format('woff'),
-       url('ss-gizmo.ttf')  format('truetype'),
-       url('ss-gizmo.svg#SSGizmo') format('svg');
+  src: url('../assets/fonts/ss-gizmo/ss-gizmo.eot');
+  src: url('../assets/fonts/ss-gizmo/ss-gizmo.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/ss-gizmo/ss-gizmo.woff') format('woff'),
+       url('../assets/fonts/ss-gizmo/ss-gizmo.ttf')  format('truetype'),
+       url('../assets/fonts/ss-gizmo/ss-gizmo.svg#SSGizmo') format('svg');
   font-weight: normal;
   font-style: normal;
 }
