@@ -422,13 +422,15 @@ input, textarea { border: none; }
   .mhl-ns { margin-left: 2rem; margin-right: 2rem; }
   .mhx-ns { margin-left: 4rem; margin-right: 4rem; } }
 /*  ============================================================================= TYPOGRAPHY STYLES ============================================================================= */
-body { margin: 0; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 300; }
+html, body { margin: 0; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 300; }
 
 h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
 
 p, option, select, input, textarea { font-size: 18px; font-family: 'Lato', sans-serif; font-weight: 300; }
 
 .ff-montserrat { font-family: 'Montserrat', sans-serif; }
+
+.ff-lato { font-family: 'Lato', sans-serif; }
 
 .introText { font-size: 16px; line-height: 1.4rem; }
 
@@ -446,9 +448,9 @@ h6, .f6 { font-size: 0.5rem; }
 
 p { line-height: 1.75rem; }
 
-.lhs { line-height: 1.4rem; }
+.lhxs { line-height: 1.1rem; }
 
-.lhm { line-height: 1.6rem; }
+.lhs { line-height: 1.4rem; }
 
 .caps { text-transform: uppercase; }
 
@@ -479,7 +481,7 @@ a:visited { text-decoration: none; color: inherit; }
   h5, .f5-ns { font-size: 0.8rem; }
   h6, .f6-ns { font-size: 0.5rem; }
   .text-dark-ns { color: #333333; }
-  .introText-ns { font-size: 24px; line-height: 2.3rem; } }
+  .introText-ns { font-size: 24px; line-height: 1.8rem; } }
 /* =============================================================================
 *  ANIMATION STYLES
 *  ============================================================================= */
@@ -653,6 +655,8 @@ a:visited { text-decoration: none; color: inherit; }
 .bg-medium-icon { background: url("../assets/img/icons/Medium.svg") no-repeat; }
 
 /* Global Styles (Anchor & Form Styles) ====================================== */
+button { cursor: pointer; }
+
 .link { border-bottom: 2px solid rgba(255, 255, 255, 0.5); }
 
 .link:hover { border-bottom: 2px solid white; }
@@ -677,7 +681,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .select:hover { background: rgba(255, 255, 255, 0.2) url("../assets/img/icon-select.png") no-repeat 95% 50%; -webkit-background-size: 28px; background-size: 28px; }
 
-.btn-primary { cursor: pointer; border: none; color: white; border-radius: 3px; background: #2280bf; }
+.btn-primary { border: none; color: white; border-radius: 3px; background: #2280bf; }
 
 .btn-primary:hover { background: #1a6394; }
 
@@ -685,7 +689,7 @@ a:visited { text-decoration: none; color: inherit; }
 
 .btn-secondary:hover { border: 4px solid #1a1a1a; background: #1a1a1a; }
 
-.btn-outline { width: 250px; cursor: pointer; border-radius: 3px; background: none; }
+.btn-outline { width: 250px; border-radius: 3px; background: none; }
 
 .btn-white { border: 1px solid white; color: white; }
 
@@ -720,7 +724,7 @@ a:visited { text-decoration: none; color: inherit; }
   .pos-arrow-right-ns { position: absolute; top: 30px; right: -7px; }
   .arrow-down-ns { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid white; }
   .pos-arrow-down-ns { position: absolute; bottom: -10px; left: 120px; }
-  .pos-WCAGToolTip-ns { top: -200px; left: 13px; width: 250px; }
+  .pos-WCAGToolTip-ns { top: -210px; left: 13px; width: 250px; }
   .pos-WCAGselect-ns { top: 35px; }
   .fix-footer-ns { position: absolute; bottom: 0; }
   /* Tile Hover - border-fade */

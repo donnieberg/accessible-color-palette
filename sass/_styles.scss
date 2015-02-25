@@ -79,6 +79,7 @@
 /*
  * Global Styles (Anchor & Form Styles)
  * ====================================== */
+button { cursor: pointer; }
 .link { border-bottom: 2px solid rgba(255,255,255,.5); }
 .link:hover { border-bottom: 2px solid rgba(255,255,255,1); }
 .link-drk { border-bottom: 2px solid rgba(0,0,0,.3); }
@@ -93,11 +94,11 @@
 .input:hover {  background: rgba(255,255,255,.2); }
 .select:hover {  background: rgba(255,255,255,.2) url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
 
-.btn-primary { cursor: pointer; border: none; color: white; border-radius: 3px; background: $blue; }
+.btn-primary { border: none; color: white; border-radius: 3px; background: $blue; }
 .btn-primary:hover { background: darken($blue, 10%); }
 .btn-secondary { margin-top: 10px; padding-top: .7rem; padding-bottom: .7rem; border: 4px solid $darker-gray; border-radius: 5px; -webkit-appearance: none; cursor: pointer; }
 .btn-secondary:hover { border: 4px solid darken($darker-gray, 10%); background: darken($darker-gray, 10%); }
-.btn-outline { width: 250px; cursor: pointer; border-radius: 3px; background: none; }
+.btn-outline { width: 250px; border-radius: 3px; background: none; }
 .btn-white { border: 1px solid white; color: white; }
 .btn-white:hover { background: rgba(255,255,255,.3); }
 
@@ -172,7 +173,7 @@
     left: 120px;
   }
   .pos-WCAGToolTip-ns {
-    top: -200px;
+    top: -210px;
     left: 13px;
     width: 250px;
   }
