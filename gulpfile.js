@@ -4,7 +4,10 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     prefix = require('gulp-autoprefixer'),
     gulpif = require('gulp-if'), //can use it to check env
-    sass = require('gulp-ruby-sass');
+    sass = require('gulp-ruby-sass'),
+    minifyCSS = require('gulp-minify-css'),
+    concat = require('gulp-concat'),
+    rename = require('gulp-rename');
 
 // in cli, set env before running gulp tasks that depend on
 // which env ie. NODE_ENV=production gulp js
@@ -19,16 +22,11 @@ gulp.task('html', function(){
 });
 
 gulp.task('sass', function(){
-  var config = {};
-  if(env == 'development'){
-    config.sourcemap = true; //for debugging in the browser
-    config.style = 'compact';
-  } else if (env == 'production') {
-    config.style = 'compressed'; //minify that shit
-  }
   return gulp.src('sass/i.scss')
-    .pipe(sass(config))
+    .pipe(sass())
     .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
+    .pipe(minifyCSS())
+    .pipe(rename('i.min.css'))
     .pipe(gulp.dest('./css/'))
     .pipe(connect.reload());
 });
