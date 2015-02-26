@@ -80,7 +80,7 @@
 
             <section ng-class="{ 'pinToolbar z-above pos-abs wi-full': pinToolbar }">
               <div class="phm ptm mw-toolbar center cf">
-                <section class="span_4_of_12 border-dark-s opacity-0-ns fl l-slideOutFadeInAni-ns" ng-show="pinToolbar && pinToolbar">
+                <section class="span_4_of_12 border-dark-s opacity-0-ns fl l-slideOutFadeInAni-ns" ng-show="pinToolbar">
                   <div class="wi-20-s span_3_of_12-ns ht-75 pos-rel fl ease" ng-style="setTileBgColor(currentTextColor);">
                     <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
                   </div>
@@ -142,7 +142,7 @@
               </section>
             </section>
 
-            <button type="button" class="pvm phl mvl db caps f4 ff-montserrat fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1($event); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }" tabindex="{{blurGenerateBtn}}">Generate Color Palette</button>
+            <button type="button" class="pvm phl mvl db caps f4 ff-montserrat fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1($event); activatePalette();" ng-show="!pinToolbar" tabindex="{{blurGenerateBtn}}">Generate Color Palette</button>
 
           </form>
         </div>
@@ -195,9 +195,9 @@
       <button type="button" id="closePanel" class="paxs f2 text-white dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()">
         <span class="assistive-text">Close Color Safe Info Panel</span>
       </button>
-      <h1 class="ptl-ns f4">Brought to you with love.</h1>
+      <h1 class="f4">Brought to you with love.</h1>
       <p>
-        It is important to design products that work for everyone regardless of different visual capabilities, screen resolutions, and environmental factors. We’ve come up with this tool to help designers ensure color choices allow users to read content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link">WCAG Guidelines</a>.
+        We built this tool to help designers select color combinations that allow users to read their content regardless of different visual capabilities and screen resolutions based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link">WCAG Guidelines</a>.
       </p>
       <p>
         Thanks for checking out our tool. We’d love your feedback. Send us a <a href="mailto:d.berg@salesforce.com" class="ease link">message</a>!
