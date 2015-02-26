@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    uglify = require('gulp-uglify'), //Uglify minifies js files for production
+    uglify = require('gulp-uglifyjs'), //Uglify minifies js files for production
     browserify = require('gulp-browserify'),
     connect = require('gulp-connect'),
     prefix = require('gulp-autoprefixer'),
@@ -17,7 +17,6 @@ var outputDir = 'builds/development';
 //Don't need to compile anything but clone src/html to outputDir and livereload that shit
 gulp.task('html', function(){
   return gulp.src('*.html')
-    //.pipe(gulp.dest(outputDir))
     .pipe(connect.reload());
 });
 
@@ -38,14 +37,18 @@ gulp.task('minifyIconFonts', function() {
     .pipe(gulp.dest('./css/'))
 })
 
-//Don't need to compile anything but clone src/js to outputDir and livereload that shit
 gulp.task('js', function(){
   return gulp.src('js/**/*.js')
     .pipe(browserify({ debug: env == 'development' }))
-    .pipe(gulpif(env == 'production', uglify()))
-    //.pipe(gulp.dest(outputDir + '/js'))
     .pipe(connect.reload());
 });
+
+gulp.task('minifyJS', function() {
+  gulp.src(['bower_components/jquery/dist/jquery.min.js', 'bower_components/angular/angular.min.js','bower_components/angular-scroll/angular-scroll.min.js', 'js/vendor/bootstrap-colorpicker-module.js', 'bower_components/tinycolor/tinycolor.js', 'bower_components/underscore/underscore-min.js', 'bower_components/mixitup/build/jquery.mixitup.min.js'])
+    .pipe(concat('vendorJS.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/js/'))
+})
 
 //Watch for any changes to files in these folders, and if so, run the gulp tasks
 gulp.task('watch', function(){
@@ -64,4 +67,4 @@ gulp.task('connect', function(){
 });
 
 //When you run gulp command in cli, run all these tasks
-gulp.task('default', ['watch', 'html', 'sass', 'js', 'connect', 'minifyIconFonts']);
+gulp.task('default', ['html', 'sass', 'minifyIconFonts', 'js', 'minifyJS', 'watch', 'connect',]);
