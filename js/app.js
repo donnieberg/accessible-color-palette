@@ -376,7 +376,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     if($scope.smallFontSize){
       $scope.AAAlevel ? $scope.currentRatio = 7.0 : $scope.currentRatio = 4.5;
     }else{
-      $scope.AAAlevel ? $scope.currentRatio = 4.5 : $scope.currentRatio = 3.1;
+      $scope.AAAlevel ? $scope.currentRatio = 4.5 : $scope.currentRatio = 3;
     }
 
     //Determine if current text color passes if the AA or AAA changes
