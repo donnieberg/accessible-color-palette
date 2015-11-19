@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    uglify = require('gulp-uglifyjs'), //Uglify minifies js files for production
+    uglify = require('gulp-uglify'), //Uglify minifies js files for production
     browserify = require('gulp-browserify'),
     connect = require('gulp-connect'),
     prefix = require('gulp-autoprefixer'),
