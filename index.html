@@ -80,7 +80,7 @@
 
             <section ng-class="{ 'pinToolbar z-above pos-abs wi-full': pinToolbar }">
               <div class="phm ptm mw-toolbar center cf">
-                <section class="span_4_of_12 border-dark-s opacity-0-ns fl l-slideOutFadeInAni-ns" ng-show="pinToolbar && pinToolbar">
+                <section class="span_4_of_12 border-dark-s opacity-0-ns fl l-slideOutFadeInAni-ns" ng-show="pinToolbar">
                   <div class="wi-20-s span_3_of_12-ns ht-75 pos-rel fl ease" ng-style="setTileBgColor(currentTextColor);">
                     <span class="arrow-right-ns pos-arrow-right-ns ease" style="border-left: 10px solid {{currentTextColor.hex}};"></span>
                   </div>
@@ -89,7 +89,7 @@
                     <span ng-class="{ 'animated-delay1 bounceIn': animateToolbar }" class="f4 lht-75 ff-lato fw-light">{{currentTextColor.hex}}</span>
                   </button>
 
-                  <button type="button" id="copyRgbValue" data-clipboard-text="rbg({{currentTextColor.rgb}})" title="Click to copy rgb color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'rgb'">
+                  <button type="button" id="copyRgbValue" data-clipboard-text="rgb({{currentTextColor.rgb}})" title="Click to copy rgb color" class="phm tac wi-40-s span_5_of_12-ns ht-75 fl bg-light-gray ease" ng-click="showInstructions2(currentTextColor)" ng-show="colorModel.label === 'rgb'">
                     <span ng-class="{ 'animated-delay2 bounceIn': animateToolbar }" class="f4 lht-75 ff-lato fw-light">rgb({{currentTextColor.rgb}})</span>
                   </button>
                   <div class="phm wi-40-s span_4_of_12-ns ht-75 fl bg-light-gray ease pos-rel">
@@ -142,7 +142,7 @@
               </section>
             </section>
 
-            <button type="button" class="pvm phl mvl db caps f4 ff-montserrat fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1($event); activatePalette();" ng-class="{ 'fadeOutAni': pinToolbar, 'fadeInAni': !pinToolbar }" tabindex="{{blurGenerateBtn}}">Generate Color Palette</button>
+            <button type="button" class="pvm phl mvl db caps f4 ff-montserrat fw-bold center btn-primary ease" ng-click="slideToElement('userContentTextArea', 900); getCurrentRatio(); getPassingColors(); showInstructions1($event); activatePalette();" ng-show="!pinToolbar" tabindex="{{blurGenerateBtn}}">Generate Color Palette</button>
 
           </form>
         </div>
@@ -151,12 +151,12 @@
       <article id="section2" class="tac ht-vh bg-dark fadeInAni" ng-show="isSection2Active">
         <ul id="Container" class="pan man tac list-plain">
           <li ng-repeat="color in passingColors" class="bmn-colorVariations wi-half-s span_2_of_12-ns span_1_of_12-x ht-colorVariations ht-colorVariations-ns tac caps mix category-{{color.colorParent}} pointer-cursor" ng-click="setTextColor(color);" data-my-order="{{$index + 1}}" ng-style="setTileBgColor(color)">
-            <section class="dt wi-full ht-full border-white-s" ng-class="{ 'border-selected-ns': color === currentTextColor, 'border-fade-ns': color !== currentTextColor && color !== currentCopiedColor }" tabindex="0" ng-keydown="triggerSetTextColorFromKeyboard($event, color)">
+            <section class="dt wi-full ht-full border-white-s border-fade-ns" tabindex="0" ng-keydown="triggerSetTextColorFromKeyboard($event, color)">
               <div class="dtc vac">
                 <span class="f3 fadeInAni fa fa-check {{color.textColor}}" ng-if="color === currentTextColor && color !== currentCopiedColor"></span>
                 <span class="f3 fadeInAni {{color.textColor}}" ng-if="color === currentCopiedColor">Copied!</span>
               </div>
-              <div class="pbs tal dtc vab" ng-if="color !== currentCopiedColor && color !== currentTextColor">
+              <div class="pbs tal dtc vab">
                 <span class="pls text-cursor fadeInHover text-dark-ns {{color.textColor}}" ng-show="colorModel.label === 'hex'" ng-click="preventDefault($event)">HEX: {{color.hex}}</span>
                 <span class="pls text-cursor fadeInHover text-dark-ns {{color.textColor}}" ng-show="colorModel.label === 'rgb'" ng-click="preventDefault($event)">RGB: {{color.rgb}}</span>
               </div>
@@ -195,9 +195,9 @@
       <button type="button" id="closePanel" class="paxs f2 text-white dib ss-delete hover-icon ease pointer-cursor" ng-click="toggleInfoPanel()">
         <span class="assistive-text">Close Color Safe Info Panel</span>
       </button>
-      <h1 class="ptl-ns f4">Brought to you with love.</h1>
+      <h1 class="f4">Brought to you with love.</h1>
       <p>
-        It is important to design products that work for everyone regardless of different visual capabilities, screen resolutions, and environmental factors. We’ve come up with this tool to help designers ensure color choices allow users to read content based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link">WCAG Guidelines</a>.
+        We built this tool to help designers select color combinations that allow users to read their content regardless of different visual capabilities and screen resolutions based on <a href="http://webaim.org/blog/wcag-2-0-and-link-colors/" class="ease link">WCAG Guidelines</a>.
       </p>
       <p>
         Thanks for checking out our tool. We’d love your feedback. Send us a <a href="mailto:d.berg@salesforce.com" class="ease link">message</a>!
