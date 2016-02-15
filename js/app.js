@@ -397,7 +397,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   $scope.setUserContentStyles = function(fontFamily, fontSize, fontWeight, bgColor, color) {
     return {
       'font-family' : fontFamily,
-      'font-size' : fontSize,
+      'font-size' : fontSize + 'px',
       'font-weight' : fontWeight,
       'background-color' : bgColor,
       'color' : color
