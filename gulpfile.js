@@ -21,8 +21,7 @@ gulp.task('html', function(){
 });
 
 gulp.task('sass', function(){
-  return gulp.src('sass/i.scss')
-    .pipe(sass())
+  return sass('sass/i.scss')
     .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
     .pipe(minifyCSS())
     .pipe(rename('i.min.css'))
