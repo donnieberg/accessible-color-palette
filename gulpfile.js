@@ -21,8 +21,7 @@ gulp.task('html', function(){
 });
 
 gulp.task('sass', function(){
-  return gulp.src('sass/i.scss')
-    .pipe(sass())
+  return sass('sass/i.scss')
     .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
     .pipe(minifyCSS())
     .pipe(rename('i.min.css'))
@@ -44,7 +43,7 @@ gulp.task('js', function(){
 });
 
 gulp.task('minifyJS', function() {
-  gulp.src(['bower_components/jquery/dist/jquery.min.js', 'bower_components/angular/angular.min.js','bower_components/angular-scroll/angular-scroll.min.js', 'js/vendor/bootstrap-colorpicker-module.js', 'bower_components/tinycolor/tinycolor.js', 'bower_components/underscore/underscore-min.js', 'bower_components/mixitup/build/jquery.mixitup.min.js'])
+  gulp.src(['bower_components/jquery/dist/jquery.min.js', 'bower_components/underscore/underscore-min.js', 'bower_components/angular/angular.min.js','bower_components/angular-scroll/angular-scroll.min.js', 'js/vendor/bootstrap-colorpicker-module.js', 'bower_components/tinycolor/tinycolor.js', 'bower_components/mixitup/build/jquery.mixitup.min.js'])
     .pipe(concat('vendorJS.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist/js/'))
