@@ -88,7 +88,8 @@ button { cursor: pointer; }
 .hover-icon:hover { background: darken($navy, 5%); }
 
 .input { border: 1px solid white; border-radius: 3px; }
-.inputColor { color: white; background-color: $dark-gray; }
+.inputColor,
+.inputColor option { color: white; background-color: $dark-gray; }
 .select {  border: 1px solid white; border-radius: 3px; -webkit-appearance: none; cursor: pointer; background: $dark-gray url("../assets/img/icon-select.png") no-repeat 95% 50%; background-size: 28px; }
 .select-colorModel {  border: none; -webkit-appearance: none; cursor: pointer; background: url("../assets/img/icon-select-drk.png") no-repeat 95% 50%; background-size: 28px; }
 .input:hover {  background: rgba(255,255,255,.2); }
