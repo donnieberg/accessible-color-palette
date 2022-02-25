@@ -147,6 +147,7 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
 
   $scope.showInstructions2 = function(color) {
     $scope.currentCopiedColor = color;
+    $scope.copyToClipbord($scope.colorModel.label, color)
     $scope.isInstructions2Active = true;
     $timeout(function() {
       $scope.fadeOutInstructions = true;
@@ -224,6 +225,12 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
     //console.log('the currentColorFilter before destroy is: ', $scope.currentColorFilter);
   };
 
+  //Copy to clipboard
+  $scope.copyToClipbord = function (type, color) {
+    const valueToCopy = (type === 'rgb') ? `rgb(${color[type]})` : color[type];
+
+    return navigator.clipboard.writeText(valueToCopy);
+  }
 
   /**
    * On Scroll, pin toolbar to top when picking colors from tiles
@@ -412,8 +419,8 @@ app.controller('appController', function($scope, $http, $document, $timeout, app
   /**
    * Zero Clipboard plugin to copy to clipboard
    */
-  new ZeroClipboard( document.getElementById("copyHexValue") );
-  new ZeroClipboard( document.getElementById("copyRgbValue") );
+  //new ZeroClipboard( document.getElementById("copyHexValue") );
+  //new ZeroClipboard( document.getElementById("copyRgbValue") );
 
   /**
    * Sources of awesomeness:
